@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -17,6 +17,36 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+@import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+/* 1. Light Mode (Default) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* 2. Dark Mode (Triggered by the .dark class from next-themes) */
+/* CHANGE: Replaced @media (prefers-color-scheme: dark) with .dark */
+.dark {
+  --background: #000000; /* CHANGE: Updated from #0a0a0a to #000000 for Pure Black */
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
