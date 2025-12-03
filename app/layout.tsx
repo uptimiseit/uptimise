@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth js" suppressHydrationWarning>
       <body
         className={`${josefin.variable} antialiased`}
       >

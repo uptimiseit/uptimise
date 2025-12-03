@@ -1,12 +1,32 @@
-import LionAnimation from "../HomePageAminations/LionAnimation"; 
+"use client"; // <--- Essential for useEffect
+
+import { useEffect } from "react";
+// import TAOS from 'taos';
+// import LionAnimation from "../HomePageAminations/LionAnimation"; 
 import TechCircuitAnimation from "../HomePageAminations/TechAnimation";
-// Note: Check spelling of 'Aminations' vs 'Animations' in your folder path
 
 export default function Hero() {
+useEffect(() => {
+  const initTaos = async () => {
+    // 1. Import the specific browser script (Side effect import)
+    // Note: The path might vary slightly depending on the version, 
+    // but usually it is 'taos/dist/taos'
+    // await import('taos/dist/taos'); 
+    
+    // 2. Access the global object it creates
+    // @ts-ignore
+    if (window.TAOS) {
+      // @ts-ignore
+      window.TAOS.init();
+    }
+  };
+
+  initTaos();
+}, []);
+
   return (
-    // CHANGE 1: Use bg-[var(--background)] and text-[var(--foreground)]
-    // This ensures it automatically syncs with the variables we defined in globals.css
-    <section className="container mx-auto w-full bg-background text-foreground flex flex-col justify-center pt-24 pb-12 px-6 transition-colors duration-300">
+    // Added overflow-x-hidden to prevent scrollbars during animation
+    <section className="container mx-auto w-full bg-background text-foreground flex flex-col justify-center pt-12 pb-12 px-6 transition-colors duration-300 overflow-x-hidden">
       
       <div className="max-w-7xl mx-auto w-full h-full">
         
@@ -22,20 +42,29 @@ export default function Hero() {
           {/* 2. Right Side: The Text */}
           <div className="flex flex-col justify-center text-left space-y-4">
             
-            {/* Top Label */}
-            <p className="text-base font-medium ">
+            {/* Top Label - Animates first */}
+            <p 
+              className="text-base font-medium delay-200 duration-600 taos:translate-y-[20px] taos:opacity-0" 
+              data-taos-offset="10"
+            >
               Your Trusted UI UX Design Agency.
             </p>
 
-            {/* Main Headline */}
-            <h1 className="text-6xl font-extrabold tracking-tighter leading-[1.1]">
-              <span className="block">Design</span>
-              <span className="block">Transform</span>
-              <span className="block">Accelerate</span>
+            {/* Main Headline - Animates second (delayed) */}
+            <h1 
+              className="text-[90px] font-bold tracking-tighter leading-[1.1] delay-400 duration-600 taos:translate-x-[-50px] taos:opacity-0"
+              data-taos-offset="10"
+            >
+              Design<br />
+              Transform<br />
+              Accelerate
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-xl max-w-lg leading-relaxed">
+            {/* Subheadline - Animates last */}
+            <p 
+              className="text-2xl max-w-lg leading-relaxed delay-600 duration-600 taos:translate-y-[20px] taos:opacity-0"
+              data-taos-offset="10"
+            >
               Redefining user experiences through <br className="hidden md:block" />
               Behavioural Science & AI
             </p>
@@ -43,13 +72,10 @@ export default function Hero() {
         </div>
 
         {/* --- Bottom Section: Client Logos --- */}
-        {/* CHANGE 2: Update border color to be subtle in both themes */}
         <div className="mt-16 dark:border-gray-800 pt-10">
           
           {/* Logos Container */}
           <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            
-            {/* Since these are text, they will inherit the 'text-[var(--foreground)]' from the section */}
             <span className="font-bold text-xl">FAB</span>
             <span className="font-bold text-xl">KPIT</span>
             <span className="font-bold text-xl">TATA</span>
@@ -58,7 +84,6 @@ export default function Hero() {
             <span className="font-bold text-xl">HUGGIES</span>
             <span className="font-bold text-xl">ETON</span>
             <span className="font-bold text-xl">P&G</span>
-
           </div>
         </div>
 

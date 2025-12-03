@@ -20,17 +20,10 @@ const ProjectsDelivered = () => {
       {/* 2. Map Visualization Area */}
       <div className="relative w-full max-w-4xl h-[300px] md:h-[400px] mb-10 flex items-center justify-center">
         <div>
-          {/* <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.4360237766!2d75.625744603843!3d26.88542139078831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1763712670386!5m2!1sen!2sin"
-            width="800"
-            height="450"
-            style={{ border: 10 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          /> */}
-
-          <Image src="/map.png" alt="image" height={"600"} width={"800"} />
+       <div className="flex items-center justify-center">
+  <Image src="/map.svg" alt="" height={800} width={800} />
+</div>
+          {/* <Image src="/map.png" alt="image" height={"600"} width={"800"} /> */}
         </div>
 
       
