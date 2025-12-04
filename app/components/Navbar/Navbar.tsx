@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 // --- 1. DATA DEFINITIONS ---
 
@@ -87,7 +88,7 @@ const Navbar = () => {
             : "border-b border-neutral-900"
         }`}
       >
-        <div className="mx-auto max-w-5xl h-16 container flex items-center justify-around">
+        <div className="mx-auto  h-16 container flex items-center justify-between px-20">
           {/* --- Logo --- */}
           <Link href={"/"}>
             <div className="flex items-center gap-3 font-semibold text-xl">
@@ -96,7 +97,7 @@ const Navbar = () => {
           </Link>
 
           {/* --- Navigation --- */}
-          <div className="flex items-center gap-5">
+      
             <nav className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-600 h-full">
               {["Work", "Services", "Clients", "About", "Knowledge"].map((item) => {
                 // Check if this item has a dropdown
@@ -155,12 +156,13 @@ const Navbar = () => {
               )}
               <Link
                 href="/contact"
-                className="bg-black text-white px-8 py-3 rounded-sm font-bold text-sm tracking-wide hover:bg-gray-800 transition-all"
+                className=""
               >
-                Contact
+                {/* Contact */}
+                <RainbowButton>Contact</RainbowButton>
               </Link>
             </div>
-          </div>
+         
         </div>
       </div>
 

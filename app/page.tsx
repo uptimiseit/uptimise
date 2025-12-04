@@ -43,11 +43,13 @@ import FounderAndTestimonials from "./components/HomePage/Testimonial";
 import HeroAnimation from "./components/HomePageAminations/HeroAnimation";
 import LiquidConnect from "./components/HomePage/LiquidConnect";
 import Map from "./components/HomePage/Map";
+import TechStack from "./components/HomePage/TechStack";
+import BlogSection from "./components/HomePage/Blog";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
   title: "Uptimiseit | UI/UX Design & Digital Transformation",
-  description: "Your Trusted UI UX Design Agency. Redefining user experiences through Behavioural Science & AI.",
+  description: "We will focus on high-intent keywords like 'Digital Transformation,' 'Enterprise Development,' and 'AI Solutions.'.",
   icons: {
     icon: "/logo.png", // Points to public/logo.png
     shortcut: "/logo.png",
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Uptimiseit",
-    description: "Your Trusted UI UX Design Agency.",
+    description: "We will focus on high-intent keywords like 'Digital Transformation,' 'Enterprise Development,' and 'AI Solutions.'",
     images: [
       {
         url: "/logo.png",
@@ -75,6 +77,8 @@ export default function Home() {
       <LiquidConnect />
       <ServicesScroll/>
       <PortfolioSection />
+      <TechStack />
+      <BlogSection />
       <ProjectsDelivered />
       <FounderAndTestimonials />
       <FaqSection/>
