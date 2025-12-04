@@ -172,15 +172,19 @@ export default function LiquidConnect() {
   );
 
   // --- FRAMER MOTION VARIANTS FOR TEXT ---
+// --- FRAMER MOTION VARIANTS FOR TEXT ---
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { 
+        duration: 0.8, 
+        // 👇 Add 'as const' here to satisfy TypeScript
+        ease: "easeOut" as const 
+      }
     }
   };
-
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
