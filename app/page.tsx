@@ -49,6 +49,7 @@ import ShuffledGallery from "./components/HomePage/ShuffledGallery";
 import AboutSection from "./components/HomePage/AboutSection";
 import ComparisonSection from "./components/HomePage/ComparisonSection";
 import ProcessTimeline from "./components/HomePage/last";
+import PillarsSection from "./components/HomePage/PillarsSection";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
@@ -85,6 +86,7 @@ export default function Home() {
       <TechStack />
       <ShuffledGallery />
       <BlogSection />
+      <PillarsSection />
       <ComparisonSection />
       <ProcessTimeline />
       <ProjectsDelivered />

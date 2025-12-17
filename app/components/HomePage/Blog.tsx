@@ -49,7 +49,7 @@ const BlogCard = ({ post, index }: { post: typeof blogPosts[0], index: number })
       className="group cursor-pointer flex flex-col h-full"
     >
       {/* Image Container */}
-      <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[4/3]">
+      <div className="relative overflow-hidden rounded-2xl mb-6 aspect-4/3">
         <img 
           src={post.image} 
           alt={post.title} 
@@ -67,7 +67,7 @@ const BlogCard = ({ post, index }: { post: typeof blogPosts[0], index: number })
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col grow">
         {/* Meta Info */}
         <div className="flex items-center gap-4 text-xs font-medium text-gray-400 mb-3">
           <div className="flex items-center gap-1">

@@ -4,18 +4,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, Layers, Server, Code2, HelpCircle } from "lucide-react";
 
-// Data for the comparison, adapted for IT services based on the structure of image_0.png
+// Data for the comparison - PRICING REMOVED
 const COMPARISON_DATA = [
   {
     layer: "Frontend & UX (App/Web)",
     uptimiseit: {
-      price: "₹45,000",
-      strike: "₹80,000",
       features: ["Modern Frameworks (Next.js/React)", "Responsive & SEO Optimized", "Flat Project Fee"],
       icon: <Code2 className="w-6 h-6 text-emerald-600" />,
     },
     competitor: {
-      price: "₹80,000+",
       features: ["Outdated Templates/WebView", "Poor UX & Performance", "Hidden Design Fees", "Hourly Billing Uncertainty"],
       icon: <Code2 className="w-6 h-6 text-red-500 opacity-50" />,
     },
@@ -23,13 +20,10 @@ const COMPARISON_DATA = [
   {
     layer: "Backend & Logic (API)",
     uptimiseit: {
-      price: "₹25,000",
-      strike: "₹40,000",
       features: ["Scalable Node.js/Go", "Clean, Maintainable Code", "Secure Architecture"],
       icon: <Layers className="w-6 h-6 text-emerald-600" />,
     },
     competitor: {
-      price: "₹40,000+",
       features: ["Legacy PHP/Spaghetti Code", "Security Vulnerabilities", "Expensive Maintenance Contracts", "Vendor Lock-in"],
       icon: <Layers className="w-6 h-6 text-red-500 opacity-50" />,
     },
@@ -37,13 +31,10 @@ const COMPARISON_DATA = [
   {
     layer: "Infrastructure & DevOps",
     uptimiseit: {
-      price: "₹10,000/yr",
-      strike: null, // No strikethrough for this one
       features: ["Auto-Scaling Cloud (AWS/Vercel)", "Automated CI/CD Pipelines", "24/7 Monitoring Included"],
       icon: <Server className="w-6 h-6 text-emerald-600" />,
     },
     competitor: {
-      price: "₹?? (Variable)",
       features: ["Unreliable Shared Hosting", "Manual Deployments & Downtime", "Unexpected Surge Costs", "No Uptime Guarantee"],
       icon: <Server className="w-6 h-6 text-red-500 opacity-50" />,
     },
@@ -51,13 +42,13 @@ const COMPARISON_DATA = [
 ];
 
 const FeatureList = ({ features, isGood }: { features: string[]; isGood: boolean }) => (
-  <ul className="mt-2 space-y-1.5">
+  <ul className="mt-2 space-y-2">
     {features.map((feature, index) => (
-      <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-slate-600 font-medium">
+      <li key={index} className="flex items-start gap-2 text-sm md:text-base text-slate-600 font-medium">
         {isGood ? (
-          <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
         ) : (
-          <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+          <XCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
         )}
         <span>{feature}</span>
       </li>
@@ -68,19 +59,11 @@ const FeatureList = ({ features, isGood }: { features: string[]; isGood: boolean
 const StackLayer = ({ data, layerName, isGood }: { data: any; layerName: string; isGood: boolean }) => {
   return (
     <div className="relative flex items-center py-8 border-b border-slate-100 last:border-0">
-      {/* Price & Features Section */}
+      {/* Features Section - Now takes up full width of text area */}
       <div className={`flex-1 ${isGood ? "text-left pr-8" : "text-right pl-8 order-2"}`}>
-        <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">{layerName}</h4>
-        <div className="flex items-baseline gap-2 mb-1">
-          <span className={`text-3xl md:text-4xl font-extrabold ${isGood ? "text-slate-800" : "text-slate-700"}`}>
-            {data.price}
-          </span>
-        </div>
-        {data.strike && (
-          <span className="text-sm text-slate-400 line-through font-semibold block mb-2">
-            {data.strike}
-          </span>
-        )}
+        <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">{layerName}</h4>
+        
+        {/* Pricing Removed - Directly rendering features */}
         <FeatureList features={data.features} isGood={isGood} />
       </div>
 
@@ -131,7 +114,7 @@ export default function ProfessionalComparison() {
           <div className="inline-block bg-yellow-100 border border-yellow-300 rounded-full px-6 py-2">
             <p className="text-sm md:text-base font-semibold text-yellow-800 flex items-center gap-2">
               <HelpCircle className="w-4 h-4" />
-              We save you from hidden fees & technical debt.
+              We save you from technical debt & bad code.
             </p>
           </div>
         </div>
@@ -142,6 +125,7 @@ export default function ProfessionalComparison() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="bg-white rounded-2xl shadow-xl border-t-4 border-emerald-500 overflow-hidden relative z-10"
           >
@@ -164,6 +148,7 @@ export default function ProfessionalComparison() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white rounded-2xl shadow-lg border-t-4 border-red-400 overflow-hidden relative opacity-95"
           >
@@ -184,7 +169,6 @@ export default function ProfessionalComparison() {
             </div>
           </motion.div>
         </div>
-        <p className="text-right text-xs text-slate-500 mt-4 font-medium">*taxes extra, as applicable</p>
       </div>
     </section>
   );
