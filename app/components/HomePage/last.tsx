@@ -87,6 +87,10 @@ export default function ProcessTimeline() {
             {PROCESS_STEPS.map((step, index) => (
               <TimelineItem key={index} step={step} index={index} />
             ))}
+
+               {/* {PROCESS_STEPS.map((step, index) => (
+              <TimelineItem key={index} step={step} index={index} />
+            ))} */}
           </div>
 
         </div>
