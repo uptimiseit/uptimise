@@ -87,6 +87,7 @@
 //     </section>
 //   );
 // }
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -103,17 +104,14 @@ export default function Hero() {
   };
 
   return (
-    // CHANGE 1: Remove 'container' and 'bg-background' from here. 
-    // We want this section to be full width (w-full) and transparent.
+    // Section is now full width, transparent, and relative for background positioning
     <section className="relative w-full min-h-[700px] overflow-hidden flex flex-col justify-center pt-6 pb-12 transition-colors duration-300">
       
-      {/* CHANGE 2: Backgrounds are absolute relative to the w-full section */}
-      {/* Ensure these components have absolute positioning in their own files */}
+      {/* Background elements positioned absolutely */}
       <BackgroundGrid />
       {/* <BackgroundGradient /> */}
 
-      {/* CHANGE 3: The Content Wrapper now gets the 'container' class.
-          We also add 'relative z-10' to ensure text sits ON TOP of the background. */}
+      {/* Content wrapper gets the container class and higher z-index */}
       <div className="container mx-auto px-6 relative z-10 h-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -142,10 +140,11 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-[60px] md:text-[90px] font-bold tracking-tighter leading-[1.1]"
             >
-            <span className="bg-gradient-to-br from-slate-600 to-neutral-950 bg-clip-text text-transparent">Digitize</span><br />
+            {/* Corrected 'bg-linear' to 'bg-gradient' for standard Tailwind */}
+            <span className="bg-linear-to-br from-slate-600 to-neutral-950 bg-clip-text text-transparent">Digitize</span><br />
             
                 <AuroraText> Automate</AuroraText><br />
-               <span className="bg-gradient-to-bl from-slate-500 to-gray-950 bg-clip-text text-transparent">Accelerate</span> 
+                <span className="bg-linear-to-bl from-slate-500 to-gray-950 bg-clip-text text-transparent">Accelerate</span> 
             </motion.h1>
 
             <motion.p 
@@ -162,8 +161,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ... Client Logos ... */}
-         <div className="mt-16 dark:border-gray-800 pt-5">
+        {/* Client Logos - Added 'border-t' to make the border visible */}
+         <div className="mt-16 border-t border-transparent dark:border-gray-800 pt-5">
           <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             <span className="font-bold text-xl">FAB</span>
             <span className="font-bold text-xl">KPIT</span>

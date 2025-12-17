@@ -45,6 +45,10 @@ import LiquidConnect from "./components/HomePage/LiquidConnect";
 import Map from "./components/HomePage/Map";
 import TechStack from "./components/HomePage/TechStack";
 import BlogSection from "./components/HomePage/Blog";
+import ShuffledGallery from "./components/HomePage/ShuffledGallery";
+import AboutSection from "./components/HomePage/AboutSection";
+import ComparisonSection from "./components/HomePage/ComparisonSection";
+import ProcessTimeline from "./components/HomePage/last";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
@@ -75,10 +79,14 @@ export default function Home() {
       <Hero />
       {/* <HeroAnimation /> */}
       <LiquidConnect />
+      <AboutSection />
       <ServicesScroll/>
-      <PortfolioSection />
+      {/* <PortfolioSection /> */}
       <TechStack />
+      <ShuffledGallery />
       <BlogSection />
+      <ComparisonSection />
+      <ProcessTimeline />
       <ProjectsDelivered />
       <FounderAndTestimonials />
       <FaqSection/>

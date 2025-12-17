@@ -27,8 +27,6 @@
 //   plugins: [],
 // };
 // export default config;
-
-
 import type { Config } from "tailwindcss";
 
 // We remove the explicit ': Config' type here to prevent TS from fighting 
@@ -50,6 +48,22 @@ const config = {
       fontFamily: {
         josefin: ["var(--font-josefin)", "sans-serif"],
       },
+      // ▼▼▼ NEW ANIMATIONS ADDED HERE ▼▼▼
+      animation: {
+        shine: "shine 3s linear infinite",
+        float: "float 6s ease-in-out infinite", // Needed for the parallax effect
+      },
+      keyframes: {
+        shine: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      // ▲▲▲ END NEW ANIMATIONS ▲▲▲
     },
   },
   plugins: [
