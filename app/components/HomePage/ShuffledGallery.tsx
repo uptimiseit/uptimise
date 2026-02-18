@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 // =========================================
 // DATA DEFINITIONS
@@ -70,8 +71,13 @@ export default function DualGalleryPage() {
   if (!isClient) return null;
 
   return (
-    <main className="min-h-screen  py-8 space-y-32">
+    <main className="min-h-screen  relative overflow-hidden py-8 space-y-20 antialiased">
       
+      {/* 🟢 CHANGE 2: Beams are placed here, absolute by default inside the relative parent */}
+      <BackgroundBeams />
+
+      {/* 🟢 CHANGE 3: Wrap sections in a div with relative z-10 so they stay above beams */}
+      <div className="relative z-10">
       {/* ===========================
           SECTION 1: IMAGE GALLERY (Left Focus)
       ============================ */}
@@ -106,9 +112,9 @@ export default function DualGalleryPage() {
                   className={`relative group rounded-xl overflow-hidden cursor-pointer ${spanClasses} ${isLarge ? "p-1" : ""}`}
                 >
                   {/* Shining Border */}
-                  {isLarge && (
-                    <div className="absolute inset-0 bg-linear-to-r from-purple-400 via-pink-500 to-purple-400 animate-shine bg-size-[200%_100%] rounded-xl -z-10" />
-                  )}
+                  {/* {isLarge && (
+                    <div className="absolute inset-0 bg-linear-to-r from-blue-5000  to-teal-5000 animate-shine bg-size-[200%_100%] rounded-xl -z-10" />
+                  )} */}
 
                   {/* Image Container with Float Animation */}
                   <motion.div 
@@ -173,9 +179,9 @@ export default function DualGalleryPage() {
                   className={`relative group rounded-xl overflow-hidden cursor-pointer ${spanClasses} ${isLarge ? "p-1" : ""}`}
                 >
                   {/* Gold Border */}
-                  {isLarge && (
+                  {/* {isLarge && (
                     <div className="absolute inset-0 bg-linear-to-r from-purple-500 via-blue00 to-pink-500 animate-shine bg-size-[200%_100%] rounded-xl -z-10" />
-                  )}
+                  )} */}
 
                   <motion.div 
                      animate={{ y: [0, -5, 0] }}
@@ -201,6 +207,8 @@ export default function DualGalleryPage() {
           </AnimatePresence>
         </motion.div>
       </section>
+
+      </div>
     </main>
   );
 }

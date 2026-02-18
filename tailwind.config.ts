@@ -51,6 +51,7 @@ const config = {
       // ▼▼▼ NEW ANIMATIONS ADDED HERE ▼▼▼
       animation: {
         shine: "shine 3s linear infinite",
+        marquee: "marquee 25s linear infinite",
         float: "float 6s ease-in-out infinite", // Needed for the parallax effect
       },
       keyframes: {
@@ -58,6 +59,10 @@ const config = {
           "0%": { backgroundPosition: "200% 0" },
           "100%": { backgroundPosition: "-200% 0" },
         },
+        marquee: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-50%)" }, // Change this to -50% if both sets are in one div
+              },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },

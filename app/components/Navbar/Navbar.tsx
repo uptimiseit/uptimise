@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Sun, Moon, ChevronDown } from "lucide-react";
+import { Sun, Moon, ChevronDown, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useEffect, useState } from "react";
@@ -159,7 +159,12 @@ const Navbar = () => {
                 className=""
               >
                 {/* Contact */}
-                <RainbowButton>Contact</RainbowButton>
+                {/* <RainbowButton className="">Contact</RainbowButton> */}
+                <div className="rainbow relative z-0 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
+    <button className="px-8 text-sm py-3 text-white rounded-full font-medium bg-gray-800">
+        Contact Us
+    </button>
+</div>
               </Link>
             </div>
          
@@ -199,7 +204,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      
     </header>
+
+    
   );
 };
 

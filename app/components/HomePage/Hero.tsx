@@ -95,6 +95,8 @@ import TechCircuitAnimation from "../HomePageAminations/TechAnimation";
 import { AuroraText } from "@/components/ui/aurora-text";
 import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
 import BackgroundGradient from "../HomePageAminations/BackgroundGradient";
+import Image from "next/image";
+import LogoMarquee from "./LogoMarquee";
 
 export default function Hero() {
   
@@ -118,6 +120,7 @@ export default function Hero() {
            
            <div className="w-full h-[300px] lg:h-[400px] flex items-center justify-center lg:justify-start">
              <TechCircuitAnimation />
+             {/* <Image src="/hero.png" alt="Tech Circuit Animation" width={400} height={400} /> */}
           </div>
 
           <div className="flex flex-col justify-center text-left space-y-4">
@@ -162,17 +165,9 @@ export default function Hero() {
         </div>
 
         {/* Client Logos - Added 'border-t' to make the border visible */}
-         <div className="mt-16 border-t border-transparent dark:border-gray-800 pt-5">
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <span className="font-bold text-xl">FAB</span>
-            <span className="font-bold text-xl">KPIT</span>
-            <span className="font-bold text-xl">TATA</span>
-            <span className="font-bold text-xl">BMW</span>
-            <span className="font-bold text-xl">SONY</span>
-            <span className="font-bold text-xl">HUGGIES</span>
-            <span className="font-bold text-xl">ETON</span>
-            <span className="font-bold text-xl">P&G</span>
-          </div>
+         <div className="mt-16   pt-5">
+     
+          <LogoMarquee />
         </div>
 
       </div>

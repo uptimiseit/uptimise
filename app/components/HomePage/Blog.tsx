@@ -3,22 +3,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Clock, Calendar } from 'lucide-react';
+import { FollowerPointerCard } from '@/components/ui/following-pointer';
 
-// --- DATA ---
+
 const blogPosts = [
   {
     id: 1,
     category: "Design",
+    author: "Design Team", // Added author
+    authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix", // Added avatar
     title: "The Future of UI: Why Neomorphism is Coming Back",
     excerpt: "Exploring the cyclical nature of design trends and how depth is returning to modern interfaces.",
     date: "Oct 12, 2025",
     readTime: "5 min read",
-    image: "https://plus.unsplash.com/premium_photo-1661382011487-cd3d6b1d9dff?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://plus.unsplash.com/premium_photo-1661382011487-cd3d6b1d9dff?q=80&w=1171&auto=format&fit=crop",
     slug: "#"
   },
   {
     id: 2,
     category: "Technology",
+    author: "Tech Lead",
+    authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka",
     title: "Scaling Next.js Applications for Enterprise",
     excerpt: "Best practices for server-side rendering, caching strategies, and managing state in large apps.",
     date: "Oct 08, 2025",
@@ -29,6 +34,8 @@ const blogPosts = [
   {
     id: 3,
     category: "Marketing",
+    author: "Marketing Pro",
+    authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James",
     title: "Neuromarketing: The Science Behind User Decisions",
     excerpt: "How cognitive bias and behavioral psychology influence the way users interact with your product.",
     date: "Sep 28, 2025",
@@ -38,67 +45,86 @@ const blogPosts = [
   }
 ];
 
-// --- COMPONENT ---
+// --- HELPER COMPONENT FOR THE POINTER ---
+const TitleComponent = ({ title, avatar }: { title: string; avatar: string }) => (
+  <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full border border-gray-200 shadow-sm">
+    <img
+      src={avatar}
+      height="20"
+      width="20"
+      alt="author"
+      className="rounded-full border border-gray-200"
+    />
+    <p className="text-xs font-bold text-gray-800">{title}</p>
+  </div>
+);
+
+// --- UPDATED BLOG CARD ---
 const BlogCard = ({ post, index }: { post: typeof blogPosts[0], index: number }) => {
   return (
-    <motion.article 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="group cursor-pointer flex flex-col h-full"
-    >
-      {/* Image Container */}
-      <div className="relative overflow-hidden rounded-2xl mb-6 aspect-4/3">
-        <img 
-          src={post.image} 
-          alt={post.title} 
-          className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
-        />
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
-        
-        {/* Floating Category Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-white/90 backdrop-blur-sm text-black rounded-full border border-white/20">
-            {post.category}
-          </span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col grow">
-        {/* Meta Info */}
-        <div className="flex items-center gap-4 text-xs font-medium text-gray-400 mb-3">
-          <div className="flex items-center gap-1">
-            <Calendar size={14} />
-            <span>{post.date}</span>
+    <div className="h-full"> {/* Wrapper to maintain grid height */}
+      <FollowerPointerCard
+        title={
+          <TitleComponent
+            title={post.author}
+            avatar={post.authorAvatar}
+          />
+        }
+      >
+        <motion.article 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="group cursor-pointer flex flex-col h-full bg-white rounded-3xl p-2 transition duration-200 hover:shadow-xl border border-transparent hover:border-gray-100"
+        >
+          {/* Image Container */}
+          <div className="relative overflow-hidden rounded-2xl mb-6 aspect-4/3 bg-gray-100">
+            <img 
+              src={post.image} 
+              alt={post.title} 
+              className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+            
+            <div className="absolute top-4 left-4">
+              <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-white/90 backdrop-blur-sm text-black rounded-full border border-white/20">
+                {post.category}
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-1">
-            <Clock size={14} />
-            <span>{post.readTime}</span>
+
+          {/* Content */}
+          <div className="flex flex-col grow px-4 pb-4">
+            <div className="flex items-center gap-4 text-xs font-medium text-gray-400 mb-3">
+              <div className="flex items-center gap-1">
+                <Calendar size={14} />
+                <span>{post.date}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock size={14} />
+                <span>{post.readTime}</span>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">
+              {post.title}
+            </h3>
+
+            <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">
+              {post.excerpt}
+            </p>
+
+            <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between group/link">
+              <span className="text-sm font-semibold text-gray-900">Read Article</span>
+              <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover/link:bg-black group-hover/link:text-white transition-all duration-300">
+                <ArrowUpRight size={16} />
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Title */}
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">
-          {post.title}
-        </h3>
-
-        {/* Excerpt */}
-        <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
-          {post.excerpt}
-        </p>
-
-        {/* Read More Link (Pushed to bottom) */}
-        <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between group/link">
-          <span className="text-sm font-semibold text-gray-900">Read Article</span>
-          <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover/link:bg-black group-hover/link:text-white transition-all duration-300">
-            <ArrowUpRight size={16} />
-          </div>
-        </div>
-      </div>
-    </motion.article>
+        </motion.article>
+      </FollowerPointerCard>
+    </div>
   );
 };
 
@@ -106,8 +132,7 @@ export default function BlogSection() {
   return (
     <section className="w-full py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
+        {/* Header section remains the same... */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <motion.span 
@@ -143,14 +168,6 @@ export default function BlogSection() {
             <BlogCard key={post.id} post={post} index={index} />
           ))}
         </div>
-
-        {/* Mobile Button */}
-        <div className="mt-12 md:hidden">
-            <button className="w-full py-4 rounded-xl border border-gray-200 text-sm font-bold hover:bg-black hover:text-white transition-colors">
-                View All Articles
-            </button>
-        </div>
-
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Linkedin, Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { AnimatedTestimonialsDemo } from "./AnimatedTestimonialsDemo";
 
 // --- DATA CONFIGURATION ---
 
@@ -162,65 +163,10 @@ const FounderAndTestimonials = () => {
       {/* --- SECTION 2: TESTIMONIALS SLIDER --- */}
       <div className="w-full bg-gray-50 rounded-xl p-5 md:p-16 min-h-[400px] relative overflow-hidden">
         
-        <AnimatePresence mode="wait">
-            <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-                className="flex flex-col md:flex-row items-center md:items-start gap-12 h-full"
-            >
-                {/* Left: Reviewer Info */}
-                <div className="flex flex-col items-center text-center md:w-1/4 pt-4">
-                <img 
-                    src={testimonialData[currentTestimonial].image}
-                    alt={testimonialData[currentTestimonial].name}
-                    className="w-24 h-24 rounded-full object-cover grayscale mb-4 shadow-md"
-                />
-                <h4 className="font-bold text-black text-lg">{testimonialData[currentTestimonial].name}</h4>
-                <p className="text-xs text-black font-medium uppercase tracking-wide">{testimonialData[currentTestimonial].role}</p>
-                </div>
-
-                {/* Right: Review Content */}
-                <div className="flex-1 flex flex-col justify-center h-full">
-                    {/* Header: Quote Icon + Stars */}
-                    <div className="mb-4 text-center md:text-left">
-                        <h3 className="text-xl font-bold text-black mb-4">What Clients Say</h3>
-                        <div className="flex items-center justify-center md:justify-start space-x-3">
-                        <Quote className="text-blue-300 transform rotate-180 -mt-1" size={40} fill="currentColor" stroke="none" />
-                        <div className="flex space-x-1 pt-1">
-                            {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={18} className="text-[#6366F1]" fill="currentColor" stroke="none" />
-                            ))}
-                        </div>
-                        </div>
-                    </div>
-
-                    {/* Review Text */}
-                    <p className="text-sm md:text-xl text-gray-800 leading-relaxed mb-8 font-medium text-center md:text-left italic">
-                        "{testimonialData[currentTestimonial].quote}"
-                    </p>
-                </div>
-            </motion.div>
-        </AnimatePresence>
-
-        {/* Pagination Dots (Absolute positioned at bottom) */}
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center md:justify-start md:pl-[30%] space-x-2">
-            {testimonialData.map((_, index) => (
-                <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        currentTestimonial === index 
-                        ? "bg-blue-600 w-6" 
-                        : "bg-blue-300 hover:bg-blue-500"
-                    }`}
-                />
-            ))}
-        </div>
-
-      </div>
+  
+            <AnimatedTestimonialsDemo />
+                
+</div>
     </div>
   );
 };
