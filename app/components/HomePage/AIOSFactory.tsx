@@ -5,8 +5,7 @@ import { Cpu, Rocket, Code2, ShieldCheck, Workflow, Binary } from 'lucide-react'
 const AIOSFactory = () => {
   return (
     <section className="relative bg-white py-32 px-6 overflow-hidden">
-      {/* Background Decor: The Factory Blueprint */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
+      {/* Background Decor: The Factory Blueprint */}     <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-24 space-y-6">

@@ -95,7 +95,7 @@ import TechCircuitAnimation from "../HomePageAminations/TechAnimation";
 import { AuroraText } from "@/components/ui/aurora-text";
 import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
 import LogoMarquee from "./LogoMarquee";
-import { GradientBorderButton, MovingBorderButton } from "../MovingBorderButton";
+import {  MovingBorderButton } from "../MovingBorderButton";
 
 export default function Hero() {
   const fadeInUp = {
