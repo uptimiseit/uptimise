@@ -105,7 +105,8 @@ export default function Hero() {
 
   return (
     // Section is now full width, transparent, and relative for background positioning
-    <section className="relative w-full  min-h-screen overflow-hidden flex flex-col justify-center pt-6 pb-12 transition-colors duration-300">
+    // <section className="relative w-full  min-h-screen overflow-hidden flex flex-col justify-center pt-6 pb-12 transition-colors duration-300">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center pt-6 pb-12">
       
       {/* Background elements positioned absolutely */}
       <BackgroundGrid />
