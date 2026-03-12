@@ -340,24 +340,20 @@ const Navbar = () => {
                     href="#_"
                     className="relative inline-flex items-center justify-start px-5 py-2 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group"
                   >
-                    <div className=" absolute h-1 w-1 rounded-full bg-pink-400  animate-bounce left-3 top-2"></div>
+                    {/* <div className=" absolute h-1 w-1 rounded-full bg-pink-400  animate-bounce left-3 top-2"></div>
                     <div className=" absolute h-1 w-1 rounded-full bg-yellow-800/40 right-3 top-0 animate-blob"></div>
                     <div className=" absolute h-1 w-1 rounded-full bg-blue-500/40 right-5 top-7 animate-blob"></div>
 
 
-                    {/* <div className=" absolute h-2 w-2 rounded-full bg-lime-500  animate-bounce left-32 top-4"></div> */}
-
                     <div className=" absolute h-1 w-1 rounded-full bg-lime-800/40  animate-bounce left-10 top-8">
-                      {/* <div className=" absolute h-2 w-2 rounded-full bg-orange-800/50  animate-bounce left-12 top-6"> */}
-                        {" "}
-                      {/* </div> */}
+                
                       <div className=" absolute h-1 w-1 rounded-full bg-lime-500  animate-blob ">
                         {" "}
                       </div>
-                    </div>
+                    </div> */}
                     <span className="w-48 h-48 rounded rotate-[-50deg] bg-purple-200 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                    <span className="relative w-full flex gap-2  items-center justify-center text-left text-black transition-colors duration-300 ease-in-out">
-                    <Phone size={14} />  Contact Us
+                    <span className="relative w-full flex gap-2   items-center justify-center text-left text-black transition-colors duration-300 ease-in-out">
+                     Contact Us
                     </span>
                   </a>
                 </button>
@@ -391,35 +387,27 @@ const Navbar = () => {
                   </a>
                 </button> */}
 
-                <button className="group relative">
+
+                <button className="bg-black
+                  p-2 rounded-full ">
+                  <Download color="white" size={16}/>
+                </button>
+
+                {/* <button className="group relative">
   <Link
     href="#_"
-    className="relative inline-flex items-center justify-start px-8 py-2 overflow-hidden font-medium transition-all bg-purple-200 rounded hover:bg-white "
+    className="relative inline-flex items-center justify-start px-8 py-2 overflow-hidden font-medium transition-all bg-pink-100 rounded hover:bg-white "
   >
-    {/* --- THE SMALL BALLS (Higher Z-Index) --- */}
-    {/* These are placed inside a container with z-10 so they stay above the sliding background */}
-    <div className="absolute inset-0 z-10 pointer-events-none">
-      <div className="absolute h-1.5 w-1.5 rounded-full bg-pink-400 animate-bounce left-4 top-2"></div>
-      <div className="absolute h-2 w-2 rounded-full bg-yellow-600/40 right-4 top-1 animate-pulse"></div>
-      <div className="absolute h-1.5 w-1.5 rounded-full bg-lime-600 animate-bounce left-2/3 top-2 delay-75"></div>
-      <div className="absolute h-1.5 w-1.5 rounded-full bg-orange-500 animate-bounce left-10 bottom-2"></div>
-      <div className="absolute h-1 w-1 rounded-full bg-purple-500 animate-pulse right-10 bottom-3"></div>
-    </div>
 
-    {/* --- HOVER REVERSE BACKGROUND --- */}
-    {/* This span slides in from the bottom left on hover */}
-    {/* <span className="absolute bottom-0 left-0 w-full h-0 mb-0 transition-all duration-500 ease-out transform translate-y-0 bg-white group-hover:h-full z-0"></span> */}
 
   <span className="w-48 h-48 rounded rotate-[-50deg] bg-white absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
 
-
-    {/* --- BUTTON CONTENT --- */}
     <span className="relative z-20 flex items-center text-black transition-colors duration-300">
       <MdOutlineFileDownload className="mr-2" size={14} />
       <span className="tracking-wide">Download </span>
     </span>
   </Link>
-</button>
+</button> */}
             </div>
           </div>
         </div>
