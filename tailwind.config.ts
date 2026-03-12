@@ -47,6 +47,10 @@ const config = {
     extend: {
       fontFamily: {
         josefin: ["var(--font-josefin)", "sans-serif"],
+        sans: ['var(--font-montserrat)'],
+        // Assigning names to your font variables
+        header: ['var(--font-montserrat)'],
+        figtree: ['var(--font-figtree)'],
       },
       // ▼▼▼ NEW ANIMATIONS ADDED HERE ▼▼▼
       animation: {

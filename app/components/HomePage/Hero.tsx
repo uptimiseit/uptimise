@@ -94,8 +94,6 @@ import { motion } from "framer-motion";
 import TechCircuitAnimation from "../HomePageAminations/TechAnimation";
 import { AuroraText } from "@/components/ui/aurora-text";
 import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
-import BackgroundGradient from "../HomePageAminations/BackgroundGradient";
-import Image from "next/image";
 import LogoMarquee from "./LogoMarquee";
 
 export default function Hero() {
@@ -141,13 +139,13 @@ export default function Hero() {
               whileInView="visible"
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-[60px] md:text-[90px] font-bold tracking-tighter leading-[1.1]"
+              className="text-[60px] md:text-[80px] font-bold tracking-tighter leading-[1.1]"
             >
             {/* Corrected 'bg-linear' to 'bg-gradient' for standard Tailwind */}
-            <span className="bg-linear-to-br from-slate-600 to-neutral-950 bg-clip-text text-transparent">Digitize</span><br />
+            <span className="bg-linear-to-br from-slate-600  to-neutral-950 bg-clip-text font-figtree text-transparent">Digitize</span><br />
             
                 <AuroraText> Automate</AuroraText><br />
-                <span className="bg-linear-to-bl from-slate-500 to-gray-950 bg-clip-text text-transparent">Accelerate</span> 
+                <span className="bg-linear-to-bl from-slate-500 font-figtree to-gray-950 bg-clip-text text-transparent">Accelerate</span> 
             </motion.h1>
 
             <motion.p 
