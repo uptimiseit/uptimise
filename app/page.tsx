@@ -51,6 +51,9 @@ import ComparisonSection from "./components/HomePage/ComparisonSection";
 import ProcessTimeline from "./components/HomePage/last";
 import PillarsSection from "./components/HomePage/PillarsSection";
 import { ThreeDMarqueeDemoSecond } from "./components/HomePage/NewHero";
+import PhilosophySection from "./components/HomePage/LiquidConnect";
+import ProblemSection from "./components/ProblemSection";
+import AIOSFactory from "./components/HomePage/AIOSFactory";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
@@ -81,9 +84,12 @@ export default function Home() {
       <Hero />
       {/* <HeroAnimation /> */}
       {/* <ThreeDMarqueeDemoSecond /> */}
-      <LiquidConnect />
+      {/* <LiquidConnect /> */}
+      <PhilosophySection />
+      <ProblemSection />
+      <AIOSFactory />
 
-      <AboutSection />
+      {/* <AboutSection /> */}
       <ServicesScroll/>
       {/* <PortfolioSection /> */}
       <TechStack />

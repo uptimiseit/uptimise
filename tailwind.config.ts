@@ -55,6 +55,7 @@ const config = {
       // ▼▼▼ NEW ANIMATIONS ADDED HERE ▼▼▼
       animation: {
         shine: "shine 3s linear infinite",
+        "border-spin": 'border-spin 3s linear infinite',
         marquee: "marquee 25s linear infinite",
         float: "float 6s ease-in-out infinite", // Needed for the parallax effect
       },
@@ -62,6 +63,9 @@ const config = {
         shine: {
           "0%": { backgroundPosition: "200% 0" },
           "100%": { backgroundPosition: "-200% 0" },
+        },
+        'border-spin': {
+          '100%': { transform: 'rotate(-360deg)' },
         },
         marquee: {
                 "0%": { transform: "translateX(0%)" },
