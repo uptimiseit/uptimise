@@ -106,14 +106,15 @@ export default function Hero() {
   return (
     // Section is now full width, transparent, and relative for background positioning
     // <section className="relative w-full  min-h-screen overflow-hidden flex flex-col justify-center pt-6 pb-12 transition-colors duration-300">
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center pt-6 pb-12">
+    // <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center pt-6 pb-12">
+      <section className="relative w-full min-h-[calc(100vh-70px)] overflow-hidden flex items-center">
       
       {/* Background elements positioned absolutely */}
       <BackgroundGrid />
       {/* <BackgroundGradient /> */}
 
       {/* Content wrapper gets the container class and higher z-index */}
-      <div className="container mx-auto px-6 relative z-10 h-full">
+      <div className="mx-auto px-6 relative z-10 h-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
            
