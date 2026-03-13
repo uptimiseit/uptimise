@@ -12,14 +12,14 @@ const agents = [
   {
     title: "AI Product Manager",
     desc: "Transforms vision into high-fidelity roadmaps and sprint plans.",
-    icon: <ClipboardList />,
+    icon: ClipboardList,
     color: "blue",
     size: "col-span-12 lg:col-span-4"
   },
   {
     title: "AI Coding Agent",
     desc: "Generates enterprise-grade scaffolding and production modules with 100x velocity.",
-    icon: <Code2 />,
+    icon: Code2,
     color: "blue",
     size: "col-span-12 lg:col-span-8",
     featured: true
@@ -27,21 +27,21 @@ const agents = [
   {
     title: "AI Architecture",
     desc: "Designs scalable system topologies and database schemas.",
-    icon: <Layers />,
+    icon: Layers,
     color: "slate",
     size: "col-span-12 lg:col-span-4"
   },
   {
     title: "AI QA Agent",
     desc: "Autonomous testing pipelines with 99.9% edge-case detection.",
-    icon: <ShieldCheck />,
+    icon: ShieldCheck,
     color: "slate",
     size: "col-span-12 lg:col-span-4"
   },
   {
     title: "AI DevOps",
     desc: "Zero-touch CI/CD and cloud infrastructure provisioning.",
-    icon: <Terminal />,
+    icon: Terminal,
     color: "slate",
     size: "col-span-12 lg:col-span-4"
   }
@@ -52,7 +52,7 @@ const EcosystemSection = () => {
     <section className="relative bg-white py-32 px-6 overflow-hidden">
       {/* Background Engineering Grid */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -63,7 +63,7 @@ const EcosystemSection = () => {
             The Engineering <br />
             <span className="text-blue-600 italic">Ecosystem.</span>
           </h2>
-          
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
             <Cpu className="text-blue-600" size={14} />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">
@@ -88,7 +88,7 @@ const EcosystemSection = () => {
               <div className="relative z-10 h-full flex flex-col justify-between gap-12">
                 <div className="flex justify-between items-start">
                   <div className={`p-4 rounded-2xl ${agent.featured ? 'bg-blue-600 text-white' : 'bg-slate-50 text-blue-600'}`}>
-                    {React.cloneElement(agent.icon as React.ReactElement, { size: 28 })}
+                    {React.createElement(agent.icon, { size: 28 })}
                   </div>
                   
                   {agent.featured && (

@@ -10,49 +10,49 @@ import {
 const serviceGroups = [
   {
     title: "AI Product Development",
-    icon: <Cpu size={24} />,
+    icon: Cpu,
     color: "from-blue-500/10 to-blue-600/5",
     accent: "text-blue-600",
     items: ["SaaS Platforms", "AI Applications", "Automation Systems"]
   },
   {
     title: "Software Engineering",
-    icon: <Code2 size={24} />,
+    icon: Code2,
     color: "from-slate-500/10 to-slate-600/5",
     accent: "text-slate-600",
     items: ["Web Applications", "Mobile Apps", "Enterprise Platforms"]
   },
   {
     title: "Blockchain Engineering",
-    icon: <Database size={24} />,
+    icon: Database,
     color: "from-purple-500/10 to-purple-600/5",
     accent: "text-purple-600",
     items: ["Smart Contracts", "Web3 Applications", "Crypto Wallets"]
   },
   {
     title: "IoT & Embedded",
-    icon: <Radio size={24} />,
+    icon: Radio,
     color: "from-emerald-500/10 to-emerald-600/5",
     accent: "text-emerald-600",
     items: ["Embedded Firmware", "Sensor Integration", "IoT Platforms"]
   },
   {
     title: "Cloud & DevOps",
-    icon: <Cloud size={24} />,
+    icon: Cloud,
     color: "from-cyan-500/10 to-cyan-600/5",
     accent: "text-cyan-600",
     items: ["AWS / Google Cloud", "Docker & Kubernetes", "CI/CD Pipelines"]
   },
   {
     title: "Product Design & UX",
-    icon: <Palette size={24} />,
+    icon: Palette,
     color: "from-pink-500/10 to-pink-600/5",
     accent: "text-pink-600",
     items: ["UX Research", "UI Design", "Design Systems"]
   },
   {
     title: "Digital Growth",
-    icon: <TrendingUp size={24} />,
+    icon: TrendingUp,
     color: "from-orange-500/10 to-orange-600/5",
     accent: "text-orange-600",
     items: ["AI-Powered Marketing", "SEO / SMO", "Analytics Dashboards"]
@@ -99,12 +99,12 @@ const ServicesEcosystem = () => {
             >
               {/* Animated Corner Icon */}
               <div className="absolute -top-4 -right-4 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                 {React.cloneElement(group.icon as React.ReactElement, { size: 120 })}
+                 {React.createElement(group.icon, { size: 120 })}
               </div>
 
               <div className="space-y-8 relative z-10">
                 <div className={`p-4 bg-white rounded-2xl w-fit shadow-sm ${group.accent}`}>
-                  {group.icon}
+                  {React.createElement(group.icon, { size: 24 })}
                 </div>
 
                 <div className="space-y-4">
