@@ -317,6 +317,7 @@
 // };
 import React from 'react';
 import { MoveRight, Cpu, Zap, Activity, Target } from 'lucide-react';
+import Link from 'next/link';
 
 const PhilosophySectionWhite = () => {
   return (
@@ -376,14 +377,16 @@ const PhilosophySectionWhite = () => {
               significantly faster than traditional teams.
             </p>
 
-            <button className="flex items-center gap-4 text-slate-900 group cursor-pointer pt-4 hover:text-blue-600 transition-all duration-300">
-              <span className="font-header font-black text-xl uppercase tracking-tighter">
-                Explore the 100× Workflow
-              </span>
+<Link href={"/Explore100x"}>
+              <button className="flex items-center gap-4 text-slate-900 group cursor-pointer pt-4 hover:text-blue-600 transition-all duration-300">
+                <span className="font-header font-black text-xl uppercase tracking-tighter">
+                  Explore the 100× Workflow
+                </span>
               <div className="p-2 rounded-full border border-slate-200 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
                 <MoveRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </div>
             </button>
+            </Link>
           </div>
 
           {/* Bento Grid Visual Column */}
