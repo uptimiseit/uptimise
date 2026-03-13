@@ -54,6 +54,18 @@ import { ThreeDMarqueeDemoSecond } from "./components/HomePage/NewHero";
 import PhilosophySection from "./components/HomePage/LiquidConnect";
 import ProblemSection from "./components/ProblemSection";
 import AIOSFactory from "./components/HomePage/AIOSFactory";
+import HumanAICollaboration from "./components/HumanAICollaboration";
+import AgentEcosystem from "./components/HomePage/AgentEcosystem";
+import CompareSection from "./components/HomePage/Compare";
+import DevelopmentProcess from "./components/HomePage/DevelopmentProcess";
+import ServicesEcosystem from "./components/HomePage/ServicesEcosystem";
+import IndustriesSection from "./components/HomePage/IndustriesSection";
+import TransparencySection from "./components/HomePage/TransparencySection";
+import EnterpriseStandards from "./components/HomePage/EnterpriseStandards";
+import ProjectsLedger from "./components/HomePage/ProjectsLedger";
+import KnowledgeHub from "./components/HomePage/KnowledgeHub";
+import FAQSection from "./components/HomePage/FAQSection";
+import FinalCTA from "./components/HomePage/FinalCTA";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
@@ -85,10 +97,23 @@ export default function Home() {
       {/* <HeroAnimation /> */}
       {/* <ThreeDMarqueeDemoSecond /> */}
       {/* <LiquidConnect /> */}
+
       <PhilosophySection />
       <ProblemSection />
       <AIOSFactory />
-
+   <HumanAICollaboration />
+   <AgentEcosystem />
+   <CompareSection />
+   <DevelopmentProcess />
+   <ServicesEcosystem />
+   <TechStack />
+   <IndustriesSection />
+   <TransparencySection />
+   <EnterpriseStandards />
+   <ProjectsLedger />
+   <KnowledgeHub />
+   <FAQSection />
+   <FinalCTA />
       {/* <AboutSection /> */}
       <ServicesScroll/>
       {/* <PortfolioSection /> */}
