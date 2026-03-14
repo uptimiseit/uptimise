@@ -361,7 +361,7 @@ Services: [
   ],
   Company: [
     { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/about" },
-    { title: "Our Vision", desc: "Where we are taking engineering.", icon: <Globe className="text-emerald-600" />, href: "/company/vision" },
+    { title: "Our Vision", desc: "Where we are taking engineering.", icon: <Globe className="text-emerald-600" />, href: "/vision" },
     { title: "Careers", desc: "Join our elite engineering squad.", icon: <Users className="text-orange-600" />, href: "/company/careers" },
     { title: "Contact", desc: "Talk to our technical architects.", icon: <Mail className="text-purple-600" />, href: "/contact" },
   ]

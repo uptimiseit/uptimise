@@ -165,24 +165,50 @@
 
 // // export default AboutSection;
 
-
 'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Users, Target, Lightbulb, ShieldCheck, 
-  Cpu, Zap, Fingerprint, Network, ArrowRight 
+  Cpu, Zap, Fingerprint, Network, ArrowRight,
+  Code2, Globe, Database, Milestone, Bot, 
+  Layers, Search, ShieldAlert, Rocket,
+  Palette,
+  CheckCircle2
 } from 'lucide-react';
-import FAQSection from '../components/HomePage/FAQSection';
 
-const AboutUsPage = () => {
+const ecosystemNodes = [
+  { 
+    title: "Product Design", 
+    desc: "UX Research, UI Systems, and Interactive Prototyping.", 
+    icon: <Palette size={20} className="text-blue-500" /> 
+  },
+  { 
+    title: "Software Development", 
+    desc: "Scalable Web, Mobile, and SaaS Systems via Modern Stacks.", 
+    icon: <Code2 size={20} className="text-purple-500" /> 
+  },
+  { 
+    title: "Cloud Infrastructure", 
+    desc: "Automated CI/CD, Containerization, and Reliable Ops.", 
+    icon: <Network size={20} className="text-cyan-500" /> 
+  },
+  { 
+    title: "Digital Growth", 
+    desc: "SEO, Performance Marketing, and Data-Driven Strategies.", 
+    icon: <Zap size={20} className="text-emerald-500" /> 
+  }
+];
+
+const AboutPage = () => {
   return (
-    <main className="min-h-screen bg-white font-sans selection:bg-blue-100">
+    <main className="min-h-screen bg-white font-sans selection:bg-blue-100 overflow-hidden">
       
-      {/* --- Section 1: The Manifesto (Hero) --- */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff05_1px,transparent_1px)] [background-size:40px_40px]" />
+      {/* --- 1. HERO: The Identity Protocol --- */}
+      <section className="relative pt-40 pb-24 px-6 overflow-hidden bg-slate-950">
+        {/* Background Engineering Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 
@@ -193,54 +219,48 @@ const AboutUsPage = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
               <Fingerprint size={14} className="text-blue-400" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 font-mono">
-                Identity_Protocol::Uptimise_IT
+                System_Identity::Uptimise_IT
               </span>
             </div>
             <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-[0.85]">
-              Engineering <br />
-              <span className="text-blue-600 italic">Evolution.</span>
+              Future <br />
+              <span className="text-blue-600 italic">Engineered.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl">
-              We didn't build another agency. We built a system. Uptimise IT is the intersection of elite human ingenuity and autonomous intelligence.
+              Uptimise IT is an AI-Native Software Factory. We bridge the gap between human creativity and autonomous execution to build digital platforms that scale.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* --- Section 2: Our Philosophy (The 100x Engineer) --- */}
+      {/* --- 2. THE VISION: Architecture of Tomorrow --- */}
       <section className="py-32 px-6 border-b border-slate-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight">
-              The 100x <br /> Engineer <span className="text-blue-600">DNA.</span>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight uppercase">
+              A Shift in <br /> <span className="text-blue-600">Perspective.</span>
             </h2>
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-slate-500 font-medium leading-relaxed">
               <p>
-                In a traditional agency, a developer spends 70% of their time on boilerplate, documentation, and repetitive testing. 
+                The future of development belongs to teams that combine <span className="text-slate-950 font-bold">intelligent automation</span> with <span className="text-slate-950 font-bold">elite human engineering.</span>
               </p>
               <p className="font-bold text-slate-950 border-l-4 border-blue-600 pl-6">
-                At Uptimise IT, our engineers use orchestrated AI agents to handle the "noise," allowing them to focus 100% on high-level architecture, complex logic, and product quality.
+                Our vision is to operate as the world's most efficient software factory—where complexity is managed by machines, and value is driven by human expertise.
               </p>
               <p>
-                This isn't just "using AI"—it's a fundamental shift in how software is birthed. We call this the **100x Philosophy**.
+                We believe in a unified ecosystem. Design, Development, Infrastructure, and Growth are not separate services; they are nodes of a single product lifecycle.
               </p>
             </div>
           </div>
 
-          {/* Visual Diagram Placeholder */}
-          <div className="relative p-12 bg-slate-50 rounded-[4rem] border border-slate-100 overflow-hidden group">
+          <div className="relative p-10 bg-slate-50 rounded-[4rem] border border-slate-100 overflow-hidden group">
              <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
              <div className="relative z-10 grid grid-cols-2 gap-4">
-                {[
-                    { label: "HUMAN", val: "STRATEGY", icon: <Users /> },
-                    { label: "AI", val: "VELOCITY", icon: <Zap /> },
-                    { label: "SYSTEM", val: "PRECISION", icon: <ShieldCheck /> },
-                    { label: "CODE", val: "SCALABILITY", icon: <Cpu /> },
-                ].map((stat, i) => (
-                    <div key={i} className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:border-blue-500 transition-all">
-                        <div className="text-blue-600 mb-4">{stat.icon}</div>
-                        <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">{stat.label}</p>
-                        <p className="text-xl font-black text-slate-950 uppercase italic">{stat.val}</p>
+                {ecosystemNodes.map((node, i) => (
+                    <div key={i} className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:border-blue-500 transition-all group/node">
+                        <div className="mb-4 group-hover/node:scale-110 transition-transform">{node.icon}</div>
+                        <h4 className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">{node.title}</h4>
+                        <p className="text-[11px] font-bold text-slate-950 leading-tight">{node.desc}</p>
                     </div>
                 ))}
              </div>
@@ -248,80 +268,108 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* --- Section 3: Core Mission & Vision --- */}
-      <section className="py-32 px-6 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            
-            {/* Mission */}
-            <div className="p-12 bg-white rounded-[3rem] border border-slate-100 space-y-6 hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-500">
-               <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center">
-                  <Target size={24} />
-               </div>
-               <h3 className="text-3xl font-black text-slate-950 tracking-tight">Our Mission</h3>
-               <p className="text-slate-500 leading-relaxed font-medium">
-                  To democratize elite-level engineering for startups and enterprises by leveraging the AI-Native Software Factory model. We aim to reduce the "time-to-market" for revolutionary ideas from months to weeks.
-               </p>
+      {/* --- 3. THE ECOSYSTEM: AI-Augmented Engineering --- */}
+      <section className="py-32 px-6 bg-slate-950 text-white relative overflow-hidden">
+         <div className="absolute top-0 right-0 p-24 opacity-5 pointer-events-none">
+            <Bot size={400} />
+         </div>
+         <div className="max-w-7xl mx-auto relative z-10 space-y-16">
+            <div className="max-w-2xl space-y-4">
+                <h4 className="text-blue-400 font-mono text-[10px] font-black uppercase tracking-[0.4em] italic">// Core_Differentiator</h4>
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">AI-Assisted <br /> Human-Led.</h2>
             </div>
 
-            {/* Vision */}
-            <div className="p-12 bg-slate-950 rounded-[3rem] text-white space-y-6 relative overflow-hidden group">
-               <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:scale-110 transition-transform duration-700">
-                  <Network size={140} />
-               </div>
-               <div className="w-12 h-12 rounded-2xl bg-white text-slate-950 flex items-center justify-center relative z-10">
-                  <Lightbulb size={24} />
-               </div>
-               <h3 className="text-3xl font-black tracking-tight relative z-10">Our Vision</h3>
-               <p className="text-slate-400 leading-relaxed font-medium relative z-10">
-                  To become the global standard for AI-assisted product engineering. We envision a world where system complexity is managed by machines, while human creativity drives digital transformation.
-               </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+               {[
+                 { title: "Documentation", desc: "Automated tech-spec generation." },
+                 { title: "Scaffolding", desc: "Rapid module generation via AI agents." },
+                 { title: "QA Audit", desc: "Predictive bug detection and testing." },
+                 { title: "Infrastructure", desc: "Self-healing cloud environments." }
+               ].map((item, i) => (
+                 <div key={i} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                    <div className="text-blue-500 font-black text-xl font-mono mb-4 italic">0{i+1}</div>
+                    <h5 className="text-lg font-black mb-2 uppercase tracking-tight">{item.title}</h5>
+                    <p className="text-sm text-slate-400 leading-relaxed font-medium">{item.desc}</p>
+                 </div>
+               ))}
             </div>
-
-          </div>
-        </div>
+         </div>
       </section>
 
-      {/* --- Section 4: Our Squad Values --- */}
+      {/* --- 4. WHO WE WORK WITH: Industry Reach --- */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto space-y-20">
-          <div className="text-center space-y-4">
-            <h4 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] font-mono italic">// The_Code_Of_Conduct</h4>
-            <h2 className="text-5xl font-black text-slate-950 tracking-tighter">Operating Standards.</h2>
+          <div className="flex flex-col lg:flex-row justify-between items-end gap-8 border-b border-slate-100 pb-12">
+              <div className="space-y-4">
+                <h2 className="text-5xl font-black text-slate-950 tracking-tighter uppercase leading-none">Who we <br /> <span className="text-blue-600">Support.</span></h2>
+              </div>
+              <p className="text-slate-500 max-w-sm font-medium leading-relaxed italic">
+                From early-stage founders to enterprise digital transformation teams.
+              </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-                { title: "Radical Transparency", desc: "No black boxes. Every sprint, every line of code, and every architecture decision is visible to the client in real-time." },
-                { title: "AI-First, Not AI-Only", desc: "We leverage AI for velocity, but human architects handle the nuance, security, and final validation." },
-                { title: "Scalability by Default", desc: "We don't build MVPs that break. Every system is architected for millions of concurrent users from Day 1." }
-            ].map((value, i) => (
-                <div key={i} className="space-y-4">
-                    <div className="text-blue-600 font-mono text-xl font-black italic">0{i+1}.</div>
-                    <h5 className="text-2xl font-black text-slate-950 tracking-tight">{value.title}</h5>
-                    <p className="text-slate-500 text-sm leading-relaxed">{value.desc}</p>
+                { title: "Startups", desc: "Launching MVPs with maximum engineering velocity.", icon: <Rocket /> },
+                { title: "FinTech", desc: "Building secure, high-stakes finance ecosystems.", icon: <ShieldCheck /> },
+                { title: "AI Systems", desc: "Integrating intelligent agents into core products.", icon: <Bot /> },
+                { title: "Enterprise", desc: "Modernizing legacy platforms for cloud scale.", icon: <Globe /> }
+            ].map((client, i) => (
+                <div key={i} className="space-y-4 group">
+                    <div className="p-4 bg-slate-50 rounded-2xl w-fit text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                        {client.icon}
+                    </div>
+                    <h5 className="text-xl font-black text-slate-950 uppercase tracking-tight">{client.title}</h5>
+                    <p className="text-sm text-slate-500 leading-relaxed font-medium">{client.desc}</p>
                 </div>
             ))}
           </div>
         </div>
       </section>
 
-      <FAQSection />
-
-      {/* --- Section 5: CTA --- */}
-      <section className="pb-32 px-6">
-        <div className="max-w-7xl mx-auto p-12 md:p-24 bg-blue-600 rounded-[4rem] text-white flex flex-col items-center text-center space-y-8 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
-            <h2 className="text-4xl md:text-7xl font-black tracking-tighter leading-none relative z-10">
-                Ready to build the <br /> future of your industry?
-            </h2>
-            <button className="relative z-10 px-10 py-5 bg-white text-blue-600 rounded-full font-black uppercase tracking-widest text-sm hover:scale-105 transition-all flex items-center gap-3">
-                Start the Mission <ArrowRight size={18} />
-            </button>
+      {/* --- 5. STANDARDS: Technology That Scales --- */}
+      <section className="py-24 px-6 bg-slate-50/50">
+        <div className="max-w-7xl mx-auto border border-slate-100 rounded-[3.5rem] p-12 lg:p-20 bg-white shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 h-2 w-full bg-blue-600" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div className="space-y-6">
+                    <h3 className="text-3xl font-black uppercase tracking-tight">Engineering Standards.</h3>
+                    <p className="text-slate-500 font-medium leading-relaxed">
+                        We don't build software that simply works. We build technology that lasts. Every platform follows our rigorous SOC2-ready standards.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {[
+                        "Scalable Architecture", "Clean Maintainable Code",
+                        "Secure Infra Design", "CI/CD Automation"
+                    ].map((std, i) => (
+                        <div key={i} className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-slate-400">
+                            <CheckCircle2 className="text-blue-600" size={16} /> {std}
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
+      </section>
+
+      {/* --- 6. FINAL CTA --- */}
+      <section className="py-40 px-6 text-center">
+         <div className="max-w-4xl mx-auto space-y-12">
+            <h2 className="text-5xl md:text-8xl font-black tracking-tighter text-slate-950 leading-none uppercase">
+              Build the <span className="text-blue-600">Future</span> <br /> With Us.
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              <button className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-blue-600 transition-all shadow-2xl shadow-slate-200">
+                 Start Your Project
+              </button>
+              <button className="px-12 py-6 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-slate-50 transition-all">
+                 Book Strategy Call
+              </button>
+            </div>
+         </div>
       </section>
     </main>
   );
 };
 
-export default AboutUsPage;
+export default AboutPage;
