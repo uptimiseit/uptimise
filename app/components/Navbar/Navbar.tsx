@@ -341,7 +341,7 @@ const menuData = {
     { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/company/about" },
     { title: "Our Vision", desc: "Where we are taking engineering.", icon: <Globe className="text-emerald-600" />, href: "/company/vision" },
     { title: "Careers", desc: "Join our elite engineering squad.", icon: <Users className="text-orange-600" />, href: "/company/careers" },
-    { title: "Contact", desc: "Talk to our technical architects.", icon: <Mail className="text-purple-600" />, href: "/company/contact" },
+    { title: "Contact", desc: "Talk to our technical architects.", icon: <Mail className="text-purple-600" />, href: "/contact" },
   ]
 };
 
@@ -382,10 +382,12 @@ const MegaNavbar = () => {
 
         {/* --- Action Buttons --- */}
         <div className="flex items-center gap-3">
-         
-          <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-blue-100">
+         <Link href={"/booking"}>
+           <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-blue-100">
             Book Strategy Call
           </button>
+         </Link>
+        
            <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
             <Download size={18} className="group-hover:scale-110 transition-transform" />
           </button>

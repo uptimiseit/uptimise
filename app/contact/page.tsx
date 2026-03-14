@@ -1,218 +1,166 @@
-"use client";
-import dynamic from "next/dynamic";
-import React from "react";
-import contact from "@/public/json/mail.json";
+'use client';
 
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Mail, MapPin, Phone, MessageSquare, 
+  ArrowUpRight, Globe, Github, Linkedin, 
+  Twitter, Zap, ShieldCheck, Terminal
+} from 'lucide-react';
 
-export default function ContactSection() {
+const ContactPage = () => {
   return (
-    <>
-   <section className="w-full  px-6 md:px-12 lg:px-28 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+    <main className="min-h-screen bg-white font-sans selection:bg-blue-100">
+      
+      {/* --- Section 1: Hero Header --- */}
+      <section className="bg-slate-950 pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Subtle Engineering Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
         
-        {/* ================= LEFT COLUMN: Heading & Form ================= */}
-        <div className="flex flex-col justify-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-16 text-black">Let's Talk!</h2>
-
-          <form className="space-y-10 w-full">
-            {/* Input 1: Name */}
-            <div className="flex flex-col md:flex-row md:items-end text-2xl md:text-4xl font-bold text-black group">
-              <span className="whitespace-nowrap mr-4 mb-2 md:mb-0 text-gray-500">Hi! I am</span>
-              <input
-                type="text"
-                placeholder="eg. Simran"
-                className="w-full bg-transparent border-b border-gray-300 pb-2 focus:border-black focus:outline-none placeholder:text-gray-300 transition-colors duration-300"
-              />
+        <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+              <Terminal size={12} className="text-blue-400" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 font-mono">
+                Communication_Protocol::v1.0
+              </span>
             </div>
-
-            {/* Input 2: Email */}
-            <div className="flex flex-col md:flex-row md:items-end text-2xl md:text-4xl font-bold text-black group">
-              <span className="whitespace-nowrap mr-4 mb-2 md:mb-0 text-gray-500">Reach me at</span>
-              <input
-                type="email"
-                placeholder="eg. hello@gmail.com"
-                className="w-full bg-transparent border-b border-gray-300 pb-2 focus:border-black focus:outline-none placeholder:text-gray-300 transition-colors duration-300"
-              />
-            </div>
-
-            {/* Button & Clutch Widget */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-8 gap-8">
-              <button
-                type="button"
-                className="border-2 border-black text-black px-10 py-3 font-bold text-lg hover:bg-black hover:text-white transition-all duration-300"
-              >
-                Send Message
-              </button>
-
-              {/* Clutch Widget */}
-              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 border p-3 transition-opacity">
-                <div className="flex flex-col items-end leading-tight">
-                  <span className="text-[10px] tracking-widest text-gray-500 uppercase">
-                    Reviewed on
-                  </span>
-                  <span className="text-xl font-bold text-slate-800">
-                    Clutch
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  {/* Stars */}
-                  <div className="flex text-red-500 text-sm">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} fill="currentColor" viewBox="0 0 24 24" className="w-4 h-4">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="text-[10px] text-gray-500 font-medium mt-1">
-                    31 REVIEWS
-                  </span>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        {/* ================= RIGHT COLUMN: Lottie & Contact Info ================= */}
-        {/* h-full ensures it stretches to match the form height. justify-between pushes Lottie top, Text bottom */}
-        <div className="flex flex-col items-end justify-between h-full min-h-[500px] lg:min-h-0 pt-10 lg:pt-0">
-            
-            {/* Lottie Container - Made Responsive */}
-            {/* w-full flex justify-end ensures it aligns right */}
-            <div className="w-full flex justify-center lg:justify-end">
-                <div className="w-68 h-68 md:w-96 md:h-96 lg:w-[300px] lg:h-[300px]">
-                    <Lottie
-                        animationData={contact}
-                        loop={true}
-                        className="w-full h-full" // Use Tailwind to control size
-                    />
-                </div>
-            </div>
-
-            {/* Contact Info Text */}
-            <div className="text-right space-y-3 font-medium text-gray-800">
-                <a
-                    href="mailto:sales@gmail.com"
-                    className="block text-blue-600 underline text-2xl mb-6 hover:text-blue-800 transition-colors"
-                >
-                    sales@uptimiseit.com
-                </a>
-
-                <div className="flex flex-col gap-1 text-lg">
-                    <p>
-                        <span className="font-bold text-gray-400">IND:</span> +91 7020134662
-                    </p>
-                    <p className="text-gray-600">+91 97622 25763</p>
-                    <p className="text-gray-600">+91 94614 66510</p>
-                </div>
-
-                <p className="mt-4 text-lg">
-                    <span className="font-bold text-gray-400">USA:</span> +1 (802) 347-3690
-                </p>
-
-                <p className="mt-4 text-gray-400 font-bold pt-4 border-t border-gray-100">
-                    Join The Team:{" "}
-                    <span className="text-black font-normal">+91 93244 68828</span>
-                </p>
-            </div>
-        </div>
-
-      </div>
-    </section>
-
-      <section className="w-full bg-white py-20 px-6 md:px-12 font-sans">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 relative">
-          {/* ================= LEFT COLUMN: INDIA ================= */}
-          {/* lg:border-r adds the vertical line only on large screens */}
-          <div className="flex flex-col pb-12 lg:pb-0 lg:pr-16 border-gray-200 lg:border-r">
-            {/* Header section with Text and Icon */}
-            <div className="flex justify-between items-start mb-10">
-              <div>
-                <h2 className="text-5xl font-bold text-black mb-2">Jaipur</h2>
-                {/* Note: Times are static to match image. For real-time, you'd need JS Date objects */}
-                <p className="text-xl text-black font-medium">04:54 PM</p>
-              </div>
-
-              {/* Custom Gateway of India Line Art SVG */}
-              <svg
-                className="w-28 h-28 text-black -mt-4"
-                viewBox="0 0 120 100"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              >
-                {/* Base */}
-                <path d="M10 95h100" strokeLinecap="round" />
-                {/* Main Structure */}
-                <path d="M25 95V55a10 10 0 0110-10h50a10 10 0 0110 10v40" />
-                {/* Central Arch */}
-                <path d="M45 95V70a5 5 0 015-5h20a5 5 0 015 5v25" />
-                {/* Side Arches */}
-                <path d="M25 55l-5-8h15l-5 8M95 55l5-8h-15l5 8" />
-                {/* Top Tiers */}
-                <path d="M35 45h50v-8H35zM40 37h40v-8H40zM45 29h30v-8H45z" />
-                {/* Domes */}
-                <path d="M38 21a5 5 0 0110 0M55 15a6 6 0 0112 0M72 21a5 5 0 0110 0" />
-                {/* Vertical lines in arches for detail */}
-                <path d="M32 95v-8M88 95v-8M60 95v-15" opacity="0.5" />
-              </svg>
-            </div>
-
-            {/* Address Blocks */}
-            <div className="space-y-8 text-lg text-gray-800 leading-relaxed max-w-md">
-              <p>
-                Office No.202, 2nd Floor, Techno Park, Eksar, Link Road,
-                Borivali (W), Mumbai: 400 092.
-              </p>
-              <p>
-                44, 2nd floor, 2nd Main Road,3rd Cross Guru Raghavendra Nagar,
-                JP Nagar 7th Phase Bangalore, Karnataka 560078
-              </p>
-            </div>
+            <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none">
+              Get in <br />
+              <span className="text-blue-500 italic">Touch.</span>
+            </h1>
           </div>
-
-          {/* ================= RIGHT COLUMN: USA ================= */}
-          {/* pt-12 adds space on mobile when stacked. lg:pl-16 adds left padding on desktop */}
-          <div className="flex flex-col pt-12 lg:pt-0 lg:pl-16">
-            {/* Header section with Text and Icon */}
-            <div className="flex justify-between items-start mb-10">
-              <div>
-                <h2 className="text-5xl font-bold text-black mb-2">Pune</h2>
-                <p className="text-xl text-black font-medium">06:24 AM</p>
-              </div>
-
-              {/* Custom Art Deco Skyscraper Line Art SVG */}
-              <svg
-                className="w-24 h-28 text-black -mt-4"
-                viewBox="0 0 100 120"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              >
-                {/* Base */}
-                <path d="M15 115h70" strokeLinecap="round" />
-                {/* Main Body */}
-                <path d="M25 115V75h50v40" />
-                {/* Vertical Lines */}
-                <path d="M35 75v40M45 75v40M55 75v40M65 75v40" opacity="0.6" />
-                {/* Tier 1 */}
-                <path d="M30 75V55h40v20" />
-                {/* Tier 2 */}
-                <path d="M38 55V35h24v20" />
-                {/* Tier 3 & Spire */}
-                <path d="M44 35V15h12v20M50 15V5" />
-                {/* Horizontal details */}
-                <path d="M30 65h40M38 45h24M44 25h12" />
-              </svg>
-            </div>
-
-            {/* Address Block */}
-            <div className="space-y-8 text-lg text-gray-800 leading-relaxed max-w-md">
-              <p>16 Madison Ave, Lake Hiawatha, NJ 07034, United States</p>
-            </div>
-          </div>
+          <p className="text-slate-400 text-lg max-w-sm font-medium border-l border-white/10 pl-8 pb-4 leading-relaxed">
+            Whether you're looking to scale an existing platform or architect something entirely new, our squad is ready to deploy.
+          </p>
         </div>
       </section>
-    </>
+
+      {/* --- Section 2: Contact Matrix --- */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        {/* LEFT: Direct Channels */}
+        <div className="lg:col-span-5 space-y-16">
+          
+          {/* Channel 1: Engineering Hub */}
+          <div className="space-y-8">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Direct_Lines</h4>
+            
+            <div className="space-y-8">
+              <div className="group flex gap-6 items-start cursor-pointer">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Send a Message</p>
+                  <p className="text-xl font-black text-slate-950 tracking-tight group-hover:text-blue-600 transition-colors">sales@uptimise.it</p>
+                </div>
+              </div>
+
+              <div className="group flex gap-6 items-start cursor-pointer">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                  <MessageSquare size={24} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">WhatsApp Chat</p>
+                  <p className="text-xl font-black text-slate-950 tracking-tight group-hover:text-blue-600 transition-colors">+91 70201 34662</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Channel 2: HQ Location */}
+          <div className="space-y-8">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Global_Presence</h4>
+            <div className="group flex gap-6 items-start">
+              <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400">
+                <MapPin size={24} />
+              </div>
+              <div className="space-y-2">
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Jaipur HQ</p>
+                <p className="text-lg font-bold text-slate-600 leading-snug">
+                  C-29 Q Block, Mansarovar Extension, <br />
+                  Narayan Vihar, Jaipur 302029, <br />
+                  Rajasthan, India
+                </p>
+                <button className="flex items-center gap-2 text-xs font-black text-blue-600 hover:gap-3 transition-all pt-2 uppercase tracking-widest">
+                  Open in Maps <ArrowUpRight size={14} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Channel 3: Social Sync */}
+          <div className="pt-12 border-t border-slate-50 flex gap-4">
+            {[<Linkedin size={20}/>, <Twitter size={20}/>, <Github size={20}/>, <Globe size={20}/>].map((icon, i) => (
+              <div key={i} className="w-12 h-12 rounded-xl border border-slate-100 flex items-center justify-center text-slate-300 hover:text-blue-600 hover:border-blue-600 transition-all cursor-pointer">
+                {icon}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT: High-End Contact Form */}
+        <div className="lg:col-span-7">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="bg-white border border-slate-100 rounded-[3rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] p-12 lg:p-16 space-y-12"
+          >
+            <div className="space-y-2">
+              <h3 className="text-3xl font-black text-slate-950 tracking-tighter uppercase">Send a Brief</h3>
+              <p className="text-slate-400 text-sm font-medium">Explain your vision, and we'll route it to the right department.</p>
+            </div>
+
+            <form className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Your Identity</label>
+                  <input type="text" placeholder="Full Name" className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Node</label>
+                  <input type="email" placeholder="name@company.com" className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
+                <select className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all appearance-none cursor-pointer">
+                  <option>Software Development</option>
+                  <option>AI & Automation</option>
+                  <option>Blockchain / Web3</option>
+                  <option>Cloud Infrastructure</option>
+                  <option>Product Strategy</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Briefing</label>
+                <textarea placeholder="Describe your technical requirements..." rows={5} className="w-full bg-slate-50 border-none rounded-[2rem] px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all resize-none" />
+              </div>
+
+              <button className="group w-full py-5 bg-slate-950 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-600 transition-all duration-500 flex items-center justify-center gap-4">
+                Initialize Transmission
+                <Zap size={16} className="group-hover:scale-125 transition-transform" />
+              </button>
+            </form>
+
+            <div className="pt-10 border-t border-slate-50 flex items-center justify-center gap-12">
+               <div className="flex items-center gap-2 opacity-30">
+                  <ShieldCheck size={14} />
+                  <span className="text-[9px] font-black tracking-widest uppercase">NDA_READY</span>
+               </div>
+               <div className="flex items-center gap-2 opacity-30">
+                  <Globe size={14} />
+                  <span className="text-[9px] font-black tracking-widest uppercase">GLOBAL_OPS</span>
+               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
-}
+};
+
+export default ContactPage;
