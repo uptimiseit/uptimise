@@ -290,6 +290,10 @@
 // };
 
 // export default Navbar;
+
+
+
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -302,7 +306,8 @@ import {
   Code2, Database, ShieldAlert, BarChart3,
   Users, Info, Mail,
   ChevronRight,
-  TrendingUp
+  TrendingUp,
+  Server
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -316,29 +321,46 @@ const menuData = {
     { title: "IoT & Embedded", desc: "Next-gen hardware-software synergy.", icon: <Cpu className="text-pink-600" />, href: "/solutions/iot" },
     { title: "Cloud & DevOps", desc: "Zero-trust automated infrastructure.", icon: <Terminal className="text-cyan-600" />, href: "/solutions/devops" },
   ],
-  "How We Build": [
-    { title: "Factory Architecture", desc: "Inside our intelligent ecosystem.", icon: <Database className="text-blue-600" />, href: "/how-we-build/architecture" },
-    { title: "Development Process", desc: "6-stage rapid delivery protocol.", icon: <Rocket className="text-emerald-600" />, href: "/how-we-build/process" },
-    { title: "100× Philosophy", desc: "The future of augmented engineering.", icon: <Zap className="text-orange-600" />, href: "/how-we-build/100x-engineer" },
-  ],
+
   Industries: [
     { title: "FinTech", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
     { title: "Healthcare", desc: "Compliant health-tech platforms.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
     { title: "E-commerce", desc: "High-conversion retail engines.", icon: <ShoppingBag className="text-emerald-600" />, href: "/industries/ecommerce" },
     { title: "Startups & SaaS", desc: "Hyper-growth scaling for founders.", icon: <Lightbulb className="text-yellow-600" />, href: "/industries/startups" },
   ],
-  Technology: [
-    { title: "Tech Stack", desc: "Our battle-tested engine room.", icon: <Code2 className="text-blue-600" />, href: "/technology/stack" },
-    { title: "AI Engineering", desc: "Deep neural-net integration.", icon: <Cpu className="text-purple-600" />, href: "/technology/ai" },
-    { title: "Security & Scalability", desc: "Zero-fail architecture standards.", icon: <ShieldAlert className="text-red-600" />, href: "/technology/security" },
-  ],
+Services: [
+  { 
+    title: "Design", 
+    desc: "High-fidelity UX systems and scalable design languages.", 
+    icon: <Layout className="text-blue-600" />, 
+    href: "/services/design" 
+  },
+  { 
+    title: "Technology", 
+    desc: "AI-native engineering and full-stack system orchestration.", 
+    icon: <Cpu className="text-purple-600" />, 
+    href: "/services/technology" 
+  },
+  { 
+    title: "Marketing", 
+    desc: "Data-driven growth systems and automated digital reach.", 
+    icon: <BarChart3 className="text-emerald-600" />, 
+    href: "/services/marketing" 
+  },
+  { 
+    title: "Server", 
+    desc: "Zero-trust infrastructure and automated cloud deployments.", 
+    icon: <Server className="text-orange-600" />, 
+    href: "/services/server" 
+  },
+],
   Insights: [
-    { title: "Engineering Blog", desc: "Deep dives into modern code.", icon: <Terminal className="text-slate-600" />, href: "/insights/blog" },
+    { title: "Engineering Blog", desc: "Deep dives into modern code.", icon: <Terminal className="text-slate-600" />, href: "/blogs/engineeringBlogs" },
     { title: "Tech Trends", desc: "Analysis of the future of tech.", icon: <TrendingUp className="text-blue-600" />, href: "/insights/trends" },
     { title: "Guides", desc: "Strategic product building playbooks.", icon: <BarChart3 className="text-emerald-600" />, href: "/insights/guides" },
   ],
   Company: [
-    { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/company/about" },
+    { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/about" },
     { title: "Our Vision", desc: "Where we are taking engineering.", icon: <Globe className="text-emerald-600" />, href: "/company/vision" },
     { title: "Careers", desc: "Join our elite engineering squad.", icon: <Users className="text-orange-600" />, href: "/company/careers" },
     { title: "Contact", desc: "Talk to our technical architects.", icon: <Mail className="text-purple-600" />, href: "/contact" },
@@ -365,20 +387,41 @@ const MegaNavbar = () => {
         </Link>
 
         {/* --- Navigation Links --- */}
-        <div className="hidden lg:flex items-center gap-2 h-full">
-          {Object.keys(menuData).map((menu) => (
-            <div 
-              key={menu} 
-              className="h-full flex items-center"
-              onMouseEnter={() => setActiveMenu(menu)}
-            >
-              <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'}`}>
-                {menu}
-                <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-          ))}
-        </div>
+    {/* --- Navigation Links --- */}
+<div className="hidden lg:flex items-center gap-2 h-full">
+  {Object.keys(menuData).map((menu) => {
+    const isServices = menu === "Services";
+    
+    return (
+      <div 
+        key={menu} 
+        className="h-full flex items-center"
+        onMouseEnter={() => setActiveMenu(menu)}
+      >
+        {isServices ? (
+          // Clickable link for Services
+          <Link 
+            href="/services" 
+            className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
+              activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'
+            }`}
+          >
+            {menu}
+            <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
+          </Link>
+        ) : (
+          // Standard buttons for other menu items
+          <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
+            activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'
+          }`}>
+            {menu}
+            <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
+          </button>
+        )}
+      </div>
+    );
+  })}
+</div>
 
         {/* --- Action Buttons --- */}
         <div className="flex items-center gap-3">
