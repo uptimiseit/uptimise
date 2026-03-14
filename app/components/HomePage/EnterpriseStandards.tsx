@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { 
   ShieldCheck, CheckCircle2, Zap, 
   Maximize, SearchCode, Lock, 
-  ArrowRight, Activity
+  ArrowRight, Activity, Globe, Cpu
 } from 'lucide-react';
 
 const standards = [
@@ -43,7 +43,7 @@ const standards = [
 
 const EnterpriseStandards = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-32 px-6 overflow-hidden font-sans">
       {/* Background Decor: The "Validation" Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
       
@@ -58,21 +58,21 @@ const EnterpriseStandards = () => {
                 Quality_Protocol::Certified
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-950 leading-[0.85]">
               Enterprise <br />
               <span className="text-blue-600 italic">Standards.</span>
             </h2>
           </div>
-          <p className="text-xl text-slate-500 font-body max-w-sm lg:text-right pb-4">
+          <p className="text-xl text-slate-500 max-w-sm lg:text-right pb-4 leading-relaxed">
             Our Quality Assurance isn't a phase—it's a fundamental constant of our AI-Native Factory.
           </p>
         </div>
 
         {/* Standards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
           {/* Featured "Total Quality" Card */}
-          <div className="lg:col-span-1 lg:row-span-2 p-10 rounded-[3rem] bg-slate-950 text-white flex flex-col justify-between group relative overflow-hidden">
+          <div className="lg:col-span-1 lg:row-span-2 p-10 rounded-[3rem] bg-[#020617] text-white flex flex-col justify-between group relative overflow-hidden border border-white/5">
             <div className="absolute top-0 right-0 p-12 opacity-10">
                <ShieldCheck size={180} />
             </div>
@@ -81,19 +81,49 @@ const EnterpriseStandards = () => {
               <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20">
                 <Activity size={32} />
               </div>
-              <h3 className="text-4xl font-black font-header leading-tight">
+              <h3 className="text-4xl font-black leading-tight tracking-tight">
                 Zero <br /> Compromise <br /> Engineering.
               </h3>
             </div>
 
-            <div className="space-y-4 relative z-10">
-              <p className="text-slate-400 font-body text-sm leading-relaxed">
+            <div className="space-y-6 relative z-10">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 We implement a "Security-First" and "Performance-Always" philosophy across every project module.
               </p>
-              <div className="flex items-center gap-4 text-blue-400 font-mono text-[10px] font-bold tracking-[0.2em]">
-                <span>UPTIME: 99.99%</span>
-                <span>FAIL_SAFE: ACTIVE</span>
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                <div className="space-y-1">
+                    <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Uptime Score</p>
+                    <p className="text-xl font-black text-blue-400">99.99%</p>
+                </div>
+                <div className="space-y-1 text-right">
+                    <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Fail-Safe</p>
+                    <p className="text-xl font-black text-emerald-400">ACTIVE</p>
+                </div>
               </div>
+            </div>
+          </div>
+
+          {/* FILLER CARD: "Advertise UI" Style - Global Network */}
+          <div className="p-10 rounded-[3rem] bg-blue-50/50 border border-blue-100 flex flex-col justify-between group relative overflow-hidden">
+            <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                    <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                    <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] font-mono">Global_Latency_Report</span>
+                </div>
+                <h4 className="text-2xl font-black text-slate-950 mb-2">Deployed Globally.</h4>
+                <p className="text-xs text-slate-500 leading-relaxed mb-6">Automatic edge distribution across 32+ global data centers.</p>
+                
+                <div className="space-y-3">
+                    {['US_EAST_1', 'EU_WEST_2', 'AP_SOUTH_1'].map((region) => (
+                        <div key={region} className="flex items-center justify-between text-[10px] font-mono font-bold text-slate-400 bg-white/50 p-2 rounded-lg border border-white">
+                            <span>{region}</span>
+                            <span className="text-emerald-500">OPTIMIZED</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="absolute -bottom-6 -right-6 text-blue-100 opacity-50">
+                <Globe size={120} />
             </div>
           </div>
 
@@ -114,10 +144,10 @@ const EnterpriseStandards = () => {
               </div>
 
               <div className="space-y-3">
-                <h4 className="text-2xl font-black font-header text-slate-950 tracking-tight">
+                <h4 className="text-2xl font-black text-slate-950 tracking-tight">
                   {item.title}
                 </h4>
-                <p className="text-sm text-slate-500 font-body leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

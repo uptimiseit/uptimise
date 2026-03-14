@@ -290,7 +290,6 @@
 // };
 
 // export default Navbar;
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -392,50 +391,62 @@ const MegaNavbar = () => {
         </div>
       </div>
 
-      {/* --- MEGA DROPDOWN PANEL (Large Design) --- */}
+      {/* --- MEGA DROPDOWN PANEL (Portrait CTA on Left) --- */}
       <AnimatePresence>
         {activeMenu && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-[80px] left-0 w-full bg-white border-b border-slate-100 shadow-2xl py-12 px-8 overflow-hidden"
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute top-[80px] left-0 w-full bg-white border-b border-slate-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] py-10 px-8 overflow-hidden"
           >
-            <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-              {menuData[activeMenu as keyof typeof menuData].map((item, idx) => (
-                <Link 
-                  key={idx} 
-                  href={item.href}
-                  className="flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-all group"
-                >
-                  <div className="p-3.5 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-md group-hover:scale-110 transition-all">
-                    {item.icon}
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="text-sm font-black text-slate-950 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium leading-relaxed max-w-[220px]">
-                      {item.desc}
-                    </p>
-                  </div>
-                </Link>
-              ))}
+            <div className="max-w-7xl mx-auto flex gap-12">
+              
+              {/* 1. LEFT: THE PORTRAIT "READY TO ENGINEER" BOX */}
+              <div className="w-[240px] shrink-0 bg-[#020617] rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden group/cta cursor-pointer border border-white/5">
+                {/* Background Decoration */}
+                <div className="absolute bottom-10 -right-10 opacity-5 group-hover/cta:opacity-10 transition-opacity">
+                  <Zap size={240} strokeWidth={1} className="text-white" />
+                </div>
 
-              {/* Sidebar Decor for the Mega Menu */}
-              <div className="hidden lg:flex flex-col justify-end p-8 bg-slate-950 rounded-3xl text-white relative overflow-hidden group/cta col-span-1 lg:col-span-1">
-                 <div className="absolute top-0 right-0 p-8 opacity-10">
-                   <Zap size={100} />
-                 </div>
-                 <div className="relative z-10 space-y-4">
-                   <h4 className="text-xl font-black font-header tracking-tight">Ready to Engineer?</h4>
-                   <p className="text-[10px] text-slate-400 font-mono uppercase tracking-[0.2em]">Our AI factory is live.</p>
-                   <button className="flex items-center gap-2 text-xs font-bold text-blue-400 group-hover/cta:text-white transition-colors">
-                     Start Here <ChevronRight size={14} />
-                   </button>
-                 </div>
+                <div className="relative z-10">
+                  <h3 className="text-4xl font-black font-header text-white leading-[1.1] tracking-tighter mb-4">
+                    Ready to <br /> Engineer?
+                  </h3>
+                  <p className="text-[10px] font-mono font-black text-blue-500 uppercase tracking-[0.4em]">
+                    Our AI Factory is Live.
+                  </p>
+                </div>
+
+                <button className="relative z-10 flex items-center gap-3 text-sm font-bold text-white group-hover/cta:text-blue-400 transition-colors">
+                  Start Here <ChevronRight size={18} className="group-hover/cta:translate-x-1 transition-transform" />
+                </button>
               </div>
+
+              {/* 2. RIGHT: THE 2-COLUMN GRID */}
+              <div className="flex-grow grid grid-cols-2 gap-x-8 gap-y-2 py-4">
+                {menuData[activeMenu as keyof typeof menuData].map((item, idx) => (
+                  <Link 
+                    key={idx} 
+                    href={item.href}
+                    className="flex items-start gap-5 p-5 rounded-3xl hover:bg-slate-50 transition-all group"
+                  >
+                    <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm group-hover:shadow-md group-hover:scale-105 group-hover:border-blue-100 transition-all duration-300">
+                      {item.icon}
+                    </div>
+                    <div className="space-y-1.5">
+                      <h4 className="text-[13px] font-black text-slate-950 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-[11px] text-slate-400 font-medium leading-relaxed max-w-[200px]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
             </div>
           </motion.div>
         )}
