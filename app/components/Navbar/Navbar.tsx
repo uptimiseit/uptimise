@@ -382,11 +382,12 @@ const MegaNavbar = () => {
 
         {/* --- Action Buttons --- */}
         <div className="flex items-center gap-3">
-          <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
-            <Download size={18} className="group-hover:scale-110 transition-transform" />
-          </button>
+         
           <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-blue-100">
             Book Strategy Call
+          </button>
+           <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
+            <Download size={18} className="group-hover:scale-110 transition-transform" />
           </button>
         </div>
       </div>

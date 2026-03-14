@@ -50,14 +50,14 @@ const projects = [
 
 const ProjectsLedger = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       {/* Background Decor: The Blueprint Matrix */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:80px_80px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8 text-left">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8 text-left">
           <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
               <Boxes className="text-blue-600" size={14} />
@@ -65,12 +65,12 @@ const ProjectsLedger = () => {
                 Project_Ledger::2026
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+            <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
               Proven <br />
               <span className="text-blue-600 italic">Deployments.</span>
             </h2>
           </div>
-          <p className="text-xl text-slate-500 font-body max-w-sm lg:text-right pb-4 leading-relaxed">
+          <p className="text-lg text-slate-500 font-body max-w-sm lg:text-right pb-4 leading-relaxed">
             A small, high-impact selection of the world-class products we've engineered.
           </p>
         </div>

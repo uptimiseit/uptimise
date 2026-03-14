@@ -321,7 +321,7 @@ import Link from 'next/link';
 
 const PhilosophySectionWhite = () => {
   return (
-    <section className="relative text-slate-900 py-24 px-6 overflow-hidden bg-white">
+    <section className="relative h-screen text-slate-900 py-16 px-6 overflow-hidden bg-white">
       
       {/* --- MODERN BLOCK BACKGROUND DESIGN --- */}
       <div className="absolute inset-0 pointer-events-none">
@@ -344,11 +344,11 @@ const PhilosophySectionWhite = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="justify-between flex flex-col md:flex-row items-start md:items-center mb-16 space-y-4">
+        <div className="justify-between flex flex-col md:flex-row items-start md:items-center mb-10 space-y-4">
           <span className="text-blue-600 font-mono tracking-widest text-sm uppercase font-bold">
             # Engineering Philosophy
           </span>
-          <h2 className="text-5xl md:text-7xl text-left md:text-right font-bold font-header tracking-tight text-slate-900 leading-[0.9]">
+          <h2 className="text-3xl md:text-5xl text-left md:text-right font-bold font-header tracking-tight text-slate-900 leading-[0.9]">
             The 100× Engineer <br />
             <span className="text-slate-300">Philosophy.</span>
           </h2>

@@ -190,88 +190,160 @@
 
 // export default Footer;
 
-
 "use client";
 
 import Link from 'next/link';
-import { Linkedin, Globe, X, MapPin, Github, Bot, ShieldCheck, Cpu } from 'lucide-react';
+import { 
+  Linkedin, Github, Bot, ShieldCheck, Cpu, 
+  MapPin, Mail, ArrowUpRight, Send, Twitter 
+} from 'lucide-react';
 import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white border-t border-gray-100 font-sans">
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        
-        {/* --- Top Branding Section --- */}
-        <div className="flex flex-col lg:flex-row gap-16 mb-20">
-          <div className="lg:w-2/5 space-y-6">
-            <Image src="/logo.png" alt="Uptimise IT" height={40} width={140} className="mb-4" />
-            <p className="text-slate-500 text-sm leading-relaxed font-body">
-              AI-Native Software Factory building scalable digital platforms through AI-assisted engineering and elite development squads. We partner with innovators to build products faster and more efficiently.
+    <footer className="w-full bg-white font-sans border-t border-slate-100">
+
+      {/* <div className="mx-6 mt-6">
+        <div className="max-w-7xl mx-auto bg-slate-950 rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-600/10 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-[0.9]">
+                Ready to <br /> 
+                <span className="text-blue-500 italic">Accelerate?</span>
+              </h2>
+              <p className="text-slate-400 text-lg max-w-md font-medium">
+                Join the innovators deploying products with 100x engineering velocity.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+              <button className="px-10 py-5 bg-blue-600 text-white rounded-full font-black text-sm uppercase tracking-widest hover:bg-blue-500 transition-all flex items-center justify-center gap-2 group">
+                Start a Project
+                <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </button>
+              <button className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all">
+                Schedule Strategy Call
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      <div className="max-w-7xl mx-auto px-6 pt-24 pb-12">
+        {/* --- Section 2: Technical Navigation --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
+          
+          {/* Brand & Manifesto */}
+          <div className="lg:col-span-4 space-y-8">
+            <Image src="/logo.png" alt="Uptimise IT" height={40} width={140} className="brightness-0" />
+            <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
+              An AI-Native Software Factory engineered for high-growth startups and enterprises. We replace manual bottlenecks with autonomous intelligence.
             </p>
-            <div className="flex gap-4 opacity-40 hover:opacity-100 transition-opacity">
-               <Linkedin size={20} className="cursor-pointer hover:text-blue-600" />
-               <X size={20} className="cursor-pointer hover:text-blue-600" />
-               <Github size={20} className="cursor-pointer hover:text-blue-600" />
-               <Globe size={20} className="cursor-pointer hover:text-blue-600" />
+            <div className="flex gap-3">
+              {[
+                { icon: <Linkedin size={18} />, href: "#" },
+                { icon: <Twitter size={18} />, href: "#" },
+                { icon: <Github size={18} />, href: "#" }
+              ].map((social, i) => (
+                <Link key={i} href={social.href} className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:border-blue-600 hover:text-blue-600 transition-all">
+                  {social.icon}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="lg:w-3/5 grid grid-cols-2 md:grid-cols-3 gap-10">
-            {/* Services Column */}
+          {/* Links Matrix */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-8">
             <div>
-              <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-6">Services</h4>
-              <ul className="space-y-3 text-xs font-bold text-slate-600">
-                {["AI Development", "Software Engineering", "Blockchain", "DevOps & Cloud", "Product Design"].map(item => (
-                  <li key={item} className="hover:text-blue-600 cursor-pointer transition-colors">{item}</li>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-8 font-mono">
+                // Solutions
+              </h4>
+              <ul className="space-y-4 text-[13px] font-bold text-slate-600">
+                {["AI Software Factory", "AI Development", "Blockchain Engineering", "Cloud Systems", "UX Architecture"].map(item => (
+                  <li key={item} className="hover:text-blue-600 transition-colors cursor-pointer flex items-center group">
+                    <span className="w-0 group-hover:w-4 transition-all overflow-hidden text-blue-600">—</span>
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>
-            {/* Company Column */}
             <div>
-              <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-6">Philosophy</h4>
-              <ul className="space-y-3 text-xs font-bold text-slate-600">
-                {["AI Factory Model", "100x Engineer", "About Us", "Careers", "Contact"].map(item => (
-                  <li key={item} className="hover:text-blue-600 cursor-pointer transition-colors">{item}</li>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-8 font-mono">
+                // Philosophy
+              </h4>
+              <ul className="space-y-4 text-[13px] font-bold text-slate-600">
+                {["100x Engineer", "Our Ecosystem", "Case Studies", "Engineering Blog", "Careers"].map(item => (
+                  <li key={item} className="hover:text-blue-600 transition-colors cursor-pointer flex items-center group">
+                    <span className="w-0 group-hover:w-4 transition-all overflow-hidden text-blue-600">—</span>
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>
-            {/* Location Column */}
-            <div className="col-span-2 md:col-span-1">
-              <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-6">Jaipur HQ</h4>
-              <div className="flex gap-3">
-                <MapPin className="text-blue-600 shrink-0" size={16} />
-                <p className="text-xs font-medium text-slate-500 leading-relaxed">
-                   C-29 Q Block, Mansarovar Extension, Narayan Vihar, Jaipur 302029
+          </div>
+
+          {/* Contact & HQ */}
+          <div className="lg:col-span-3 space-y-8">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-8 font-mono">
+              // HQ_JAIPUR
+            </h4>
+            <div className="space-y-6">
+              <div className="flex gap-4 items-start group">
+                <div className="p-3 bg-slate-50 rounded-2xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <MapPin size={20} />
+                </div>
+                <p className="text-xs font-bold text-slate-600 leading-relaxed">
+                  C-29 Q Block, Mansarovar Extension,<br /> Narayan Vihar, Jaipur 302029
+                </p>
+              </div>
+              <div className="flex gap-4 items-start group">
+                <div className="p-3 bg-slate-50 rounded-2xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <Mail size={20} />
+                </div>
+                <p className="text-xs font-bold text-slate-600 leading-relaxed">
+                  hello@uptimise.it <br />
+                  <span className="text-slate-400 font-medium font-mono text-[10px]">UPTIME: 99.9%</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* --- Trust Elements Bar --- */}
+        {/* --- Section 3: The Trust & Tech Bar --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10 border-y border-slate-50 mb-10">
-           {[
-             { icon: <ShieldCheck size={16} />, label: "Enterprise Engineering Standards" },
-             { icon: <Bot size={16} />, label: "AI-Native Development Workflows" },
-             { icon: <Cpu size={16} />, label: "Global Hybrid Engineering Teams" }
-           ].map((trust, i) => (
-             <div key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-400">
-               <span className="text-blue-600">{trust.icon}</span>
-               {trust.label}
-             </div>
-           ))}
+          {[
+            { icon: <ShieldCheck size={18} />, label: "Enterprise Engineering Standards" },
+            { icon: <Bot size={18} />, label: "Autonomous Development Workflows" },
+            { icon: <Cpu size={18} />, label: "Global Hybrid Deployment" }
+          ].map((trust, i) => (
+            <div key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">
+              <span className="text-blue-600">{trust.icon}</span>
+              {trust.label}
+            </div>
+          ))}
         </div>
 
-        {/* --- Bottom Footer --- */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-          <p>© 2026 Uptimise IT. AI-Native Software Factory.</p>
-          <div className="flex gap-8 mt-4 md:mt-0">
-             <Link href="/privacy" className="hover:text-blue-600">Privacy Policy</Link>
-             <Link href="/terms" className="hover:text-blue-600">Terms of Use</Link>
+        {/* --- Section 4: Legal & System Status --- */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono">
+          <div className="flex items-center gap-4">
+            <p>© 2026 UPTIMISE IT</p>
+            <span className="w-1 h-1 bg-slate-200 rounded-full" />
+            <p className="text-emerald-500 flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              SYSTEM_ACTIVE
+            </p>
+          </div>
+          <div className="flex gap-8 mt-6 md:mt-0">
+            <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy_Policy</Link>
+            <Link href="/terms" className="hover:text-blue-600 transition-colors">Terms_of_Use</Link>
           </div>
         </div>
-
       </div>
     </footer>
   );

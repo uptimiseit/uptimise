@@ -4,11 +4,11 @@ import { Cpu, Rocket, Code2, ShieldCheck, Workflow, Binary } from 'lucide-react'
 
 const AIOSFactory = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
-      {/* Background Decor: The Factory Blueprint */}     <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
+    <section className="relative bg-white py-16 px-6 overflow-hidden">
+      {/* Background Decor: The Factory Blueprint */}     <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[32px_32px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-24 space-y-6">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 shadow-sm">
             <Workflow className="text-blue-600 size-4" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">
@@ -16,12 +16,12 @@ const AIOSFactory = () => {
             </span>
           </div>
           
-          <h2 className="text-6xl md:text-7xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
+          <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
             The AI-Native <br />
             <span className="text-blue-600">Software Factory.</span>
           </h2>
           
-          <p className="text-xl text-slate-500 font-body leading-relaxed">
+          <p className="  text-sm text-slate-500 font-body leading-relaxed">
             A hybrid ecosystem where elite human ingenuity meets autonomous intelligence 
             to accelerate the entire product lifecycle.
           </p>

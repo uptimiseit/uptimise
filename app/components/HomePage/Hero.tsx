@@ -195,7 +195,7 @@ export default function Hero() {
       <BackgroundGrid />
       
       {/* Content Container */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-16 pb-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* LEFT: Technical Visual Stage */}
@@ -275,7 +275,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-32 pt-10 border-t border-slate-100"
+          className="mt-5 pt-10 border-t border-slate-100"
         >
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-400 mb-10 text-center lg:text-left opacity-80">
             Trusted by Global Innovators

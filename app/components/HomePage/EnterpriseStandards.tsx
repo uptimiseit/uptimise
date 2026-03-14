@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { 
   ShieldCheck, CheckCircle2, Zap, 
   Maximize, SearchCode, Lock, 
-  ArrowRight, Activity, Globe, Cpu
+  ArrowRight, Activity, Globe, Scale
 } from 'lucide-react';
 
 const standards = [
@@ -43,14 +43,13 @@ const standards = [
 
 const EnterpriseStandards = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden font-sans">
-      {/* Background Decor: The "Validation" Grid */}
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8">
           <div className="max-w-2xl space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
               <ShieldCheck className="text-blue-600" size={14} />
@@ -58,7 +57,7 @@ const EnterpriseStandards = () => {
                 Quality_Protocol::Certified
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-950 leading-[0.85]">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-slate-950 leading-[0.85]">
               Enterprise <br />
               <span className="text-blue-600 italic">Standards.</span>
             </h2>
@@ -71,7 +70,7 @@ const EnterpriseStandards = () => {
         {/* Standards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* Featured "Total Quality" Card */}
+          {/* 1. Featured "Total Quality" Card */}
           <div className="lg:col-span-1 lg:row-span-2 p-10 rounded-[3rem] bg-[#020617] text-white flex flex-col justify-between group relative overflow-hidden border border-white/5">
             <div className="absolute top-0 right-0 p-12 opacity-10">
                <ShieldCheck size={180} />
@@ -103,7 +102,7 @@ const EnterpriseStandards = () => {
             </div>
           </div>
 
-          {/* FILLER CARD: "Advertise UI" Style - Global Network */}
+          {/* 2. Global Network Card */}
           <div className="p-10 rounded-[3rem] bg-blue-50/50 border border-blue-100 flex flex-col justify-between group relative overflow-hidden">
             <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
@@ -111,13 +110,12 @@ const EnterpriseStandards = () => {
                     <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] font-mono">Global_Latency_Report</span>
                 </div>
                 <h4 className="text-2xl font-black text-slate-950 mb-2">Deployed Globally.</h4>
-                <p className="text-xs text-slate-500 leading-relaxed mb-6">Automatic edge distribution across 32+ global data centers.</p>
-                
+                <p className="text-xs text-slate-500 leading-relaxed mb-6">Automatic edge distribution across 32+ data centers.</p>
                 <div className="space-y-3">
                     {['US_EAST_1', 'EU_WEST_2', 'AP_SOUTH_1'].map((region) => (
                         <div key={region} className="flex items-center justify-between text-[10px] font-mono font-bold text-slate-400 bg-white/50 p-2 rounded-lg border border-white">
                             <span>{region}</span>
-                            <span className="text-emerald-500">OPTIMIZED</span>
+                            <span className="text-emerald-500 uppercase">Optimized</span>
                         </div>
                     ))}
                 </div>
@@ -127,7 +125,28 @@ const EnterpriseStandards = () => {
             </div>
           </div>
 
-          {/* Standard Metric Cards */}
+          {/* 3. NEW CARD: IP Protection & Compliance */}
+          <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 flex flex-col justify-between group relative overflow-hidden transition-all hover:bg-white hover:shadow-2xl hover:shadow-slate-100">
+             <div className="relative z-10">
+                <div className="p-3 bg-white rounded-xl text-blue-600 w-fit mb-6 shadow-sm">
+                   <Scale size={24} />
+                </div>
+                <h4 className="text-2xl font-black text-slate-950 mb-2 tracking-tight">IP & Compliance.</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">Total code ownership and legal framework adherence.</p>
+             </div>
+             <div className="mt-8 space-y-2 relative z-10">
+                <div className="flex items-center justify-between text-[9px] font-black font-mono text-slate-400 tracking-widest uppercase py-2 border-b border-slate-200/50">
+                   <span>GDPR / SOC2</span>
+                   <span className="text-blue-600 flex items-center gap-1"><CheckCircle2 size={10}/> Compliant</span>
+                </div>
+                <div className="flex items-center justify-between text-[9px] font-black font-mono text-slate-400 tracking-widest uppercase py-2 border-b border-slate-200/50">
+                   <span>IP Protection</span>
+                   <span className="text-blue-600 flex items-center gap-1"><CheckCircle2 size={10}/> 100% Secure</span>
+                </div>
+             </div>
+          </div>
+
+          {/* Standard Metric Cards (Remaining 5) */}
           {standards.map((item, i) => (
             <motion.div
               key={i}
@@ -144,7 +163,7 @@ const EnterpriseStandards = () => {
               </div>
 
               <div className="space-y-3">
-                <h4 className="text-2xl font-black text-slate-950 tracking-tight">
+                <h4 className="text-xl font-black text-slate-950 tracking-tight">
                   {item.title}
                 </h4>
                 <p className="text-sm text-slate-500 leading-relaxed">

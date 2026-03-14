@@ -3,9 +3,9 @@ import { AlertCircle, Clock, Users, BarChart3, ArrowRight, ShieldAlert, ZapOff }
 
 const ProblemSection = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       {/* Background Tech-Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[32px_32px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -13,7 +13,7 @@ const ProblemSection = () => {
           {/* LEFT: The "Friction Grid" Visual */}
           <div className="relative">
 
-                <h2 className="text-5xl md:text-6xl font-black font-serif font-header tracking-normal text-slate-900 leading-10">
+                <h2 className="text-3xl md:text-5xl font-black font-serif font-header tracking-normal text-slate-900 leading-10">
                 Traditional <br />
                 Development <br />
                 <span className="text-slate-200">Is Obsolete.</span>
@@ -22,7 +22,7 @@ const ProblemSection = () => {
             <div className="grid grid-cols-2 gap-4">
               
               {/* BIG TEAM & HIGH COST */}
-              <div className="p-6 bg-slate-50 border border-slate-100 rounded-[2rem] space-y-4">
+              <div className="p-6 bg-slate-50 border border-slate-100 rounded-4xl space-y-4">
                 <div className="flex justify-between items-start">
                   <Users className="text-slate-400" size={24} />
                   <span className="text-[10px] font-mono text-red-500 bg-red-50 px-2 py-1 rounded">HIGH COST</span>
@@ -32,7 +32,7 @@ const ProblemSection = () => {
               </div>
 
               {/* HUMAN ERROR */}
-              <div className="p-6 bg-white border border-slate-100 rounded-[2rem] shadow-xl shadow-slate-200/40 space-y-4 mt-8">
+              <div className="p-6 bg-white border border-slate-100 rounded-4xl shadow-xl shadow-slate-200/40 space-y-4 mt-8">
                 <div className="flex justify-between items-start">
                   <ShieldAlert className="text-orange-500" size={24} />
                   <div className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-ping" />
@@ -42,7 +42,7 @@ const ProblemSection = () => {
               </div>
 
               {/* ZERO AGILITY */}
-              <div className="p-6 bg-slate-900 rounded-[2rem] space-y-4 -mt-4 text-white">
+              <div className="p-6 bg-slate-900 rounded-4xl space-y-4 -mt-4 text-white">
                 <ZapOff className="text-blue-400" size={24} />
                 <h4 className="font-bold">Zero Agility</h4>
                 <p className="text-xs text-slate-400 font-body">Rigid structures that can't pivot to market demands.</p>

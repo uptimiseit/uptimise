@@ -6,7 +6,7 @@ import { Calendar, ArrowRight, Zap, ShieldCheck, Cpu } from 'lucide-react';
 
 const FinalCTA = () => {
   return (
-    <section className="relative bg-white py-20 px-6">
+    <section className="relative bg-white py-10 px-6">
       <div className="max-w-7xl mx-auto">
         
         {/* The Main Action Card */}
@@ -80,17 +80,7 @@ const FinalCTA = () => {
           </div>
         </div>
 
-        {/* Global Footer Meta (Optional Office Location) */}
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-center px-12 opacity-40">
-           <p className="text-[10px] font-black font-mono tracking-widest uppercase text-slate-900">
-             © 2026 Uptimise IT // Headquarters: Jaipur, India
-           </p>
-           <div className="flex gap-8 mt-4 md:mt-0">
-              <span className="text-[10px] font-black font-mono tracking-widest uppercase cursor-pointer hover:text-blue-600">Twitter_X</span>
-              <span className="text-[10px] font-black font-mono tracking-widest uppercase cursor-pointer hover:text-blue-600">LinkedIn</span>
-              <span className="text-[10px] font-black font-mono tracking-widest uppercase cursor-pointer hover:text-blue-600">GitHub</span>
-           </div>
-        </div>
+   
       </div>
     </section>
   );

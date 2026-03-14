@@ -49,7 +49,7 @@ const transparencyPoints = [
 
 const TransparencySection = () => {
   return (
-    <section className="relative bg-[#FDFDFF] py-32 px-6 overflow-hidden">
+    <section className="relative bg-[#FDFDFF] py-10 px-6 overflow-hidden">
       {/* Background Decor: The "Pulse" Grid */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -57,7 +57,7 @@ const TransparencySection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8 text-left">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8 text-left">
           <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100">
               <Eye className="text-emerald-600" size={14} />
@@ -65,12 +65,12 @@ const TransparencySection = () => {
                 Visibility Protocol :: Active
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+            <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
               Full Spectrum <br />
               <span className="text-emerald-600 italic">Transparency.</span>
             </h2>
           </div>
-          <p className="text-xl text-slate-500 font-body max-w-sm lg:text-right pb-4">
+          <p className="text-lg text-slate-500 font-body max-w-sm lg:text-right pb-4">
             No black boxes. No hidden cycles. Just pure engineering visibility from discovery to deployment.
           </p>
         </div>
@@ -81,7 +81,7 @@ const TransparencySection = () => {
             <motion.div
               key={i}
               whileHover={{ y: -5 }}
-              className={`p-10 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between overflow-hidden ${
+              className={`p-7 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between overflow-hidden ${
                 item.featured 
                 ? 'bg-slate-950 border-slate-800 text-white' 
                 : 'bg-white border-slate-100 hover:border-emerald-500/20 hover:shadow-2xl hover:shadow-emerald-100/30'
@@ -100,7 +100,7 @@ const TransparencySection = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className={`text-3xl font-black font-header tracking-tight ${item.featured ? 'text-white' : 'text-slate-950'}`}>
+                  <h3 className={`text-2xl font-black font-header tracking-tight ${item.featured ? 'text-white' : 'text-slate-950'}`}>
                     {item.title}
                   </h3>
                   <p className={`text-base font-body leading-relaxed max-w-md ${item.featured ? 'text-slate-400' : 'text-slate-500'}`}>

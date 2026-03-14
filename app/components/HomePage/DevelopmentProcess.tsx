@@ -54,13 +54,13 @@ const steps = [
 
 const DevelopmentProcess = () => {
   return (
-    <section className="bg-white py-24 px-6 overflow-hidden">
+    <section className="bg-white py-10 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         
         {/* Header - Left Aligned for Compactness */}
-        <div className="mb-20 space-y-4 flex items-center justify-between">
+        <div className="mb-10 space-y-4 flex items-center justify-between">
         
-          <h2 className="text-5xl md:text-6xl font-black font-header tracking-tighter text-slate-950">
+          <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950">
             Engineering Lifecycle.
           </h2>
             <span className="text-blue-600 font-mono text-xs font-bold tracking-[0.3em] uppercase">
@@ -91,15 +91,15 @@ const DevelopmentProcess = () => {
                 </div>
 
                 {/* The Compact Card */}
-                <div className="flex-grow pb-12">
-                  <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 group-hover:bg-white group-hover:shadow-2xl group-hover:shadow-slate-100 transition-all duration-500 group-hover:border-blue-500/20">
-                    <div className="flex justify-between items-start mb-2">
+                <div className="flex-grow pb-4">
+                  <div className="p-5 rounded-[2rem] bg-slate-50 border border-slate-100 group-hover:bg-white group-hover:shadow-2xl group-hover:shadow-slate-100 transition-all duration-500 group-hover:border-blue-500/20">
+                    <div className="flex justify-between items-start mb-1">
                        <h3 className="text-2xl font-black font-header text-slate-950 tracking-tight">
                         {step.title}
                       </h3>
                       <span className="text-xs font-mono font-bold text-slate-300">STEP_{step.number}</span>
                     </div>
-                    <p className="text-slate-500 font-body text-base max-w-2xl">
+                    <p className="text-slate-500 font-body text-sm max-w-2xl">
                       {step.desc}
                     </p>
                   </div>

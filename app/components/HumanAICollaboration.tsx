@@ -49,11 +49,11 @@ const HumanAICollaboration = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative bg-white py-32 px-6 overflow-hidden">
+    <section ref={containerRef} className="relative bg-white py-16 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className=" mb-20 space-y-6 flex items-center justify-between">
+        <div className=" mb-10 space-y-6 flex items-center justify-between">
           <div className="flex justify-between items-center  gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
             <div className='flex items-center gap-2'>
                  <Sparkles className="text-blue-600 size-3" />
@@ -63,7 +63,7 @@ const HumanAICollaboration = () => {
                 </div>
            
           </div>
-          <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+          <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
             Human Ingenuity. <br />
             <span className="text-blue-600">AI Velocity.</span>
           </h2>

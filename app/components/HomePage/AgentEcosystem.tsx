@@ -49,7 +49,7 @@ const agents = [
 
 const EcosystemSection = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       {/* Background Engineering Grid */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]" />
@@ -57,9 +57,9 @@ const EcosystemSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="mb-20 space-y-4 flex items-center justify-between">
+        <div className="mb-6 space-y-4 flex items-center justify-between">
 
-              <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+              <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
             The Engineering <br />
             <span className="text-blue-600 italic">Ecosystem.</span>
           </h2>
@@ -74,13 +74,13 @@ const EcosystemSection = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-12 gap-4 auto-rows-min">
+        <div className="grid grid-cols-12 gap-3 auto-rows-min">
           
           {agents.map((agent, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -5 }}
-              className={`relative group ${agent.size} rounded-[2.5rem] border border-slate-100 bg-white p-8 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-100/50`}
+              className={`relative group ${agent.size} rounded-[2.5rem] border border-slate-100 bg-white p-3 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-100/50`}
             >
               {/* Background Glow Effect */}
               <div className={`absolute -inset-20 bg-blue-400/0 group-hover:bg-blue-400/5 blur-[100px] rounded-full transition-all duration-700`} />

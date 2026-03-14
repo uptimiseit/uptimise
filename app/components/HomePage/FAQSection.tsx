@@ -35,7 +35,7 @@ const FAQSection = () => {
   const [activeIdx, setActiveIdx] = useState<number | null>(0);
 
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       
@@ -51,12 +51,12 @@ const FAQSection = () => {
               </span>
             </div>
             
-            <h2 className="text-6xl md:text-7xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
+            <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
               Common <br />
               <span className="text-blue-600 italic">Queries.</span>
             </h2>
             
-            <p className="text-xl text-slate-500 font-body leading-relaxed max-w-sm">
+            <p className="text-lg text-slate-500 italic font-body leading-relaxed max-w-sm">
               Everything you need to know about our AI-Native Software Factory and engineering philosophy.
             </p>
 

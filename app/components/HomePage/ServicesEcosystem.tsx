@@ -61,14 +61,14 @@ const serviceGroups = [
 
 const ServicesEcosystem = () => {
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       {/* Background Engineering Pattern */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className=" flex items-center gap-4 justify-between mb-24 space-y-6">
+        <div className=" flex items-center gap-4 justify-between mb-10 space-y-6">
 
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
@@ -81,7 +81,7 @@ const ServicesEcosystem = () => {
        
       
           </div>
-          <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+          <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
             Service <br />
             <span className="text-blue-600 italic">Ecosystem.</span>
           </h2>
@@ -130,17 +130,25 @@ const ServicesEcosystem = () => {
           ))}
 
           {/* Contact "Bridge" Card */}
-          <div className="lg:col-span-2 p-8 rounded-[2.5rem] bg-slate-950 flex flex-col justify-center items-center text-center space-y-6 group cursor-pointer relative overflow-hidden">
-             <div className="absolute inset-0 bg-blue-600/10 blur-[80px] group-hover:bg-blue-600/20 transition-all" />
-             <h4 className="text-3xl font-black font-header text-white relative z-10">
-               Need a custom <br /> engineering squad?
-             </h4>
-             <button className="relative z-10 px-8 py-3 bg-white text-slate-950 font-bold rounded-full hover:scale-105 transition-transform">
-               Consult Our Engineers
-             </button>
-          </div>
+  
 
         </div>
+
+            <div className="lg:col-span-2 p-5 mt-5 rounded-[2.5rem] bg-slate-950 flex flex-col justify-center items-center text-center space-y-8 group cursor-pointer relative overflow-hidden border border-white/5">
+  <div className="absolute inset-0 bg-blue-600/10 blur-[80px] group-hover:bg-blue-600/20 transition-all" />
+  
+  <div className="space-y-4 relative z-10">
+    <h4 className="text-3xl font-black font-header text-white tracking-tighter">
+      Need a custom <br /> engineering squad?
+    </h4>
+    <p className="text-slate-400 text-sm font-medium">Deploy an elite AI-augmented team in 48 hours.</p>
+  </div>
+
+  {/* Full Width Action Button */}
+  <button className="relative z-10 w-full max-w-sm py-5 bg-blue-600 text-white font-black  tracking-widest text-xs rounded-2xl hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-2xl shadow-blue-500/20 active:scale-[0.98]">
+    Consult Our Lead Engineers
+  </button>
+</div>
       </div>
     </section>
   );

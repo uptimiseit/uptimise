@@ -41,15 +41,15 @@ const CompareSection = () => {
   ];
 
   return (
-    <section className="relative bg-white py-32 px-6 overflow-hidden">
+    <section className="relative bg-white py-10 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="mb-20 space-y-4 flex items-center justify-between">
+        <div className="mb-8 space-y-4 flex items-center justify-between">
           <span className="text-blue-600 font-mono tracking-widest text-sm uppercase font-bold">
             # The Competitive Edge
           </span>
-          <h2 className="text-5xl md:text-7xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
+          <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
             Why We Are <br />
             <span className="text-slate-300 italic">Different.</span>
           </h2>
@@ -59,7 +59,7 @@ const CompareSection = () => {
         <div className="border border-slate-100 rounded-[3rem] overflow-hidden bg-white shadow-2xl shadow-slate-100">
           
           {/* Table Header */}
-          <div className="grid grid-cols-12 bg-slate-950 p-8 text-white items-center">
+          <div className="grid grid-cols-12 bg-slate-950 p-5 text-white items-center">
             <div className="col-span-4 text-xs font-black uppercase tracking-widest opacity-50 font-mono">Core Metric</div>
             <div className="col-span-4 text-xs font-black uppercase tracking-widest opacity-50 font-mono">Traditional Model</div>
             <div className="col-span-4 text-xs font-black uppercase tracking-widest text-blue-400 font-mono flex items-center gap-2">
@@ -71,7 +71,7 @@ const CompareSection = () => {
           {/* Table Rows */}
           <div className="divide-y divide-slate-50">
             {comparisonData.map((item, i) => (
-              <div key={i} className="grid grid-cols-12 p-8 items-center group hover:bg-slate-50 transition-colors duration-300">
+              <div key={i} className="grid grid-cols-12 p-3 items-center group hover:bg-slate-50 transition-colors duration-300">
                 
                 {/* Metric Label */}
                 <div className="col-span-4 flex items-center gap-4">
@@ -109,7 +109,7 @@ const CompareSection = () => {
         </div>
 
         {/* Bottom Note */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-5 flex justify-center">
            <div className="inline-flex items-center gap-4 px-6 py-3 rounded-2xl bg-slate-50 border border-slate-100 text-slate-500 font-body text-sm italic">
               <Zap size={16} className="text-blue-600" />
               This model delivers up to 100x higher ROI compared to traditional agency cycles.

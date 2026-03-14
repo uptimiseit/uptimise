@@ -210,7 +210,7 @@ const TechStack = () => {
   const [activeTab, setActiveTab] = useState(techData[0]);
 
   return (
-    <section className="relative bg-[#FDFDFF] py-32 px-6 overflow-hidden">
+    <section className="relative bg-[#FDFDFF] py-8 px-6 overflow-hidden">
       {/* Structural Background Lines */}
       <div className="absolute inset-0 flex justify-around opacity-[0.03] pointer-events-none">
         {[...Array(6)].map((_, i) => (
@@ -221,13 +221,13 @@ const TechStack = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header - Engineering Spec Style */}
-        <div className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-slate-100 pb-12">
+        <div className=" flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-slate-100 pb-6">
           <div className="space-y-4">
             <div className="flex items-center gap-2 font-mono text-[10px] font-black tracking-[0.3em] text-blue-600 uppercase">
               <span className="w-8 h-px bg-blue-600" />
               Stack_Manifest_2026
             </div>
-            <h2 className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950">
+            <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950">
               Tech <span className="text-blue-600">DNA.</span>
             </h2>
           </div>
@@ -246,7 +246,7 @@ const TechStack = () => {
                 key={item.id}
                 onMouseEnter={() => setActiveTab(item)}
                 onClick={() => setActiveTab(item)}
-                className={`relative flex items-center justify-between p-8 rounded-2xl transition-all duration-500 text-left group overflow-hidden ${
+                className={`relative flex items-center justify-between p-5 rounded-2xl transition-all duration-500 text-left group overflow-hidden ${
                   activeTab.id === item.id 
                   ? 'bg-slate-950 text-white' 
                   : 'bg-white border border-slate-100 hover:border-blue-500/30'
@@ -258,7 +258,7 @@ const TechStack = () => {
                   }`}>
                     {item.icon}
                   </div>
-                  <span className="text-xl md:text-2xl font-black font-header tracking-tight">
+                  <span className="text-lg md:text-xl font-black font-header tracking-tight">
                     {item.category}
                   </span>
                 </div>
