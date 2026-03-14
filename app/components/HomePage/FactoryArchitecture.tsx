@@ -86,7 +86,7 @@ const FactoryArchitecture = () => {
   const [hoveredStep, setHoveredStep] = useState<string | null>(null);
 
   return (
-    <section className="relative bg-[#FDFDFF] py-10 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-indigo-50 py-10 px-6 overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px]" />
       

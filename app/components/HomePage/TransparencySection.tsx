@@ -49,7 +49,7 @@ const transparencyPoints = [
 
 const TransparencySection = () => {
   return (
-    <section className="relative bg-[#FDFDFF] py-10 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-yellow-50 py-10 px-6 overflow-hidden">
       {/* Background Decor: The "Pulse" Grid */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:50px_50px]" />

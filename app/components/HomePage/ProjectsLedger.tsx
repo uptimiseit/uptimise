@@ -50,7 +50,7 @@ const projects = [
 
 const ProjectsLedger = () => {
   return (
-    <section className="relative bg-white py-10 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-lime-50 py-10 px-6 overflow-hidden">
       {/* Background Decor: The Blueprint Matrix */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:80px_80px]" />
 

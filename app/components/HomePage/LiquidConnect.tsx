@@ -321,7 +321,7 @@ import Link from 'next/link';
 
 const PhilosophySectionWhite = () => {
   return (
-    <section className="relative h-screen text-slate-900 py-16 px-6 overflow-hidden bg-white">
+    <section className="relative h-screen text-slate-900 py-16 px-6 overflow-hidden bg-linear-to-br from-white to-pink-50 flex items-center justify-center">
       
       {/* --- MODERN BLOCK BACKGROUND DESIGN --- */}
       <div className="absolute inset-0 pointer-events-none">
@@ -329,7 +329,7 @@ const PhilosophySectionWhite = () => {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02]" />
         
         {/* Engineering Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]" />
         
         {/* Decorative Floating "Data Blocks" */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-50/50 border border-blue-100 rounded-xl rotate-12 animate-pulse" />

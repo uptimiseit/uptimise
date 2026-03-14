@@ -210,7 +210,7 @@ const TechStack = () => {
   const [activeTab, setActiveTab] = useState(techData[0]);
 
   return (
-    <section className="relative bg-[#FDFDFF] py-8 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-orange-50 py-8 px-6 overflow-hidden">
       {/* Structural Background Lines */}
       <div className="absolute inset-0 flex justify-around opacity-[0.03] pointer-events-none">
         {[...Array(6)].map((_, i) => (

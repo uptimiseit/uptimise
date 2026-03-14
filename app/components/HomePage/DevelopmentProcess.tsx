@@ -54,7 +54,7 @@ const steps = [
 
 const DevelopmentProcess = () => {
   return (
-    <section className="bg-white py-10 px-6 overflow-hidden">
+    <section className="bg-gradient-to-br from-white to-purple-50 py-10 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         
         {/* Header - Left Aligned for Compactness */}

@@ -49,7 +49,7 @@ const agents = [
 
 const EcosystemSection = () => {
   return (
-    <section className="relative bg-white py-10 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-blue-50 py-10 px-6 overflow-hidden">
       {/* Background Engineering Grid */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]" />

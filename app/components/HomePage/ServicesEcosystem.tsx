@@ -4,7 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Cpu, Code2, Database, Radio, 
-  Cloud, Palette, TrendingUp, ArrowUpRight 
+  Cloud, Palette, TrendingUp, ArrowUpRight, 
+  ArrowRight
 } from 'lucide-react';
 
 const serviceGroups = [
@@ -134,20 +135,50 @@ const ServicesEcosystem = () => {
 
         </div>
 
-            <div className="lg:col-span-2 p-5 mt-5 rounded-[2.5rem] bg-slate-950 flex flex-col justify-center items-center text-center space-y-8 group cursor-pointer relative overflow-hidden border border-white/5">
-  <div className="absolute inset-0 bg-blue-600/10 blur-[80px] group-hover:bg-blue-600/20 transition-all" />
+       <div className="lg:col-span-2 p-8 md:p-12 mt-5 rounded-[3rem] bg-[#020617] flex flex-col md:flex-row items-center justify-between gap-8 group cursor-pointer relative overflow-hidden border border-white/5">
   
-  <div className="space-y-4 relative z-10">
-    <h4 className="text-3xl font-black font-header text-white tracking-tighter">
-      Need a custom <br /> engineering squad?
-    </h4>
-    <p className="text-slate-400 text-sm font-medium">Deploy an elite AI-augmented team in 48 hours.</p>
+  {/* --- Background Elements --- */}
+  {/* 1. The Glow */}
+  <div className="absolute inset-0 bg-blue-600/5 blur-[100px] group-hover:bg-blue-600/15 transition-all duration-700" />
+  
+  {/* 2. The Tech Watermark (Portrait Icon on the right) */}
+  <div className="absolute right-[-20px] top-[-20px] opacity-[0.03] group-hover:opacity-[0.07] transition-all duration-700 pointer-events-none group-hover:rotate-12">
+    <Cpu size={280} className="text-white" strokeWidth={1} />
   </div>
 
-  {/* Full Width Action Button */}
-  <button className="relative z-10 w-full max-w-sm py-5 bg-blue-600 text-white font-black  tracking-widest text-xs rounded-2xl hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-2xl shadow-blue-500/20 active:scale-[0.98]">
-    Consult Our Lead Engineers
-  </button>
+  {/* --- LEFT SIDE: Copy --- */}
+  <div className="relative z-10 space-y-4 text-left max-w-xl">
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 font-mono">
+        Active_Squad_Deployment
+      </span>
+    </div>
+    
+    <div className="space-y-2">
+      <h4 className="text-2xl md:text-4xl font-black font-header text-white tracking-tighter leading-[1.1]">
+        Need a custom <br /> 
+        <span className="text-blue-500">engineering squad?</span>
+      </h4>
+      <p className="text-slate-400 text-base font-medium max-w-md leading-relaxed">
+        Scale your technical DNA with an elite AI-augmented team. 
+        Engineered for speed, deployed in 48 hours.
+      </p>
+    </div>
+  </div>
+
+  {/* --- RIGHT SIDE: Action Button --- */}
+  <div className="relative z-10 shrink-0 w-full md:w-auto">
+    <button className="relative w-full md:w-auto px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white hover:text-slate-950 transition-all duration-500 shadow-[0_20px_40px_-15px_rgba(37,99,235,0.4)] hover:shadow-white/10 group/btn overflow-hidden">
+      {/* Subtle shine effect on button hover */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
+      
+      <span className="relative flex items-center justify-center gap-3">
+        Consult Our Lead Engineers
+        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+      </span>
+    </button>
+  </div>
 </div>
       </div>
     </section>
