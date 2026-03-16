@@ -68,6 +68,7 @@ import FAQSection from "./components/HomePage/FAQSection";
 import FinalCTA from "./components/HomePage/FinalCTA";
 import FactoryArchitecture from "./components/HomePage/FactoryArchitecture";
 import NewBlogs from "./components/HomePage/NewBlogs";
+import ProjectEstimator from "./components/Clients/page";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
@@ -113,6 +114,7 @@ export default function Home() {
    <TransparencySection />
    <EnterpriseStandards />
    <ProjectsLedger />
+   <ProjectEstimator />
    <NewBlogs />
    <KnowledgeHub />
    <FAQSection />

@@ -319,19 +319,13 @@ const Footer = () => {
               </div>
             ))}
           </div>
-
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 px-3 py-1 bg-emerald-50 rounded-full border border-emerald-100">
-              <div className="relative flex h-2 w-2">
-                <span className="animate-ping absolute h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative h-2 w-2 rounded-full bg-emerald-500"></span>
-              </div>
-              <span className="text-[9px] font-black text-emerald-700 font-mono tracking-widest">SYS_READY</span>
-            </div>
             
-            <div className="flex gap-6 text-[11px] font-bold text-slate-400">
+            
+            <div className="flex gap-6 text-[11px] font-bold text-slate-600">
               <Link href="/privacy" className="hover:text-blue-600">Privacy</Link>
               <Link href="/terms" className="hover:text-blue-600">Terms</Link>
+              <Link href="/cookies" className="hover:text-blue-600">Cookie</Link>
               <span className="opacity-30">© 2026</span>
             </div>
           </div>
