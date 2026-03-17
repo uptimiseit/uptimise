@@ -306,7 +306,10 @@ import {
   TrendingUp,
   Server,
   MinusSquare,
-  Cloud
+  Cloud,
+  GraduationCap,
+  Hexagon,
+  Building
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -327,10 +330,54 @@ const menuData = {
     { title: "AI Business Automation", desc: "Intelligent operations and task automation.", icon: <Cpu className="text-purple-500" />, href: "/solutions/ai-business-automation" },
   ],
   Industries: [
-    { title: "FinTech", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
-    { title: "Healthcare", desc: "Compliant health-tech platforms.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
-    { title: "E-commerce", desc: "High-conversion retail engines.", icon: <ShoppingBag className="text-emerald-600" />, href: "/industries/ecommerce" },
-    { title: "Startups & SaaS", desc: "Hyper-growth scaling for founders.", icon: <Lightbulb className="text-yellow-600" />, href: "/industries/startups" },
+    { 
+      title: "FinTech Software Development", 
+      desc: "Secure digital finance ecosystems.", 
+      icon: <Landmark className="text-blue-600" />, 
+      href: "/industries/fintech" 
+    },
+    { 
+      title: "Healthcare Software Development", 
+      desc: "Compliant health-tech & telemedicine.", 
+      icon: <HeartPulse className="text-red-600" />, 
+      href: "/industries/healthcare" 
+    },
+    { 
+      title: "E-commerce Platform Development", 
+      desc: "High-conversion digital retail engines.", 
+      icon: <ShoppingBag className="text-emerald-600" />, 
+      href: "/industries/ecommerce" 
+    },
+    { 
+      title: "SaaS Development", 
+      desc: "Scalable multi-tenant subscription platforms.", 
+      icon: <Cloud className="text-sky-500" />, 
+      href: "/industries/saas" 
+    },
+    { 
+      title: "EdTech Platform Development", 
+      desc: "Interactive, high-load learning management systems.", 
+      icon: <GraduationCap className="text-indigo-500" />, 
+      href: "/industries/edtech" 
+    },
+    { 
+      title: "AI Startup Development", 
+      desc: "Rapid MVPs and generative AI products.", 
+      icon: <Bot className="text-purple-600" />, 
+      href: "/industries/ai-startup" 
+    },
+    { 
+      title: "Blockchain / Web3 Platforms", 
+      desc: "Smart contracts and decentralized apps.", 
+      icon: <Hexagon className="text-orange-500" />, 
+      href: "/industries/blockchain" 
+    },
+    { 
+      title: "Enterprise Software Systems", 
+      desc: "Secure portals and legacy modernization.", 
+      icon: <Building className="text-slate-600" />, 
+      href: "/industries/enterprise" 
+    },
   ],
   Services: [
     { title: "Design", desc: "High-fidelity UX systems and scalable design languages.", icon: <Layout className="text-blue-600" />, href: "/services/design" },
@@ -339,7 +386,7 @@ const menuData = {
     { title: "Server", desc: "Zero-trust infrastructure and automated cloud deployments.", icon: <Server className="text-orange-600" />, href: "/services/server" },
   ],
   Insights: [
-    { title: "Engineering Blog", desc: "Deep dives into modern code.", icon: <Terminal className="text-slate-600" />, href: "/blogs/engineeringBlogs" },
+    { title: "Engineering Blog", desc: "Deep dives into modern code.", icon: <Terminal className="text-slate-600" />, href: "/blog/engineeringBlogs" },
     { title: "Tech Trends", desc: "Analysis of the future of tech.", icon: <TrendingUp className="text-blue-600" />, href: "/insights/trends" },
     { title: "Guides", desc: "Strategic product building playbooks.", icon: <BarChart3 className="text-emerald-600" />, href: "/insights/guides" },
   ],
