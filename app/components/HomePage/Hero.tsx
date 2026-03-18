@@ -173,8 +173,6 @@
 //   );
 // }
 
-
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -190,12 +188,13 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex items-center bg-[#FDFDFF]">
+    // min-h-[100dvh] handles mobile browser UI bars better than min-h-screen
+    <section className="relative w-full min-h-[100dvh] overflow-hidden flex items-center bg-[#FDFDFF] py-20 lg:py-0">
       {/* Background Layer */}
       <BackgroundGrid />
       
       {/* Content Container */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-12 lg:pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* LEFT: Technical Visual Stage */}
@@ -203,18 +202,18 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="order-2 lg:order-1 flex items-center justify-center lg:justify-start"
+            className="order-2 lg:order-1 flex items-center justify-center lg:justify-start w-full"
           >
-            <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
-              {/* Refined background glow */}
-              <div className="absolute inset-0 bg-blue-500/10 blur-[120px] rounded-full" />
+            {/* Added max-w-[320px] for mobile, scaling up to 480px on desktop */}
+            <div className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] aspect-square flex items-center justify-center">
+              <div className="absolute inset-0 bg-blue-500/10 blur-[80px] lg:blur-[120px] rounded-full" />
               <TechCircuitAnimation />
             </div>
           </motion.div>
 
           {/* RIGHT: High-Impact Copy */}
-          <div className="order-1 lg:order-2 flex flex-col gap-6">
-            <div className="space-y-5">
+          <div className="order-1 lg:order-2 flex flex-col gap-6 text-center lg:text-left">
+            <div className="space-y-5 flex flex-col items-center lg:items-start">
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -222,7 +221,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/50 border border-blue-100"
               >
                 <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-                <span className="text-[11px] font-bold uppercase tracking-widest text-blue-700 font-mono">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-blue-700 font-mono">
                   Software Evolution 2026
                 </span>
               </motion.div>
@@ -232,9 +231,10 @@ export default function Hero() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1]"
+                // Smoother font scaling across breakpoints
+                className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.15] lg:leading-[1.1]"
               >
-                AI-Native <br />
+                AI-Native <br className="hidden sm:block" />
                 <span className="text-blue-600 italic font-medium">Software Factory.</span>
               </motion.h1>
             </div>
@@ -244,7 +244,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-lg text-slate-600 leading-relaxed max-w-lg font-normal"
+              className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg font-normal mx-auto lg:mx-0"
             >
               Uptimise IT combines orchestrated AI agents and elite engineers 
               to build digital products with mathematical precision and 
@@ -257,13 +257,13 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-4 pt-4"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 w-full sm:w-auto"
             >
-              <MovingBorderButton className="h-12 px-10 text-sm font-semibold tracking-wide">
+              <MovingBorderButton className="w-full sm:w-auto h-12 px-10 text-sm font-semibold tracking-wide">
                 Start Your Project
               </MovingBorderButton>
               
-              <button className="h-12 px-8 text-sm font-semibold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center gap-2">
+              <button className="w-full sm:w-auto h-12 px-8 text-sm font-semibold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center justify-center gap-2">
                 Schedule Strategy Call
               </button>
             </motion.div>
@@ -275,9 +275,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-5 pt-10 border-t border-slate-100"
+          className="mt-16 lg:mt-24 pt-10 border-t border-slate-100"
         >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-400 mb-10 text-center lg:text-left opacity-80">
+          <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 mb-8 sm:mb-10 text-center lg:text-left opacity-80">
             Trusted by Global Innovators
           </p>
           <LogoMarquee />
