@@ -48,6 +48,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth js" suppressHydrationWarning>
+<head>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Uptimise IT",
+        "url": "https://uptimise.com",
+        "logo": "https://uptimise.com/logo.png",
+        "description": "Uptimise IT is an AI-native product engineering company helping startups and enterprises build scalable digital platforms using modern technologies and AI-assisted development workflows.",
+        "founder": {
+          "@type": "Person",
+          "name": "Saurabh Sharma"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uptimise",
+          "https://twitter.com/uptimise",
+          "https://github.com/uptimise"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "contact@uptimise.com"
+        }
+      })
+    }}
+  />
+</head>
       <body
         className={`${josefin.variable} antialiased ${montserrat.variable} ${figtree.variable}`}
       >
