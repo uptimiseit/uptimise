@@ -99,14 +99,14 @@ export default function RootLayout({
           "name": "Saurabh Sharma"
         },
         "sameAs": [
-          "https://www.linkedin.com/company/uptimise",
+          "https://in.linkedin.com/company/uptimise-it",
           "https://twitter.com/uptimise",
           "https://github.com/uptimise"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "email": "contact@uptimise.com"
+          "email": "sales@uptimiseit.com"
         }
       })
     }}
