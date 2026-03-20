@@ -95,7 +95,7 @@ const Footer = () => {
                   { name: "About Us", href: "/about" },
                   { name: "Careers", href: "/career" },
                   { name: "Contact", href: "/contact" },
-                  { name: "Partners", href: "#" }
+                  { name: "Partners", href: "/partners" }
                 ].map(item => (
                   <li key={item.name} className="hover:text-blue-600 hover:translate-x-1 transition-all">
                     <Link href={item.href} className="block w-full">{item.name}</Link>
