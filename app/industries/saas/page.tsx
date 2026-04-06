@@ -232,7 +232,7 @@ export default function SaasIndustryPage() {
       </section>
 
       {/* 9. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-8">
+      <section className="py-16 px-6 text-center max-w-4xl mx-auto space-y-8">
         <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">Ready to Build Your SaaS?</h2>
         <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
           Stop worrying about technical debt and scalability limits. Let Uptimise IT engineer the platform while you focus on acquiring customers.
