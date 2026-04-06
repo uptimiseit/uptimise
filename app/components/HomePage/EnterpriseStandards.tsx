@@ -50,7 +50,7 @@ const EnterpriseStandards = () => {
         
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between lg:items-end items-center mb-10 gap-8">
-          <div className="max-w-2xl space-y-6 text-left">
+          <div className="max-w-2xl space-y-6 lg:text-left text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
               <ShieldCheck className="text-blue-600" size={14} />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 font-mono">
