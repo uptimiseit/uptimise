@@ -32,15 +32,15 @@ const BookingPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-[#FDFDFF] font-sans selection:bg-blue-100 relative overflow-hidden">
+    <main className="min-h-screen bg-[#FDFDFF] font-sans pt-20 selection:bg-blue-100 relative overflow-hidden">
       
       {/* Background Layer: The Digital Blueprint */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3" />
 
       {/* Persistent Top Bar */}
-      <nav className="relative z-20 max-w-7xl mx-auto px-6 py-10 flex justify-between items-center">
-        <Link href="/" className="group flex items-center gap-3">
+      {/* <nav className="relative z-20 max-w-7xl mx-auto px-6 py-10 flex justify-between flex-col items-center">
+        <Link href="/" className="group flex  items-center gap-3">
           <div className="w-10 h-10 bg-slate-950 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
              <ArrowLeft size={18} className="text-white" />
           </div>
@@ -57,7 +57,7 @@ const BookingPage = () => {
                 </span>
             </div>
         </div>
-      </nav>
+      </nav> */}
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-20 pb-32 relative z-10">
         
@@ -66,7 +66,7 @@ const BookingPage = () => {
           variants={containerVars}
           initial="hidden"
           animate="visible"
-          className="lg:col-span-5 space-y-16 py-12"
+          className="lg:col-span-5 text-center lg:text-left  space-y-16 py-12"
         >
           <div className="space-y-6">
             <motion.div variants={itemVars} className="p-3 bg-blue-50 rounded-2xl w-fit text-blue-600">

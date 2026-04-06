@@ -353,19 +353,19 @@ const DigitalGrowthPage = () => {
         <div className="absolute inset-0 bg-[radial-gradient(#10b98108_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7  text-center lg:text-left  space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100">
               <TrendingUp size={14} className="text-emerald-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-700 font-mono">Module::Growth_Systems_v4.0</span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+            <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.98]">
               Algorithmic <br />
-              <span className="text-emerald-600 italic">Growth.</span>
+              <span className="text-emerald-600  italic">Growth.</span>
             </h1>
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT engineers data-driven growth engines that combine AI-powered automation with performance marketing to scale user adoption with mathematical precision.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <button className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-emerald-600 transition-all shadow-xl shadow-slate-200 active:scale-95">
                 Scale Your Revenue
               </button>
@@ -423,10 +423,10 @@ const DigitalGrowthPage = () => {
       </section>
 
       {/* --- 2. WHY GROWTH: The Technical Edge --- */}
-      <section className="py-24 px-6 bg-slate-50/50">
+      <section className="lg:py-24 py-10 px-6 bg-slate-50/50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight uppercase">
+            <h2 className="text-4xl md:text-6xl  text-center  lg:text-left font-black text-slate-950 tracking-tighter leading-tight uppercase">
                Beyond <br /><span className="text-emerald-600">Advertising.</span>
             </h2>
             <p className="text-lg text-slate-500 font-medium leading-relaxed">
@@ -483,7 +483,7 @@ const DigitalGrowthPage = () => {
           </div>
 
           {/* Social Icons Bar */}
-          <div className="flex flex-wrap justify-center gap-12 py-12 border-y border-slate-50 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+          <div className="flex flex-wrap justify-center gap-12 lg:py-12 border-y border-slate-50 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
              <Instagram size={32} />
              <Linkedin size={32} />
              <Twitter size={32} />
@@ -494,7 +494,7 @@ const DigitalGrowthPage = () => {
       </section>
 
       {/* --- 4. AI-POWERED AUTOMATION --- */}
-      <section className="py-32 px-6">
+      <section className="lg:py-32 px-6">
          <div className="max-w-7xl mx-auto p-12 lg:p-24 bg-emerald-950 rounded-[4rem] text-white relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:rotate-12 transition-transform duration-1000">
                <Bot size={400} />
@@ -552,7 +552,7 @@ const DigitalGrowthPage = () => {
       </section>
 
       {/* --- 6. FINAL CTA --- */}
-      <section className="py-20 px-6">
+      <section className="lg:py-20  px-6">
          <div className="max-w-7xl mx-auto bg-emerald-600 rounded-[4rem] p-12 md:p-24 text-center text-white space-y-10 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10">

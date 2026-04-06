@@ -204,13 +204,13 @@ const CaseStudiesPage = () => {
             <Settings size={400} />
          </div>
          <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
+            <div className="space-y-8 text-center lg:text-left">
                <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
                  Our Engineering <br /><span className="text-blue-500 italic">Philosophy.</span>
                </h2>
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {["Clean & Maintainable Code", "Automated Pipelines", "Scalable Topology", "AI-Native Sprints"].map((text, i) => (
-                    <div key={i} className="flex items-center gap-3">
+                    <div key={i} className="flex items-center  gap-3">
                        <CheckCircle2 className="text-blue-400" size={18} />
                        <span className="text-xs font-bold uppercase tracking-widest text-slate-300">{text}</span>
                     </div>
@@ -232,7 +232,7 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* --- 4. FINAL CTA --- */}
-      <section className="py-32 px-6">
+      <section className="lg:py-32 py-10 px-6">
          <div className="max-w-7xl mx-auto bg-blue-600 rounded-[4rem] p-12 md:p-24 text-center text-white space-y-10 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10">

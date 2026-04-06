@@ -29,7 +29,7 @@ const ProductDesignPage = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 text-center lg:text-left  space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100">
               <Sparkles size={14} className="text-purple-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-700 font-mono">Module::Design_Systems</span>
@@ -41,7 +41,7 @@ const ProductDesignPage = () => {
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT crafts intuitive, high-stakes digital experiences by merging deep user research with AI-accelerated design workflows.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <button className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-purple-600 transition-all shadow-xl shadow-slate-200">
                 Start Design Project
               </button>

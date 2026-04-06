@@ -111,7 +111,7 @@ export default function GuidesBlogPage() {
   const popularPosts = MOCK_POSTS.filter(post => post.popular).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-[#FDFDFF] text-slate-900 font-sans pb-24">
+    <div className="min-h-screen bg-[#FDFDFF] text-slate-900 font-sans pb-14">
       
       {/* 1. HERO SECTION */}
       <section className="pt-32 pb-16 px-6 max-w-7xl mx-auto text-center space-y-6">

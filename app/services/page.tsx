@@ -396,7 +396,7 @@ const DesignPage = () => {
             A complete ecosystem of services designed to build, launch, and scale digital platforms with AI-native efficiency.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 pt-6">
+          <div className="flex flex-col lg:flex-row  justify-center gap-4 pt-6">
             <button className="px-10 py-5 bg-blue-600 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
               Start Your Project
             </button>

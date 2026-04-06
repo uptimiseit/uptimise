@@ -360,7 +360,7 @@ const DevelopmentServices = () => {
       {/* --- 1. HERO: The High-Stakes Entry --- */}
       <section className="px-6 mb-32">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7  text-center lg:text-left  space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
               <Code2 size={14} className="text-blue-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">Module::Software_Engineering</span>
@@ -372,7 +372,7 @@ const DevelopmentServices = () => {
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT builds reliable, high-performance platforms by combining AI-native workflows with enterprise-grade engineering discipline.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <button className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl shadow-slate-200">
                 Start Your Project
               </button>
@@ -532,7 +532,7 @@ const DevelopmentServices = () => {
       </section>
 
       {/* --- 6. FINAL CTA --- */}
-      <section className="py-20 px-6">
+      <section className="px-6">
          <div className="max-w-7xl mx-auto bg-blue-600 rounded-[4rem] p-12 md:p-24 text-center text-white space-y-10 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10">

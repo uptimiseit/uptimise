@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#FDFDFF] border-t border-slate-100 font-sans pt-20 pb-10">
+    <footer className="w-full bg-[#FDFDFF] border-t border-slate-100 font-sans pt-10 pb-10">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">

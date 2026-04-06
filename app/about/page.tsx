@@ -234,10 +234,10 @@ const AboutPage = () => {
       </section>
 
       {/* --- 2. THE VISION: Architecture of Tomorrow --- */}
-      <section className="py-32 px-6 border-b border-slate-50">
+      <section className="lg:py-32 py-10 px-6 border-b border-slate-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8">
-            <h2 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight uppercase">
+          <div className="space-y-8 text-center lg:text-left">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter  leading-tight uppercase">
               A Shift in <br /> <span className="text-blue-600">Perspective.</span>
             </h2>
             <div className="space-y-6 text-lg text-slate-500 font-medium leading-relaxed">
@@ -255,7 +255,7 @@ const AboutPage = () => {
 
           <div className="relative p-10 bg-slate-50 rounded-[4rem] border border-slate-100 overflow-hidden group">
              <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-             <div className="relative z-10 grid grid-cols-2 gap-4">
+             <div className="relative z-10 grid lg:grid-cols-2  gap-4">
                 {ecosystemNodes.map((node, i) => (
                     <div key={i} className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:border-blue-500 transition-all group/node">
                         <div className="mb-4 group-hover/node:scale-110 transition-transform">{node.icon}</div>
@@ -269,12 +269,12 @@ const AboutPage = () => {
       </section>
 
       {/* --- 3. THE ECOSYSTEM: AI-Augmented Engineering --- */}
-      <section className="py-32 px-6 bg-slate-950 text-white relative overflow-hidden">
+      <section className="lg:py-32 py-20 px-6 bg-slate-950 text-white relative overflow-hidden">
          <div className="absolute top-0 right-0 p-24 opacity-5 pointer-events-none">
             <Bot size={400} />
          </div>
          <div className="max-w-7xl mx-auto relative z-10 space-y-16">
-            <div className="max-w-2xl space-y-4">
+            <div className="max-w-2xl text-center lg:text-left space-y-4">
                 <h4 className="text-blue-400 font-mono text-[10px] font-black uppercase tracking-[0.4em] italic">// Core_Differentiator</h4>
                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">AI-Assisted <br /> Human-Led.</h2>
             </div>
@@ -297,13 +297,13 @@ const AboutPage = () => {
       </section>
 
       {/* --- 4. WHO WE WORK WITH: Industry Reach --- */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto space-y-20">
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-8 border-b border-slate-100 pb-12">
+      <section className="lg:py-32 py-10  px-6">
+        <div className="max-w-7xlmx-auto space-y-20">
+          <div className="flex flex-col lg:flex-row justify-between lg:items-end items-center gap-8 border-b border-slate-100 lg:pb-12 pb-6">
               <div className="space-y-4">
                 <h2 className="text-5xl font-black text-slate-950 tracking-tighter uppercase leading-none">Who we <br /> <span className="text-blue-600">Support.</span></h2>
               </div>
-              <p className="text-slate-500 max-w-sm font-medium leading-relaxed italic">
+              <p className="text-slate-500 max-w-sm font-medium text-center lg:text-left leading-relaxed italic">
                 From early-stage founders to enterprise digital transformation teams.
               </p>
           </div>
@@ -328,7 +328,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- 5. STANDARDS: Technology That Scales --- */}
-      <section className="py-24 px-6 bg-slate-50/50">
+      <section className="lg:py-24 py-10 px-6 bg-slate-50/50">
         <div className="max-w-7xl mx-auto border border-slate-100 rounded-[3.5rem] p-12 lg:p-20 bg-white shadow-xl relative overflow-hidden">
             <div className="absolute top-0 left-0 h-2 w-full bg-blue-600" />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -353,7 +353,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- 6. FINAL CTA --- */}
-      <section className="py-40 px-6 text-center">
+      <section className="lg:py-32 py-10 px-6 text-center">
          <div className="max-w-4xl mx-auto space-y-12">
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter text-slate-950 leading-none uppercase">
               Build the <span className="text-blue-600">Future</span> <br /> With Us.

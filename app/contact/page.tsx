@@ -44,7 +44,7 @@ const ContactPage = () => {
           
           {/* Channel 1: Engineering Hub */}
           <div className="space-y-8">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Direct_Lines</h4>
+            <h4 className="text-[12px] font-black uppercase tracking-[0.3em] text-center lg:text-left text-slate-400 font-mono italic"># Direct_Lines</h4>
             
             <div className="space-y-8">
               <div className="group flex gap-6 items-start cursor-pointer">
@@ -53,7 +53,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Send a Message</p>
-                  <p className="text-xl font-black text-slate-950 tracking-tight group-hover:text-blue-600 transition-colors">sales@uptimise.it</p>
+                  <p className="text-xl font-black text-slate-950 tracking-tight group-hover:text-blue-600 transition-colors">sales@uptimiseit.com</p>
                 </div>
               </div>
 
@@ -63,7 +63,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">WhatsApp Chat</p>
-                  <p className="text-xl font-black text-slate-950 tracking-tight group-hover:text-blue-600 transition-colors">+91 70201 34662</p>
+                  <p className="text-xl font-black text-slate-950 tracking-tight group-hover:text-blue-600 transition-colors">+91 97622 29023</p>
                 </div>
               </div>
             </div>
@@ -71,16 +71,16 @@ const ContactPage = () => {
 
           {/* Channel 2: HQ Location */}
           <div className="space-y-8">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Global_Presence</h4>
+            <h4 className="text-[12px] text-center lg:text-left font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Global_Presence</h4>
             <div className="group flex gap-6 items-start">
               <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400">
                 <MapPin size={24} />
               </div>
               <div className="space-y-2">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Jaipur HQ</p>
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest"> Office Address: </p>
                 <p className="text-lg font-bold text-slate-600 leading-snug">
-                  C-29 Q Block, Mansarovar Extension, <br />
-                  Narayan Vihar, Jaipur 302029, <br />
+                  office no. 4 , k-11 ,<br />
+                  Narendra nagar, Jaipur 302019, <br />
                   Rajasthan, India
                 </p>
                 <button className="flex items-center gap-2 text-xs font-black text-blue-600 hover:gap-3 transition-all pt-2 uppercase tracking-widest">
@@ -91,9 +91,9 @@ const ContactPage = () => {
           </div>
 
           {/* Channel 3: Social Sync */}
-          <div className="pt-12 border-t border-slate-50 flex gap-4">
+          <div className="pt-12 border-t  border-slate-50 flex items-center justify-center lg:justify-start gap-4">
             {[<Linkedin size={20}/>, <Twitter size={20}/>, <Github size={20}/>, <Globe size={20}/>].map((icon, i) => (
-              <div key={i} className="w-12 h-12 rounded-xl border border-slate-100 flex items-center justify-center text-slate-300 hover:text-blue-600 hover:border-blue-600 transition-all cursor-pointer">
+              <div key={i} className="w-12  h-12 rounded-xl border border-slate-100 flex items-center justify-center text-slate-300 hover:text-blue-600 hover:border-blue-600 transition-all cursor-pointer">
                 {icon}
               </div>
             ))}
@@ -137,7 +137,7 @@ const ContactPage = () => {
 
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Briefing</label>
-                <textarea placeholder="Describe your technical requirements..." rows={5} className="w-full bg-slate-50 border-none rounded-[2rem] px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all resize-none" />
+                <textarea placeholder="Describe your technical requirements..." rows={5} className="w-full bg-slate-50 border-none rounded-4xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all resize-none" />
               </div>
 
               <button className="group w-full py-5 bg-slate-950 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-600 transition-all duration-500 flex items-center justify-center gap-4">

@@ -262,7 +262,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 8. BUSINESS BENEFITS */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 px-6 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
             <div className="w-16 h-16 mx-auto bg-blue-50 text-blue-700 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></div>
@@ -314,7 +314,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 10. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-8">
+      <section className=" px-6 text-center max-w-4xl mx-auto space-y-8">
         <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">Future-Proof Your Operations.</h2>
         <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
           Technical debt is the greatest threat to enterprise longevity. Partner with an engineering team capable of executing secure, zero-downtime digital transformations.

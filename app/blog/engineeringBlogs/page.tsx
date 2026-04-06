@@ -111,7 +111,7 @@ export default function EngineeringBlogPage() {
   const popularPosts = MOCK_POSTS.filter(post => post.popular).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-[#FDFDFF] text-slate-900 font-sans pb-24">
+    <div className="min-h-screen bg-[#FDFDFF] text-slate-900 font-sans pb-14">
       
       {/* 1. HERO SECTION */}
       <section className="pt-32 pb-16 px-6 max-w-7xl mx-auto text-center space-y-6">
@@ -120,7 +120,7 @@ export default function EngineeringBlogPage() {
         </div>
         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto">
           Deep Technical Dives & <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Architecture Blueprints</span>
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-600">Architecture Blueprints</span>
         </h1>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
           Written by our Senior Architects. Explore real-world case studies on system design, database optimization, cloud orchestration, and AI-native workflows.

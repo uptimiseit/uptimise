@@ -28,7 +28,7 @@ const DevOpsPage = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 text-center lg:text-left space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100">
               <Terminal size={14} className="text-cyan-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-700 font-mono">Module::Cloud_Infra_v2.0</span>
@@ -40,7 +40,7 @@ const DevOpsPage = () => {
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT engineers resilient, automated cloud environments that support high-performance digital platforms at any scale.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <button className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-cyan-600 transition-all shadow-xl shadow-slate-200">
                 Scale Your Infrastructure
               </button>
@@ -97,7 +97,7 @@ const DevOpsPage = () => {
       </section>
 
       {/* --- 2. THE CHALLENGE: Why DevOps? --- */}
-      <section className="py-24 px-6 bg-slate-50/50">
+      <section className="lg:py-24 py-10  px-6 bg-slate-50/50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <h2 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight uppercase">
@@ -122,7 +122,7 @@ const DevOpsPage = () => {
       </section>
 
       {/* --- 3. THE CORE PILLARS: CI/CD & Cloud --- */}
-      <section className="py-32 px-6">
+      <section className="lg:py-32 py-20 px-6">
         <div className="max-w-7xl mx-auto space-y-24">
           
           {/* Automated Pipelines */}
@@ -179,7 +179,7 @@ const DevOpsPage = () => {
       </section>
 
       {/* --- 4. AI-ASSISTED OPTIMIZATION --- */}
-      <section className="py-32 px-6">
+      <section className="lg:py-32 px-6">
          <div className="max-w-7xl mx-auto p-12 lg:p-24 bg-cyan-950 rounded-[4rem] text-white relative overflow-hidden group">
             <div className="absolute bottom-0 right-0 p-12 opacity-5 group-hover:scale-110 transition-transform duration-700">
                <Bot size={300} />
@@ -209,7 +209,7 @@ const DevOpsPage = () => {
       </section>
 
       {/* --- 5. TECH STACK: The Control Center --- */}
-      <section className="py-32 px-6">
+      <section className="lg:py-32 px-6">
          <div className="max-w-7xl mx-auto space-y-20">
             <div className="text-center">
                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic text-slate-900">Control Center.</h3>
