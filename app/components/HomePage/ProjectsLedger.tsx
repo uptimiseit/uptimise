@@ -57,7 +57,7 @@ const ProjectsLedger = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8 text-left">
+        <div className="flex flex-col lg:flex-row justify-between  items-center lg:items-end mb-10 gap-8 text-left">
           <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
               <Boxes className="text-blue-600" size={14} />
@@ -65,7 +65,7 @@ const ProjectsLedger = () => {
                 Project_Ledger::2026
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+            <h2 className="text-3xl md:text-5xl  font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
               Proven <br />
               <span className="text-blue-600 italic">Deployments.</span>
             </h2>

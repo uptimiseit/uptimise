@@ -3,7 +3,7 @@ import { AlertCircle, Clock, Users, BarChart3, ArrowRight, ShieldAlert, ZapOff }
 
 const ProblemSection = () => {
   return (
-    <section className="relative bg-white py-10 px-6 overflow-hidden">
+    <section className="relative bg-white py-28 px-6 overflow-hidden">
       {/* Background Tech-Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[32px_32px]" />
 

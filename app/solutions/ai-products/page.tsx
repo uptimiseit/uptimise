@@ -276,7 +276,7 @@ export default function AIProductDevelopmentPage() {
       </section>
 
       {/* 10. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-8">
+      <section className="py-14 px-6 text-center max-w-4xl mx-auto space-y-8">
         <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">Ready to Build With AI?</h2>
         <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
           The future belongs to organizations that deploy AI efficiently. Let our elite engineering team architect your next intelligent product.

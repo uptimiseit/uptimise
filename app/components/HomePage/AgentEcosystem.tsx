@@ -57,7 +57,7 @@ const EcosystemSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="mb-6 space-y-4 flex items-center justify-between">
+        <div className="mb-6 space-y-4 flex items-center flex-col lg:flex-row justify-between">
 
               <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
             The Engineering <br />

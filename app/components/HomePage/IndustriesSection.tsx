@@ -229,7 +229,7 @@ const IndustriesSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end items-center mb-10 gap-8">
           <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono italic">

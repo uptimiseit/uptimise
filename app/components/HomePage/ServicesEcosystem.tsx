@@ -69,7 +69,7 @@ const ServicesEcosystem = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className=" flex items-center gap-4 justify-between mb-10 space-y-6">
+        <div className=" flex items-center gap-4 justify-between flex-col  lg:flex-row mb-10 space-y-6">
 
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">

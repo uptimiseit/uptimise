@@ -76,7 +76,7 @@ const KnowledgeHub = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end items-center mb-10 gap-8">
           <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 border border-slate-800">
               <BookOpen className="text-blue-400" size={14} />

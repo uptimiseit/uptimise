@@ -45,7 +45,7 @@ const CompareSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="mb-8 space-y-4 flex items-center justify-between">
+        <div className="mb-8 space-y-4 flex items-center  flex-col lg:flex-row justify-between">
           <span className="text-blue-600 font-mono tracking-widest text-sm uppercase font-bold">
             # The Competitive Edge
           </span>

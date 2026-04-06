@@ -208,7 +208,7 @@ export default function MVPDevelopmentPage() {
       </section>
 
       {/* 9. WHY STARTUPS CHOOSE UPTIMISE */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="bg-orange-600 text-white rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl shadow-orange-600/20">
           <div className="flex-1 space-y-6">
             <h2 className="text-4xl font-extrabold tracking-tight">Why Startups Choose Uptimise IT</h2>
@@ -232,7 +232,7 @@ export default function MVPDevelopmentPage() {
       </section>
 
       {/* 10. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-8">
+      <section className="py-16 px-6 text-center max-w-4xl mx-auto space-y-8">
         <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">Stop Dreaming. Start Building.</h2>
         <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
           The market won't wait. Let's build a highly scalable, investor-ready MVP and get your product into the hands of real users.

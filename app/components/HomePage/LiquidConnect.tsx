@@ -321,7 +321,7 @@ import Link from 'next/link';
 
 const PhilosophySectionWhite = () => {
   return (
-    <section className="relative h-screen text-slate-900 py-16 px-6 overflow-hidden bg-linear-to-br from-white to-pink-50 flex items-center justify-center">
+    <section className="relative  text-slate-900 py-24 px-6 overflow-hidden bg-linear-to-br from-white to-pink-50 flex items-center justify-center">
       
       {/* --- MODERN BLOCK BACKGROUND DESIGN --- */}
       <div className="absolute inset-0 pointer-events-none">

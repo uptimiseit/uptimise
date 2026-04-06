@@ -109,7 +109,7 @@ const FactoryArchitecture = () => {
         {/* Pipeline Logic (Original code kept) */}
         <div className="relative pt-10 pb-6">
           <div className="absolute top-[138px] left-0 right-0 h-px bg-slate-100 hidden lg:block" />
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 lg:gap-0">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-0">
             {architectureSteps.map((step) => (
               <div 
                 key={step.id} 

@@ -221,7 +221,7 @@ const TechStack = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header - Engineering Spec Style */}
-        <div className=" flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-slate-100 pb-6">
+        <div className=" flex flex-col md:flex-row justify-between items-center md:items-end gap-6 border-b border-slate-100 pb-6">
           <div className="space-y-4">
             <div className="flex items-center gap-2 font-mono text-[10px] font-black tracking-[0.3em] text-blue-600 uppercase">
               <span className="w-8 h-px bg-blue-600" />
