@@ -215,7 +215,7 @@ export default function PartnerProgramPage() {
       </section>
 
       {/* 6. APPLICATION FORM SECTION */}
-      <section id="apply" className="py-32 px-6 max-w-4xl mx-auto">
+      <section id="apply" className="py-16 px-6 max-w-4xl mx-auto">
         <div className="bg-white rounded-[3rem] p-8 md:p-16 border border-slate-200 shadow-2xl shadow-slate-200/50">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">Become a Partner</h2>

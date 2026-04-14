@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { 
-  Lightbulb, Search, ClipboardCheck, 
+  Search, ClipboardCheck, 
   Box, Code2, ShieldCheck, 
   Terminal, Rocket, ChevronRight,
-  UserCheck, Bot, Activity, Zap, Users, Shield
+  Bot, Activity, Zap, Users, Shield
 } from 'lucide-react';
 
 const architectureSteps = [
@@ -82,81 +82,146 @@ const benefits = [
   { label: "Quality", value: "Enterprise Scale", icon: <Shield size={24} />, num: "04" }
 ];
 
+// --- Animation Variants ---
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0, 
+    transition: { type: "spring", stiffness: 260, damping: 20 } 
+  }
+};
+
+const lineVariants: Variants = {
+  hidden: { scaleX: 0 },
+  visible: { 
+    scaleX: 1, 
+    transition: { duration: 1.5, ease: "easeInOut", delay: 0.5 } 
+  }
+};
+
 const FactoryArchitecture = () => {
   const [hoveredStep, setHoveredStep] = useState<string | null>(null);
 
   return (
-    <section className="relative bg-gradient-to-br from-white to-indigo-50 py-10 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-indigo-50 py-24 px-6 overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="text-center mb-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100">
-            <Bot className="text-blue-600" size={16} />
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 space-y-6"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 shadow-sm">
+            <Bot className="text-blue-600 animate-pulse" size={16} />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">
               System_Architecture_v1.0
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-none">
+          <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.9] uppercase">
             Inside the AI <br />
             <span className="text-blue-600 italic">Software Factory.</span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Pipeline Logic (Original code kept) */}
-        <div className="relative pt-10 pb-6">
-          <div className="absolute top-[138px] left-0 right-0 h-px bg-slate-100 hidden lg:block" />
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-0">
+        {/* Pipeline Logic */}
+        <div className="relative pt-12 pb-12">
+          {/* Animated connection line */}
+          <motion.div 
+            variants={lineVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="absolute top-[138px] left-0 right-0 h-[2px] bg-blue-100 hidden lg:block origin-left" 
+          />
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-0"
+          >
             {architectureSteps.map((step) => (
-              <div 
+              <motion.div 
                 key={step.id} 
+                variants={itemVariants}
                 className="relative flex flex-col items-center lg:w-full group"
                 onMouseEnter={() => setHoveredStep(step.id)}
                 onMouseLeave={() => setHoveredStep(null)}
               >
-                <div className="mb-6 flex flex-col items-center">
+                <div className="mb-6 flex flex-col items-center relative">
                   <span className="text-[10px] font-black font-mono text-slate-300 uppercase tracking-widest mb-4">
                     {step.subtitle}
                   </span>
+                  
+                  {/* Icon Container */}
                   <motion.div 
-                    whileHover={{ scale: 1.1 }}
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 z-20 ${
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 z-20 cursor-pointer shadow-sm ${
                       hoveredStep === step.id 
-                      ? 'bg-blue-600 text-white shadow-xl shadow-blue-200' 
+                      ? 'bg-blue-600 text-white shadow-blue-200 scale-110' 
                       : 'bg-white border border-slate-100 text-slate-400 group-hover:border-blue-500/50'
                     }`}
                   >
                     {step.icon}
                   </motion.div>
+
+                  {/* Active Indicator Pulse */}
+                  {hoveredStep === step.id && (
+                    <motion.div 
+                      layoutId="pulse"
+                      className="absolute inset-0 bg-blue-400/20 rounded-2xl -z-10"
+                      initial={{ scale: 1 }}
+                      animate={{ scale: 1.4, opacity: 0 }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                    />
+                  )}
                 </div>
+
                 <div className="text-center px-4">
-                  <h4 className="text-sm font-black font-header text-slate-950 uppercase tracking-tight mb-2">
+                  <h4 className="text-xs font-black font-header text-slate-950 uppercase tracking-widest mb-2 transition-colors group-hover:text-blue-600">
                     {step.title}
                   </h4>
-                  <div className={`w-1 h-1 rounded-full mx-auto transition-all ${hoveredStep === step.id ? 'bg-blue-600 scale-150' : 'bg-slate-200'}`} />
+                  <div className={`w-1.5 h-1.5 rounded-full mx-auto transition-all duration-300 ${hoveredStep === step.id ? 'bg-blue-600 scale-150 shadow-[0_0_8px_#2563eb]' : 'bg-slate-200'}`} />
                 </div>
+
+                {/* Desktop Detail Popover */}
                 <AnimatePresence>
                   {hoveredStep === step.id && (
                     <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      className="absolute top-40 z-30 w-72 p-6 bg-slate-950 rounded-[2rem] text-white shadow-2xl"
+                      className="absolute top-44 z-40 w-72 p-6 bg-slate-950 rounded-[2.5rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
                     >
                       <div className="space-y-4">
                         <div className="flex items-center gap-2 border-b border-white/10 pb-3">
-                          <Bot size={14} className="text-blue-400" />
-                          <span className="text-[10px] font-black font-mono tracking-widest text-blue-400 uppercase">{step.agent}</span>
+                          <Bot size={14} className="text-blue-400 animate-pulse" />
+                          <span className="text-[10px] font-black font-mono tracking-[0.2em] text-blue-400 uppercase">{step.agent}</span>
                         </div>
                         <p className="text-xs text-slate-400 font-body leading-relaxed">{step.desc}</p>
-                        <div className="space-y-2">
-                          <p className="text-[9px] font-black text-white/40 uppercase tracking-widest">Generates:</p>
+                        <div className="space-y-3">
+                          <p className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em]">Deployment_Artifacts:</p>
                           <div className="flex flex-wrap gap-2">
                             {step.details.map((detail, idx) => (
-                              <span key={idx} className="text-[10px] bg-white/5 border border-white/10 px-2 py-1 rounded-md text-slate-200">{detail}</span>
+                              <span key={idx} className="text-[9px] font-bold font-mono bg-white/5 border border-white/10 px-2 py-1 rounded text-slate-200 uppercase">
+                                {detail}
+                              </span>
                             ))}
                           </div>
                         </div>
@@ -164,59 +229,66 @@ const FactoryArchitecture = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        {/* --- NEW DESIGNED BENEFITS BAR --- */}
-        <div className="mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* --- BENEFITS CARDS --- */}
+        <motion.div 
+          className="mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {benefits.map((benefit, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              transition={{ delay: i * 0.1 }}
-              className="relative p-10 rounded-[2.5rem] bg-white border border-slate-100 flex flex-col justify-between overflow-hidden group cursor-pointer transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-100/40"
+              variants={itemVariants}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="relative p-10 rounded-[3rem] bg-white border border-slate-100 flex flex-col justify-between overflow-hidden group cursor-default transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-200/20"
             >
-              {/* Background Decor: Big Index Number */}
-              <div className="absolute -top-6 -right-4 text-[8rem] font-black text-slate-50 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none group-hover:translate-y-4">
+              {/* Background Decor Index */}
+              <div className="absolute -top-6 -right-4 text-[8rem] font-black text-slate-50 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none group-hover:translate-y-4 font-mono">
                 {benefit.num}
               </div>
 
-              {/* Progress Line */}
+              {/* Top Progress Line */}
               <div className="absolute top-0 left-0 h-[2px] w-0 bg-blue-600 transition-all duration-700 group-hover:w-full" />
 
               <div className="space-y-6 relative z-10">
-                <div className="p-3 bg-slate-50 rounded-xl w-fit text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="p-3 bg-slate-50 rounded-xl w-fit text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm"
+                >
                   {benefit.icon}
-                </div>
+                </motion.div>
                 
-                <div className="space-y-1">
+                <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-all" />
-                    <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.3em] font-mono group-hover:text-blue-600 transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] font-mono group-hover:text-blue-600 transition-colors">
                       {benefit.label}
                     </span>
                   </div>
-                  <h4 className="text-2xl font-black text-slate-950 font-header tracking-tight leading-tight">
+                  <h4 className="text-2xl font-black text-slate-950 font-header tracking-tight leading-tight uppercase">
                     {benefit.value}
                   </h4>
                 </div>
               </div>
 
-              {/* Meta Info Footer */}
+              {/* Card Footer Meta */}
               <div className="mt-8 pt-6 border-t border-slate-50 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <span className="text-[9px] font-mono font-bold text-slate-400 tracking-widest uppercase italic">
-                  Performance_Verified
+                  Status::Verified
                 </span>
-                <ChevronRight className="text-blue-600" size={16} />
+                <ChevronRight className="text-blue-600 group-hover:translate-x-1 transition-transform" size={16} />
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -71,7 +71,7 @@ const CaseStudiesPage = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#FDFDFF] font-sans pt-32 pb-20 overflow-hidden">
+    <main className="min-h-screen bg-[#FDFDFF] font-sans pt-32 pb-10 overflow-hidden">
       
       {/* --- 1. HERO --- */}
       <section className="px-6 mb-24 relative">
@@ -188,7 +188,7 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* --- 4. FINAL CTA --- */}
-      <section className="py-32 px-6">
+      <section className="py-10 px-6">
          <div className="max-w-7xl mx-auto bg-blue-600 rounded-[4rem] p-12 md:p-24 text-center text-white space-y-10 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10">

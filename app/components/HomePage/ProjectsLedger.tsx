@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { 
   BarChart3, Cpu, Smartphone, 
   Database, Boxes, Activity, 
@@ -13,88 +13,131 @@ const projects = [
     title: "Omni-Channel SaaS",
     vertical: "FinTech // E-commerce",
     tech: "Next.js + Go // AWS Lambda",
-    metric: "+340%",
+    metric: "340",
+    metricPrefix: "+",
+    metricSuffix: "%",
     metricLabel: "Efficiency Boost",
     desc: "AI-integrated customer relationship management and automated billing.",
-    icon: <BarChart3 className="text-blue-600" />,
+    icon: <BarChart3 size={24} />,
     featured: true
   },
   {
     title: "AI Compliance Squad",
     vertical: "Healthcare // EdTech",
     tech: "LLM Agents // Python // Docker",
-    metric: "0% Manual Debt",
+    metric: "0",
+    metricSuffix: "% Manual Debt",
     metricLabel: "Audit Pass Rate",
     desc: "Autonomous documentation auditing and regulatory analysis.",
-    icon: <Cpu className="text-emerald-600" />
+    icon: <Cpu size={24} />
   },
   {
     title: "Web3 Wallet Connect",
     vertical: "Blockchain // Finance",
     tech: "Rust + React Native // Kubernetes",
-    metric: "Instant",
+    metric: "INSTANT",
     metricLabel: "Transaction Finality",
     desc: "Non-custodial mobile wallet with cross-chain atomic swaps.",
-    icon: <Database className="text-purple-600" />
+    icon: <Database size={24} />
   },
   {
     title: "Native Booking App",
     vertical: "Services // Mobile",
     tech: "Swift + Kotlin // Node.js",
-    metric: "125k+",
+    metric: "125",
+    metricSuffix: "k+",
     metricLabel: "Active Installs",
     desc: "Real-time resource scheduling and geo-location tracking.",
-    icon: <Smartphone className="text-orange-600" />
+    icon: <Smartphone size={24} />
   }
 ];
 
+// --- Animation Variants ---
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
+  }
+};
+
 const ProjectsLedger = () => {
   return (
-    <section className="relative bg-gradient-to-br from-white to-lime-50 py-10 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-lime-50 py-24 px-6 overflow-hidden">
       {/* Background Decor: The Blueprint Matrix */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:80px_80px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col lg:flex-row justify-between  items-center lg:items-end mb-10 gap-8 text-left">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16 gap-8 text-left"
+        >
           <div className="max-w-2xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
-              <Boxes className="text-blue-600" size={14} />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200">
+              <Boxes className="text-blue-600 animate-spin-slow" size={14} />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 font-mono">
                 Project_Ledger::2026
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl  font-black font-header tracking-tighter text-slate-950 leading-[0.85]">
+            <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
               Proven <br />
-              <span className="text-blue-600 italic">Deployments.</span>
+              <motion.span 
+                animate={{ color: ["#2563eb", "#65a30d", "#2563eb"] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="text-blue-600 italic"
+              >
+                Deployments.
+              </motion.span>
             </h2>
           </div>
-          <p className="text-lg text-slate-500 font-body max-w-sm lg:text-right pb-4 leading-relaxed">
+          <p className="text-lg text-slate-500 font-body max-w-sm lg:text-right font-medium leading-relaxed">
             A small, high-impact selection of the world-class products we've engineered.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {projects.map((project, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`p-10 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between overflow-hidden ${
+              variants={cardVariants}
+              whileHover={{ y: -10 }}
+              className={`p-10 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between overflow-hidden cursor-default ${
                 project.featured 
-                ? 'bg-slate-950 border-slate-800 text-white lg:col-span-2' 
-                : 'bg-white border-slate-100 hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-100/30'
+                ? 'bg-slate-950 border-slate-800 text-white lg:col-span-2 shadow-2xl' 
+                : 'bg-white border-slate-100 hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-200/20'
               }`}
             >
               {/* Active Background Glow for Featured Card */}
               {project.featured && (
-                <div className="absolute inset-0 bg-blue-600/5 blur-[120px] group-hover:bg-blue-600/10 transition-all rounded-full" />
+                <motion.div 
+                  animate={{ opacity: [0.05, 0.15, 0.05] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute inset-0 bg-blue-600 blur-[120px] rounded-full pointer-events-none" 
+                />
               )}
 
               <div className="relative z-10 h-full flex flex-col justify-between">
@@ -106,26 +149,29 @@ const ProjectsLedger = () => {
                     }`}>
                       {project.vertical}
                     </span>
-                    <div className={`px-3 py-1 rounded-full border text-[9px] font-mono font-black tracking-widest ${
+                    <div className={`px-3 py-1 rounded-full border text-[9px] font-mono font-black tracking-widest uppercase ${
                       project.featured ? 'bg-white/10 border-white/20 text-blue-400' : 'bg-slate-50 border-slate-100 text-slate-400'
                     }`}>
-                      DEPLOYED
+                      System_Live
                     </div>
                   </div>
 
                   {/* Icon & Title */}
                   <div className="space-y-4">
-                    <div className={`p-4 rounded-2xl w-fit transition-all duration-300 ${
-                      project.featured ? 'bg-blue-600 text-white' : 'bg-slate-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
-                    }`}>
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className={`p-4 rounded-2xl w-fit transition-all duration-300 shadow-sm ${
+                        project.featured ? 'bg-blue-600 text-white' : 'bg-slate-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                      }`}
+                    >
                       {project.icon}
-                    </div>
-                    <h3 className={`font-header font-black tracking-tight ${
+                    </motion.div>
+                    <h3 className={`font-header font-black tracking-tighter ${
                       project.featured ? 'text-5xl' : 'text-3xl'
-                    } leading-none ${project.featured ? 'text-white' : 'text-slate-950'}`}>
+                    } leading-none uppercase ${project.featured ? 'text-white' : 'text-slate-950'}`}>
                       {project.title}
                     </h3>
-                    <p className={`text-base font-body leading-relaxed max-w-sm ${
+                    <p className={`text-base font-body font-medium leading-relaxed max-w-sm ${
                       project.featured ? 'text-slate-400' : 'text-slate-500'
                     }`}>
                       {project.desc}
@@ -133,22 +179,27 @@ const ProjectsLedger = () => {
                   </div>
                 </div>
 
-                {/* Tech Stack & Key Metric - FIXED TEMPLATE LITERALS */}
+                {/* Tech Stack & Metric */}
                 <div className={`mt-12 flex justify-between items-end gap-6 border-t pt-8 transition-colors ${
                   project.featured ? 'border-white/10' : 'border-slate-100'
                 }`}>
-                   <span className={`text-[10px] font-mono font-bold tracking-wider ${
-                      project.featured ? 'text-blue-300/60' : 'text-slate-400'
-                    }`}>
-                      // {project.tech}
+                   <span className={`text-[10px] font-mono font-black tracking-widest uppercase max-w-[120px] ${
+                      project.featured ? 'text-blue-300/40' : 'text-slate-300'
+                   }`}>
+                      {project.tech}
                    </span>
                    
                    <div className="text-right">
-                      <p className={`text-4xl font-black font-header tracking-tighter leading-none ${
-                         project.featured ? 'text-blue-400' : 'text-blue-600'
-                      }`}>
-                         {project.metric}
-                      </p>
+                      <motion.p 
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                        className={`text-4xl lg:text-5xl font-black font-header tracking-tighter leading-none ${
+                          project.featured ? 'text-blue-400' : 'text-blue-600'
+                        }`}
+                      >
+                         {project.featured && project.metricPrefix}{project.metric}{project.metricSuffix}
+                      </motion.p>
                       <p className={`text-[10px] font-mono font-black tracking-widest uppercase mt-2 ${
                          project.featured ? 'text-slate-500' : 'text-slate-400'
                       }`}>
@@ -161,17 +212,30 @@ const ProjectsLedger = () => {
           ))}
 
           {/* "Continuous Delivery" Card */}
-          <div className="p-10 rounded-[3rem] bg-blue-50 border border-blue-100 flex flex-col justify-center items-center text-center space-y-4 group transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50">
-             <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping" />
-             <h4 className="font-header font-black text-blue-950 text-xl tracking-tight leading-none uppercase">
-               Next Case Study <br /> In_Queue
+          <motion.div 
+            variants={cardVariants}
+            whileHover={{ y: -5 }}
+            className="p-10 rounded-[3rem] bg-blue-50 border border-blue-100 flex flex-col justify-center items-center text-center space-y-6 group transition-all duration-500 hover:bg-white hover:shadow-2xl"
+          >
+             <div className="relative">
+                <div className="w-4 h-4 rounded-full bg-blue-600 animate-ping absolute inset-0" />
+                <div className="w-4 h-4 rounded-full bg-blue-600 relative" />
+             </div>
+             <h4 className="font-header font-black text-blue-950 text-2xl tracking-tighter leading-none uppercase">
+               Next Case Study <br /> <span className="text-blue-600 italic">In_Queue</span>
              </h4>
-             <p className="text-xs font-body text-blue-700/60 leading-relaxed max-w-[200px]">
-               Our AI software factory is currently engineering world-class products for global innovators.
+             <p className="text-xs font-body font-bold text-blue-700/50 leading-relaxed max-w-[200px] uppercase tracking-wider">
+               Our AI software factory is engineering 14 new products for global innovators.
              </p>
-          </div>
+             <motion.div 
+              whileHover={{ x: 5 }}
+              className="flex items-center gap-2 text-[10px] font-black font-mono text-blue-600 uppercase cursor-pointer"
+             >
+               View Full Ledger <ChevronRight size={14} />
+             </motion.div>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );
