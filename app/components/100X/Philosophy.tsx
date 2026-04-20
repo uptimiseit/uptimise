@@ -5,34 +5,34 @@ import { motion, Variants } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const statsVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    transition: { type: "spring", stiffness: 200, damping: 15 } 
-  }
-};
+// const statsVariants: Variants = {
+//   hidden: { opacity: 0, scale: 0.8 },
+//   visible: { 
+//     opacity: 1, 
+//     scale: 1, 
+//     transition: { type: "spring", stiffness: 200, damping: 15 } 
+//   }
+// };
 
 export const PhilosophyHero = () => {
   return (
@@ -59,14 +59,14 @@ export const PhilosophyHero = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none" />
 
       <motion.div 
-        variants={containerVariants}
+        // variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="max-w-7xl mx-auto relative z-10 text-center"
       >
         {/* Badge */}
         <motion.div 
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 backdrop-blur-sm"
         >
           <Zap size={14} className="text-blue-400 animate-pulse" />
@@ -77,7 +77,7 @@ export const PhilosophyHero = () => {
 
         {/* Heading */}
         <motion.h1 
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="text-6xl md:text-9xl font-black tracking-tighter text-white leading-[0.85] mb-12 uppercase"
         >
           The <motion.span 
@@ -92,7 +92,7 @@ export const PhilosophyHero = () => {
 
         {/* Description */}
         <motion.p 
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="text-xl md:text-2xl text-slate-400 font-body max-w-3xl mx-auto leading-relaxed font-medium"
         >
           The future of software development isn&apos;t about larger teams. <br />
@@ -101,7 +101,7 @@ export const PhilosophyHero = () => {
 
         {/* Stats Multiplier Bar */}
         <motion.div 
-          variants={containerVariants}
+          // variants={containerVariants}
           className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-16"
         >
            {[
@@ -112,7 +112,7 @@ export const PhilosophyHero = () => {
            ].map((stat, i) => (
              <motion.div 
               key={i} 
-              variants={statsVariants}
+              // variants={statsVariants}
               whileHover={{ y: -5 }}
               className="text-center group cursor-default"
              >

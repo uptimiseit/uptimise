@@ -11,31 +11,31 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
-const hoverCard: Variants = {
-  hover: { 
-    y: -8, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverCard: Variants = {
+//   hover: { 
+//     y: -8, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function AIProductDevelopmentPage() {
   return (
@@ -53,14 +53,14 @@ export default function AIProductDevelopmentPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-purple-600 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-purple-600 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <BrainCircuit size={16} className="animate-pulse" /> Generative AI & Agentic Systems
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Engineering Next-Generation <br className="hidden md:block" />
             <motion.span 
                animate={{ color: ["#9333ea", "#6366f1", "#9333ea"] }}
@@ -71,11 +71,11 @@ export default function AIProductDevelopmentPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Transform your business with intelligent software. We design, train, and deploy secure AI products—from custom LLM wrappers and RAG pipelines to fully autonomous agentic workflows.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-purple-600 text-white font-bold rounded-xl shadow-lg shadow-purple-600/20 hover:bg-purple-700 transition-all text-lg block">
                 Discuss Your AI Vision
@@ -104,7 +104,7 @@ export default function AIProductDevelopmentPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -117,7 +117,7 @@ export default function AIProductDevelopmentPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover="hover"
                 // variants={hoverCardx}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300 group"
@@ -197,7 +197,7 @@ export default function AIProductDevelopmentPage() {
             <h2 className="text-4xl font-bold tracking-tight text-white uppercase tracking-tighter">Build Ecosystem</h2>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -211,7 +211,7 @@ export default function AIProductDevelopmentPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover={{ y: -10, backgroundColor: "#1e293b" }}
                 className="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-purple-500 transition-all group"
               >
@@ -241,16 +241,24 @@ export default function AIProductDevelopmentPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Models</h4><p className="text-slate-500 text-xs font-medium">GPT-4, Claude, Llama</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Chains</h4><p className="text-slate-500 text-xs font-medium">LangChain, AutoGen</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Storage</h4><p className="text-slate-500 text-xs font-medium">Pinecone, pgvector</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Infra</h4><p className="text-slate-500 text-xs font-medium">Next.js, Bedrock</p></motion.div>
+             <motion.div
+              // 
+              className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Models</h4><p className="text-slate-500 text-xs font-medium">GPT-4, Claude, Llama</p></motion.div>
+             <motion.div
+              //  
+              className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Chains</h4><p className="text-slate-500 text-xs font-medium">LangChain, AutoGen</p></motion.div>
+             <motion.div
+              // 
+               className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Storage</h4><p className="text-slate-500 text-xs font-medium">Pinecone, pgvector</p></motion.div>
+             <motion.div 
+            //  
+              className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-purple-600 font-bold mb-1 text-sm uppercase font-mono">Infra</h4><p className="text-slate-500 text-xs font-medium">Next.js, Bedrock</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -314,7 +322,7 @@ export default function AIProductDevelopmentPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -329,7 +337,7 @@ export default function AIProductDevelopmentPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              // 
               className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-purple-400 transition-colors relative overflow-hidden group"
             >
                <div className="text-xs font-black text-purple-600 mb-3 uppercase tracking-widest font-mono">Phase_{process.step}</div>

@@ -9,25 +9,25 @@ import {
 import Image from 'next/image';
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.1,
+//     },
+//   },
+// };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.5, ease: "easeOut" } 
+//   }
+// };
 
 const Footer = () => {
   return (
@@ -37,13 +37,15 @@ const Footer = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        variants={containerVariants}
+        // variants={containerVariants}
       >
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           
           {/* 1. BRAND BLOCK */}
-          <motion.div variants={fadeInUp} className="lg:col-span-4 space-y-6">
+          <motion.div
+          //  variants={fadeInUp}
+            className="lg:col-span-4 space-y-6">
             <div className="space-y-4">
               <motion.div whileHover={{ scale: 1.02 }} className="w-fit">
                 <Image src="/logo.png" alt="Uptimise IT" height={32} width={130} className="brightness-0" />
@@ -95,7 +97,9 @@ const Footer = () => {
 
           {/* 2. LINKS MATRIX */}
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <motion.div variants={fadeInUp}>
+            <motion.div
+            //  variants={fadeInUp}
+            >
               <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6 font-mono border-l-2 border-blue-600 pl-3">
                 Solutions
               </h4>
@@ -113,7 +117,9 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            <motion.div variants={fadeInUp}>
+            <motion.div
+            //  variants={fadeInUp}
+             >
               <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6 font-mono border-l-2 border-slate-200 pl-3">
                 Philosophy
               </h4>
@@ -131,7 +137,9 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            <motion.div variants={fadeInUp}>
+            <motion.div 
+            // variants={fadeInUp}
+            >
               <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6 font-mono border-l-2 border-slate-200 pl-3">
                 Company
               </h4>
@@ -150,7 +158,9 @@ const Footer = () => {
             </motion.div>
             
             {/* 3. SUBSCRIBE */}
-            <motion.div variants={fadeInUp} className="col-span-2 md:col-span-1">
+            <motion.div
+            //  variants={fadeInUp} 
+             className="col-span-2 md:col-span-1">
               <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6 font-mono border-l-2 border-slate-200 pl-3">
                 Subscribe
               </h4>
@@ -174,7 +184,7 @@ const Footer = () => {
 
         {/* --- BOTTOM BAR --- */}
         <motion.div 
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8"
         >
           <div className="flex flex-wrap justify-center gap-8">

@@ -56,22 +56,22 @@ const techData = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+//   }
+// };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
-  }
-};
+// const itemVariants: Variants = {
+//   hidden: { opacity: 0, x: -20 },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0, 
+//     transition: { duration: 0.5, ease: "easeOut" } 
+//   }
+// };
 
 const TechStack = () => {
   const [activeTab, setActiveTab] = useState(techData[0]);
@@ -90,11 +90,13 @@ const TechStack = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
+        // variants={containerVariants}
       >
         
         {/* Header - Engineering Spec Style */}
-        <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 border-b border-slate-100 pb-10 mb-10">
+        <motion.div 
+        // variants={itemVariants}
+         className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 border-b border-slate-100 pb-10 mb-10">
           <div className="space-y-4">
             <div className="flex items-center gap-2 font-mono text-[10px] font-black tracking-[0.3em] text-blue-600 uppercase">
               <motion.span 
@@ -117,7 +119,9 @@ const TechStack = () => {
         <div className="flex flex-col lg:flex-row gap-4">
           
           {/* Left Side: Navigation Slots */}
-          <motion.div variants={itemVariants} className="lg:w-1/2 flex flex-col gap-3">
+          <motion.div 
+          // variants={itemVariants}
+           className="lg:w-1/2 flex flex-col gap-3">
             {techData.map((item) => (
               <button
                 key={item.id}
@@ -158,7 +162,7 @@ const TechStack = () => {
 
           {/* Right Side: The Content Blade */}
           <motion.div 
-            variants={itemVariants}
+            // variants={itemVariants}
             className="lg:w-1/2 min-h-[550px] relative rounded-[2.5rem] overflow-hidden bg-slate-950 flex flex-col justify-center items-center p-12 shadow-inner"
           >
             {/* Background Texture for the "Blade" */}
@@ -218,7 +222,7 @@ const TechStack = () => {
 
         {/* Global Tech Footer */}
         <motion.div 
-          variants={itemVariants}
+          // variants={itemVariants}
           className="mt-16 flex flex-col md:flex-row justify-between items-center text-[10px] font-black font-mono text-slate-300 uppercase tracking-[0.4em] gap-4"
         >
            <span>High_Concurrency_Safety</span>

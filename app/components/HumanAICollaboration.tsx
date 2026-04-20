@@ -13,31 +13,31 @@ import {
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 // --- Framer Motion Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.3 }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+//   }
+// };
 
-const aiPointVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const aiPointVariants: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const humanPointVariants: Variants = {
-  hidden: { opacity: 0, y: -30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const humanPointVariants: Variants = {
+//   hidden: { opacity: 0, y: -30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
 const HumanAICollaboration = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +81,7 @@ const HumanAICollaboration = () => {
           
           {/* LEFT: THE AI ENGINE */}
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -103,7 +103,7 @@ const HumanAICollaboration = () => {
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
-                  variants={aiPointVariants}
+                  // variants={aiPointVariants}
                   whileHover={{ x: 10, backgroundColor: "#ffffff", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)" }}
                   className="flex items-center gap-6 p-6 bg-white/50 rounded-2xl border border-slate-100 transition-colors"
                 >
@@ -116,7 +116,7 @@ const HumanAICollaboration = () => {
 
           {/* RIGHT: THE ELITE ENGINEER */}
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -140,7 +140,7 @@ const HumanAICollaboration = () => {
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
-                  variants={humanPointVariants}
+                  // variants={humanPointVariants}
                   whileHover={{ x: -10, backgroundColor: "rgba(255,255,255,0.08)" }}
                   className="flex items-center gap-6 p-6 bg-white/5 border border-white/10 rounded-2xl transition-colors"
                 >

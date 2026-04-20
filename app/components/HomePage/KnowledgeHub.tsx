@@ -68,26 +68,26 @@ const articles = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  },
-};
+// const itemVariants: Variants = {
+//   hidden: { opacity: 0, y: 20, scale: 0.98 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   },
+// };
 
 const KnowledgeHub = () => {
   return (
@@ -100,11 +100,13 @@ const KnowledgeHub = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
+        // variants={containerVariants}
       >
         
         {/* Header Block */}
-        <motion.div variants={itemVariants} className="flex flex-col lg:flex-row justify-between lg:items-end items-center mb-16 gap-8 text-center lg:text-left">
+        <motion.div
+        //  variants={itemVariants}
+         className="flex flex-col lg:flex-row justify-between lg:items-end items-center mb-16 gap-8 text-center lg:text-left">
           <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-950 border border-slate-800 shadow-xl">
               <BookOpen className="text-blue-400 animate-pulse" size={14} />
@@ -132,7 +134,7 @@ const KnowledgeHub = () => {
           
           {/* Main Featured Article */}
           <motion.div
-            variants={itemVariants}
+            // variants={itemVariants}
             whileHover={{ y: -8 }}
             className="lg:col-span-2 p-10 rounded-[3rem] bg-slate-950 text-white flex flex-col justify-between group cursor-pointer relative overflow-hidden shadow-2xl"
           >
@@ -181,7 +183,7 @@ const KnowledgeHub = () => {
           {articles.map((post, i) => (
             <motion.div
               key={i}
-              variants={itemVariants}
+              // variants={itemVariants}
               whileHover={{ y: -8 }}
               className="p-8 rounded-[2.5rem] bg-white border border-slate-100 flex flex-col justify-between group hover:shadow-2xl hover:shadow-blue-200/20 transition-all duration-500 cursor-pointer"
             >

@@ -10,24 +10,24 @@ import {
 } from 'lucide-react';
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.6, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
 const projects = [
   {
@@ -89,20 +89,20 @@ const CaseStudiesPage = () => {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="max-w-7xl mx-auto relative z-10 text-center space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800">
+          <motion.div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800">
             <Terminal size={12} className="text-blue-400" />
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white font-mono">Proof_Of_Execution_v1.0</span>
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+          <motion.h1  className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
             Engineering <br />
             <span className="text-blue-600 italic">Benchmarks.</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+          <motion.p  className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
             Real technology solutions built by Uptimise IT. From startup MVPs to mission-critical enterprise systems.
           </motion.p>
         </motion.div>
@@ -114,14 +114,14 @@ const CaseStudiesPage = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="max-w-7xl mx-auto grid grid-cols-1 gap-6"
         >
           {projects.map((project) => (
             <motion.div 
               key={project.id}
               layout
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className={`group relative rounded-[3rem] border transition-all duration-500 overflow-hidden ${
                 expandedId === project.id ? 'bg-white border-blue-600 shadow-2xl scale-[1.02]' : 'bg-white border-slate-100 hover:border-slate-300'
               }`}

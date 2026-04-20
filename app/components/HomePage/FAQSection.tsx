@@ -32,31 +32,31 @@ const faqs = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+//   }
+// };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const accordionVariants: Variants = {
-  hidden: { opacity: 0, x: 20 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
-  }
-};
+// const accordionVariants: Variants = {
+//   hidden: { opacity: 0, x: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0, 
+//     transition: { duration: 0.5, ease: "easeOut" } 
+//   }
+// };
 
 const FAQSection = () => {
   const [activeIdx, setActiveIdx] = useState<number | null>(0);
@@ -72,19 +72,24 @@ const FAQSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          // variants={containerVariants}
         >
           
           {/* LEFT: Header Stage */}
           <div className="lg:col-span-5 space-y-8">
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 shadow-sm">
+            <motion.div 
+            // variants={fadeInUp} 
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 shadow-sm">
               <HelpCircle className="text-blue-600 animate-pulse" size={14} />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">
                 Support_Registry::v1.0
               </span>
             </motion.div>
             
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
+            <motion.h2 
+            // variants={fadeInUp}
+             
+            className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
               Common <br />
               <motion.span 
                 animate={{ color: ["#2563eb", "#6366f1", "#2563eb"] }}
@@ -95,11 +100,15 @@ const FAQSection = () => {
               </motion.span>
             </motion.h2>
             
-            <motion.p variants={fadeInUp} className="text-lg text-slate-500 font-medium leading-relaxed max-w-sm">
+            <motion.p 
+            // variants={fadeInUp}
+             className="text-lg text-slate-500 font-medium leading-relaxed max-w-sm">
               Everything you need to know about our AI-Native Software Factory and engineering philosophy.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="pt-8">
+            <motion.div 
+            // variants={fadeInUp}
+             className="pt-8">
               <motion.div 
                 whileHover={{ scale: 1.02 }}
                 className="p-8 rounded-[2.5rem] bg-slate-950 text-white relative overflow-hidden group shadow-2xl"
@@ -121,7 +130,7 @@ const FAQSection = () => {
             {faqs.map((faq, i) => (
               <motion.div 
                 key={i}
-                variants={accordionVariants}
+                // variants={accordionVariants}
                 className={`rounded-[2rem] border transition-all duration-500 overflow-hidden ${
                   activeIdx === i 
                   ? 'bg-slate-50 border-blue-200 shadow-xl shadow-blue-100/20' 

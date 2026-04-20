@@ -12,31 +12,31 @@ import {
 } from "lucide-react";
 
 // --- Typesafe Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function EcommerceIndustryPage() {
   return (
@@ -55,14 +55,18 @@ export default function EcommerceIndustryPage() {
         <motion.div 
           initial="hidden" 
           animate="visible" 
-          variants={staggerContainer} 
+          // variants={staggerContainer} 
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div 
+          //  
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <ShoppingCart size={16} /> Enterprise Commerce
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1 
+          //  
+          className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Architecting High-Conversion <br className="hidden md:block" />
             <motion.span 
                animate={{ color: ["#059669", "#4f46e5", "#059669"] }}
@@ -73,11 +77,15 @@ export default function EcommerceIndustryPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p 
+          //  
+          className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             We engineer sub-second, headless commerce platforms that turn clicks into revenue. From global D2C brands to complex B2B wholesale portals, we build retail infrastructure designed for massive scale.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div 
+          //  
+          className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link href="/contact" className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 transition-all text-lg block">
                     Build Your E-commerce Platform
@@ -106,7 +114,7 @@ export default function EcommerceIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer} 
+            // variants={staggerContainer} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
@@ -119,9 +127,9 @@ export default function EcommerceIndustryPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                // variants={fadeInUp}
+                // 
                 whileHover="hover"
-                variants={hoverScale}
+                // variants={hoverScale}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300 group"
               >
                 <div className="mb-6 bg-red-50 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">{challenge.icon}</div>
@@ -230,7 +238,7 @@ export default function EcommerceIndustryPage() {
             <p className="text-lg text-slate-600 font-medium">Tailored commerce engines designed for your exact business model.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer} 
+            // variants={staggerContainer} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
@@ -244,7 +252,7 @@ export default function EcommerceIndustryPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-500 transition-all group"
               >
@@ -279,16 +287,16 @@ export default function EcommerceIndustryPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer} 
+            // variants={staggerContainer} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Commerce Engines</h4><p className="text-slate-600 text-xs font-medium">Shopify Plus, Saleor, Medusa</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Headless Frontend</h4><p className="text-slate-600 text-xs font-medium">Next.js, React, Tailwind CSS</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Search & Discovery</h4><p className="text-slate-600 text-xs font-medium">Algolia, Meilisearch</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Payments & Logic</h4><p className="text-slate-600 text-xs font-medium">Stripe, Node.js Middlewares</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Commerce Engines</h4><p className="text-slate-600 text-xs font-medium">Shopify Plus, Saleor, Medusa</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Headless Frontend</h4><p className="text-slate-600 text-xs font-medium">Next.js, React, Tailwind CSS</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Search & Discovery</h4><p className="text-slate-600 text-xs font-medium">Algolia, Meilisearch</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-700 font-bold mb-2 text-sm">Payments & Logic</h4><p className="text-slate-600 text-xs font-medium">Stripe, Node.js Middlewares</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -358,7 +366,7 @@ export default function EcommerceIndustryPage() {
         </motion.div>
         
         <motion.div 
-            variants={staggerContainer} 
+            // variants={staggerContainer} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
@@ -373,7 +381,7 @@ export default function EcommerceIndustryPage() {
           ].map((process, idx) => (
             <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-emerald-400 transition-colors relative overflow-hidden group"
             >
                <div className="text-xs font-black text-emerald-600 mb-3 uppercase tracking-widest font-mono">Phase_{process.step}</div>
@@ -387,23 +395,23 @@ export default function EcommerceIndustryPage() {
       {/* 8. BUSINESS BENEFITS */}
       <section className="py-24 px-6 border-y border-slate-100 bg-white">
         <motion.div 
-            variants={staggerContainer} 
+            // variants={staggerContainer} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
             className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center">
             <LineChart className="w-12 h-12 mx-auto text-emerald-600 mb-6" />
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Conversion Lift</h3>
             <p className="text-slate-600 text-sm font-medium">Every 100ms lag costs 1% sales. Our sub-second headless builds directly increase your platform GMV.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center">
             <ShieldCheck className="w-12 h-12 mx-auto text-indigo-600 mb-6" />
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">BFCM Resilience</h3>
             <p className="text-slate-600 text-sm font-medium">Decoupled architecture relies on global CDNs, preventing database crashes during viral traffic spikes.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center">
             <RefreshCcw className="w-12 h-12 mx-auto text-blue-600 mb-6" />
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Omnichannel Agility</h3>
             <p className="text-slate-600 text-sm font-medium">Push products to Web, Apps, and POS systems from a single decoupled commerce engine.</p>

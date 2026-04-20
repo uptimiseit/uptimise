@@ -4,38 +4,38 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Calendar, ArrowRight, Zap, ShieldCheck, Cpu } from 'lucide-react';
 
-// --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2
-    }
-  }
-};
+// // --- Animation Variants ---
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15,
+//       delayChildren: 0.2
+//     }
+//   }
+// };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const pulseVariants: Variants = {
-  animate: {
-    scale: [1, 1.1, 1],
-    opacity: [0.15, 0.3, 0.15],
-    transition: {
-      duration: 8,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
+// const pulseVariants: Variants = {
+//   animate: {
+//     scale: [1, 1.1, 1],
+//     opacity: [0.15, 0.3, 0.15],
+//     transition: {
+//       duration: 8,
+//       repeat: Infinity,
+//       ease: "easeInOut"
+//     }
+//   }
+// };
 
 const FinalCTA = () => {
   return (
@@ -59,25 +59,25 @@ const FinalCTA = () => {
 
           {/* Interactive Orbs - Animated */}
           <motion.div 
-            variants={pulseVariants}
+            // variants={pulseVariants}
             animate="animate"
             className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600 rounded-full blur-[120px] pointer-events-none" 
           />
           <motion.div 
-            variants={pulseVariants}
+            // variants={pulseVariants}
             animate="animate"
             className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-600 rounded-full blur-[120px] pointer-events-none" 
           />
 
           {/* Content Stack */}
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             className="relative z-10 max-w-4xl mx-auto space-y-12"
           >
             
             {/* The "Vision" Badge */}
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
             >
               <Zap size={14} className="text-blue-400 animate-pulse" />
@@ -87,7 +87,7 @@ const FinalCTA = () => {
             </motion.div>
 
             <motion.h2 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="text-4xl md:text-7xl font-black font-header tracking-tighter text-white leading-[0.85] uppercase"
             >
               Build Your Next <br />
@@ -102,7 +102,7 @@ const FinalCTA = () => {
             </motion.h2>
 
             <motion.p 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="text-xl text-slate-400 font-body max-w-2xl mx-auto leading-relaxed font-medium"
             >
               Stop settling for traditional agency cycles. Deploy your vision through 
@@ -111,7 +111,7 @@ const FinalCTA = () => {
 
             {/* The "Execution" Button */}
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6"
             >
               <motion.button 
@@ -128,7 +128,7 @@ const FinalCTA = () => {
 
             {/* Credibility Footer */}
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 border-t border-white/10"
             >
               {[

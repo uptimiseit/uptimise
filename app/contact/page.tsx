@@ -276,22 +276,22 @@ import {
   Phone, Paperclip, FileText, X, ChevronDown, UploadCloud
 } from 'lucide-react';
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.15 }
+//   }
+// };
 
 const countryCodes = [
   { code: "+91", label: "IN", flag: "🇮🇳" },
@@ -375,17 +375,25 @@ const ContactPage = () => {
       {/* --- HERO HEADER --- */}
       <section className="bg-slate-950 pt-40 pb-24 px-6 relative overflow-hidden">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.05 }} className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
+        <motion.div initial="hidden" animate="visible"
+        //  variants={staggerContainer}
+          className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
           <div className="space-y-6">
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+            <motion.div
+            //  variants={fadeInUp}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
               <Terminal size={12} className="text-blue-400" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 font-mono">Communication_Protocol::v2.0</span>
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none uppercase">
+            <motion.h1
+            //  variants={fadeInUp}
+              className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none uppercase">
               Deploy <br /> <motion.span animate={{ color: ["#3b82f6", "#60a5fa", "#3b82f6"] }} transition={{ duration: 4, repeat: Infinity }} className="text-blue-500 italic">Vision.</motion.span>
             </motion.h1>
           </div>
-          <motion.p variants={fadeInUp} className="text-slate-400 text-lg max-w-sm font-medium border-l border-white/10 pl-8 pb-4 leading-relaxed">
+          <motion.p
+          //  variants={fadeInUp} 
+           className="text-slate-400 text-lg max-w-sm font-medium border-l border-white/10 pl-8 pb-4 leading-relaxed">
             Submit your technical brief. Our engineering leads review all intakes within 12 hours.
           </motion.p>
         </motion.div>
@@ -395,15 +403,21 @@ const ContactPage = () => {
       <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
         
         {/* LEFT: Info */}
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="lg:col-span-4 space-y-16">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} 
+        // variants={staggerContainer}
+         className="lg:col-span-4 space-y-16">
           <div className="space-y-8">
-            <motion.h4 variants={fadeInUp} className="text-[12px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Direct_Gateway</motion.h4>
+            <motion.h4
+            //  variants={fadeInUp}
+              className="text-[12px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"># Direct_Gateway</motion.h4>
             <div className="space-y-8">
               {[
                 { label: "Engineering Intake", value: "sales@uptimiseit.com", icon: <Mail /> },
                 { label: "Rapid Response", value: "+91 97622 29023", icon: <MessageSquare /> }
               ].map((channel, idx) => (
-                <motion.div key={idx} variants={fadeInUp} whileHover={{ x: 10 }} className="group flex gap-6 items-start cursor-pointer">
+                <motion.div key={idx} 
+                // variants={fadeInUp}
+                 whileHover={{ x: 10 }} className="group flex gap-6 items-start cursor-pointer">
                   <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
                     {channel.icon}
                   </div>
@@ -415,7 +429,10 @@ const ContactPage = () => {
               ))}
             </div>
           </div>
-          <motion.div variants={fadeInUp} className="pt-12 border-t border-slate-100 flex gap-4">
+          <motion.div 
+          //  variants={fadeInUp}
+           
+           className="pt-12 border-t border-slate-100 flex gap-4">
             {[<Linkedin key="l" />, <Twitter key="t" />, <Github key="g" />, <Globe key="gl" />].map((icon, i) => (
               <motion.div key={i} whileHover={{ y: -5, color: "#2563eb" }} className="w-12 h-12 rounded-xl border border-slate-100 flex items-center justify-center text-slate-300 cursor-pointer transition-all">
                 {icon}

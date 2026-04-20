@@ -5,24 +5,24 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
 export default function CareersPage() {
   const roles = [
@@ -56,19 +56,19 @@ export default function CareersPage() {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-6"
         >
-          <motion.h3 variants={fadeInUp} className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
+          <motion.h3  className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
             Careers at Uptimise IT
           </motion.h3>
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-tight">
             Building the Future of <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
               AI-Native Engineering
             </span>
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Join a technology company focused on the future of digital product development. Work alongside intelligent systems, modern infrastructure, and elite teams.
           </motion.p>
         </motion.div>
@@ -137,7 +137,7 @@ export default function CareersPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            // variants={fadeInUp}
             className="text-center max-w-3xl mx-auto space-y-6 mb-16"
           >
             <h3 className="text-blue-400 font-semibold tracking-widest uppercase text-sm">The Developer Experience</h3>
@@ -149,13 +149,13 @@ export default function CareersPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={staggerContainer}
+            // variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {tools.map((block, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="bg-[#111827] border border-slate-800 rounded-2xl p-6 hover:bg-[#161e2e] transition-colors"
               >
                 <h4 className="text-slate-300 font-bold mb-4 pb-4 border-b border-slate-800 uppercase text-xs tracking-tighter">{block.category}</h4>
@@ -193,13 +193,13 @@ export default function CareersPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {roles.map((role, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               whileHover="hover"
               // variants={hoverCard}
               className="p-8 rounded-3xl border border-slate-200 bg-white transition-all cursor-pointer flex flex-col justify-between space-y-6"

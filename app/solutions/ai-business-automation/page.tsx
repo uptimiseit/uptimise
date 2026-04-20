@@ -11,32 +11,32 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    y: -5,
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     y: -5,
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function AIBusinessAutomationPage() {
   return (
@@ -55,23 +55,28 @@ export default function AIBusinessAutomationPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // 
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div
+          //  
+           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <BrainCircuit size={16} className="animate-pulse" /> Cognitive Automation
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1 
+          
+          // 
+           className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Give Your Business a <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-amber-500 italic">Cognitive Engine</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Standard automation only handles predictable tasks. We engineer AI-driven autonomous systems that can read unstructured documents, make complex decisions, and execute business operations 24/7.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/20 hover:bg-indigo-700 transition-all text-lg block">
                 Automate My Operations
@@ -100,7 +105,7 @@ export default function AIBusinessAutomationPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -113,7 +118,7 @@ export default function AIBusinessAutomationPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover="hover"
                 // variants={hoverScale}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-amber-400 transition-all duration-300 group"
@@ -208,7 +213,7 @@ export default function AIBusinessAutomationPage() {
             <h2 className="text-4xl font-bold tracking-tight text-white uppercase tracking-tighter">AI Build Ecosystem</h2>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -222,7 +227,7 @@ export default function AIBusinessAutomationPage() {
             ].map((sys, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5, backgroundColor: "#1e293b" }}
                 className="bg-slate-800 p-8 md:p-10 rounded-3xl border border-slate-700 hover:border-indigo-500 transition-all group"
               >
@@ -261,16 +266,16 @@ export default function AIBusinessAutomationPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Reasoning</h4><p className="text-slate-500 text-xs font-medium">GPT-4, Claude 3</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Memory</h4><p className="text-slate-500 text-xs font-medium">Vector DB (RAG)</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Orchestration</h4><p className="text-slate-500 text-xs font-medium">LangChain, AutoGen</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Vision</h4><p className="text-slate-500 text-xs font-medium">AWS Textract</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Reasoning</h4><p className="text-slate-500 text-xs font-medium">GPT-4, Claude 3</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Memory</h4><p className="text-slate-500 text-xs font-medium">Vector DB (RAG)</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Orchestration</h4><p className="text-slate-500 text-xs font-medium">LangChain, AutoGen</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center"><h4 className="text-indigo-600 font-bold mb-1 text-sm uppercase">Vision</h4><p className="text-slate-500 text-xs font-medium">AWS Textract</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -310,23 +315,23 @@ export default function AIBusinessAutomationPage() {
       {/* 8. ROI BENEFITS */}
       <section className="py-24 px-6 border-y border-slate-100 bg-white">
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mb-6"><Clock size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Instant Speed</h3>
             <p className="text-slate-600 text-sm font-medium">Tasks that took employees 45 minutes are executed by AI in under 3 seconds.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mb-6"><TrendingUp size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Infinite Scale</h3>
             <p className="text-slate-600 text-sm font-medium">Process 10 invoices or 10,000 a day without hiring a single new back-office employee.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mb-6"><ShieldCheck size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Zero Error</h3>
             <p className="text-slate-600 text-sm font-medium">Eliminate typos, copy-paste errors, and data inconsistencies permanently from your business.</p>

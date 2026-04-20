@@ -8,32 +8,32 @@ import { MovingBorderButton } from "../MovingBorderButton";
 
 export default function Hero() {
   // Enhanced Animation Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Staggers the entry of each child element
-        delayChildren: 0.3,
-      },
-    },
-  };
+  // const containerVariants = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.2, // Staggers the entry of each child element
+  //       delayChildren: 0.3,
+  //     },
+  //   },
+  // };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8 } 
-    },
-  };
+  // const fadeInUp = {
+  //   hidden: { opacity: 0, y: 30 },
+  //   visible: { 
+  //     opacity: 1, 
+  //     y: 0,
+  //     transition: { duration: 0.8 } 
+  //   },
+  // };
 
-  const floatingAnimation = {
-    initial: { y: 0 },
-    animate: {
-      y: [0, -15, 0],
-    },
-  };
+  // const floatingAnimation = {
+  //   initial: { y: 0 },
+  //   animate: {
+  //     y: [0, -15, 0],
+  //   },
+  // };
 
   return (
     <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-[#FDFDFF] py-16 lg:py-24">
@@ -70,7 +70,7 @@ export default function Hero() {
             className="order-2 lg:order-1 flex items-center justify-center w-full"
           >
             <motion.div 
-              variants={floatingAnimation}
+              // variants={floatingAnimation}
               initial="initial"
               animate="animate"
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -84,7 +84,7 @@ export default function Hero() {
 
           {/* RIGHT: High-Impact Copy */}
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="order-1 lg:order-2 flex flex-col gap-8 text-center lg:text-left"
@@ -92,7 +92,7 @@ export default function Hero() {
             <div className="space-y-6 flex flex-col items-center lg:items-start">
               {/* Badge */}
               <motion.div
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm"
               >
                 <span className="relative flex h-2 w-2">
@@ -105,7 +105,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.h1
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-tight text-slate-900 leading-[1.05]"
               >
                 AI-Native <br />
@@ -121,7 +121,7 @@ export default function Hero() {
             </div>
 
             <motion.p
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal mx-auto lg:mx-0"
             >
               Uptimise IT combines orchestrated AI agents and elite engineers 
@@ -131,7 +131,7 @@ export default function Hero() {
 
             {/* CTA Group */}
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-4 w-full"
             >
               <motion.div 

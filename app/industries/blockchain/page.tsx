@@ -12,33 +12,33 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const blockPulse: Variants = {
-  initial: { scale: 1, opacity: 0.8 },
-  animate: { 
-    scale: [1, 1.05, 1],
-    opacity: [0.8, 1, 0.8],
-    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-  }
-};
+// const blockPulse: Variants = {
+//   initial: { scale: 1, opacity: 0.8 },
+//   animate: { 
+//     scale: [1, 1.05, 1],
+//     opacity: [0.8, 1, 0.8],
+//     transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+//   }
+// };
 
 export default function BlockchainIndustryPage() {
   return (
@@ -56,14 +56,18 @@ export default function BlockchainIndustryPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-6"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div 
+          // variants={fadeInUp}
+           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Hexagon size={16} className="animate-spin-slow" /> Web3 & Blockchain Engineering
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1
+          //  variants={fadeInUp}
+            className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Architecting the <br className="hidden md:block" />
             <motion.span 
               animate={{ color: ["#ea580c", "#f59e0b", "#ea580c"] }}
@@ -74,11 +78,15 @@ export default function BlockchainIndustryPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
+          <motion.p 
+          // variants={fadeInUp}
+           className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
             We engineer secure, high-performance Web3 platforms. From audited smart contracts to scalable dApps and tokenized enterprise ecosystems, we build infrastructure for the next generation of finance.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div
+          //  variants={fadeInUp} 
+           className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-orange-600 text-white font-bold rounded-xl shadow-lg shadow-orange-100 hover:bg-orange-700 transition-all text-lg block uppercase tracking-wider">
                 Build Your dApp
@@ -107,7 +115,7 @@ export default function BlockchainIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -120,7 +128,7 @@ export default function BlockchainIndustryPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+              
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-orange-200 transition-all duration-300 group"
               >
@@ -194,7 +202,7 @@ export default function BlockchainIndustryPage() {
                </div>
 
                <motion.div 
-                variants={blockPulse}
+                // variants={blockPulse}
                 initial="initial"
                 animate="animate"
                 className="bg-orange-50 border border-orange-200 p-6 rounded-2xl text-center w-full shadow-sm relative"
@@ -232,7 +240,7 @@ export default function BlockchainIndustryPage() {
             <p className="text-lg text-slate-500 font-medium">From DeFi protocols to institutional RWA tokenization.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -246,7 +254,7 @@ export default function BlockchainIndustryPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-orange-400 transition-all group"
               >
@@ -281,16 +289,25 @@ export default function BlockchainIndustryPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">Contracts</h4><p className="text-slate-500 text-xs">Solidity, Rust, Yul</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">Networks</h4><p className="text-slate-500 text-xs">Eth, Solana, L2s</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">Frontend</h4><p className="text-slate-500 text-xs">Next.js, Wagmi</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">DevOps</h4><p className="text-slate-500 text-xs">Foundry, Slither</p></motion.div>
+             <motion.div 
+            //  variants={fadeInUp} 
+             className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">Contracts</h4><p className="text-slate-500 text-xs">Solidity, Rust, Yul</p></motion.div>
+             <motion.div 
+            //  variants={fadeInUp}
+              className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">Networks</h4><p className="text-slate-500 text-xs">Eth, Solana, L2s</p></motion.div>
+             <motion.div 
+             
+            //  variants={fadeInUp} 
+             className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">Frontend</h4><p className="text-slate-500 text-xs">Next.js, Wagmi</p></motion.div>
+             <motion.div 
+            //  variants={fadeInUp}
+             className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center shadow-sm"><h4 className="text-orange-600 font-bold mb-1 text-sm font-mono uppercase tracking-widest">DevOps</h4><p className="text-slate-500 text-xs">Foundry, Slither</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -365,7 +382,7 @@ export default function BlockchainIndustryPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -380,7 +397,7 @@ export default function BlockchainIndustryPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-orange-400 transition-colors relative overflow-hidden group"
             >
                <div className="text-[10px] font-black text-orange-600 mb-3 uppercase tracking-widest font-mono">Phase_{process.step}</div>

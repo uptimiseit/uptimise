@@ -61,26 +61,26 @@ const serviceGroups = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  },
-};
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, y: 20, scale: 0.98 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   },
+// };
 
 const ServicesEcosystem = () => {
   return (
@@ -112,7 +112,7 @@ const ServicesEcosystem = () => {
         {/* Bento Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -120,7 +120,7 @@ const ServicesEcosystem = () => {
           {serviceGroups.map((group, i) => (
             <motion.div
               key={i}
-              variants={cardVariants}
+              // variants={cardVariants}
               whileHover={{ 
                 y: -8,
                 transition: { duration: 0.3 }

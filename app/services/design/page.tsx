@@ -10,25 +10,25 @@ import {
   Search
 } from 'lucide-react';
 
-// --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// // --- Animation Variants ---
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
 const designStages = [
   { id: "01", title: "Discovery & UX Research", desc: "Understanding behavior through persona mapping and journey analysis.", icon: <Search size={20} /> },
@@ -56,14 +56,15 @@ const ProductDesignPage = () => {
           <motion.div 
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            // variants={staggerContainer}
             className="lg:col-span-7 text-center lg:text-left space-y-8"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100">
+            <motion.div 
+             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100">
               <Sparkles size={14} className="text-purple-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-700 font-mono">Module::Design_Systems</span>
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+            <motion.h1  className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
               Experience <br />
               <motion.span 
                 animate={{ color: ["#9333ea", "#3b82f6", "#9333ea"] }}
@@ -73,10 +74,10 @@ const ProductDesignPage = () => {
                 Architecture.
               </motion.span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+            <motion.p  className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT crafts intuitive, high-stakes digital experiences by merging deep user research with AI-accelerated design workflows.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col lg:flex-row gap-4">
+            <motion.div  className="flex flex-col lg:flex-row gap-4">
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs shadow-xl">
                 Start Design Project
               </motion.button>
@@ -142,7 +143,7 @@ const ProductDesignPage = () => {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -156,7 +157,7 @@ const ProductDesignPage = () => {
              ].map((item, i) => (
                <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5, borderColor: "#a855f7" }}
                 className="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm transition-colors"
                >
@@ -180,7 +181,7 @@ const ProductDesignPage = () => {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -190,7 +191,7 @@ const ProductDesignPage = () => {
               <motion.div 
                 key={stage.id} 
                 layout
-                variants={fadeInUp}
+                
                 onMouseEnter={() => setActiveStage(stage.id)}
                 className={`p-10 rounded-[3rem] border transition-all duration-500 cursor-pointer relative overflow-hidden ${
                   activeStage === stage.id ? 'bg-slate-950 text-white shadow-2xl scale-105 z-20' : 'bg-white text-slate-950 border-slate-100 z-10'
@@ -295,7 +296,7 @@ const ProductDesignPage = () => {
                </div>
             </motion.div>
             <motion.div 
-              variants={staggerContainer}
+              // variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -308,7 +309,7 @@ const ProductDesignPage = () => {
                ].map((item, i) => (
                  <motion.div 
                     key={i} 
-                    variants={fadeInUp}
+                    
                     whileHover={{ backgroundColor: "rgba(255,255,255,0.08)" }}
                     className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 transition-all"
                  >

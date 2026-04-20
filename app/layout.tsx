@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import { AnimatePresence } from "framer-motion";
+import { PageWrapper } from "@/components/PageWrapper";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -115,11 +117,18 @@ export default function RootLayout({
       <body
         className={`${josefin.variable} antialiased ${montserrat.variable} ${figtree.variable}`}
       >
+        <AnimatePresence mode="wait">
+          <PageWrapper  >
+
+
+      
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <Navbar />
           {children}
           <Footer />
         </ThemeProvider>
+        </PageWrapper>
+        </AnimatePresence>
       </body>
     </html>
   );

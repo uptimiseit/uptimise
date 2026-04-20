@@ -12,31 +12,31 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function SaasIndustryPage() {
   return (
@@ -54,14 +54,14 @@ export default function SaasIndustryPage() {
         <motion.div 
           initial="hidden" 
           animate="visible" 
-          variants={staggerContainer} 
+          
           className="space-y-6"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Cloud size={16} className="animate-bounce" /> SaaS Industry Solutions
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Scale Your MRR with <br className="hidden md:block" />
             <motion.span 
                animate={{ color: ["#2563eb", "#4f46e5", "#2563eb"] }}
@@ -72,11 +72,11 @@ export default function SaasIndustryPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We partner with ambitious founders to engineer high-retention, multi-tenant Software-as-a-Service platforms. From initial MVP to enterprise scale, we build the infrastructure that powers recurring revenue.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-all text-lg block">
                 Build Your SaaS Platform
@@ -100,7 +100,7 @@ export default function SaasIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer} 
+            
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
@@ -113,9 +113,9 @@ export default function SaasIndustryPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                // variants={fadeInUp}
+                // 
                 whileHover="hover"
-                variants={hoverScale}
+                // variants={hoverScale}
                 className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:border-red-200 transition-all duration-300 group"
               >
                 <div className="mb-6 bg-red-100 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">{challenge.icon}</div>
@@ -158,16 +158,16 @@ export default function SaasIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer} 
+            
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
             className="grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm"><Layers className="w-10 h-10 mb-4 text-blue-600" /><h4 className="font-bold text-slate-900">Tenant Isolation</h4><p className="text-slate-600 text-xs mt-2">Pool, Bridge, or Silo models.</p></motion.div>
-             <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl"><CreditCard className="w-10 h-10 mb-4 text-emerald-400" /><h4 className="font-bold">Billing Engine</h4><p className="text-slate-400 text-xs mt-2">Metered & Tiered usage.</p></motion.div>
-             <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl"><LayoutDashboard className="w-10 h-10 mb-4 text-indigo-400" /><h4 className="font-bold">Super Admin</h4><p className="text-slate-400 text-xs mt-2">Manage users & billing.</p></motion.div>
-             <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm"><Network className="w-10 h-10 mb-4 text-blue-600" /><h4 className="font-bold text-slate-900">API Webhooks</h4><p className="text-slate-600 text-xs mt-2">Extensible integrations.</p></motion.div>
+             <motion.div  whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm"><Layers className="w-10 h-10 mb-4 text-blue-600" /><h4 className="font-bold text-slate-900">Tenant Isolation</h4><p className="text-slate-600 text-xs mt-2">Pool, Bridge, or Silo models.</p></motion.div>
+             <motion.div  whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl"><CreditCard className="w-10 h-10 mb-4 text-emerald-400" /><h4 className="font-bold">Billing Engine</h4><p className="text-slate-400 text-xs mt-2">Metered & Tiered usage.</p></motion.div>
+             <motion.div  whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl"><LayoutDashboard className="w-10 h-10 mb-4 text-indigo-400" /><h4 className="font-bold">Super Admin</h4><p className="text-slate-400 text-xs mt-2">Manage users & billing.</p></motion.div>
+             <motion.div  whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm"><Network className="w-10 h-10 mb-4 text-blue-600" /><h4 className="font-bold text-slate-900">API Webhooks</h4><p className="text-slate-600 text-xs mt-2">Extensible integrations.</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -179,7 +179,7 @@ export default function SaasIndustryPage() {
             <h2 className="text-4xl font-bold tracking-tight text-white uppercase tracking-tighter">SaaS Models We Engineer</h2>
             <p className="text-lg text-slate-400">Tailored architecture to fit your specific go-to-market strategy.</p>
           </motion.div>
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "B2B Vertical SaaS", icon: <Building size={28} />, desc: "Software tailored for real estate, construction, or legal." },
               { title: "AI-Powered SaaS", icon: <Bot size={28} />, desc: "Platforms leveraging LLMs for predictive analytics and automation." },
@@ -188,7 +188,7 @@ export default function SaasIndustryPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10, backgroundColor: "#1e293b" }}
                 className="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition-all group"
               >
@@ -243,7 +243,7 @@ export default function SaasIndustryPage() {
             <p className="text-lg text-slate-600 font-medium">Bleeding-edge performance for infinite scalability.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer} 
+            
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
@@ -257,7 +257,7 @@ export default function SaasIndustryPage() {
             ].map((stack, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5 }}
                 className="bg-white border border-slate-200 shadow-sm rounded-2xl p-8 hover:border-blue-400 transition-colors"
               >

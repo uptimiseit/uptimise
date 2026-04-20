@@ -42,26 +42,26 @@ const standards = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-  },
-};
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, y: 30, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
+//   },
+// };
 
 const EnterpriseStandards = () => {
   return (
@@ -96,7 +96,7 @@ const EnterpriseStandards = () => {
 
         {/* Standards Grid */}
         <motion.div 
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -105,7 +105,7 @@ const EnterpriseStandards = () => {
           
           {/* 1. Featured "Total Quality" Card */}
           <motion.div 
-            variants={cardVariants}
+            // variants={cardVariants}
             whileHover={{ y: -5 }}
             className="lg:col-span-1 lg:row-span-2 p-10 rounded-[3rem] bg-[#020617] text-white flex flex-col justify-between group relative overflow-hidden border border-white/5 shadow-2xl"
           >
@@ -155,7 +155,7 @@ const EnterpriseStandards = () => {
 
           {/* 2. Global Network Card */}
           <motion.div 
-            variants={cardVariants}
+            // variants={cardVariants}
             whileHover={{ y: -5 }}
             className="p-10 rounded-[3rem] bg-blue-50/50 border border-blue-100 flex flex-col justify-between group relative overflow-hidden"
           >
@@ -188,7 +188,7 @@ const EnterpriseStandards = () => {
 
           {/* 3. IP Protection & Compliance */}
           <motion.div 
-            variants={cardVariants}
+            // variants={cardVariants}
             whileHover={{ y: -5 }}
             className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 flex flex-col justify-between group relative overflow-hidden transition-all hover:bg-white hover:shadow-2xl"
           >
@@ -218,7 +218,7 @@ const EnterpriseStandards = () => {
           {standards.map((item, i) => (
             <motion.div
               key={i}
-              variants={cardVariants}
+              // variants={cardVariants}
               whileHover={{ y: -8 }}
               className="p-8 rounded-[2.5rem] bg-white border border-slate-100 flex flex-col justify-between group hover:border-blue-500/20 hover:shadow-2xl transition-all duration-500 cursor-default"
             >

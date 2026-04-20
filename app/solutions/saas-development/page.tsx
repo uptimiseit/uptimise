@@ -9,33 +9,33 @@ import {
   Globe, Activity
 } from "lucide-react";
 
-// --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// // --- Animation Variants ---
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.03, 
-    y: -5,
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.03, 
+//     y: -5,
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function SaasDevelopmentPage() {
   return (
@@ -53,23 +53,23 @@ export default function SaasDevelopmentPage() {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          
           className="space-y-6"
         >
-          <motion.h3 variants={fadeInUp} className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
+          <motion.h3  className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
             // SaaS Platform Development
           </motion.h3>
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Engineering Scalable <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
               Recurring Revenue Engines
             </span>
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             We design, build, and scale secure multi-tenant SaaS platforms. We combine AI-native engineering and cloud-native architecture to turn your vision into high-growth software.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-indigo-600 text-white font-semibold rounded-xl shadow-md transition-all text-lg block">
                 Start Your SaaS Project
@@ -104,7 +104,7 @@ export default function SaasDevelopmentPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={staggerContainer}
+            
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
             {[
@@ -115,9 +115,9 @@ export default function SaasDevelopmentPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                // variants={fadeInUp}
+                // 
                 whileHover="hover"
-                variants={hoverScale}
+                // variants={hoverScale}
                 className="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-3 shadow-sm"
               >
                 {challenge.icon}
@@ -145,7 +145,7 @@ export default function SaasDevelopmentPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {[
@@ -155,7 +155,7 @@ export default function SaasDevelopmentPage() {
           ].map((arch, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               whileHover="hover"
               // variants={hoverScale}
               className="p-10 bg-white border border-slate-200 rounded-[2.5rem] shadow-sm group cursor-default"
@@ -183,7 +183,7 @@ export default function SaasDevelopmentPage() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            variants={staggerContainer}
+            
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
           >
@@ -199,7 +199,7 @@ export default function SaasDevelopmentPage() {
             ].map((feat, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ x: 5, color: "#4f46e5" }}
                 className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 font-bold text-xs uppercase tracking-widest text-slate-600 transition-colors"
               >

@@ -93,15 +93,7 @@ const BookingPage = () => {
     documentFile: null as File | null, // Added field
   });
 
-  const containerVars = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-  };
 
-  const itemVars = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 },
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // 1. Start Submission State
@@ -176,27 +168,27 @@ const BookingPage = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-20 pb-32 relative z-10">
         {/* --- LEFT: Technical Value Stage --- */}
         <motion.div
-          variants={containerVars}
+          // variants={containerVars}
           initial="hidden"
           animate="visible"
           className="lg:col-span-5 text-center lg:text-left space-y-16 py-12"
         >
           <div className="space-y-6">
             <motion.div
-              variants={itemVars}
+              // variants={itemVars}
               className="p-3 bg-blue-50 rounded-2xl w-fit text-blue-600"
             >
               <Sparkles size={24} />
             </motion.div>
             <motion.h1
-              variants={itemVars}
+              // variants={itemVars}
               className="text-6xl md:text-8xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase"
             >
               Elite <br />
               <span className="text-blue-600 italic">Access.</span>
             </motion.h1>
             <motion.p
-              variants={itemVars}
+              // variants={itemVars}
               className="text-xl text-slate-500 font-body leading-relaxed max-w-sm font-medium"
             >
               Architecting the future of scalable systems. Upload your specs for
@@ -223,7 +215,7 @@ const BookingPage = () => {
               },
             ].map((item, i) => (
               <motion.div
-                variants={itemVars}
+                // variants={itemVars}
                 key={i}
                 className="flex gap-6 group"
               >

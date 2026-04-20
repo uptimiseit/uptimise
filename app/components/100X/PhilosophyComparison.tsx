@@ -4,40 +4,40 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+//   }
+// };
 
-const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
-  }
-};
+// const fadeInLeft: Variants = {
+//   hidden: { opacity: 0, x: -30 },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0, 
+//     transition: { duration: 0.6, ease: "easeOut" } 
+//   }
+// };
 
-const cardSlideUp: Variants = {
-  hidden: { opacity: 0, y: 50, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1, 
-    transition: { type: "spring", stiffness: 100, damping: 15 } 
-  }
-};
+// const cardSlideUp: Variants = {
+//   hidden: { opacity: 0, y: 50, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1, 
+//     transition: { type: "spring", stiffness: 100, damping: 15 } 
+//   }
+// };
 
-const pulseBullet: Variants = {
-  animate: {
-    scale: [1, 1.3, 1],
-    opacity: [0.5, 1, 0.5],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-  }
-};
+// const pulseBullet: Variants = {
+//   animate: {
+//     scale: [1, 1.3, 1],
+//     opacity: [0.5, 1, 0.5],
+//     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+//   }
+// };
 
 const PhilosophyComparison = () => {
   return (
@@ -48,25 +48,25 @@ const PhilosophyComparison = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          // variants={containerVariants}
         >
           
           {/* LEFT: STRUGGLE SIDE */}
           <div className="space-y-8">
-            <motion.h2 variants={fadeInLeft} className="text-5xl font-black font-header tracking-tight text-slate-950 uppercase leading-none">
+            <motion.h2  className="text-5xl font-black font-header tracking-tight text-slate-950 uppercase leading-none">
               Why Traditional <br /> 
               <span className="text-slate-300">Models Struggle.</span>
             </motion.h2>
             
-            <motion.p variants={fadeInLeft} className="text-lg text-slate-500 leading-relaxed font-medium">
+            <motion.p  className="text-lg text-slate-500 leading-relaxed font-medium">
               Large teams introduce **Coordination Overhead**. When you have separate layers for QA, DevOps, and Backend, the &quot;Tax of Communication&quot; slows development to a crawl.
             </motion.p>
             
-            <motion.div variants={containerVariants} className="space-y-4">
+            <motion.div  className="space-y-4">
               {['Fragmented Workflows', 'Sequential Coordination', 'High Operational Complexity'].map((item, i) => (
                 <motion.div 
                   key={i} 
-                  variants={fadeInLeft}
+                  // variants={fadeInLeft}
                   className="flex items-center gap-3 text-slate-400 line-through font-mono text-xs uppercase font-black tracking-widest"
                 >
                   <div className="w-4 h-[1px] bg-slate-300" />
@@ -78,7 +78,7 @@ const PhilosophyComparison = () => {
 
           {/* RIGHT: THE SOLUTION CARD */}
           <motion.div 
-            variants={cardSlideUp}
+            // variants={cardSlideUp}
             whileHover={{ y: -10 }}
             className="p-12 rounded-[3.5rem] bg-blue-600 text-white shadow-2xl shadow-blue-200 relative overflow-hidden group"
           >
@@ -104,7 +104,7 @@ const PhilosophyComparison = () => {
                 >
                   <div className="h-8 w-8 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0 border border-white/10">
                     <motion.div 
-                      variants={pulseBullet}
+                      // variants={pulseBullet}
                       animate="animate"
                       className="h-2 w-2 rounded-full bg-white shadow-[0_0_8px_#fff]" 
                     />

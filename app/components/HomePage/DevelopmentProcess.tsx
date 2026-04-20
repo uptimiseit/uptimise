@@ -53,33 +53,33 @@ const steps = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  },
-};
+// const itemVariants: Variants = {
+//   hidden: { opacity: 0, x: -30 },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0, 
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   },
+// };
 
-const lineVariants: Variants = {
-  hidden: { height: 0 },
-  visible: { 
-    height: "100%", 
-    transition: { duration: 2, ease: "easeInOut" } 
-  }
-};
+// const lineVariants: Variants = {
+//   hidden: { height: 0 },
+//   visible: { 
+//     height: "100%", 
+//     transition: { duration: 2, ease: "easeInOut" } 
+//   }
+// };
 
 const DevelopmentProcess = () => {
   return (
@@ -108,7 +108,7 @@ const DevelopmentProcess = () => {
         <div className="relative">
           {/* Animated Central Vertical Line */}
           <motion.div 
-            variants={lineVariants}
+            // variants={lineVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -116,7 +116,7 @@ const DevelopmentProcess = () => {
           />
 
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -125,7 +125,7 @@ const DevelopmentProcess = () => {
             {steps.map((step, i) => (
               <motion.div 
                 key={i}
-                variants={itemVariants}
+                // variants={itemVariants}
                 className="relative flex items-start gap-8 group"
               >
                 {/* The Dot / Number Indicator */}

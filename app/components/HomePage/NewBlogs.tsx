@@ -51,34 +51,34 @@ const featuredPosts = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2
+//     }
+//   }
+// };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const sidebarItem: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.5 } 
-  }
-};
+// const sidebarItem: Variants = {
+//   hidden: { opacity: 0, x: -20 },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0, 
+//     transition: { duration: 0.5 } 
+//   }
+// };
 
 const NewBlogs = () => {
   return (
@@ -124,7 +124,7 @@ const NewBlogs = () => {
           
           {/* Left: Category Sidebar */}
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -136,7 +136,7 @@ const NewBlogs = () => {
             {categories.map((cat, i) => (
               <motion.div 
                 key={i} 
-                variants={sidebarItem}
+                // variants={sidebarItem}
                 whileHover={{ x: 10 }}
                 className="group p-6 rounded-[2.5rem] bg-slate-50 border border-transparent hover:border-blue-500/20 hover:bg-white hover:shadow-xl transition-all duration-500 cursor-pointer"
               >
@@ -155,7 +155,7 @@ const NewBlogs = () => {
 
           {/* Right: Featured Articles Grid */}
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -164,7 +164,7 @@ const NewBlogs = () => {
             {featuredPosts.map((post, i) => (
               <motion.div
                 key={i}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 whileHover={{ y: -10 }}
                 className="relative p-10 rounded-[3.5rem] bg-white border border-slate-100 flex flex-col justify-between group overflow-hidden hover:shadow-2xl hover:shadow-blue-200/20 transition-all duration-500 cursor-pointer"
               >
@@ -197,7 +197,7 @@ const NewBlogs = () => {
 
             {/* Newsletter Mini-Card */}
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="md:col-span-2 p-10 rounded-[3.5rem] bg-slate-950 text-white flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl"
             >
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb15_0%,transparent_100%)] pointer-events-none" />

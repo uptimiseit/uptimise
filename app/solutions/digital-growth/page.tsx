@@ -11,33 +11,33 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const barGrowth: Variants = {
-  hidden: { height: 0, opacity: 0 },
-  visible: (custom: string) => ({
-    height: custom,
-    opacity: 1,
-    transition: { duration: 1.2, ease: "circOut", delay: 0.2 }
-  })
-};
+// const barGrowth: Variants = {
+//   hidden: { height: 0, opacity: 0 },
+//   visible: (custom: string) => ({
+//     height: custom,
+//     opacity: 1,
+//     transition: { duration: 1.2, ease: "circOut", delay: 0.2 }
+//   })
+// };
 
 export default function DigitalGrowthPage() {
   return (
@@ -56,23 +56,23 @@ export default function DigitalGrowthPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 border border-rose-100 text-rose-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 border border-rose-100 text-rose-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <TrendingUp size={16} className="animate-pulse" /> User Acquisition & Scaling
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Engineered for <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500 italic">Hyper-Growth</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Stop paying for vanity metrics. We engineer data-driven acquisition engines that lower your CAC, maximize Customer Lifetime Value (LTV), and flood your platform with high-intent users.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-rose-600 text-white font-bold rounded-xl shadow-lg shadow-rose-600/20 hover:bg-rose-700 transition-all text-lg block">
                 Scale Your Revenue
@@ -101,7 +101,7 @@ export default function DigitalGrowthPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -114,7 +114,7 @@ export default function DigitalGrowthPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300 group"
               >
@@ -184,7 +184,7 @@ export default function DigitalGrowthPage() {
                ].map((bar, i) => (
                  <div key={i} className="w-1/6 h-full flex flex-col justify-end items-center relative">
                    <motion.div 
-                     variants={barGrowth}
+                    //  variants={barGrowth}
                      initial="hidden"
                      whileInView="visible"
                      viewport={{ once: true }}
@@ -220,7 +220,7 @@ export default function DigitalGrowthPage() {
             <p className="text-lg text-slate-600 font-medium">Building interconnected systems that capture, convert, and retain users.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -234,7 +234,7 @@ export default function DigitalGrowthPage() {
             ].map((srv, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ x: 10 }}
                 className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group"
               >
@@ -273,16 +273,16 @@ export default function DigitalGrowthPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">Product Analytics</h4><p className="text-slate-600 text-xs font-medium">Mixpanel & Segment</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">Automation</h4><p className="text-slate-600 text-xs font-medium">HubSpot & Klaviyo</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">SEO & SEM</h4><p className="text-slate-600 text-xs font-medium">Ahrefs & Ads API</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">Testing & CRO</h4><p className="text-slate-600 text-xs font-medium">VWO & Hotjar</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">Product Analytics</h4><p className="text-slate-600 text-xs font-medium">Mixpanel & Segment</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">Automation</h4><p className="text-slate-600 text-xs font-medium">HubSpot & Klaviyo</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">SEO & SEM</h4><p className="text-slate-600 text-xs font-medium">Ahrefs & Ads API</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-rose-600 font-bold mb-1 text-sm uppercase">Testing & CRO</h4><p className="text-slate-600 text-xs font-medium">VWO & Hotjar</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -366,7 +366,7 @@ export default function DigitalGrowthPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -380,7 +380,7 @@ export default function DigitalGrowthPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:border-orange-400 transition-all group"
             >
                <div className="text-xs font-black text-orange-500 mb-4 tracking-widest uppercase font-mono">Phase_{process.step}</div>
@@ -394,23 +394,23 @@ export default function DigitalGrowthPage() {
       {/* 8. BUSINESS IMPACT */}
       <section className="py-24 px-6 border-y border-slate-100 bg-white">
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mb-6"><Target size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Lower CAC</h3>
             <p className="text-slate-600 text-sm font-medium">Optimizing landing pages and high-intent targeting drives down acquisition costs.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mb-6"><Rocket size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Predictable Scale</h3>
             <p className="text-slate-600 text-sm font-medium">Know exactly how much revenue $1 of ad spend will generate.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6"><PieChart size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Higher LTV</h3>
             <p className="text-slate-600 text-sm font-medium">Maximize the total value extracted through automated re-engagement flows.</p>

@@ -82,32 +82,32 @@ const benefits = [
   { label: "Quality", value: "Enterprise Scale", icon: <Shield size={24} />, num: "04" }
 ];
 
-// --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-  }
-};
+// // --- Animation Variants ---
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+//   }
+// };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, y: 20 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 260, damping: 20 } 
-  }
-};
+// const itemVariants: Variants = {
+//   hidden: { opacity: 0, scale: 0.8, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     scale: 1, 
+//     y: 0, 
+//     transition: { type: "spring", stiffness: 260, damping: 20 } 
+//   }
+// };
 
-const lineVariants: Variants = {
-  hidden: { scaleX: 0 },
-  visible: { 
-    scaleX: 1, 
-    transition: { duration: 1.5, ease: "easeInOut", delay: 0.5 } 
-  }
-};
+// const lineVariants: Variants = {
+//   hidden: { scaleX: 0 },
+//   visible: { 
+//     scaleX: 1, 
+//     transition: { duration: 1.5, ease: "easeInOut", delay: 0.5 } 
+//   }
+// };
 
 const FactoryArchitecture = () => {
   const [hoveredStep, setHoveredStep] = useState<string | null>(null);
@@ -142,7 +142,7 @@ const FactoryArchitecture = () => {
         <div className="relative pt-12 pb-12">
           {/* Animated connection line */}
           <motion.div 
-            variants={lineVariants}
+            // variants={lineVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -150,7 +150,7 @@ const FactoryArchitecture = () => {
           />
 
           <motion.div 
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -159,7 +159,7 @@ const FactoryArchitecture = () => {
             {architectureSteps.map((step) => (
               <motion.div 
                 key={step.id} 
-                variants={itemVariants}
+                // variants={itemVariants}
                 className="relative flex flex-col items-center lg:w-full group"
                 onMouseEnter={() => setHoveredStep(step.id)}
                 onMouseLeave={() => setHoveredStep(null)}
@@ -237,7 +237,7 @@ const FactoryArchitecture = () => {
         {/* --- BENEFITS CARDS --- */}
         <motion.div 
           className="mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -245,7 +245,7 @@ const FactoryArchitecture = () => {
           {benefits.map((benefit, i) => (
             <motion.div 
               key={i} 
-              variants={itemVariants}
+              // variants={itemVariants}
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
               className="relative p-10 rounded-[3rem] bg-white border border-slate-100 flex flex-col justify-between overflow-hidden group cursor-default transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-200/20"
             >

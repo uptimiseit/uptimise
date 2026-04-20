@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   Landmark, ShieldCheck, Lock, Activity, 
   CreditCard, LineChart, Wallet, ArrowRight, 
@@ -10,25 +10,25 @@ import {
   ArrowUpRight, FileDigit, Fingerprint, Eye
 } from "lucide-react";
 
-// --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// // --- Animation Variants ---
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
 export default function FintechIndustryPage() {
   return (
@@ -47,23 +47,23 @@ export default function FintechIndustryPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-sm font-bold tracking-wide uppercase mb-4">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-sm font-bold tracking-wide uppercase mb-4">
             <Landmark size={16} /> FinTech Software Engineering
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Architecting Secure <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-emerald-600">Financial Ecosystems</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We engineer high-frequency, resilient financial platforms. From modern payment gateways to AI-driven wealth management, we build the secure infrastructure that powers the future of money.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <Link href="/contact" className="px-8 py-4 bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-700/20 hover:bg-blue-800 hover:scale-105 transition-all text-lg">
               Build Your FinTech Platform
             </Link>
@@ -88,7 +88,7 @@ export default function FintechIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -101,7 +101,7 @@ export default function FintechIndustryPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover={{ y: -10 }}
                 className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:border-red-200 transition-all duration-300"
               >
@@ -230,7 +230,7 @@ export default function FintechIndustryPage() {
             <p className="text-lg text-slate-600">From consumer-facing banking apps to complex backend payment routing, we build the full spectrum of financial technology.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -244,7 +244,7 @@ export default function FintechIndustryPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-500 transition-all duration-300 group"
               >
@@ -279,16 +279,16 @@ export default function FintechIndustryPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">High-Concurrency Core</h4><p className="text-slate-600 text-sm">Go (Golang), Rust, Java</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">Event Streaming</h4><p className="text-slate-600 text-sm">Apache Kafka, RabbitMQ</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">ACID Compliant DBs</h4><p className="text-slate-600 text-sm">PostgreSQL, CockroachDB</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">Client Applications</h4><p className="text-slate-600 text-sm">React Native, Next.js</p></motion.div>
+             <motion.div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">High-Concurrency Core</h4><p className="text-slate-600 text-sm">Go (Golang), Rust, Java</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">Event Streaming</h4><p className="text-slate-600 text-sm">Apache Kafka, RabbitMQ</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">ACID Compliant DBs</h4><p className="text-slate-600 text-sm">PostgreSQL, CockroachDB</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-700 font-bold mb-2">Client Applications</h4><p className="text-slate-600 text-sm">React Native, Next.js</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -384,7 +384,7 @@ export default function FintechIndustryPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -399,7 +399,7 @@ export default function FintechIndustryPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               className="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:border-blue-400 transition-colors relative overflow-hidden group"
             >
                <div className="text-sm font-black text-blue-600 mb-3 uppercase tracking-wider">Phase {process.step}</div>
@@ -413,23 +413,23 @@ export default function FintechIndustryPage() {
       {/* 8. BUSINESS BENEFITS */}
       <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
             <div className="w-16 h-16 mx-auto bg-blue-50 text-blue-700 rounded-full flex items-center justify-center mb-6"><ShieldCheck size={32} /></div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">Total Regulatory Peace of Mind</h3>
             <p className="text-slate-600">Breeze through technical due diligence and external banking audits with clean, compliant, and fully documented architecture.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
             <div className="w-16 h-16 mx-auto bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6"><Activity size={32} /></div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">Hyper-Scale Ready</h3>
             <p className="text-slate-600">As your user base grows from 1,000 to 1,000,000, your infrastructure scales elastically without database locks or transaction drops.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
             <div className="w-16 h-16 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mb-6"><Fingerprint size={32} /></div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">Superior User Trust</h3>
             <p className="text-slate-600">Lightning-fast load times, seamless biometric logins, and flawless transaction execution build unshakable trust with your customers.</p>

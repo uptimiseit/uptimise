@@ -13,32 +13,32 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const barGrowth: Variants = {
-  hidden: { width: 0 },
-  visible: (custom: number) => ({
-    width: `${custom}%`,
-    transition: { duration: 1.5, ease: "circOut", delay: 0.5 }
-  })
-};
+// const barGrowth: Variants = {
+//   hidden: { width: 0 },
+//   visible: (custom: number) => ({
+//     width: `${custom}%`,
+//     transition: { duration: 1.5, ease: "circOut", delay: 0.5 }
+//   })
+// };
 
 export default function ProductScalingPage() {
   return (
@@ -56,14 +56,14 @@ export default function ProductScalingPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // 
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-50 border border-lime-200 text-lime-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-50 border border-lime-200 text-lime-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Gauge size={16} className="animate-pulse" /> Performance Engineering
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Scale Your Product <br className="hidden md:block" />
             <motion.span 
               animate={{ color: ["#84cc16", "#10b981", "#84cc16"] }}
@@ -74,11 +74,11 @@ export default function ProductScalingPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Eliminate bottlenecks, reduce cloud costs, and prepare for 10x growth. We audit, refactor, and optimize your application architecture to handle massive traffic spikes with sub-second latency.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg shadow-slate-900/20 hover:bg-slate-800 transition-all text-lg block">
                 Audit My Performance
@@ -107,7 +107,7 @@ export default function ProductScalingPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function ProductScalingPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300 group"
               >
@@ -185,7 +185,7 @@ export default function ProductScalingPage() {
                  <div className="flex justify-between text-[10px] font-black text-slate-400 mb-2 uppercase tracking-widest"><span>Initial_State</span><span>3.2s Load</span></div>
                  <div className="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
                    <motion.div 
-                     variants={barGrowth}
+                    //  variants={barGrowth}
                      initial="hidden"
                      whileInView="visible"
                      viewport={{ once: true }}
@@ -200,7 +200,7 @@ export default function ProductScalingPage() {
                  <div className="flex justify-between text-[10px] font-black text-slate-400 mb-2 uppercase tracking-widest"><span>Refactored_Query</span><span>1.1s Load</span></div>
                  <div className="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
                    <motion.div 
-                     variants={barGrowth}
+                    //  variants={barGrowth}
                      initial="hidden"
                      whileInView="visible"
                      viewport={{ once: true }}
@@ -213,7 +213,7 @@ export default function ProductScalingPage() {
                  <div className="flex justify-between text-[10px] font-black text-lime-400 mb-2 uppercase tracking-widest"><span>Edge_Cached_Global</span><span>0.2s Load</span></div>
                  <div className="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
                    <motion.div 
-                     variants={barGrowth}
+                    //  variants={barGrowth}
                      initial="hidden"
                      whileInView="visible"
                      viewport={{ once: true }}
@@ -238,7 +238,7 @@ export default function ProductScalingPage() {
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 uppercase tracking-tighter">Full-Stack Optimization</h2>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -252,7 +252,7 @@ export default function ProductScalingPage() {
             ].map((sys, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5 }}
                 className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm hover:border-lime-500 transition-all group"
               >
@@ -291,16 +291,16 @@ export default function ProductScalingPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">APM Monitoring</h4><p className="text-slate-600 text-xs font-medium">Real-time health tracking.</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">In-Memory Store</h4><p className="text-slate-600 text-xs font-medium">Redis & Memcached layers.</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Log Analysis</h4><p className="text-slate-600 text-xs font-medium">ELK Stack aggregation.</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Global Edge</h4><p className="text-slate-600 text-xs font-medium">Cloudflare / Fastly CDN.</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">APM Monitoring</h4><p className="text-slate-600 text-xs font-medium">Real-time health tracking.</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">In-Memory Store</h4><p className="text-slate-600 text-xs font-medium">Redis & Memcached layers.</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Log Analysis</h4><p className="text-slate-600 text-xs font-medium">ELK Stack aggregation.</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Global Edge</h4><p className="text-slate-600 text-xs font-medium">Cloudflare / Fastly CDN.</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -367,7 +367,7 @@ export default function ProductScalingPage() {
         </motion.div>
         
         <motion.div 
-            variants={staggerContainer} 
+             
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
@@ -382,7 +382,7 @@ export default function ProductScalingPage() {
           ].map((process, idx) => (
             <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-lime-500 transition-colors relative overflow-hidden group"
             >
                <div className="text-xs font-black text-lime-600 mb-3 uppercase tracking-widest font-mono">Step_{process.step}</div>
@@ -396,23 +396,23 @@ export default function ProductScalingPage() {
       {/* 8. BUSINESS BENEFITS */}
       <section className="py-24 px-6 border-y border-slate-100 bg-white">
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-lime-50 text-lime-600 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Sub-Second Speed</h3>
             <p className="text-slate-600 text-sm font-medium">Faster load times correlate with higher user retention and massive improvements in SEO rankings.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6"><Coins size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Reduced Cloud Bill</h3>
             <p className="text-slate-600 text-sm font-medium">By optimizing code, we cut the CPU and RAM required, slashing your monthly AWS/GCP overhead.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6"><ShieldCheck size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Zero-Crash Scaling</h3>
             <p className="text-slate-600 text-sm font-medium">Survive viral marketing campaigns and Black Friday traffic surges without a single infrastructure timeout.</p>

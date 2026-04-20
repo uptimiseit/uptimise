@@ -68,38 +68,38 @@ const industries = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  },
-};
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, y: 30, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   },
+// };
 
-const iconAnimation: Variants = {
-  initial: { y: 0 },
-  animate: {
-    y: [0, -5, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
+// const iconAnimation: Variants = {
+//   initial: { y: 0 },
+//   animate: {
+//     y: [0, -5, 0],
+//     transition: {
+//       duration: 3,
+//       repeat: Infinity,
+//       ease: "easeInOut"
+//     }
+//   }
+// };
 
 const IndustriesSection = () => {
   return (
@@ -135,7 +135,7 @@ const IndustriesSection = () => {
         {/* The Industry Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -143,7 +143,7 @@ const IndustriesSection = () => {
           {industries.map((item, i) => (
             <motion.div
               key={i}
-              variants={cardVariants}
+              // variants={cardVariants}
               whileHover={{ 
                 y: -12,
                 transition: { duration: 0.3 }
@@ -162,7 +162,7 @@ const IndustriesSection = () => {
               <div className="space-y-6 relative z-10">
                 <div className="flex justify-between items-start">
                   <motion.div 
-                    variants={iconAnimation}
+                    // variants={iconAnimation}
                     initial="initial"
                     animate="animate"
                     className={`p-4 rounded-2xl ${item.featured ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'bg-white text-blue-600 shadow-sm transition-colors group-hover:bg-blue-600 group-hover:text-white'}`}

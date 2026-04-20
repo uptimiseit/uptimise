@@ -4,32 +4,32 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12,
+//       delayChildren: 0.2
+//     }
+//   }
+// };
 
-const cardHover: Variants = {
-  hover: { 
-    y: -8, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const cardHover: Variants = {
+//   hover: { 
+//     y: -8, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function TestimonialsPage() {
   const testimonials = [
@@ -68,15 +68,15 @@ export default function TestimonialsPage() {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
         >
-          <motion.h3 variants={fadeInUp} className="text-blue-600 font-bold tracking-widest uppercase text-xs mb-4">
+          <motion.h3 className="text-blue-600 font-bold tracking-widest uppercase text-xs mb-4">
             Client Testimonials
           </motion.h3>
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-black tracking-tighter text-slate-950 max-w-4xl mx-auto leading-none uppercase">
+          <motion.h1 className="text-5xl md:text-7xl font-black tracking-tighter text-slate-950 max-w-4xl mx-auto leading-none uppercase">
             Built on <span className="text-blue-600 italic">Trust.</span>
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium mt-6">
+          <motion.p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium mt-6">
             At Uptimise IT, we build long-term partnerships with companies that rely on technology to power their growth and operations.
           </motion.p>
         </motion.div>
@@ -92,13 +92,13 @@ export default function TestimonialsPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={staggerContainer}
+            // variants={staggerContainer}
             className="flex flex-wrap justify-center gap-4"
           >
             {["SaaS Platforms", "AI Products", "FinTech Systems", "E-commerce Platforms", "Enterprise Software"].map((item) => (
               <motion.span 
                 key={item} 
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 whileHover={{ scale: 1.05, backgroundColor: "#f1f5f9" }}
                 className="px-6 py-2.5 bg-white border border-slate-200 rounded-full text-slate-700 font-bold text-xs uppercase tracking-wider shadow-sm cursor-default"
               >
@@ -113,7 +113,7 @@ export default function TestimonialsPage() {
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -123,7 +123,7 @@ export default function TestimonialsPage() {
               key={index} 
               // variants={fadeInUp}
               whileHover="hover"
-              variants={cardHover}
+              // variants={cardHover}
               className="bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-blue-200/20 transition-all duration-500 flex flex-col justify-between space-y-8 group"
             >
               <div className="space-y-6">

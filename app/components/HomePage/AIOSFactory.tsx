@@ -5,33 +5,33 @@ import { motion, Variants } from 'framer-motion';
 import { Cpu, Rocket, Code2, ShieldCheck, Workflow, Binary } from 'lucide-react';
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15,
+//       delayChildren: 0.1
+//     }
+//   }
+// };
 
-const barAnimation: Variants = {
-  hidden: { width: 0 },
-  visible: { 
-    width: "75%", 
-    transition: { duration: 1.5, ease: "easeInOut", delay: 0.5 } 
-  }
-};
+// const barAnimation: Variants = {
+//   hidden: { width: 0 },
+//   visible: { 
+//     width: "75%", 
+//     transition: { duration: 1.5, ease: "easeInOut", delay: 0.5 } 
+//   }
+// };
 
 const AIOSFactory = () => {
   return (
@@ -44,9 +44,11 @@ const AIOSFactory = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={staggerContainer}
+        // variants={staggerContainer}
       >
-        <motion.div className="text-center max-w-3xl mx-auto mb-16 space-y-6" variants={fadeInUp}>
+        <motion.div className="text-center max-w-3xl mx-auto mb-16 space-y-6"
+        //  variants={fadeInUp}
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 shadow-sm">
             <Workflow className="text-blue-600 size-4" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">
@@ -71,7 +73,7 @@ const AIOSFactory = () => {
           {/* Column 1: Planning & Architecture */}
           <div className="space-y-8">
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               whileHover={{ y: -5 }}
               className="group p-8 bg-slate-50/50 border border-slate-100 rounded-[2.5rem] hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-500"
             >
@@ -86,7 +88,7 @@ const AIOSFactory = () => {
             </motion.div>
 
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="group p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-blue-500/20 transition-all"
             >
                <div className="flex items-center gap-4 mb-6">
@@ -96,7 +98,7 @@ const AIOSFactory = () => {
                <p className="text-slate-900 font-bold mb-2">Automated Schema Design</p>
                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                   <motion.div 
-                    variants={barAnimation}
+                    // variants={barAnimation}
                     className="h-full bg-blue-600 relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)] animate-shimmer" />
@@ -107,7 +109,7 @@ const AIOSFactory = () => {
 
           {/* Column 2: The Core (Visual Highlight) */}
           <motion.div 
-            variants={fadeInUp}
+            // variants={fadeInUp}
             whileHover={{ scale: 1.01 }}
             className="relative h-full min-h-[400px] lg:min-h-0 bg-slate-950 rounded-[3rem] p-10 overflow-hidden flex flex-col justify-end group shadow-2xl"
           >
@@ -146,7 +148,7 @@ const AIOSFactory = () => {
           {/* Column 3: Quality & Deployment */}
           <div className="space-y-8 lg:mt-12">
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               whileHover={{ y: -5 }}
               className="group p-8 bg-slate-50/50 border border-slate-100 rounded-[2.5rem] hover:bg-white hover:shadow-2xl transition-all"
             >
@@ -161,7 +163,7 @@ const AIOSFactory = () => {
             </motion.div>
 
             <motion.div 
-              variants={fadeInUp}
+              // variants={fadeInUp}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="group p-8 bg-blue-600 rounded-[2.5rem] text-white shadow-xl shadow-blue-200 cursor-pointer overflow-hidden relative"
@@ -184,7 +186,7 @@ const AIOSFactory = () => {
 
         {/* Bottom Proof Section */}
         <motion.div 
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="mt-20 p-1 bg-slate-100 rounded-full max-w-2xl mx-auto flex items-center justify-between px-6 py-4"
         >
            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-4">The Result:</span>

@@ -11,33 +11,33 @@ import {
 } from 'lucide-react';
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
-const pulseGlow: Variants = {
-  initial: { opacity: 0.5, scale: 1 },
-  animate: { 
-    opacity: [0.5, 0.8, 0.5], 
-    scale: [1, 1.05, 1],
-    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" } 
-  }
-};
+// const pulseGlow: Variants = {
+//   initial: { opacity: 0.5, scale: 1 },
+//   animate: { 
+//     opacity: [0.5, 0.8, 0.5], 
+//     scale: [1, 1.05, 1],
+//     transition: { duration: 4, repeat: Infinity, ease: "easeInOut" } 
+//   }
+// };
 
 const infraStats = [
   { label: "Uptime", val: "99.99%", icon: <Activity size={20} /> },
@@ -63,14 +63,14 @@ const DevOpsPage = () => {
           <motion.div 
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            
             className="lg:col-span-7 text-center lg:text-left space-y-8"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100">
+            <motion.div  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100">
               <Terminal size={14} className="text-cyan-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-700 font-mono">Module::Cloud_Infra_v2.0</span>
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+            <motion.h1  className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
               Scalable <br />
               <motion.span 
                 animate={{ color: ["#0891b2", "#06b6d4", "#0891b2"] }}
@@ -80,10 +80,10 @@ const DevOpsPage = () => {
                 Persistence.
               </motion.span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+            <motion.p  className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT engineers resilient, automated cloud environments that support high-performance digital platforms at any scale.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col lg:flex-row gap-4">
+            <motion.div  className="flex flex-col lg:flex-row gap-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
@@ -176,7 +176,7 @@ const DevOpsPage = () => {
             </p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -188,7 +188,7 @@ const DevOpsPage = () => {
              ].map((text, i) => (
                <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5, borderColor: "#06b6d4" }}
                 className="flex items-center gap-4 p-6 bg-white border border-slate-100 rounded-3xl shadow-sm transition-all"
                >
@@ -226,7 +226,7 @@ const DevOpsPage = () => {
             </motion.div>
             
             <motion.div 
-              variants={staggerContainer}
+              
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -239,7 +239,7 @@ const DevOpsPage = () => {
                  { step: "Deploy", icon: <Rocket /> }
                ].map((item, i) => (
                  <React.Fragment key={i}>
-                    <motion.div variants={fadeInUp} className="text-center group">
+                    <motion.div  className="text-center group">
                        <motion.div 
                         whileHover={{ scale: 1.1, backgroundColor: "#06b6d4", color: "white" }}
                         className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-cyan-600 mb-4 border border-cyan-50 transition-colors"
@@ -259,7 +259,7 @@ const DevOpsPage = () => {
           </div>
 
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -272,7 +272,7 @@ const DevOpsPage = () => {
              ].map((box, i) => (
                <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10, borderColor: "#06b6d4" }}
                 className="p-10 rounded-[3rem] bg-white border border-slate-100 hover:shadow-xl transition-all group"
                >
@@ -311,14 +311,14 @@ const DevOpsPage = () => {
                     We leverage AI to identify performance anomalies, predict infrastructure scaling needs, and automate remediation before issues arise.
                   </p>
                </div>
-               <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" className="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <motion.div  initial="hidden" whileInView="visible" className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     "Usage Analysis", "Anomaly Detection", 
                     "Scaling Forecast", "Auto-Remediation"
                   ].map((text, i) => (
                     <motion.div 
                       key={i} 
-                      variants={fadeInUp}
+                      
                       whileHover={{ backgroundColor: "rgba(255,255,255,0.1)" }}
                       className="flex items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm transition-all"
                     >
@@ -340,7 +340,7 @@ const DevOpsPage = () => {
             </motion.div>
             
             <motion.div 
-              variants={staggerContainer}
+              
               initial="hidden"
               whileInView="visible"
               className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center"
@@ -351,7 +351,7 @@ const DevOpsPage = () => {
                  { cat: "CI/CD Systems", tools: ["Github Actions", "Jenkins"] },
                  { cat: "Security", tools: ["Zero-Trust", "CloudFlare"] }
                ].map((group, i) => (
-                 <motion.div key={i} variants={fadeInUp} className="space-y-6">
+                 <motion.div key={i}  className="space-y-6">
                     <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600 font-mono">{group.cat}</h5>
                     <div className="space-y-2">
                        {group.tools.map((tool, idx) => (

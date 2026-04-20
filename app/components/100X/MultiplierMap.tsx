@@ -1,30 +1,30 @@
 'use client';
 
-import React from 'react';
+// import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Cpu, ShieldCheck, TrendingUp } from "lucide-react";
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2
+//     }
+//   }
+// };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 260, damping: 20 } 
-  },
-};
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, scale: 0.9, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     scale: 1, 
+//     y: 0, 
+//     transition: { type: "spring", stiffness: 260, damping: 20 } 
+//   },
+// };
 
 const MultiplierMap = () => {
   return (
@@ -37,10 +37,10 @@ const MultiplierMap = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
+        // variants={containerVariants}
       >
         {/* Header Block */}
-        <motion.div variants={cardVariants} className="text-center mb-24 space-y-6">
+        <motion.div  className="text-center mb-24 space-y-6">
           <motion.h2 
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const MultiplierMap = () => {
           ].map((box, i) => (
             <motion.div
               key={i}
-              variants={cardVariants}
+              // variants={cardVariants}
               whileHover={{ y: -8 }}
               className="p-10 rounded-[3rem] bg-white border border-slate-100 flex flex-col justify-between group cursor-default transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/20"
             >

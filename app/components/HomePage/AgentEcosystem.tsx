@@ -47,27 +47,27 @@ const agents = [
   }
 ];
 
-// --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    }
-  }
-};
+// // --- Animation Variants ---
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2,
+//     }
+//   }
+// };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, y: 20, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
 const EcosystemSection = () => {
   return (
@@ -101,7 +101,7 @@ const EcosystemSection = () => {
         {/* Bento Grid */}
         <motion.div 
           className="grid grid-cols-12 gap-4 auto-rows-min"
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -109,7 +109,7 @@ const EcosystemSection = () => {
           {agents.map((agent, i) => (
             <motion.div
               key={i}
-              variants={cardVariants}
+              // variants={cardVariants}
               whileHover={{ 
                 y: -8,
                 transition: { duration: 0.3 }

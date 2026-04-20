@@ -12,31 +12,31 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function EnterpriseModernizationPage() {
   return (
@@ -54,14 +54,14 @@ export default function EnterpriseModernizationPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-sm font-bold tracking-wide uppercase mb-4">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-sm font-bold tracking-wide uppercase mb-4">
             <RefreshCcw size={16} className="text-cyan-600 animate-spin-slow" /> Enterprise Transformation
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Modernize Your <br className="hidden md:block" />
             <motion.span 
               animate={{ color: ["#0891b2", "#2563eb", "#0891b2"] }}
@@ -72,11 +72,11 @@ export default function EnterpriseModernizationPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Transform outdated, fragile software into scalable, cloud-native enterprise platforms. Uptimise IT executes secure, zero-downtime migrations to future-proof your business operations.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg shadow-slate-900/20 hover:bg-slate-800 transition-all text-lg block">
                 Start Your Modernization
@@ -105,7 +105,7 @@ export default function EnterpriseModernizationPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -119,7 +119,7 @@ export default function EnterpriseModernizationPage() {
             ].map((problem, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover="hover"
                 // variants={hoverScale}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300"
@@ -195,7 +195,7 @@ export default function EnterpriseModernizationPage() {
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 uppercase tracking-tighter">Modernization Ecosystem</h2>
           </motion.div>
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div  initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               { title: "Custom ERP Systems", desc: "Centralizing fragmented databases and migrating slow, on-premise tools to cloud-native stacks." },
               { title: "Financial & Core Banking", desc: "Upgrading legacy ledgers to real-time, event-driven systems with bank-grade security." },
@@ -204,7 +204,7 @@ export default function EnterpriseModernizationPage() {
             ].map((sys, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5 }}
                 className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group"
               >
@@ -228,14 +228,14 @@ export default function EnterpriseModernizationPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-4xl font-bold tracking-tight text-white uppercase tracking-tighter">The Modernization Stack</h2>
           </motion.div>
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <motion.div  initial="hidden" whileInView="visible" className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { category: "Target Backend", items: ["Node.js", "Python", "Go", "GraphQL"] },
               { category: "Target Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind"] },
               { category: "Cloud & DevOps", items: ["Docker & K8s", "AWS / Azure", "Terraform", "CI/CD"] },
               { category: "Data Migration", items: ["PostgreSQL", "MongoDB", "Redis", "Kafka"] },
             ].map((stack, idx) => (
-              <motion.div key={idx} variants={fadeInUp} className="bg-[#111827] border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors">
+              <motion.div key={idx}  className="bg-[#111827] border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors">
                 <h4 className="text-cyan-400 font-bold mb-6 tracking-widest uppercase text-xs font-mono">{stack.category}</h4>
                 <ul className="space-y-3">
                   {stack.items.map((item, i) => (

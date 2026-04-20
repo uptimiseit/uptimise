@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   HeartPulse, ShieldAlert, Database, Stethoscope, 
   Activity, ArrowRight, CheckCircle2, Lock, 
@@ -11,24 +11,24 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
 export default function HealthcareIndustryPage() {
   return (
@@ -47,23 +47,23 @@ export default function HealthcareIndustryPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-sm font-bold tracking-wide uppercase mb-4">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-sm font-bold tracking-wide uppercase mb-4">
             <HeartPulse size={16} className="text-teal-600 animate-pulse" /> HealthTech Engineering
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Architecting Compliant <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500 italic">Healthcare Platforms</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We engineer secure, interoperable medical software. From telemedicine apps to complex EMR/EHR integrations, we build the digital infrastructure that improves patient outcomes while guaranteeing strict HIPAA compliance.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <Link href="/contact" className="px-8 py-4 bg-teal-600 text-white font-bold rounded-xl shadow-lg shadow-teal-600/20 hover:bg-teal-700 hover:scale-105 transition-all text-lg uppercase tracking-wider">
               Build Your HealthTech Platform
             </Link>
@@ -88,7 +88,7 @@ export default function HealthcareIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -101,7 +101,7 @@ export default function HealthcareIndustryPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300 group"
               >
@@ -232,7 +232,7 @@ export default function HealthcareIndustryPage() {
             <p className="text-lg text-slate-600">From patient-facing mobile applications to complex clinical backend portals.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -246,7 +246,7 @@ export default function HealthcareIndustryPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-teal-500 transition-all duration-300 group"
               >
@@ -345,16 +345,16 @@ export default function HealthcareIndustryPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Cloud Providers</h4><p className="text-slate-600 text-xs font-medium">AWS Health, Google Cloud</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Patient Apps</h4><p className="text-slate-600 text-xs font-medium">React Native, Flutter</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Video & Telehealth</h4><p className="text-slate-600 text-xs font-medium">WebRTC, Twilio Video</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Clinical AI / ML</h4><p className="text-slate-600 text-xs font-medium">Python, TensorFlow</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Cloud Providers</h4><p className="text-slate-600 text-xs font-medium">AWS Health, Google Cloud</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Patient Apps</h4><p className="text-slate-600 text-xs font-medium">React Native, Flutter</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Video & Telehealth</h4><p className="text-slate-600 text-xs font-medium">WebRTC, Twilio Video</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-teal-700 font-bold mb-2 text-sm">Clinical AI / ML</h4><p className="text-slate-600 text-xs font-medium">Python, TensorFlow</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -374,7 +374,7 @@ export default function HealthcareIndustryPage() {
             </p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -386,7 +386,7 @@ export default function HealthcareIndustryPage() {
               "HIPAA Infrastructure generation",
               "Zero Vendor Lock-in"
             ].map((reason, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white border border-teal-200 shadow-sm p-4 rounded-xl flex items-center font-semibold text-slate-800">
+              <motion.div key={i}  className="bg-white border border-teal-200 shadow-sm p-4 rounded-xl flex items-center font-semibold text-slate-800">
                 <CheckCircle2 className="w-5 h-5 text-teal-500 mr-3 shrink-0" /> {reason}
               </motion.div>
             ))}
@@ -406,7 +406,7 @@ export default function HealthcareIndustryPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -421,7 +421,7 @@ export default function HealthcareIndustryPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-teal-400 transition-colors relative overflow-hidden group"
             >
                <div className="text-xs font-black text-teal-600 mb-3 uppercase tracking-widest font-mono">Phase_{process.step}</div>

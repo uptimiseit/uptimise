@@ -12,26 +12,26 @@ import {
 } from 'lucide-react';
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
-      duration: 0.8, 
-      ease: "easeOut" // TS now knows this is a valid Easing string
-    } 
-  }
-};
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { 
+//       duration: 0.8, 
+//       ease: "easeOut" // TS now knows this is a valid Easing string
+//     } 
+//   }
+// };
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.2
+//     }
+//   }
+// };
 
 const ecosystemNodes = [
   { 
@@ -74,17 +74,17 @@ const AboutPage = () => {
           <motion.div 
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            // variants={staggerContainer}
             className="max-w-4xl space-y-8"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+            <motion.div  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
               <Fingerprint size={14} className="text-blue-400" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 font-mono">
                 System_Identity::Uptimise_IT
               </span>
             </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-[0.85]">
+            <motion.h1  className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-[0.85]">
               Future <br />
               <motion.span 
                 initial={{ x: -20, opacity: 0 }}
@@ -96,7 +96,7 @@ const AboutPage = () => {
               </motion.span>
             </motion.h1>
 
-            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl">
+            <motion.p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl">
               Uptimise IT is an <span className="text-white">AI-Native Software Factory</span>. We bridge the gap between human creativity and autonomous execution to build digital platforms that scale.
             </motion.p>
           </motion.div>
@@ -110,17 +110,17 @@ const AboutPage = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
+            // variants={staggerContainer}
             className="space-y-8 text-center lg:text-left"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight uppercase">
+            <motion.h2  className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter leading-tight uppercase">
               A Shift in <br /> <span className="text-blue-600">Perspective.</span>
             </motion.h2>
             <div className="space-y-6 text-lg text-slate-500 font-medium leading-relaxed">
-              <motion.p variants={fadeInUp}>
+              <motion.p>
                 The future of development belongs to teams that combine <span className="text-slate-950 font-bold">intelligent automation</span> with <span className="text-slate-950 font-bold">elite human engineering.</span>
               </motion.p>
-              <motion.p variants={fadeInUp} className="font-bold text-slate-950 border-l-4 border-blue-600 pl-6">
+              <motion.p  className="font-bold text-slate-950 border-l-4 border-blue-600 pl-6">
                 Our vision is to operate as the world's most efficient software factory—where complexity is managed by machines, and value is driven by human expertise.
               </motion.p>
             </div>
@@ -280,13 +280,13 @@ const AboutPage = () => {
          <motion.div 
           initial="hidden"
           whileInView="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="max-w-4xl mx-auto space-y-12"
          >
-            <motion.h2 variants={fadeInUp} className="text-5xl md:text-8xl font-black tracking-tighter text-slate-950 leading-none uppercase">
+            <motion.h2 className="text-5xl md:text-8xl font-black tracking-tighter text-slate-950 leading-none uppercase">
               Build the <span className="text-blue-600">Future</span> <br /> With Us.
             </motion.h2>
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
+            <motion.div  className="flex flex-wrap justify-center gap-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

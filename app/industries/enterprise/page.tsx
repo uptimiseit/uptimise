@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   Building, ServerCrash, ShieldAlert, Network, 
   ArrowRight, CheckCircle2, Database, Workflow, 
@@ -10,32 +10,32 @@ import {
   RefreshCcw, ShieldCheck, Zap, Globe, Users
 } from "lucide-react";
 
-// --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// // --- Animation Variants ---
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function EnterpriseIndustryPage() {
   return (
@@ -54,23 +54,31 @@ export default function EnterpriseIndustryPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div
+          //  
+           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Building size={16} /> Enterprise Software Systems
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1
+          //  
+           className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Modernizing the <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">Corporate Infrastructure</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p 
+          // 
+           className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We engineer scalable, secure, and interoperable software for global enterprises. From legacy system modernization to custom ERPs and intelligent data lakes, we build the digital foundation for enterprise agility.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div 
+          // 
+           className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-700/20 hover:bg-blue-800 transition-all text-lg block">
                 Transform Your Enterprise
@@ -99,7 +107,7 @@ export default function EnterpriseIndustryPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -112,7 +120,7 @@ export default function EnterpriseIndustryPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover="hover"
                 // variants={hoverScale}
                 className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:border-red-200 transition-all duration-300"
@@ -241,7 +249,7 @@ export default function EnterpriseIndustryPage() {
             <p className="text-lg text-slate-600 font-medium">Unified digital ecosystems designed to accelerate massive organizations.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -255,7 +263,7 @@ export default function EnterpriseIndustryPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                // 
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-700 transition-all group"
               >
@@ -290,16 +298,16 @@ export default function EnterpriseIndustryPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Backend</h4><p className="text-slate-500 text-xs font-medium">Java, .NET, Node.js</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Cloud</h4><p className="text-slate-500 text-xs font-medium">AWS, Azure, K8s</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Integration</h4><p className="text-slate-500 text-xs font-medium">Kafka, MuleSoft</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Frontend</h4><p className="text-slate-500 text-xs font-medium">React, Next.js</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Backend</h4><p className="text-slate-500 text-xs font-medium">Java, .NET, Node.js</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Cloud</h4><p className="text-slate-500 text-xs font-medium">AWS, Azure, K8s</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Integration</h4><p className="text-slate-500 text-xs font-medium">Kafka, MuleSoft</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-blue-800 font-bold mb-1 text-sm uppercase">Frontend</h4><p className="text-slate-500 text-xs font-medium">React, Next.js</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -377,7 +385,7 @@ export default function EnterpriseIndustryPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -392,7 +400,7 @@ export default function EnterpriseIndustryPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-blue-600 transition-colors relative overflow-hidden group"
             >
                <div className="text-xs font-black text-blue-700 mb-3 uppercase tracking-widest font-mono">Phase_{process.step}</div>
@@ -406,23 +414,23 @@ export default function EnterpriseIndustryPage() {
       {/* 8. BUSINESS BENEFITS */}
       <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-blue-50 text-blue-700 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Enterprise Agility</h3>
             <p className="text-slate-600 text-sm font-medium">Break free from legacy lock-in. Deploy new features in days rather than months.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6"><ShieldCheck size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Zero-Trust Security</h3>
             <p className="text-slate-600 text-sm font-medium">Modern frameworks with IAM and zero-trust networking naturally patch vulnerabilities.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mb-6"><Network size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Unified Data</h3>
             <p className="text-slate-600 text-sm font-medium">Leadership gains 360-degree visibility into corporate operations via API gateways.</p>

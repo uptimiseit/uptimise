@@ -5,33 +5,33 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+// const : Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.2
+//     }
+//   }
+// };
 
-const bentoItem: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    transition: { duration: 0.6, ease: "easeOut" } 
-  }
-};
+// const bentoItem: Variants = {
+//   hidden: { opacity: 0, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     scale: 1, 
+//     transition: { duration: 0.6, ease: "easeOut" } 
+//   }
+// };
 
 export default function WhyUptimisePage() {
   return (
@@ -51,19 +51,19 @@ export default function WhyUptimisePage() {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={}
           className="space-y-6"
         >
-          <motion.h3 variants={fadeInUp} className="text-indigo-600 font-bold tracking-widest uppercase text-xs font-mono">
+          <motion.h3  className="text-indigo-600 font-bold tracking-widest uppercase text-xs font-mono">
             // Why_Uptimise_IT
           </motion.h3>
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             A Modern Engineering Partner for <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
               Digital Product Innovation
             </span>
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Organizations today need technology partners that can design, build, and scale digital platforms efficiently. We combine AI-native workflows and elite product teams.
           </motion.p>
         </motion.div>
@@ -75,12 +75,12 @@ export default function WhyUptimisePage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
+          // variants={}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {/* Bento Item 1: AI-Native */}
           <motion.div 
-            variants={bentoItem}
+            // variants={bentoItem}
             whileHover={{ y: -5 }}
             className="lg:col-span-2 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-50/50 transition-all duration-300 group"
           >
@@ -98,7 +98,7 @@ export default function WhyUptimisePage() {
 
           {/* Bento Item 2: Architecture First */}
           <motion.div 
-            variants={bentoItem}
+            // variants={bentoItem}
             className="bg-[#0B0F19] text-white p-8 md:p-10 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 group"
           >
             <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
@@ -115,7 +115,7 @@ export default function WhyUptimisePage() {
 
           {/* Bento Item 3: End-to-End */}
           <motion.div 
-            variants={bentoItem}
+            // variants={bentoItem}
             className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 hover:border-indigo-300 shadow-sm transition-all"
           >
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Unified Ecosystem</h3>
@@ -135,7 +135,7 @@ export default function WhyUptimisePage() {
 
           {/* Bento Item 4: Transparent Process */}
           <motion.div 
-            variants={bentoItem}
+            // variants={bentoItem}
             className="lg:col-span-2 bg-indigo-600 text-white p-8 md:p-10 rounded-3xl border border-indigo-500 relative overflow-hidden group"
           >
             <motion.div 
@@ -179,13 +179,13 @@ export default function WhyUptimisePage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          // variants={}
           className="flex flex-wrap justify-center gap-4"
         >
           {["Next.js", "React", "Node.js", "Python", "Kotlin", "Flutter", "AWS", "Docker", "Kubernetes"].map((tech, i) => (
              <motion.span 
                key={i} 
-               variants={fadeInUp}
+               
                whileHover={{ scale: 1.05, backgroundColor: "#f5f3ff", borderColor: "#6366f1", color: "#4f46e5" }}
                className="px-6 py-3 bg-white border border-slate-200 shadow-sm rounded-xl text-slate-800 font-bold text-lg transition-all cursor-default"
              >

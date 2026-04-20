@@ -10,31 +10,31 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function MVPDevelopmentPage() {
   return (
@@ -52,14 +52,14 @@ export default function MVPDevelopmentPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-bold tracking-wide uppercase mb-4 border border-orange-200">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-bold tracking-wide uppercase mb-4 border border-orange-200">
             <Rocket size={16} className="animate-pulse" /> For Founders & Startups
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Build Your Startup MVP <br className="hidden md:block" />
             <motion.span 
                animate={{ color: ["#f97316", "#db2777", "#f97316"] }}
@@ -70,11 +70,11 @@ export default function MVPDevelopmentPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Don't burn your runway on slow development. Uptimise IT builds scalable, investor-ready Minimum Viable Products in weeks, not months, using AI-native engineering and modern cloud architecture.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-orange-500 text-white font-bold rounded-xl shadow-lg shadow-orange-500/20 hover:bg-orange-600 transition-all text-lg block text-center">
                 Discuss Your MVP Idea
@@ -103,7 +103,7 @@ export default function MVPDevelopmentPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -116,7 +116,7 @@ export default function MVPDevelopmentPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover="hover"
                 // variants={hoverScale}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-orange-300 transition-all duration-300 group"
@@ -167,28 +167,28 @@ export default function MVPDevelopmentPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="grid grid-cols-2 gap-4"
           >
             <div className="space-y-4 mt-8">
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-orange-50 p-6 rounded-3xl border border-orange-100 shadow-sm">
+              <motion.div  whileHover={{ y: -5 }} className="bg-orange-50 p-6 rounded-3xl border border-orange-100 shadow-sm">
                 <span className="text-2xl font-black text-orange-600 font-mono">01. Build</span>
                 <p className="text-slate-600 mt-2 text-sm font-medium">Ship the core product fast.</p>
               </motion.div>
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl">
+              <motion.div  whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl">
                 <span className="text-2xl font-black text-white font-mono">03. Learn</span>
                 <p className="text-slate-400 mt-2 text-sm font-medium">Iterate based on feedback.</p>
               </motion.div>
             </div>
             <div className="space-y-4">
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-blue-50 p-6 rounded-3xl border border-blue-100 shadow-sm">
+              <motion.div  whileHover={{ y: -5 }} className="bg-blue-50 p-6 rounded-3xl border border-blue-100 shadow-sm">
                 <span className="text-2xl font-black text-blue-600 font-mono">02. Measure</span>
                 <p className="text-slate-600 mt-2 text-sm font-medium">Track user behavior data.</p>
               </motion.div>
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-pink-50 p-6 rounded-3xl border border-pink-100 shadow-sm">
+              <motion.div  whileHover={{ y: -5 }} className="bg-pink-50 p-6 rounded-3xl border border-pink-100 shadow-sm">
                 <span className="text-2xl font-black text-pink-600 font-mono">04. Scale</span>
                 <p className="text-slate-600 mt-2 text-sm font-medium">Expand tech stack safely.</p>
               </motion.div>
@@ -209,7 +209,7 @@ export default function MVPDevelopmentPage() {
             <p className="text-lg text-slate-400">Specialized engineering teams to execute your vision flawlessly.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -223,7 +223,7 @@ export default function MVPDevelopmentPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10, backgroundColor: "#1e293b" }}
                 className="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-all group"
               >
@@ -258,7 +258,7 @@ export default function MVPDevelopmentPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -270,7 +270,7 @@ export default function MVPDevelopmentPage() {
                 { i: <Database />, t: "Database" },
                 { i: <Zap />, t: "Deployment" }
             ].map((box, i) => (
-                <motion.div key={i} variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col items-center text-center justify-center shadow-sm">
+                <motion.div key={i}  whileHover={{ y: -5 }} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col items-center text-center justify-center shadow-sm">
                     <div className="text-slate-400 mb-3">{box.i}</div>
                     <span className="font-bold text-slate-800 text-sm uppercase tracking-widest">{box.t}</span>
                 </motion.div>
@@ -324,7 +324,7 @@ export default function MVPDevelopmentPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -338,7 +338,7 @@ export default function MVPDevelopmentPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-orange-50 hover:border-orange-100 transition-colors group shadow-sm"
             >
                <div className="text-xs font-black text-orange-500 mb-4 tracking-widest uppercase font-mono">{process.step}</div>
@@ -352,23 +352,23 @@ export default function MVPDevelopmentPage() {
       {/* 8. STARTUP SUCCESS BENEFITS */}
       <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6"><LineChart size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Investor-Ready</h3>
             <p className="text-slate-600 text-sm font-medium">Pass technical due diligence with ease. We write clean, modular code that VCs love.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Pivot Capability</h3>
             <p className="text-slate-600 text-sm font-medium">Our architecture is decoupled, allowing you to easily pivot features based on early feedback.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-6"><Wallet size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Efficient Scaling</h3>
             <p className="text-slate-600 text-sm font-medium">Serverless cloud setups ensure you only pay for the exact computing power you consume.</p>
@@ -391,7 +391,7 @@ export default function MVPDevelopmentPage() {
               We operate as your interim technical co-founder. You get an elite squad who understand business logic—not just code.
             </p>
           </div>
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full relative z-10">
+          <motion.div  initial="hidden" whileInView="visible" className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full relative z-10">
             {[
               "Transparent weekly demos",
               "Direct access to architects",
@@ -400,7 +400,7 @@ export default function MVPDevelopmentPage() {
             ].map((reason, i) => (
               <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                
                 className="bg-orange-700/50 border border-orange-500/50 p-4 rounded-xl flex items-center font-bold text-xs uppercase tracking-widest text-white backdrop-blur-sm"
               >
                 <CheckCircle2 className="w-4 h-4 text-orange-300 mr-3 shrink-0" /> {reason}

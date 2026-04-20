@@ -11,32 +11,32 @@ import {
   MessageSquare
 } from "lucide-react";
 
-// --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// // --- Animation Variants ---
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverScale: Variants = {
-  hover: { 
-    scale: 1.02, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverScale: Variants = {
+//   hover: { 
+//     scale: 1.02, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function WorkflowAutomationPage() {
   return (
@@ -51,21 +51,21 @@ export default function WorkflowAutomationPage() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-50 blur-[120px] rounded-full -z-10" 
         />
         
-        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="space-y-8">
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+        <motion.div initial="hidden" animate="visible"  className="space-y-8">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Workflow size={16} className="animate-spin-slow" /> Intelligent Operations
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Intelligent <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-violet-600 italic">Workflow Automation</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Eliminate manual data entry, connect siloed enterprise applications, and scale your operations without adding headcount. We engineer autonomous workflows powered by custom APIs.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-cyan-600 text-white font-bold rounded-xl shadow-lg shadow-cyan-600/20 hover:bg-cyan-700 transition-all text-lg block">
                 Automate Your Business
@@ -93,7 +93,7 @@ export default function WorkflowAutomationPage() {
             <p className="text-lg text-slate-600 font-medium">Manual processes introduce errors, frustrate teams, and destroy profit margins.</p>
           </motion.div>
           
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div  initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: "Data Silos", desc: "CRM and ERP systems don't talk, forcing manual copy-pasting between screens.", icon: <Database /> },
               { title: "Human Error", desc: "Manual entry leads to typos, lost invoices, and costly compliance violations.", icon: <AlertCircle /> },
@@ -101,7 +101,7 @@ export default function WorkflowAutomationPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover="hover"
                 // variants={hoverScale}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-red-200 transition-all duration-300 group"
@@ -193,7 +193,7 @@ export default function WorkflowAutomationPage() {
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 uppercase tracking-tighter">Autonomous Engines</h2>
             <p className="text-lg text-slate-600 font-medium">Replacing manual effort with digital workers across departments.</p>
           </motion.div>
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div  initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               { title: "Financial Automation", desc: "Auto-extracting PDF data, matching purchase orders, and pushing to accounting software.", icon: <FileText /> },
               { title: "HR Onboarding", desc: "Instantly provisioning software accounts and updating payroll upon new hire detection.", icon: <Users /> },
@@ -202,7 +202,7 @@ export default function WorkflowAutomationPage() {
             ].map((sys, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5 }}
                 className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm hover:border-cyan-600 transition-all group"
               >
@@ -281,7 +281,7 @@ export default function WorkflowAutomationPage() {
           {["Custom Webhooks", "n8n Self-Hosted", "Make.com", "Zapier Enterprise", "Workato", "MuleSoft", "GraphQL"].map((tech, i) => (
             <motion.span 
               key={tech} 
-              variants={fadeInUp}
+              
               initial="hidden"
               whileInView="visible"
               transition={{ delay: i * 0.05 }}
@@ -297,23 +297,23 @@ export default function WorkflowAutomationPage() {
       {/* 8. BUSINESS IMPACT */}
       <section className="py-24 px-6 border-y border-slate-100 bg-white">
         <motion.div 
-          variants={staggerContainer}
+          
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center mb-6"><Clock size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Hours Reclaimed</h3>
             <p className="text-slate-500 text-sm font-medium">Save your team 20+ hours a week on repetitive administrative logic.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center mb-6"><TrendingUp size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Linear Scaling</h3>
             <p className="text-slate-500 text-sm font-medium">Double your transaction volume without doubling your back-office staff.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
+          <motion.div  className="bg-slate-50 p-8 rounded-3xl border border-slate-100 text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Instant Velocity</h3>
             <p className="text-slate-500 text-sm font-medium">Reduce approval and processing times from days to absolute milliseconds.</p>

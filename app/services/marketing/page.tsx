@@ -10,25 +10,25 @@ import {
   LineChart, MousePointerClick, Megaphone
 } from 'lucide-react';
 
-// --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// // --- Animation Variants ---
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
 const growthStats = [
   { label: "ROAS", val: "4.2x Avg", icon: <LineChart size={20} /> },
@@ -54,14 +54,14 @@ const DigitalGrowthPage = () => {
           <motion.div 
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            
             className="lg:col-span-7 text-center lg:text-left space-y-8"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100">
+            <motion.div  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100">
               <TrendingUp size={14} className="text-emerald-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-700 font-mono">Module::Growth_Systems_v4.0</span>
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.98]">
+            <motion.h1  className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.98]">
               Algorithmic <br />
               <motion.span 
                 animate={{ color: ["#059669", "#10b981", "#059669"] }}
@@ -71,10 +71,10 @@ const DigitalGrowthPage = () => {
                 Growth.
               </motion.span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+            <motion.p  className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT engineers data-driven growth engines that combine AI-powered automation with performance marketing to scale user adoption with mathematical precision.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col lg:flex-row gap-4">
+            <motion.div  className="flex flex-col lg:flex-row gap-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
@@ -169,7 +169,7 @@ const DigitalGrowthPage = () => {
             </p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -181,7 +181,7 @@ const DigitalGrowthPage = () => {
              ].map((text, i) => (
                <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5, borderColor: "#10b981" }}
                 className="flex items-center gap-4 p-6 bg-white border border-slate-100 rounded-3xl shadow-sm transition-all"
                >
@@ -218,7 +218,7 @@ const DigitalGrowthPage = () => {
                </ul>
             </motion.div>
             <motion.div 
-              variants={staggerContainer}
+              
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -230,7 +230,7 @@ const DigitalGrowthPage = () => {
                ].map((item, i) => (
                  <motion.div 
                   key={i} 
-                  variants={fadeInUp}
+                  
                   whileHover={{ y: -8, backgroundColor: "white", boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
                   className="p-8 rounded-[3rem] bg-slate-50 border border-slate-100 space-y-4 group transition-all"
                  >
@@ -316,7 +316,7 @@ const DigitalGrowthPage = () => {
             </motion.div>
             
             <motion.div 
-              variants={staggerContainer}
+              
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -328,7 +328,7 @@ const DigitalGrowthPage = () => {
                  { cat: "Performance", tools: ["Google Ads", "Meta Ads Manager"] },
                  { cat: "Content", tools: ["Adobe Suite", "AI Copywriting"] }
                ].map((group, i) => (
-                 <motion.div key={i} variants={fadeInUp} className="space-y-6">
+                 <motion.div key={i}  className="space-y-6">
                     <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 font-mono">{group.cat}</h5>
                     <div className="space-y-2">
                        {group.tools.map((tool, idx) => (

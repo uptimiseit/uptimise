@@ -48,34 +48,34 @@ const transparencyPoints = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+//   }
+// };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const itemVariants: Variants = {
+//   hidden: { opacity: 0, y: 30, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
-const iconFloating: Variants = {
-  animate: {
-    y: [0, -5, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
+// const iconFloating: Variants = {
+//   animate: {
+//     y: [0, -5, 0],
+//     transition: {
+//       duration: 3,
+//       repeat: Infinity,
+//       ease: "easeInOut"
+//     }
+//   }
+// };
 
 const TransparencySection = () => {
   return (
@@ -123,7 +123,7 @@ const TransparencySection = () => {
         {/* Bento Grid Layout */}
         <motion.div 
           className="grid grid-cols-12 gap-6"
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -131,7 +131,7 @@ const TransparencySection = () => {
           {transparencyPoints.map((item, i) => (
             <motion.div
               key={i}
-              variants={itemVariants}
+              // variants={itemVariants}
               whileHover={{ y: -8 }}
               className={`p-8 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between overflow-hidden cursor-default ${
                 item.featured 
@@ -142,7 +142,7 @@ const TransparencySection = () => {
               <div className="relative z-10 space-y-8">
                 <div className="flex justify-between items-center">
                   <motion.div 
-                    variants={iconFloating}
+                    // variants={iconFloating}
                     animate="animate"
                     className={`p-4 rounded-2xl ${item.featured ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/20' : 'bg-slate-50 text-emerald-600 shadow-sm group-hover:bg-emerald-600 group-hover:text-white transition-colors'}`}
                   >

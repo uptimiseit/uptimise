@@ -80,11 +80,11 @@ const DOMAINS = [
   { name: "Travel", icon: <Plane strokeWidth={1.5} /> },
 ];
 
-// --- ANIMATION HELPERS ---
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
+// // --- ANIMATION HELPERS ---
+// const fadeInUp = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+// };
 
 export default function ClientsPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -105,7 +105,7 @@ export default function ClientsPage() {
         <motion.div 
           initial="hidden" 
           animate="visible" 
-          variants={fadeInUp}
+          // variants={fadeInUp}
         >
           <span className="text-pink-500 font-bold tracking-widest text-sm uppercase">Clients</span>
           <div className="text-sm text-gray-400 mt-1 mb-8">Home • Clients</div>
@@ -140,15 +140,15 @@ export default function ClientsPage() {
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }}
-            variants={{
-              visible: { transition: { staggerChildren: 0.05 } }
-            }}
+            // variants={{
+            //   visible: { transition: { staggerChildren: 0.05 } }
+            // }}
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 items-center justify-items-center opacity-80"
           >
             {LOGOS.map((logo, index) => (
               <motion.div 
                 key={index} 
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
               >
                 {/* Text Placeholder for Logos - Replace with <Image> in real app */}

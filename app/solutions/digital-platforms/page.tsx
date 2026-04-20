@@ -11,31 +11,31 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverCard: Variants = {
-  hover: { 
-    y: -8, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverCard: Variants = {
+//   hover: { 
+//     y: -8, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function DigitalPlatformPage() {
   return (
@@ -53,23 +53,31 @@ export default function DigitalPlatformPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div 
+          // 
+           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Globe size={16} className="animate-spin-slow" /> Digital Platform Engineering
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1 
+          // 
+           className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Architecting High-Performance <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 italic">Digital Ecosystems</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p 
+          //  
+          className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             We engineer complex, multi-sided digital platforms designed for massive concurrency. From B2B marketplaces to enterprise community hubs, we build the infrastructure that connects your users securely.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div 
+          // 
+           className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 transition-all text-lg block">
                 Start Your Platform Build
@@ -98,7 +106,7 @@ export default function DigitalPlatformPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -111,9 +119,9 @@ export default function DigitalPlatformPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                // variants={fadeInUp}
+                // 
                 whileHover="hover"
-                variants={hoverCard}
+                // variants={hoverCard}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm transition-all duration-300 group"
               >
                 <div className="mb-6 bg-red-50 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">{challenge.icon}</div>
@@ -162,31 +170,31 @@ export default function DigitalPlatformPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="grid grid-cols-2 gap-4"
           >
             <div className="space-y-4 mt-8">
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl">
+              <motion.div  whileHover={{ y: -5 }} className="bg-slate-900 text-white p-6 rounded-3xl shadow-xl">
                 <Network className="w-10 h-10 mb-4 text-emerald-400" />
                 <h4 className="font-bold font-mono text-sm uppercase tracking-widest">API Gateway</h4>
                 <p className="text-slate-400 text-xs mt-2">Central traffic routing.</p>
               </motion.div>
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-emerald-50 border border-emerald-100 p-6 rounded-3xl">
+              <motion.div  whileHover={{ y: -5 }} className="bg-emerald-50 border border-emerald-100 p-6 rounded-3xl">
                 <Database className="w-10 h-10 mb-4 text-emerald-600" />
                 <h4 className="font-bold text-slate-900 font-mono text-sm uppercase tracking-widest">Distributed DB</h4>
                 <p className="text-slate-600 text-xs mt-2">High-availability data.</p>
               </motion.div>
             </div>
             <div className="space-y-4">
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-blue-50 border border-blue-100 p-6 rounded-3xl">
+              <motion.div  whileHover={{ y: -5 }} className="bg-blue-50 border border-blue-100 p-6 rounded-3xl">
                 <Workflow className="w-10 h-10 mb-4 text-blue-600" />
                 <h4 className="font-bold text-slate-900 font-mono text-sm uppercase tracking-widest">Event Bus</h4>
                 <p className="text-slate-600 text-xs mt-2">Async task queues.</p>
               </motion.div>
-              <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-100 border border-slate-200 p-6 rounded-3xl">
+              <motion.div  whileHover={{ y: -5 }} className="bg-slate-100 border border-slate-200 p-6 rounded-3xl">
                 <Layout className="w-10 h-10 mb-4 text-slate-600" />
                 <h4 className="font-bold text-slate-900 font-mono text-sm uppercase tracking-widest">Client Apps</h4>
                 <p className="text-slate-600 text-xs mt-2">Web, iOS, and Android.</p>
@@ -208,7 +216,7 @@ export default function DigitalPlatformPage() {
             <p className="text-lg text-slate-400 font-medium">Complex ecosystems designed to manage thousands of concurrent interactions.</p>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -222,7 +230,7 @@ export default function DigitalPlatformPage() {
             ].map((prod, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -10, backgroundColor: "#1e293b" }}
                 className="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-emerald-500 transition-all group"
               >
@@ -257,16 +265,16 @@ export default function DigitalPlatformPage() {
             </div>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="flex-1 w-full grid grid-cols-2 gap-4"
           >
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Frontend</h4><p className="text-slate-600 text-xs">React, Next.js, Flutter</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Logic</h4><p className="text-slate-600 text-xs">Node.js, Go, GraphQL</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Data</h4><p className="text-slate-600 text-xs">PostgreSQL, Redis</p></motion.div>
-             <motion.div variants={fadeInUp} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Infra</h4><p className="text-slate-600 text-xs">AWS, Kubernetes</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Frontend</h4><p className="text-slate-600 text-xs">React, Next.js, Flutter</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Logic</h4><p className="text-slate-600 text-xs">Node.js, Go, GraphQL</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Data</h4><p className="text-slate-600 text-xs">PostgreSQL, Redis</p></motion.div>
+             <motion.div  className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center"><h4 className="text-emerald-600 font-bold mb-1 text-sm uppercase">Infra</h4><p className="text-slate-600 text-xs">AWS, Kubernetes</p></motion.div>
           </motion.div>
         </div>
       </section>
@@ -316,7 +324,7 @@ export default function DigitalPlatformPage() {
         </motion.div>
         
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -331,7 +339,7 @@ export default function DigitalPlatformPage() {
           ].map((process, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-emerald-400 transition-colors relative overflow-hidden group"
             >
                <div className="text-xs font-black text-emerald-600 mb-3 uppercase tracking-widest font-mono">Phase_{process.step}</div>
@@ -345,23 +353,23 @@ export default function DigitalPlatformPage() {
       {/* 8. PLATFORM SCALABILITY BENEFITS */}
       <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">High Concurrency</h3>
             <p className="text-slate-600 text-sm font-medium">Handle tens of thousands of simultaneous users browsing or transacting without latency spikes.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6"><ShieldCheck size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Enterprise Security</h3>
             <p className="text-slate-600 text-sm font-medium">Protect data and transactions with strict role-based access control and encrypted payloads.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
+          <motion.div  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-6"><Cpu size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Modular Expansion</h3>
             <p className="text-slate-600 text-sm font-medium">Adding a new feature or app interface in the future is seamless and safe with decoupled microservices.</p>

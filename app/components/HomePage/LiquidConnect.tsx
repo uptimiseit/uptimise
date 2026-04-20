@@ -7,31 +7,31 @@ import Link from 'next/link';
 
 const PhilosophySectionWhite = () => {
   // Animation Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-    },
-  };
+  // const containerVariants = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+  //   },
+  // };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeInOut" as const },
-    },
-  };
+  // const fadeInUp = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { duration: 0.6, ease: "easeInOut" as const },
+  //   },
+  // };
 
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" as const },
-    },
-  };
+  // const cardVariants = {
+  //   hidden: { opacity: 0, scale: 0.9 },
+  //   visible: {
+  //     opacity: 1,
+  //     scale: 1,
+  //     transition: { duration: 0.5, ease: "easeOut" as const },
+  //   },
+  // };
 
   return (
     <section className="relative text-slate-900 py-24 px-6 overflow-hidden bg-linear-to-br from-white to-pink-50 flex items-center justify-center">
@@ -65,7 +65,7 @@ const PhilosophySectionWhite = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="justify-between flex flex-col md:flex-row items-start md:items-center mb-16 space-y-4"
         >
           <span className="text-blue-600 font-mono tracking-widest text-sm uppercase font-bold">
@@ -84,29 +84,39 @@ const PhilosophySectionWhite = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={containerVariants}
+            // variants={containerVariants}
             className="space-y-8 font-body text-lg text-slate-600 leading-relaxed"
           >
-            <motion.p variants={fadeInUp} className="text-slate-950 text-2xl font-semibold leading-snug">
+            <motion.p 
+            // variants={fadeInUp}
+             className="text-slate-950 text-2xl font-semibold leading-snug">
               The Future of Software Development Is <span className="text-blue-600">AI-Augmented Engineering.</span>
             </motion.p>
             
-            <motion.p variants={fadeInUp}>
+            <motion.p 
+            // variants={fadeInUp}
+            >
               For decades, building digital products required large engineering teams working 
               through long development cycles. Projects often moved slowly due to 
               complex coordination, manual workflows, and fragmented processes.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="h-px bg-slate-100 w-full" />
+            <motion.div 
+            // variants={fadeInUp}
+             className="h-px bg-slate-100 w-full" />
 
-            <motion.p variants={fadeInUp}>
+            <motion.p 
+            // variants={fadeInUp}
+            >
               Today, a new model is emerging. Advances in artificial intelligence, 
               automation systems, and modern engineering tools are enabling a new class 
               of developers — engineers who can build and ship products 
               significantly faster than traditional teams.
             </motion.p>
 
-            <motion.div variants={fadeInUp}>
+            <motion.div 
+            // variants={fadeInUp}
+            >
               <Link href={"/Explore100x"}>
                 <button className="flex items-center gap-4 text-slate-900 group cursor-pointer pt-4 hover:text-blue-600 transition-all duration-300">
                   <span className="font-bold text-xl uppercase tracking-tighter">
@@ -133,14 +143,14 @@ const PhilosophySectionWhite = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={containerVariants}
+              // variants={containerVariants}
               className="relative z-10 border border-slate-100 rounded-3xl bg-white/40 backdrop-blur-md p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)]"
             >
               <div className="grid grid-cols-2 gap-6">
                 
                 {/* Feature Cards */}
                 <motion.div 
-                  variants={cardVariants}
+                  // variants={cardVariants}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="p-6 bg-white border border-slate-100 rounded-2xl space-y-3 shadow-sm hover:shadow-md transition-shadow"
                 >
@@ -152,7 +162,7 @@ const PhilosophySectionWhite = () => {
                 </motion.div>
 
                 <motion.div 
-                  variants={cardVariants}
+                  // variants={cardVariants}
                   whileHover={{ y: -5 }}
                   className="p-6 bg-white border border-slate-100 rounded-2xl space-y-3 mt-10 shadow-sm hover:shadow-md transition-shadow"
                 >
@@ -164,7 +174,7 @@ const PhilosophySectionWhite = () => {
                 </motion.div>
 
                 <motion.div 
-                  variants={cardVariants}
+                  // variants={cardVariants}
                   whileHover={{ y: -5 }}
                   className="p-6 bg-white border border-slate-200 rounded-2xl space-y-3 -mt-4 shadow-sm hover:shadow-md transition-shadow"
                 >
@@ -176,7 +186,7 @@ const PhilosophySectionWhite = () => {
                 </motion.div>
 
                 <motion.div 
-                  variants={cardVariants}
+                  // variants={cardVariants}
                   whileHover={{ y: -5 }}
                   className="p-6 bg-white border border-slate-100 rounded-2xl space-y-3 shadow-sm hover:shadow-md transition-shadow"
                 >

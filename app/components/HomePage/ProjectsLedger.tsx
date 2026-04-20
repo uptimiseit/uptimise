@@ -53,26 +53,26 @@ const projects = [
 ];
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2
-    }
-  }
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12,
+//       delayChildren: 0.2
+//     }
+//   }
+// };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-  }
-};
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, y: 30, scale: 0.95 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     scale: 1,
+//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
+//   }
+// };
 
 const ProjectsLedger = () => {
   return (
@@ -115,7 +115,7 @@ const ProjectsLedger = () => {
         {/* Bento Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
+          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -123,7 +123,7 @@ const ProjectsLedger = () => {
           {projects.map((project, i) => (
             <motion.div
               key={i}
-              variants={cardVariants}
+              // variants={cardVariants}
               whileHover={{ y: -10 }}
               className={`p-10 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between overflow-hidden cursor-default ${
                 project.featured 
@@ -213,7 +213,7 @@ const ProjectsLedger = () => {
 
           {/* "Continuous Delivery" Card */}
           <motion.div 
-            variants={cardVariants}
+            // variants={cardVariants}
             whileHover={{ y: -5 }}
             className="p-10 rounded-[3rem] bg-blue-50 border border-blue-100 flex flex-col justify-center items-center text-center space-y-6 group transition-all duration-500 hover:bg-white hover:shadow-2xl"
           >

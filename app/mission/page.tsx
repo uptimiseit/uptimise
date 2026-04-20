@@ -4,32 +4,32 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 
 // --- 1. STYLED ANIMATION VARIANTS ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.2
+//     }
+//   }
+// };
 
-const iconHover: Variants = {
-  hover: { 
-    scale: 1.1, 
-    rotate: 5,
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const iconHover: Variants = {
+//   hover: { 
+//     scale: 1.1, 
+//     rotate: 5,
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function MissionPage() {
   return (
@@ -50,19 +50,25 @@ export default function MissionPage() {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-6"
         >
-          <motion.h3 variants={fadeInUp} className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
+          <motion.h3 
+          // 
+           className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
             Our Mission
           </motion.h3>
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1 
+          // 
+           className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Empowering Organizations to <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
               Build and Scale
             </span> Digital Platforms
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p 
+          // 
+           className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             At Uptimise IT, our mission is to help organizations design, build, and scale modern digital products using intelligent engineering systems and modern technology infrastructure.
           </motion.p>
         </motion.div>
@@ -118,7 +124,7 @@ export default function MissionPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
+          // 
           className="text-center max-w-3xl mx-auto space-y-4"
         >
           <h2 className="text-4xl font-bold tracking-tight text-slate-900">Supporting the Entire Product Lifecycle</h2>
@@ -131,7 +137,7 @@ export default function MissionPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {[
@@ -158,12 +164,12 @@ export default function MissionPage() {
           ].map((service, idx) => (
             <motion.div 
               key={idx} 
-              variants={fadeInUp}
+              
               whileHover="hover"
               className="p-8 rounded-2xl border border-slate-200 bg-white hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-50/50 transition-all flex items-start space-x-6 cursor-default"
             >
               <motion.div 
-                variants={iconHover}
+                // variants={iconHover}
                 className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center shrink-0 text-indigo-600"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,7 +191,7 @@ export default function MissionPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12"
         >
           {[
@@ -193,7 +199,7 @@ export default function MissionPage() {
             { t: "Fostering Innovation", d: "A culture where product thinkers collaborate to solve complex problems." },
             { t: "Visionary Partners", d: "Working with startups and enterprises to shape the future of innovation." }
           ].map((val, i) => (
-            <motion.div key={i} variants={fadeInUp} className="space-y-4">
+            <motion.div key={i}  className="space-y-4">
               <div className="w-8 h-1 bg-indigo-500 mb-6" />
               <h3 className="text-2xl font-bold">{val.t}</h3>
               <p className="text-slate-400 leading-relaxed">{val.d}</p>

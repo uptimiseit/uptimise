@@ -10,31 +10,31 @@ import {
 } from 'lucide-react';
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15
+//     }
+//   }
+// };
 
-const hoverCard: Variants = {
-  hover: { 
-    y: -10, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverCard: Variants = {
+//   hover: { 
+//     y: -10, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 // Data for "What We Build"
 const buildItems = [
@@ -64,14 +64,14 @@ const DevelopmentServices = () => {
           <motion.div 
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            // 
             className="lg:col-span-7 text-center lg:text-left space-y-8"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+            <motion.div  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
               <Code2 size={14} className="text-blue-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">Module::Software_Engineering</span>
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+            <motion.h1  className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
               Scalable <br />
               <motion.span 
                 initial={{ opacity: 0, x: -20 }}
@@ -82,10 +82,10 @@ const DevelopmentServices = () => {
                 Digital Assets.
               </motion.span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+            <motion.p  className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
               Uptimise IT builds reliable, high-performance platforms by combining AI-native workflows with enterprise-grade engineering discipline.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col lg:flex-row gap-4">
+            <motion.div  className="flex flex-col lg:flex-row gap-4">
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs shadow-xl">
                 Start Your Project
               </motion.button>
@@ -117,11 +117,11 @@ const DevelopmentServices = () => {
                    <motion.div 
                     initial="hidden"
                     animate="visible"
-                    variants={staggerContainer}
+                    
                     className="space-y-2"
                    >
                      {["Architecture_Validation", "AI_Scaffolding", "Security_Audit"].map((text, i) => (
-                       <motion.p key={i} variants={fadeInUp} className="text-[10px] font-mono text-slate-500 leading-relaxed italic">
+                       <motion.p key={i}  className="text-[10px] font-mono text-slate-500 leading-relaxed italic">
                          # {text}::Complete
                        </motion.p>
                      ))}
@@ -146,7 +146,7 @@ const DevelopmentServices = () => {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -155,7 +155,7 @@ const DevelopmentServices = () => {
             {problems.map((p) => (
               <motion.div 
                 key={p.id} 
-                variants={fadeInUp}
+                
                 layout
                 onClick={() => setExpandedProblem(expandedProblem === p.id ? null : p.id)}
                 className={`p-8 rounded-[2.5rem] border transition-all cursor-pointer ${
@@ -204,7 +204,7 @@ const DevelopmentServices = () => {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -213,9 +213,9 @@ const DevelopmentServices = () => {
             {buildItems.map((card, i) => (
               <motion.div 
                 key={i} 
-                // variants={fadeInUp}
+                // 
                 whileHover="hover"
-                variants={hoverCard}
+                // variants={hoverCard}
                 className="bg-white p-10 rounded-[3rem] border border-slate-100 hover:border-blue-600/30 transition-all group"
               >
                 <motion.div 
@@ -270,7 +270,7 @@ const DevelopmentServices = () => {
           </div>
 
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -284,7 +284,7 @@ const DevelopmentServices = () => {
               { icon: <Database />, title: "Scalable Data", desc: "Distributed data architectures to handle millions of concurrent operations." },
               { icon: <Rocket />, title: "Automated DevOps", desc: "Zero-downtime deployments via containerized cloud infrastructure." }
             ].map((std, i) => (
-              <motion.div key={i} variants={fadeInUp} className="space-y-4 group cursor-default">
+              <motion.div key={i}  className="space-y-4 group cursor-default">
                 <motion.div 
                   whileHover={{ scale: 1.2, color: "#3b82f6" }}
                   className="text-blue-500 transition-colors"
@@ -311,7 +311,7 @@ const DevelopmentServices = () => {
              <h3 className="text-4xl font-black tracking-tight text-slate-950 uppercase italic">The Stack Room.</h3>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -323,7 +323,7 @@ const DevelopmentServices = () => {
                { cat: "Cloud", tools: ["AWS", "GCP", "Docker"] },
                { cat: "AI Engine", tools: ["LLMs", "Agents", "LangChain"] }
              ].map((group, i) => (
-               <motion.div key={i} variants={fadeInUp} className="space-y-6">
+               <motion.div key={i}  className="space-y-6">
                   <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 font-mono">{group.cat}</h5>
                   <div className="space-y-2">
                      {group.tools.map((t, idx) => (

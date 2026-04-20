@@ -5,34 +5,34 @@ import { motion, Variants } from 'framer-motion';
 import { Check, X, Zap, Users2, Clock, BarChart3, Workflow } from 'lucide-react';
 
 // --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
-const rowVariants: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
-  },
-};
+// const rowVariants: Variants = {
+//   hidden: { opacity: 0, x: -20 },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0, 
+//     transition: { duration: 0.5, ease: "easeOut" } 
+//   },
+// };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
-  },
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.6, ease: "easeOut" } 
+//   },
+// };
 
 const CompareSection = () => {
   const comparisonData = [
@@ -82,7 +82,7 @@ const CompareSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={fadeInUp}
+          // variants={fadeInUp}
           className="mb-12 space-y-4 flex items-center flex-col lg:flex-row justify-between text-center lg:text-left"
         >
           <span className="text-blue-600 font-mono tracking-widest text-sm uppercase font-bold">
@@ -99,7 +99,7 @@ const CompareSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          // variants={containerVariants}
           className="border border-slate-100 rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden bg-white shadow-2xl shadow-slate-100"
         >
           
@@ -118,7 +118,7 @@ const CompareSection = () => {
             {comparisonData.map((item, i) => (
               <motion.div 
                 key={i} 
-                variants={rowVariants}
+                // variants={rowVariants}
                 className="grid grid-cols-12 p-5 lg:p-8 items-center group hover:bg-blue-50/30 transition-colors duration-300 cursor-default"
               >
                 

@@ -12,31 +12,31 @@ import {
 } from "lucide-react";
 
 // --- Animation Variants ---
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
+// const fadeInUp: Variants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   }
+// };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
+// const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.12
+//     }
+//   }
+// };
 
-const hoverCard: Variants = {
-  hover: { 
-    y: -8, 
-    transition: { type: "spring", stiffness: 400, damping: 10 } 
-  }
-};
+// const hoverCard: Variants = {
+//   hover: { 
+//     y: -8, 
+//     transition: { type: "spring", stiffness: 400, damping: 10 } 
+//   }
+// };
 
 export default function ProductDesignPage() {
   return (
@@ -58,14 +58,14 @@ export default function ProductDesignPage() {
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={staggerContainer}
+          // variants={staggerContainer}
           className="space-y-8"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fuchsia-50 border border-fuchsia-100 text-fuchsia-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+          <motion.div  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fuchsia-50 border border-fuchsia-100 text-fuchsia-700 text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
             <Sparkles size={16} className="animate-pulse" /> Experience Engineering
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
+          <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-5xl mx-auto leading-tight">
             Designing Digital Products <br className="hidden md:block" />
             <motion.span 
               animate={{ color: ["#c026d3", "#f43f5e", "#c026d3"] }}
@@ -76,11 +76,11 @@ export default function ProductDesignPage() {
             </motion.span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p  className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             We bridge the gap between human psychology and digital interfaces. Uptimise IT crafts scalable design systems and high-converting user experiences that drive retention.
           </motion.p>
           
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <motion.div  className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/contact" className="px-8 py-4 bg-fuchsia-600 text-white font-bold rounded-xl shadow-lg shadow-fuchsia-600/20 hover:bg-fuchsia-700 transition-all text-lg block">
                 Redesign Your Product
@@ -109,7 +109,7 @@ export default function ProductDesignPage() {
           </motion.div>
           
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -122,7 +122,7 @@ export default function ProductDesignPage() {
             ].map((challenge, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover="hover"
                 // variants={hoverCard}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-rose-200 transition-all duration-300 group"
@@ -219,7 +219,7 @@ export default function ProductDesignPage() {
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 uppercase tracking-tighter">Design Capabilities</h2>
           </motion.div>
           <motion.div 
-            variants={staggerContainer}
+            // variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -233,7 +233,7 @@ export default function ProductDesignPage() {
             ].map((srv, idx) => (
               <motion.div 
                 key={idx} 
-                variants={fadeInUp}
+                
                 whileHover={{ y: -5 }}
                 className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group"
               >
@@ -267,20 +267,20 @@ export default function ProductDesignPage() {
                ))}
             </div>
           </motion.div>
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" className="grid grid-cols-2 gap-4">
-            <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
+          <motion.div  initial="hidden" whileInView="visible" className="grid grid-cols-2 gap-4">
+            <motion.div  whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
               <Figma className="text-fuchsia-400 w-10 h-10 mx-auto mb-4" />
               <h4 className="text-white font-bold text-xs uppercase font-mono">Figma_Core</h4>
             </motion.div>
-            <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
+            <motion.div  whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
               <Smartphone className="text-rose-400 w-10 h-10 mx-auto mb-4" />
               <h4 className="text-white font-bold text-xs uppercase font-mono">Proto_Pie</h4>
             </motion.div>
-            <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
+            <motion.div  whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
               <LineChart className="text-fuchsia-400 w-10 h-10 mx-auto mb-4" />
               <h4 className="text-white font-bold text-xs uppercase font-mono">Analytics</h4>
             </motion.div>
-            <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
+            <motion.div  whileHover={{ y: -5 }} className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center">
               <LayoutTemplate className="text-rose-400 w-10 h-10 mx-auto mb-4" />
               <h4 className="text-white font-bold text-xs uppercase font-mono">Design_Ops</h4>
             </motion.div>
@@ -342,23 +342,23 @@ export default function ProductDesignPage() {
       {/* 8. BENEFITS */}
       <section className="py-24 px-6 border-y border-slate-100 bg-white">
         <motion.div 
-          variants={staggerContainer}
+          // variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-fuchsia-50 text-fuchsia-600 rounded-full flex items-center justify-center mb-6"><Heart size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Brand Loyalty</h3>
             <p className="text-slate-600 text-sm font-medium">Intuitive products create loyal advocates who refer others.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mb-6"><TrendingDown size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Lower Support</h3>
             <p className="text-slate-600 text-sm font-medium">Clear UI reduces support tickets and operational overhead.</p>
           </motion.div>
-          <motion.div variants={fadeInUp} className="bg-slate-50 p-10 rounded-3xl text-center group">
+          <motion.div  className="bg-slate-50 p-10 rounded-3xl text-center group">
             <motion.div whileHover={{ scale: 1.1 }} className="w-16 h-16 mx-auto bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6"><Zap size={32} /></motion.div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tighter">Engineering Speed</h3>
             <p className="text-slate-600 text-sm font-medium">Reusable design systems allow developers to build faster.</p>
