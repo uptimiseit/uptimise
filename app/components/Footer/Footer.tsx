@@ -1,12 +1,15 @@
 "use client";
 
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { 
   Linkedin, Github, Bot, ShieldCheck, Cpu, 
-  MapPin, Mail, ArrowUpRight, Twitter, Globe 
+  MapPin, Mail, ArrowUpRight, Twitter, Globe, 
+  Loader2,
+  CheckCircle2
 } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 // --- Animation Variants ---
 // const containerVariants: Variants = {
@@ -30,6 +33,43 @@ import Image from 'next/image';
 // };
 
 const Footer = () => {
+
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+ const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const res = await fetch("https://uptimiseit-admin.vercel.app/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email.toLowerCase() }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+        setMessage("Welcome to the inner circle.");
+      } else {
+        setStatus("error");
+        // Handling the 409 Conflict (Already Subscribed) or 400 Bad Request
+        setMessage(data.message || "Subscription failed.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setMessage("Network error. Try again.");
+    }
+  };
   return (
     <footer className="w-full bg-[#FDFDFF] border-t border-slate-100 font-sans pt-16 pb-10 overflow-hidden">
       <motion.div 
@@ -158,27 +198,62 @@ const Footer = () => {
             </motion.div>
             
             {/* 3. SUBSCRIBE */}
-            <motion.div
-            //  variants={fadeInUp} 
-             className="col-span-2 md:col-span-1">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6 font-mono border-l-2 border-slate-200 pl-3">
-                Subscribe
-              </h4>
-              <div className="relative group">
-                <motion.input 
-                  whileFocus={{ scale: 1.02 }}
-                  type="email" 
-                  placeholder="Enter email" 
-                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-50 transition-all placeholder:text-slate-300 shadow-sm"
-                />
-                <button className="absolute right-2 top-2 p-1 text-slate-400 hover:text-blue-600 transition-colors">
-                  <ArrowUpRight size={18} />
-                </button>
-              </div>
-              <p className="text-[9px] text-slate-400 mt-3 font-medium px-1 leading-relaxed">
-                Receive monthly engineering insights. No spam.
-              </p>
-            </motion.div>
+        <motion.div className="col-span-2 md:col-span-1">
+      <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6 font-mono border-l-2 border-slate-200 pl-3">
+        Subscribe
+      </h4>
+      
+      <form onSubmit={handleSubscribe} className="relative group">
+        <motion.input
+          whileFocus={{ scale: 1.01 }}
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          disabled={status === "loading" || status === "success"}
+          placeholder={status === "success" ? "Subscribed!" : "Enter email"}
+          className={`w-full bg-white border ${
+            status === "error" ? "border-red-200" : "border-slate-200"
+          } rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-50 transition-all placeholder:text-slate-300 shadow-sm disabled:bg-slate-50 disabled:cursor-not-allowed`}
+        />
+        
+        <button
+          type="submit"
+          disabled={status === "loading" || status === "success"}
+          className="absolute right-2 top-2 p-1 text-slate-400 hover:text-blue-600 transition-colors disabled:opacity-50"
+        >
+          {status === "loading" ? (
+            <Loader2 size={18} className="animate-spin text-blue-600" />
+          ) : status === "success" ? (
+            <CheckCircle2 size={18} className="text-emerald-500" />
+          ) : (
+            <ArrowUpRight size={18} />
+          )}
+        </button>
+      </form>
+
+      {/* FEEDBACK MESSAGE */}
+      <AnimatePresence>
+        {message && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className={`text-[9px] mt-2 font-bold px-1 uppercase tracking-tight ${
+              status === "success" ? "text-emerald-600" : "text-rose-500"
+            }`}
+          >
+            {message}
+          </motion.p>
+        )}
+      </AnimatePresence>
+
+      {!message && (
+        <p className="text-[9px] text-slate-400 mt-3 font-medium px-1 leading-relaxed">
+          Receive monthly engineering insights. No spam.
+        </p>
+      )}
+    </motion.div>
           </div>
         </div>
 

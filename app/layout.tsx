@@ -7,15 +7,7 @@ import Footer from "./components/Footer/Footer";
 import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 const josefin = Josefin_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700"], // Select the weights you need
