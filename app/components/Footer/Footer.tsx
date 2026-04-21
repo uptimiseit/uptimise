@@ -11,26 +11,7 @@ import {
 import Image from 'next/image';
 import { useState } from 'react';
 
-// --- Animation Variants ---
-// const containerVariants: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.1,
-//       delayChildren: 0.1,
-//     },
-//   },
-// };
 
-// const fadeInUp: Variants = {
-//   hidden: { opacity: 0, y: 20 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     transition: { duration: 0.5, ease: "easeOut" } 
-//   }
-// };
 
 const Footer = () => {
 
@@ -54,6 +35,8 @@ const Footer = () => {
         body: JSON.stringify({ email: email.toLowerCase() }),
       });
 
+      console.log("Response status:", res.status);
+
       const data = await res.json();
 
       if (res.ok) {
@@ -70,6 +53,8 @@ const Footer = () => {
       setMessage("Network error. Try again.");
     }
   };
+
+
   return (
     <footer className="w-full bg-[#FDFDFF] border-t border-slate-100 font-sans pt-16 pb-10 overflow-hidden">
       <motion.div 
