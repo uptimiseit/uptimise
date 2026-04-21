@@ -7,7 +7,8 @@ import DOMPurify from "isomorphic-dompurify";
 import { 
   Calendar, Clock, Share2, Twitter, Linkedin, 
   Facebook, ArrowRight, ArrowUpRight, 
-  Mail, Bookmark, Loader2, User, AlertCircle
+  Mail, Bookmark, Loader2, User, AlertCircle,
+  ImageIcon
 } from "lucide-react";
 
 export default function BlogDetailPage() {
@@ -16,6 +17,61 @@ export default function BlogDetailPage() {
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch("https://uptimiseit-admin.vercel.app/api/blogs", {
+          cache: 'no-store'
+        });
+        const json = await res.json();
+
+        if (json.success) {
+          const currentPost = json.data.find((p: any) => p.slug === slug);
+          
+          if (currentPost) {
+            setPost(currentPost);
+
+            // --- NEW RELATED LOGIC ---
+            // 1. Parse the IDs from the admin selection
+            let selectedRelatedIds: string[] = [];
+            try {
+              selectedRelatedIds = currentPost.relatedBlogs ? JSON.parse(currentPost.relatedBlogs) : [];
+            } catch (e) {
+              console.error("Failed to parse related blogs JSON");
+            }
+
+            // 2. Map IDs to actual blog objects from the full list
+            const related = json.data.filter((p: any) => 
+              selectedRelatedIds.includes(p.id.toString()) && p.slug !== slug
+            );
+
+            // 3. Fallback: If no related blogs were selected in admin, show category-based
+            if (related.length === 0) {
+              const fallback = json.data
+                .filter((p: any) => p.category === currentPost.category && p.slug !== slug)
+                .slice(0, 3);
+              setRelatedPosts(fallback);
+            } else {
+              setRelatedPosts(related);
+            }
+            // -------------------------
+
+          } else {
+            setError(true);
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching blog detail:", err);
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (slug) fetchPostData();
+  }, [slug]);
 
   useEffect(() => {
     const fetchPostData = async () => {
@@ -149,33 +205,67 @@ export default function BlogDetailPage() {
         </div>
       </article>
 
-      {/* 4. RELATED ARTICLES */}
-      {relatedPosts.length > 0 && (
-        <section className="bg-slate-50/50 py-24 border-y border-slate-100 mt-20">
-          <div className="max-w-7xl mx-auto px-6">
-            <h3 className="text-xs font-black text-slate-900 mb-10 uppercase tracking-[0.3em]">Read_Next_Nodes</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {relatedPosts.map((related, i) => (
-                <Link key={i} href={`/blog/${related.slug}`} className="bg-white border border-slate-100 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col">
-                  <div className="w-full h-44 bg-slate-100 relative">
-                    {related.featuredImage && <img src={related.featuredImage} alt={related.title} className="w-full h-full object-cover" />}
-                  </div>
-                  <div className="p-8 flex flex-col flex-1">
-                    <span className="text-[10px] font-black text-indigo-600 mb-2 uppercase tracking-widest">{related.category}</span>
-                    <h4 className="text-lg font-black text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors leading-tight">
-                      {related.title}
-                    </h4>
-                    <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-50">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase font-mono">Archive_Access</span>
-                      <ArrowRight size={16} className="text-indigo-600 group-hover:translate-x-2 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
+     {/* 4. RELATED ARTICLES */}
+{relatedPosts.length > 0 && (
+  <section className="bg-slate-50/50 py-24 border-y border-slate-100 mt-20">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="flex items-center justify-between mb-12">
+        <div>
+          <h3 className="text-[10px] font-black text-indigo-600 mb-2 uppercase tracking-[0.4em]">Connected_Nodes</h3>
+          <h2 className="text-3xl font-black text-slate-900 tracking-tighter">Related Strategic Insights</h2>
+        </div>
+        <Link href="/blog" className="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors flex items-center gap-2">
+          View All Archive <ArrowUpRight size={14}/>
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {relatedPosts.map((related, i) => (
+          <Link key={i} href={`/blog/${related.slug}`} className="bg-white border border-slate-200/60 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col">
+            <div className="w-full h-56 bg-slate-100 relative overflow-hidden">
+              {related.featuredImage ? (
+                <img 
+                  src={related.featuredImage} 
+                  alt={related.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-slate-300">
+                  <ImageIcon size={40} />
+                </div>
+              )}
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-slate-900 shadow-sm">
+                  {related.category}
+                </span>
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+
+            <div className="p-8 flex flex-col flex-1">
+              <h4 className="text-xl font-black text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors leading-tight line-clamp-2">
+                {related.title}
+              </h4>
+              <p className="text-sm text-slate-500 line-clamp-2 mb-6 font-medium leading-relaxed">
+                {related.excerpt}
+              </p>
+              <div className="mt-auto flex items-center justify-between pt-6 border-t border-slate-50">
+                <div className="flex items-center gap-2">
+                   <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+                      <User size={10} />
+                   </div>
+                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-tight">Access_Protocol</span>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-indigo-600 transition-all shadow-lg group-hover:shadow-indigo-200">
+                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
       {/* 5. BOTTOM CTA */}
       <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-8">
