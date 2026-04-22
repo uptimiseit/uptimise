@@ -199,7 +199,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* RESOURCE HINT: Establish connection to assets immediately */}
-        <link rel="preconnect" href="https://uptimiseit-uptimise.vercel.app" crossOrigin="anonymous" />
+        {/* <link rel="preconnect" href="https://uptimiseit-uptimise.vercel.app" crossOrigin="anonymous" /> */}
+        <link rel="preload" href="/_next/static/css/main.css" as="style" />
         
         <script
           type="application/ld+json"
