@@ -10,10 +10,10 @@ import dynamic from "next/dynamic";
 export default function Hero() {
 
 
-const TechCircuitAnimation = dynamic(() => import("../HomePageAminations/TechAnimation"), { 
-  ssr: false,
-  loading: () => <div className="w-full h-full bg-slate-50/50 animate-pulse rounded-full" /> 
-});
+// const TechCircuitAnimation = dynamic(() => import("../HomePageAminations/TechAnimation"), { 
+//   ssr: false,
+//   loading: () => <div className="w-full h-full bg-slate-50/50 animate-pulse rounded-full" /> 
+// });
 
   return (
     <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-[#FDFDFF] py-16 lg:py-24">
@@ -58,7 +58,7 @@ const TechCircuitAnimation = dynamic(() => import("../HomePageAminations/TechAni
             >
               {/* Glow effect behind the animation */}
               <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full animate-pulse" />
-              <TechCircuitAnimation />
+              {/* <TechCircuitAnimation /> */}
             </motion.div>
           </motion.div>
 
