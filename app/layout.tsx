@@ -1,5 +1,143 @@
+// import type { Metadata } from "next";
+// import { Figtree, Geist, Geist_Mono, Josefin_Sans, Montserrat } from "next/font/google";
+// import "./globals.css";
+// import { ThemeProvider } from "./components/theme-provider";
+// import Navbar from "./components/Navbar/Navbar";
+// import Footer from "./components/Footer/Footer";
+// import { AnimatePresence } from "framer-motion";
+// import { PageWrapper } from "@/components/PageWrapper";
+
+
+// const josefin = Josefin_Sans({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "600", "700"], // Select the weights you need
+//   variable: "--font-josefin", // This defines a CSS variable we use in Tailwind
+//   display: "swap",
+// });
+
+// const montserrat = Montserrat({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   // Optional: specify weights if you don't want the entire variable font
+//   weight: ['400', '700'], 
+//   variable: '--font-montserrat', // This creates a CSS variable
+// });
+
+
+// const figtree = Figtree({
+//   subsets: ['latin'],
+//   variable: '--font-figtree',
+//   display: 'swap',
+// });
+
+// export const metadata: Metadata = {
+//   title: "Uptimise IT | AI-Native Software Development & Engineering",
+//   description: "Uptimise IT is an AI-native software factory. We partner with ambitious founders and enterprises to engineer scalable SaaS platforms, intelligent AI applications, and Web3 ecosystems at venture speed.",
+//   keywords: [
+//     "AI Software Development", 
+//     "SaaS Development Agency", 
+//     "Enterprise Engineering", 
+//     "Web3 Development", 
+//     "Digital Transformation", 
+//     "AI Automation Systems"
+//   ],
+//   // icons: {
+//   //   icon: "/logo.png", 
+//   //   shortcut: "/logo.png",
+//   //   apple: "/logo.png",
+//   // },
+
+//   icons: {
+//   icon: "/favicon.png", // Or "/favicon.ico"
+//   shortcut: "/favicon.png",
+//   apple: "/favicon.png",
+// },
+//   openGraph: {
+//     title: "Uptimise IT | The AI-Native Software Factory",
+//     description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
+//     url: "https://uptimiseit-uptimise.vercel.app",
+//     siteName: "Uptimise IT",
+//     type: "website",
+//     images: [
+//       {
+//         url: "/logo.png", // Note: For best results, eventually replace this with a 1200x630px social cover image (og-image.png)
+//         width: 1200,
+//         height: 630,
+//         alt: "Uptimise IT - AI-Native Software Engineering",
+//       },
+//     ],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Uptimise IT | AI-Native Software Development",
+//     description: "We build high-stakes digital products with mathematical precision and 100x engineering velocity.",
+//     images: ["/logo.png"],
+//   },
+//   other: {
+//     "preconnect": "https://uptimiseit-uptimise.vercel.app"
+//   }
+// };
+
+
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//     <html lang="en" className="scroll-smooth js" suppressHydrationWarning>
+// <head>
+//   <script
+//     type="application/ld+json"
+//     dangerouslySetInnerHTML={{
+//       __html: JSON.stringify({
+//         "@context": "https://schema.org",
+//         "@type": "Organization",
+//         "name": "Uptimise IT",
+//         "url": "https://uptimiseit-uptimise.vercel.app",
+//         "logo": "https://uptimiseit-uptimise.vercel.app/logo.png",
+//         "description": "Uptimise IT is an AI-native product engineering company helping startups and enterprises build scalable digital platforms using modern technologies and AI-assisted development workflows.",
+//         "founder": {
+//           "@type": "Person",
+//           "name": "Saurabh Sharma"
+//         },
+//         "sameAs": [
+//           "https://in.linkedin.com/company/uptimise-it",
+//           "https://twitter.com/uptimise",
+//           "https://github.com/uptimise"
+//         ],
+//         "contactPoint": {
+//           "@type": "ContactPoint",
+//           "contactType": "customer support",
+//           "email": "sales@uptimiseit.com"
+//         }
+//       })
+//     }}
+//   />
+// </head>
+//       <body
+//         className={`${josefin.variable} antialiased ${montserrat.variable} ${figtree.variable}`}
+//       >
+//         <AnimatePresence mode="wait">
+//           <PageWrapper  >
+
+
+      
+//     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+//       <Navbar />
+//           {children}
+//           <Footer />
+//         </ThemeProvider>
+//         </PageWrapper>
+//         </AnimatePresence>
+//       </body>
+//     </html>
+//   );
+// }
+
+
 import type { Metadata } from "next";
-import { Figtree, Geist, Geist_Mono, Josefin_Sans, Montserrat } from "next/font/google";
+import { Figtree, Josefin_Sans, Montserrat } from "next/font/google"; // Removed unused Geist fonts
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import Navbar from "./components/Navbar/Navbar";
@@ -7,22 +145,20 @@ import Footer from "./components/Footer/Footer";
 import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
 
-
+// OPTIMIZATION: Reduce weight count to only what is strictly necessary
 const josefin = Josefin_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"], // Select the weights you need
-  variable: "--font-josefin", // This defines a CSS variable we use in Tailwind
+  weight: ["400", "700"], // Removed 300 and 600 to save ~40kb of CSS blocking
+  variable: "--font-josefin",
   display: "swap",
 });
 
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  // Optional: specify weights if you don't want the entire variable font
   weight: ['400', '700'], 
-  variable: '--font-montserrat', // This creates a CSS variable
+  variable: '--font-montserrat',
 });
-
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -32,52 +168,18 @@ const figtree = Figtree({
 
 export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
-  description: "Uptimise IT is an AI-native software factory. We partner with ambitious founders and enterprises to engineer scalable SaaS platforms, intelligent AI applications, and Web3 ecosystems at venture speed.",
-  keywords: [
-    "AI Software Development", 
-    "SaaS Development Agency", 
-    "Enterprise Engineering", 
-    "Web3 Development", 
-    "Digital Transformation", 
-    "AI Automation Systems"
-  ],
-  // icons: {
-  //   icon: "/logo.png", 
-  //   shortcut: "/logo.png",
-  //   apple: "/logo.png",
-  // },
-
+  description: "Uptimise IT is an AI-native software factory engineering scalable SaaS, AI apps, and Web3 ecosystems.",
+  metadataBase: new URL("https://uptimiseit-uptimise.vercel.app"),
   icons: {
-  icon: "/favicon.png", // Or "/favicon.ico"
-  shortcut: "/favicon.png",
-  apple: "/favicon.png",
-},
-  openGraph: {
-    title: "Uptimise IT | The AI-Native Software Factory",
-    description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
-    url: "https://uptimiseit-uptimise.vercel.app",
-    siteName: "Uptimise IT",
-    type: "website",
-    images: [
-      {
-        url: "/logo.png", // Note: For best results, eventually replace this with a 1200x630px social cover image (og-image.png)
-        width: 1200,
-        height: 630,
-        alt: "Uptimise IT - AI-Native Software Engineering",
-      },
-    ],
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Uptimise IT | AI-Native Software Development",
-    description: "We build high-stakes digital products with mathematical precision and 100x engineering velocity.",
-    images: ["/logo.png"],
+  // OPTIMIZATION: Move preconnect to metadata for earlier execution
+  alternates: {
+    canonical: "/",
   },
-  other: {
-    "preconnect": "https://uptimiseit-uptimise.vercel.app"
-  }
 };
-
 
 export default function RootLayout({
   children,
@@ -85,50 +187,44 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth js" suppressHydrationWarning>
-<head>
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Uptimise IT",
-        "url": "https://uptimiseit-uptimise.vercel.app",
-        "logo": "https://uptimiseit-uptimise.vercel.app/logo.png",
-        "description": "Uptimise IT is an AI-native product engineering company helping startups and enterprises build scalable digital platforms using modern technologies and AI-assisted development workflows.",
-        "founder": {
-          "@type": "Person",
-          "name": "Saurabh Sharma"
-        },
-        "sameAs": [
-          "https://in.linkedin.com/company/uptimise-it",
-          "https://twitter.com/uptimise",
-          "https://github.com/uptimise"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "email": "sales@uptimiseit.com"
-        }
-      })
-    }}
-  />
-</head>
-      <body
-        className={`${josefin.variable} antialiased ${montserrat.variable} ${figtree.variable}`}
-      >
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* RESOURCE HINT: Establish connection to assets immediately */}
+        <link rel="preconnect" href="https://uptimiseit-uptimise.vercel.app" crossOrigin="anonymous" />
+        
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Uptimise IT",
+              "url": "https://uptimiseit-uptimise.vercel.app",
+              "logo": "https://uptimiseit-uptimise.vercel.app/logo.png",
+              "description": "AI-native product engineering company.",
+              "founder": {
+                "@type": "Person",
+                "name": "Saurabh Sharma"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "sales@uptimiseit.com"
+              }
+            })
+          }}
+        />
+      </head>
+      <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
+        {/* OPTIMIZATION: Ensure AnimatePresence doesn't block the initial mount */}
         <AnimatePresence mode="wait">
-          <PageWrapper  >
-
-
-      
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
-        </PageWrapper>
+          <PageWrapper>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </ThemeProvider>
+          </PageWrapper>
         </AnimatePresence>
       </body>
     </html>
