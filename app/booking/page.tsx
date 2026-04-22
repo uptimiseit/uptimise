@@ -95,44 +95,133 @@ const BookingPage = () => {
 
 
 
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault(); // 1. Start Submission State
+  //   setIsSubmitting(true);
+  //   setStatus("idle"); // 2. Run Validation Logic
+
+  //   if (!validate()) {
+  //     setIsSubmitting(false);
+  //     console.error("Validation failed", errors);
+  //     return;
+  //   } // 3. Construct FormData (Matches the 'form-data' tab in Postman)
+
+  //   const data = new FormData(); // Text Fields
+  //   data.append("fullName", formData.fullName);
+  //   data.append("workEmail", formData.workEmail);
+  //   data.append("mobileNumber", formData.mobileNumber);
+  //   data.append("countryCode", formData.countryCode);
+  //   data.append("companyName", formData.companyName || "");
+  //   data.append("companyStage", formData.companyStage);
+  //   data.append("linkedinUrl", formData.linkedinUrl || "");
+  //   data.append("projectContext", formData.projectContext); // File Field (Must match the key used in Postman)
+
+  //   if (formData.documentFile) {
+  //     data.append("documentFile", formData.documentFile);
+  //   }
+
+  //   try {
+  //     // 4. Execute Network Request
+  //     const response = await fetch(
+  //       "https://uptimiseit-admin.vercel.app/api/intake",
+  //       {
+  //         method: "POST", // IMPORTANT: Do NOT set 'Content-Type' header.
+  //         // The browser will set it automatically with the boundary.
+  //         body: data,
+  //       },
+  //     ); // 5. Handle Response
+
+  //     if (response.ok) {
+  //       setStatus("success"); // Reset form after successful transmission
+  //       setFormData({
+  //         fullName: "",
+  //         workEmail: "",
+  //         companyName: "",
+  //         mobileNumber: "",
+  //         countryCode: "+91",
+  //         companyStage: "Revenue: Seed / Pre-revenue",
+  //         linkedinUrl: "",
+  //         projectContext: "",
+  //         documentFile: null,
+  //       });
+
+  //       // Clear any previous errors
+  //       setErrors({});
+  //     } else {
+  //       const errorResult = await response.json();
+  //       console.error("Server Error:", errorResult);
+  //       setStatus("error");
+  //     }
+  //   } catch (error) {
+  //     console.error("Transmission Network Error:", error);
+  //     setStatus("error");
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // 1. Start Submission State
+    e.preventDefault();
     setIsSubmitting(true);
-    setStatus("idle"); // 2. Run Validation Logic
+    setStatus("idle");
 
     if (!validate()) {
       setIsSubmitting(false);
-      console.error("Validation failed", errors);
       return;
-    } // 3. Construct FormData (Matches the 'form-data' tab in Postman)
-
-    const data = new FormData(); // Text Fields
-    data.append("fullName", formData.fullName);
-    data.append("workEmail", formData.workEmail);
-    data.append("mobileNumber", formData.mobileNumber);
-    data.append("countryCode", formData.countryCode);
-    data.append("companyName", formData.companyName || "");
-    data.append("companyStage", formData.companyStage);
-    data.append("linkedinUrl", formData.linkedinUrl || "");
-    data.append("projectContext", formData.projectContext); // File Field (Must match the key used in Postman)
-
-    if (formData.documentFile) {
-      data.append("documentFile", formData.documentFile);
     }
 
     try {
-      // 4. Execute Network Request
+      let finalDocumentUrl = "";
+
+      // --- STEP 1: AWS S3 UPLOAD (Direct from Browser) ---
+      if (formData.documentFile) {
+        const file = formData.documentFile;
+
+        // A. Request the Presigned URL
+        const ticketRes = await fetch(
+          `/api/upload-url?file=${encodeURIComponent(file.name)}&type=${encodeURIComponent(file.type)}`
+        );
+        
+        if (!ticketRes.ok) throw new Error("Failed to get upload credentials");
+        const { signedUrl, cdnUrl } = await ticketRes.json();
+
+        // B. PUT the file to S3
+        const s3Upload = await fetch(signedUrl, {
+          method: "PUT",
+          body: file,
+          headers: { "Content-Type": file.type },
+        });
+
+        if (!s3Upload.ok) throw new Error("S3 Upload Failed");
+
+        // Set the CloudFront link for the database
+        finalDocumentUrl = cdnUrl;
+      }
+
+      // --- STEP 2: SAVE DATA TO INTAKE API ---
+      // Switching to JSON payload for better reliability with the CDN URL
       const response = await fetch(
         "https://uptimiseit-admin.vercel.app/api/intake",
         {
-          method: "POST", // IMPORTANT: Do NOT set 'Content-Type' header.
-          // The browser will set it automatically with the boundary.
-          body: data,
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fullName: formData.fullName,
+            workEmail: formData.workEmail,
+            mobileNumber: formData.mobileNumber,
+            countryCode: formData.countryCode,
+            companyName: formData.companyName || "",
+            companyStage: formData.companyStage,
+            linkedinUrl: formData.linkedinUrl || "",
+            projectContext: formData.projectContext,
+            documentUrl: finalDocumentUrl, // The AWS CDN Link
+          }),
         },
-      ); // 5. Handle Response
+      );
 
       if (response.ok) {
-        setStatus("success"); // Reset form after successful transmission
+        setStatus("success");
         setFormData({
           fullName: "",
           workEmail: "",
@@ -144,22 +233,19 @@ const BookingPage = () => {
           projectContext: "",
           documentFile: null,
         });
-
-        // Clear any previous errors
         setErrors({});
       } else {
-        const errorResult = await response.json();
-        console.error("Server Error:", errorResult);
         setStatus("error");
       }
     } catch (error) {
-      console.error("Transmission Network Error:", error);
+      console.error("Transmission Error:", error);
       setStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  
   return (
     <main className="min-h-screen bg-[#FDFDFF] font-sans pt-20 selection:bg-blue-100 relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px]" />
