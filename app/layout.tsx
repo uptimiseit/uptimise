@@ -146,12 +146,12 @@ import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
 
 // OPTIMIZATION: Reduce weight count to only what is strictly necessary
-const josefin = Josefin_Sans({
-  subsets: ["latin"],
-  weight: ["400", "700"], // Removed 300 and 600 to save ~40kb of CSS blocking
-  variable: "--font-josefin",
-  display: "swap",
-});
+// const josefin = Josefin_Sans({
+//   subsets: ["latin"],
+//   weight: ["400", "700"], // Removed 300 and 600 to save ~40kb of CSS blocking
+//   variable: "--font-josefin",
+//   display: "swap",
+// });
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -166,6 +166,13 @@ const figtree = Figtree({
   display: 'swap',
 });
 
+const josefin = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"], 
+  display: "swap", // This allows text to show immediately with a fallback font
+  variable: "--font-josefin",
+});
+
 export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
   description: "Uptimise IT is an AI-native software factory engineering scalable SaaS, AI apps, and Web3 ecosystems.",
@@ -177,6 +184,9 @@ export const metadata: Metadata = {
   // OPTIMIZATION: Move preconnect to metadata for earlier execution
   alternates: {
     canonical: "/",
+  },
+ other: {
+    "dns-prefetch": "https://uptimiseit-uptimise.vercel.app",
   },
 };
 
