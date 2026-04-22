@@ -80,7 +80,7 @@ export default function Hero() {
               {/* Glow effect behind the animation */}
               <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full" />
               {/* <TechCircuitAnimation /> */}
-               <Image src="/home-img.png" alt="Tech Animation Placeholder" width={800} height={800} className="relative w-full h-full object-contain" />
+               <Image src="/home-img.webp" alt="Tech Animation Placeholder" width={800} height={800} className="relative w-full h-full object-contain" />
             </motion.div>
           </motion.div>
 
