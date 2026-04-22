@@ -41,11 +41,17 @@ export const metadata: Metadata = {
     "Digital Transformation", 
     "AI Automation Systems"
   ],
+  // icons: {
+  //   icon: "/logo.png", 
+  //   shortcut: "/logo.png",
+  //   apple: "/logo.png",
+  // },
+
   icons: {
-    icon: "/logo.png", 
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
+  icon: "/favicon.png", // Or "/favicon.ico"
+  shortcut: "/favicon.png",
+  apple: "/favicon.png",
+},
   openGraph: {
     title: "Uptimise IT | The AI-Native Software Factory",
     description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
