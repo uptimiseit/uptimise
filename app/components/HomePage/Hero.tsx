@@ -8,33 +8,7 @@ import { MovingBorderButton } from "../MovingBorderButton";
 import Image from "next/image";
 
 export default function Hero() {
-  // Enhanced Animation Variants
-  // const containerVariants = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       staggerChildren: 0.2, // Staggers the entry of each child element
-  //       delayChildren: 0.3,
-  //     },
-  //   },
-  // };
-
-  // const fadeInUp = {
-  //   hidden: { opacity: 0, y: 30 },
-  //   visible: { 
-  //     opacity: 1, 
-  //     y: 0,
-  //     transition: { duration: 0.8 } 
-  //   },
-  // };
-
-  // const floatingAnimation = {
-  //   initial: { y: 0 },
-  //   animate: {
-  //     y: [0, -15, 0],
-  //   },
-  // };
+  
 
   return (
     <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-[#FDFDFF] py-16 lg:py-24">
@@ -70,29 +44,19 @@ export default function Hero() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="order-2 lg:order-1 flex items-center justify-center w-full"
           >
-            <motion.div 
-              // variants={floatingAnimation}
-              initial="initial"
-              animate="animate"
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full max-w-[350px] sm:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] aspect-square flex items-center justify-center"
-            >
-              {/* Glow effect behind the animation */}
-              <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full" />
-              {/* <TechCircuitAnimation /> */}
-               {/* <Image src="/home-img.webp" alt="Tech Animation Placeholder" width={800} height={800} className="relative w-full h-full object-contain" /> */}
-             <Image 
-  src="/home-img.webp" 
-  alt="Tech Animation Placeholder" 
-  width={800} 
-  height={800} 
-  priority 
-  fetchPriority="high"
-  // ADD THIS LINE:
-  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-  className="relative w-full h-full object-contain" 
-/>
-            </motion.div>
+         <div className="relative w-full max-w-[350px] sm:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] aspect-square flex items-center justify-center">
+  <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full" />
+  <Image
+    src="/home-img.webp"
+    alt="AI-Native Software Factory"
+    width={800}
+    height={800}
+    priority
+    fetchPriority="high"
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+    className="relative w-full h-full object-contain"
+  />
+</div>
           </motion.div>
 
           {/* RIGHT: High-Impact Copy */}
