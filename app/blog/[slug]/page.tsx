@@ -231,7 +231,7 @@ export default function BlogDetailPage() {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-slate-300">
-                  <ImageIcon size={40} />
+                  <ImageIcon size={40}  />
                 </div>
               )}
               <div className="absolute top-4 left-4">

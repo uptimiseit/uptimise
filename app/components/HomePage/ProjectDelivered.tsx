@@ -21,7 +21,7 @@ const ProjectsDelivered = () => {
       <div className="relative w-full max-w-4xl h-[300px] md:h-[400px] mb-10 flex items-center justify-center">
         <div>
        <div className="flex items-center justify-center">
-  <Image src="/map.svg" alt="" height={800} width={800} />
+  <Image src="/map.svg" alt="uptimiseit" height={800} width={800} />
 </div>
           {/* <Image src="/map.png" alt="image" height={"600"} width={"800"} /> */}
         </div>

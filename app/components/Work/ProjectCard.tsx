@@ -14,7 +14,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <div className="w-full rounded-2xl overflow-hidden bg-gray-100 transition-transform duration-300 group-hover:scale-[1.02]">
         <Image
           src={project.imageUrl}
-          alt={project.altText}
+          alt="Project Image"
           // Using standard width/height for static images. 
           // Ensure your actual images have good resolution.
           width={800}
