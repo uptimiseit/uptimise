@@ -185,9 +185,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
- other: {
+//  other: {
+//     "dns-prefetch": "https://uptimiseit-uptimise.vercel.app",
+//   },
+  other: {
+    "preconnect": "https://uptimiseit-uptimise.vercel.app",
     "dns-prefetch": "https://uptimiseit-uptimise.vercel.app",
-  },
+  }
 };
 
 export default function RootLayout({
