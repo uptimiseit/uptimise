@@ -81,15 +81,17 @@ export default function Hero() {
               <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full" />
               {/* <TechCircuitAnimation /> */}
                {/* <Image src="/home-img.webp" alt="Tech Animation Placeholder" width={800} height={800} className="relative w-full h-full object-contain" /> */}
-               <Image 
-                  src="/home-img.webp" 
-                  alt="Tech Animation Placeholder" 
-                  width={800} 
-                  height={800} 
-                  priority // <--- CRITICAL: Tells Next.js to preload this image
-                  fetchPriority="high" // <--- CRITICAL: Explicitly tells the browser this is the most important asset
-                  className="relative w-full h-full object-contain" 
-                />
+             <Image 
+  src="/home-img.webp" 
+  alt="Tech Animation Placeholder" 
+  width={800} 
+  height={800} 
+  priority 
+  fetchPriority="high"
+  // ADD THIS LINE:
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+  className="relative w-full h-full object-contain" 
+/>
             </motion.div>
           </motion.div>
 
