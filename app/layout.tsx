@@ -226,15 +226,15 @@ export default function RootLayout({
       </head>
       <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
         {/* OPTIMIZATION: Ensure AnimatePresence doesn't block the initial mount */}
-        <AnimatePresence mode="wait">
-          <PageWrapper>
+        {/* <AnimatePresence mode="wait"> */}
+          {/* <PageWrapper> */}
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
               <main>{children}</main>
               <Footer />
             </ThemeProvider>
-          </PageWrapper>
-        </AnimatePresence>
+          {/* </PageWrapper> */}
+        {/* </AnimatePresence> */}
       </body>
     </html>
   );
