@@ -6,6 +6,7 @@ import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
 import LogoMarquee from "./LogoMarquee";
 import { MovingBorderButton } from "../MovingBorderButton";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 export default function Hero() {
 
@@ -59,6 +60,7 @@ export default function Hero() {
               {/* Glow effect behind the animation */}
               <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full animate-pulse" />
               {/* <TechCircuitAnimation /> */}
+              <Image src="/home-img.png" alt="Tech Animation Placeholder" width={800} height={800} className="relative w-full h-full object-contain" />
             </motion.div>
           </motion.div>
 
