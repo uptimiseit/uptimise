@@ -54,7 +54,7 @@
 // },
 //   openGraph: {
 //     title: "Uptimise IT | The AI-Native Software Factory",
-//     description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
+//     description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using      AI-assistedengineering.",
 //     url: "https://uptimiseit-uptimise.vercel.app",
 //     siteName: "Uptimise IT",
 //     type: "website",
@@ -173,7 +173,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
-    apple: "/favicon.png",
   },
   // OPTIMIZATION: Move preconnect to metadata for earlier execution
   alternates: {

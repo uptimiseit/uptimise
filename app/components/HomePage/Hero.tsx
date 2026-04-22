@@ -1,39 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TechCircuitAnimation from "../HomePageAminations/TechAnimation";
+// import TechCircuitAnimation from "../HomePageAminations/TechAnimation";
 import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
 import LogoMarquee from "./LogoMarquee";
 import { MovingBorderButton } from "../MovingBorderButton";
+import dynamic from "next/dynamic";
 
 export default function Hero() {
-  // Enhanced Animation Variants
-  // const containerVariants = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       staggerChildren: 0.2, // Staggers the entry of each child element
-  //       delayChildren: 0.3,
-  //     },
-  //   },
-  // };
 
-  // const fadeInUp = {
-  //   hidden: { opacity: 0, y: 30 },
-  //   visible: { 
-  //     opacity: 1, 
-  //     y: 0,
-  //     transition: { duration: 0.8 } 
-  //   },
-  // };
 
-  // const floatingAnimation = {
-  //   initial: { y: 0 },
-  //   animate: {
-  //     y: [0, -15, 0],
-  //   },
-  // };
+const TechCircuitAnimation = dynamic(() => import("../HomePageAminations/TechAnimation"), { 
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-slate-50/50 animate-pulse rounded-full" /> 
+});
 
   return (
     <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-[#FDFDFF] py-16 lg:py-24">
