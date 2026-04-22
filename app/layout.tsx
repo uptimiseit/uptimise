@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Uptimise IT | The AI-Native Software Factory",
     description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
-    url: "https://uptimiseit.com",
+    url: "https://uptimiseit-uptimise.vercel.app",
     siteName: "Uptimise IT",
     type: "website",
     images: [
@@ -73,6 +73,9 @@ export const metadata: Metadata = {
     description: "We build high-stakes digital products with mathematical precision and 100x engineering velocity.",
     images: ["/logo.png"],
   },
+  other: {
+    "preconnect": "https://uptimiseit-uptimise.vercel.app"
+  }
 };
 
 
@@ -91,8 +94,8 @@ export default function RootLayout({
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Uptimise IT",
-        "url": "https://uptimise.com",
-        "logo": "https://uptimise.com/logo.png",
+        "url": "https://uptimiseit-uptimise.vercel.app",
+        "logo": "https://uptimiseit-uptimise.vercel.app/logo.png",
         "description": "Uptimise IT is an AI-native product engineering company helping startups and enterprises build scalable digital platforms using modern technologies and AI-assisted development workflows.",
         "founder": {
           "@type": "Person",
