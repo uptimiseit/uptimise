@@ -44,17 +44,15 @@ export default function Hero() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="order-2 lg:order-1 flex items-center justify-center w-full"
           >
-         <div className="relative w-full max-w-[350px] sm:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] aspect-square flex items-center justify-center">
-  <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full" />
-  <Image
-    src="/home-img.webp"
-    alt="AI-Native Software Factory"
-    width={800}
-    height={800}
-    priority
+  <div className="relative w-full max-w-[350px] sm:max-w-[450px] lg:max-w-[550px] xl:max-w-[600px] aspect-square">
+  <Image 
+    src="/home-img.webp" 
+    alt="AI-Native Software Factory" 
+    fill // <--- CRITICAL: Occupies only the parent container's space
+    priority 
     fetchPriority="high"
-    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-    className="relative w-full h-full object-contain"
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+    className="object-contain" 
   />
 </div>
           </motion.div>
