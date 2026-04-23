@@ -2,7 +2,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing"
 import { useFrame } from "@react-three/fiber"
 import SmartParticles from "./SmartParticles"
 import Nodes from "./Nodes"
-import Connections from "./Connections"
+// import Connections from "./Connections"
 import Pulses from "./Pulses"
 export default function PipelineScene() {
   useFrame(({ mouse, camera }) => {
@@ -17,7 +17,7 @@ export default function PipelineScene() {
       <pointLight position={[5, 5, 5]} />
       <SmartParticles />
       <Nodes />
-      <Connections />
+      {/* <Connections /> */}
       <Pulses />
       <EffectComposer>
         <Bloom intensity={0.6} />
