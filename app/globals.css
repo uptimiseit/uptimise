@@ -195,3 +195,7 @@
         background-image: linear-gradient(#FF0A7F,#780EFF);
         animation: rotate 4s linear infinite;
     }
+
+.hero-bg {
+  background: radial-gradient(circle at center, #0b1220, #050a14);
+}
