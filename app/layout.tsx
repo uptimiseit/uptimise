@@ -223,16 +223,14 @@ export default function RootLayout({
           }}
         />
       </head>
-       <Analytics />
       <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
-              <main>{children}
-                        <Analytics />
- <SpeedInsights />
-              </main>
+              <main>{children}</main>
               <Footer />
             </ThemeProvider>
+            <Analytics />
+            <SpeedInsights />
       </body>
     </html>
   );
