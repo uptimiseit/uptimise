@@ -34,8 +34,6 @@ export default function HeroCanvas() {
 
   useEffect(() => {
     if (!mountRef.current) return;
-
-    // --- SETUP ---
     const width = mountRef.current.clientWidth;
     const height = mountRef.current.clientHeight;
     const scene = new THREE.Scene();
