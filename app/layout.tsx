@@ -141,7 +141,10 @@ import { Figtree, Josefin_Sans, Montserrat } from "next/font/google"; // Removed
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import Navbar from "./components/Navbar/Navbar";
+import { Analytics } from '@vercel/analytics/next';
+
 import Footer from "./components/Footer/Footer";
+// import { Analytics } from '@vercel/analytics/next';
 import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
 
@@ -220,10 +223,14 @@ export default function RootLayout({
           }}
         />
       </head>
+       <Analytics />
       <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
-              <main>{children}</main>
+              <main>{children}
+                        <Analytics />
+
+              </main>
               <Footer />
             </ThemeProvider>
       </body>
