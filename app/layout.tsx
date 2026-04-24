@@ -142,7 +142,7 @@ import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import Navbar from "./components/Navbar/Navbar";
 import { Analytics } from '@vercel/analytics/next';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from "./components/Footer/Footer";
 // import { Analytics } from '@vercel/analytics/next';
 import { AnimatePresence } from "framer-motion";
@@ -229,7 +229,7 @@ export default function RootLayout({
               <Navbar />
               <main>{children}
                         <Analytics />
-
+ <SpeedInsights />
               </main>
               <Footer />
             </ThemeProvider>
