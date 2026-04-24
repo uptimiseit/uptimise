@@ -145,14 +145,6 @@ import Footer from "./components/Footer/Footer";
 import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
 
-// OPTIMIZATION: Reduce weight count to only what is strictly necessary
-// const josefin = Josefin_Sans({
-//   subsets: ["latin"],
-//   weight: ["400", "700"], // Removed 300 and 600 to save ~40kb of CSS blocking
-//   variable: "--font-josefin",
-//   display: "swap",
-// });
-
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
@@ -177,17 +169,19 @@ export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
   description: "Uptimise IT is an AI-native software factory engineering scalable SaaS, AI apps, and Web3 ecosystems.",
   metadataBase: new URL("https://uptimiseit-uptimise.vercel.app"),
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
+icons: {
+    icon: [
+      {
+        url: "/favicon.png?v=4", // Change the 'v' number to force a refresh
+        href: "/favicon.png?v=4",
+      },
+    ],
+    shortcut: "/favicon.png?v=4",
+    apple: "/favicon.png?v=4",
   },
-  // OPTIMIZATION: Move preconnect to metadata for earlier execution
   alternates: {
     canonical: "/",
   },
-//  other: {
-//     "dns-prefetch": "https://uptimiseit-uptimise.vercel.app",
-//   },
   other: {
     "preconnect": "https://uptimiseit-uptimise.vercel.app",
     "dns-prefetch": "https://uptimiseit-uptimise.vercel.app",
@@ -202,10 +196,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        {/* RESOURCE HINT: Establish connection to assets immediately */}
-        {/* <link rel="preconnect" href="https://uptimiseit-uptimise.vercel.app" crossOrigin="anonymous" /> */}
         <link rel="preload" href="/_next/static/css/main.css" as="style" />
-        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -230,16 +221,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
-        {/* OPTIMIZATION: Ensure AnimatePresence doesn't block the initial mount */}
-        {/* <AnimatePresence mode="wait"> */}
-          {/* <PageWrapper> */}
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
               <main>{children}</main>
               <Footer />
             </ThemeProvider>
-          {/* </PageWrapper> */}
-        {/* </AnimatePresence> */}
       </body>
     </html>
   );
