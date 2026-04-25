@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* CONTENT LAYER */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative z-10 w-full pt-8 lg:pt-0">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative z-10 w-full pt-12 lg:pt-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,16 +61,16 @@ export default function Hero() {
             <span className="text-slate-900 font-medium ml-1">mathematical precision</span>.
           </p>
 
-          <div className="mt-10 gap-4 flex items-center justify-center">
-            <Link href="" >
+          <div className="mt-6 gap-4 flex items-center justify-center">
+            <Link href="/contact" >
             <button className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-blue-500 transition-all active:scale-95">
-              Explore Pipeline
+              Start your project
             </button>
             </Link>
 
-            <Link href={""}>
+            <Link href={"/Explore100x"}>
             <button className="px-10 py-4 border border-blue-600/20 text-blue-600 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-50 transition-all active:scale-95">
-              Capabilities
+              Explore 100x Engineering
             </button>
             </Link>
           </div>
@@ -82,10 +82,10 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mt-20 lg:mt-32 pt-12 border-t border-slate-100"
+          className="mt-10 lg:mt-32 pt-12 border-t border-slate-100"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            <p className="whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400">
+            <p className="whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.3em] text-slate-400">
               Trusted by Innovators
             </p>
             <div className="w-full overflow-hidden">
