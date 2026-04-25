@@ -222,6 +222,8 @@ export default function RootLayout({
       <body
         className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}
       >
+          <AnimatePresence mode="wait">
+       <PageWrapper  >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
 
@@ -244,6 +246,8 @@ export default function RootLayout({
 
           <Footer />
         </ThemeProvider>
+         </PageWrapper>
+       </AnimatePresence>
         <Analytics />
         <SpeedInsights />
       </body>
