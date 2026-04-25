@@ -7,7 +7,6 @@
 // import { AnimatePresence } from "framer-motion";
 // import { PageWrapper } from "@/components/PageWrapper";
 
-
 // const josefin = Josefin_Sans({
 //   subsets: ["latin"],
 //   weight: ["300", "400", "600", "700"], // Select the weights you need
@@ -19,10 +18,9 @@
 //   subsets: ['latin'],
 //   display: 'swap',
 //   // Optional: specify weights if you don't want the entire variable font
-//   weight: ['400', '700'], 
+//   weight: ['400', '700'],
 //   variable: '--font-montserrat', // This creates a CSS variable
 // });
-
 
 // const figtree = Figtree({
 //   subsets: ['latin'],
@@ -34,15 +32,15 @@
 //   title: "Uptimise IT | AI-Native Software Development & Engineering",
 //   description: "Uptimise IT is an AI-native software factory. We partner with ambitious founders and enterprises to engineer scalable SaaS platforms, intelligent AI applications, and Web3 ecosystems at venture speed.",
 //   keywords: [
-//     "AI Software Development", 
-//     "SaaS Development Agency", 
-//     "Enterprise Engineering", 
-//     "Web3 Development", 
-//     "Digital Transformation", 
+//     "AI Software Development",
+//     "SaaS Development Agency",
+//     "Enterprise Engineering",
+//     "Web3 Development",
+//     "Digital Transformation",
 //     "AI Automation Systems"
 //   ],
 //   // icons: {
-//   //   icon: "/logo.png", 
+//   //   icon: "/logo.png",
 //   //   shortcut: "/logo.png",
 //   //   apple: "/logo.png",
 //   // },
@@ -77,7 +75,6 @@
 //     "preconnect": "https://uptimiseit-uptimise.vercel.app"
 //   }
 // };
-
 
 // export default function RootLayout({
 //   children,
@@ -121,8 +118,6 @@
 //         <AnimatePresence mode="wait">
 //           <PageWrapper  >
 
-
-      
 //     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 //       <Navbar />
 //           {children}
@@ -135,44 +130,45 @@
 //   );
 // }
 
-
 import type { Metadata } from "next";
 import { Figtree, Josefin_Sans, Montserrat } from "next/font/google"; // Removed unused Geist fonts
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import Navbar from "./components/Navbar/Navbar";
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Footer/Footer";
 // import { Analytics } from '@vercel/analytics/next';
 import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
+import Script from "next/script";
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '700'], 
-  variable: '--font-montserrat',
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
+  variable: "--font-montserrat",
 });
 
 const figtree = Figtree({
-  subsets: ['latin'],
-  variable: '--font-figtree',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-figtree",
+  display: "swap",
 });
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
-  weight: ["400", "700"], 
+  weight: ["400", "700"],
   display: "swap", // This allows text to show immediately with a fallback font
   variable: "--font-josefin",
 });
 
 export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
-  description: "Uptimise IT is an AI-native software factory engineering scalable SaaS, AI apps, and Web3 ecosystems.",
+  description:
+    "Uptimise IT is an AI-native software factory engineering scalable SaaS, AI apps, and Web3 ecosystems.",
   metadataBase: new URL("https://uptimiseit-uptimise.vercel.app"),
-icons: {
+  icons: {
     icon: [
       {
         url: "/favicon.png?v=4", // Change the 'v' number to force a refresh
@@ -186,9 +182,9 @@ icons: {
     canonical: "/",
   },
   other: {
-    "preconnect": "https://uptimiseit-uptimise.vercel.app",
+    preconnect: "https://uptimiseit-uptimise.vercel.app",
     "dns-prefetch": "https://uptimiseit-uptimise.vercel.app",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -206,31 +202,50 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Uptimise IT",
-              "url": "https://uptimiseit-uptimise.vercel.app",
-              "logo": "https://uptimiseit-uptimise.vercel.app/logo.png",
-              "description": "AI-native product engineering company.",
-              "founder": {
+              name: "Uptimise IT",
+              url: "https://uptimiseit-uptimise.vercel.app",
+              logo: "https://uptimiseit-uptimise.vercel.app/logo.png",
+              description: "AI-native product engineering company.",
+              founder: {
                 "@type": "Person",
-                "name": "Saurabh Sharma"
+                name: "Saurabh Sharma",
               },
-              "contactPoint": {
+              contactPoint: {
                 "@type": "ContactPoint",
-                "contactType": "customer support",
-                "email": "sales@uptimiseit.com"
-              }
-            })
+                contactType: "customer support",
+                email: "sales@uptimiseit.com",
+              },
+            }),
           }}
         />
       </head>
-      <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <Navbar />
-              <main>{children}</main>
-              <Footer />
-            </ThemeProvider>
+      <body
+        className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+
+          <main>
+            {children}
             <Analytics />
             <SpeedInsights />
+            {/* ✅ GOOD: lazyOnload waits until the page is fully idle before fetching and executing */}
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"
+              strategy="lazyOnload"
+            />
+
+            {/* 🔥 BEST: If you set up Partytown, 'worker' moves the script off the main thread entirely */}
+            <Script
+              src="https://heavy-customer-support-chat.com/widget.js"
+              strategy="worker"
+            />
+          </main>
+
+          <Footer />
+        </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

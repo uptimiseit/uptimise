@@ -2,11 +2,16 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
+// import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
 import LogoMarquee from "./LogoMarquee";
+import Link from "next/link";
 
 // Import Three.js Background with SSR disabled
 const HeroBackground = dynamic(() => import("../../components/Hero/HeroBackground"), {
+  ssr: false,
+});
+
+const BackgroundGrid = dynamic(() => import("../HomePageAminations/BackgroundGrid"), {
   ssr: false,
 });
 
@@ -57,12 +62,17 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 gap-4 flex items-center justify-center">
+            <Link href="" >
             <button className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-blue-500 transition-all active:scale-95">
               Explore Pipeline
             </button>
+            </Link>
+
+            <Link href={""}>
             <button className="px-10 py-4 border border-blue-600/20 text-blue-600 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-50 transition-all active:scale-95">
               Capabilities
             </button>
+            </Link>
           </div>
         </motion.div>
 
