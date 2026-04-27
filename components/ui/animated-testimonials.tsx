@@ -153,7 +153,6 @@ export const AnimatedTestimonials = ({
               <IconArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover/button:rotate-12 " />
             </button>
             <button
-            // iuiuhuhuhi
                 aria-label="Uptimiseit"
               onClick={handleNext}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-black text-white "

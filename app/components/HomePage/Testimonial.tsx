@@ -96,7 +96,7 @@ const FounderAndTestimonials = () => {
             <button     aria-label="Uptimiseit" onClick={prevFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
               <ChevronLeft size={20} />
             </button>
-                 aria-label="Uptimiseit" onClick={nextFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
+                <button aria-label="Uptimiseit" onClick={nextFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
               <ChevronRight size={20} />
             </button>
           </div>
