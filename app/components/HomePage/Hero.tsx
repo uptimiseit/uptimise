@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 // import LogoMarquee from "./LogoMarquee";
 import Link from "next/link";
+import LogoMarquee from "./LogoMarquee";
 
 // Import Three.js Background with SSR disabled
 const HeroBackground = dynamic(() => import("../../components/Hero/HeroBackground"), {
@@ -16,7 +17,8 @@ const BackgroundGrid = dynamic(() => import("../HomePageAminations/BackgroundGri
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-[#FDFDFF] py-16 lg:py-28">
+    // <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-blue-500 py-16 lg:py-28">
+    <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-gray-950 py-16 lg:py-28">
       {/* BACKGROUND LAYER GROUP */}
       <div className="absolute inset-0 z-0">
         <BackgroundGrid />
@@ -31,7 +33,7 @@ export default function Hero() {
       </div>
 
       {/* CONTENT LAYER */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative z-10 w-full pt-12 lg:pt-0">
+      <div className="max-w-[1400px]  mx-auto px-6 lg:px-16 relative z-10 w-full pt-12 lg:pt-0">
         
         {/* 🔥 FIXED: Replaced motion.div with a pure CSS animated div */}
         <div className="flex flex-col gap-8 text-center">
@@ -67,7 +69,7 @@ export default function Hero() {
             </Link>
 
             <Link href={"/Explore100x"}>
-            <button      aria-label="Uptimiseit" className="px-10 py-4 border border-blue-600/20 text-blue-600 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-50 transition-all active:scale-95">
+            <button      aria-label="Uptimiseit" className="px-10 py-4 border border-blue-600/20 text-blue-800 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-50 transition-all active:scale-95">
               Explore 100x Engineering
             </button>
             </Link>
@@ -80,14 +82,14 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mt-10 lg:mt-32 pt-12 border-t border-slate-100"
+          className="mt-10 lg:mt-28 pt-12 border-t border-slate-100"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
             <p className="whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.3em] text-slate-400">
               Trusted by Innovators
             </p>
             <div className="w-full overflow-hidden">
-              {/* <LogoMarquee /> */}
+              <LogoMarquee />
             </div>
           </div>
         </motion.div>

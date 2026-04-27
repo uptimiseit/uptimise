@@ -10,7 +10,7 @@ const logos = [
 
 export default function LogoMarquee() {
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden ">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes marquee {
           0% { transform: translateX(0%); }

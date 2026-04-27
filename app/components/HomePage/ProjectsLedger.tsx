@@ -52,31 +52,10 @@ const projects = [
   }
 ];
 
-// --- Animation Variants ---
-// const containerVariants: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.12,
-//       delayChildren: 0.2
-//     }
-//   }
-// };
-
-// const cardVariants: Variants = {
-//   hidden: { opacity: 0, y: 30, scale: 0.95 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     scale: 1,
-//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-//   }
-// };
 
 const ProjectsLedger = () => {
   return (
-    <section className="relative bg-gradient-to-br from-white to-lime-50 py-24 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-900 to-gray-900 py-24 px-6 overflow-hidden">
       {/* Background Decor: The Blueprint Matrix */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
 
