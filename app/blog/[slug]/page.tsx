@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import DOMPurify from "isomorphic-dompurify";
 import { 
-  Calendar, Clock, Share2, Twitter, Linkedin, 
-  Facebook, ArrowRight, ArrowUpRight, 
-  Mail, Bookmark, Loader2, User, AlertCircle,
+  Calendar,  Twitter, Linkedin, 
+   ArrowRight, ArrowUpRight, 
+   Bookmark, Loader2, User, AlertCircle,
   ImageIcon
 } from "lucide-react";
 
