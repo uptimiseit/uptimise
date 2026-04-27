@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import LogoMarquee from "./LogoMarquee";
+// import LogoMarquee from "./LogoMarquee";
 import Link from "next/link";
 
 // Import Three.js Background with SSR disabled
@@ -87,7 +87,7 @@ export default function Hero() {
               Trusted by Innovators
             </p>
             <div className="w-full overflow-hidden">
-              <LogoMarquee />
+              {/* <LogoMarquee /> */}
             </div>
           </div>
         </motion.div>
