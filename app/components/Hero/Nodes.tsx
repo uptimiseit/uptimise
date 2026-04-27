@@ -1,6 +1,8 @@
 
 import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
+import * as THREE from "three"
+
 export default function Nodes() {
   const nodes = [
     [-3, 0.1, 0],
@@ -38,11 +40,13 @@ function Node({ position }: any) {
       {/* outer glow */}
       <mesh scale={1.6}>
         <sphereGeometry args={[0.3, 32, 32]} />
-        <meshBasicMaterial
+        {/* <meshBasicMaterial
           color="#4F8CFF"
           transparent
           opacity={0.08}
-        />
+        /> */}
+
+        <meshBasicMaterial blending={THREE.MultiplyBlending} opacity={0.5} premultipliedAlpha={true} />
       </mesh>
     </group>
   )

@@ -46,6 +46,7 @@ export default function SmartParticles({ count = 100 }) {
         transparent: true,
         opacity: 0.9,
         toneMapped: false,
+        premultipliedAlpha: true,
       }),
     []
   )

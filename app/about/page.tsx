@@ -121,7 +121,7 @@ const AboutPage = () => {
                 The future of development belongs to teams that combine <span className="text-slate-950 font-bold">intelligent automation</span> with <span className="text-slate-950 font-bold">elite human engineering.</span>
               </motion.p>
               <motion.p  className="font-bold text-slate-950 border-l-4 border-blue-600 pl-6">
-                Our vision is to operate as the world's most efficient software factory—where complexity is managed by machines, and value is driven by human expertise.
+                Our vision is to operate as the world&apos;s most efficient software factory—where complexity is managed by machines, and value is driven by human expertise.
               </motion.p>
             </div>
           </motion.div>
@@ -252,7 +252,7 @@ const AboutPage = () => {
                 <div className="space-y-6">
                     <h3 className="text-3xl font-black uppercase tracking-tight">Engineering Standards.</h3>
                     <p className="text-slate-500 font-medium leading-relaxed">
-                        We don't build software that simply works. We build technology that lasts. Every platform follows our rigorous SOC2-ready standards.
+                        We don&apos;t build software that simply works. We build technology that lasts. Every platform follows our rigorous SOC2-ready standards.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-// import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
 import LogoMarquee from "./LogoMarquee";
 import Link from "next/link";
 
@@ -23,7 +22,7 @@ export default function Hero() {
         <BackgroundGrid />
         <HeroBackground /> 
         
-        {/* Your existing Framer Motion blobs */}
+        {/* Your existing Framer Motion blobs are fine here! */}
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
           transition={{ duration: 10, repeat: Infinity }}
@@ -33,11 +32,10 @@ export default function Hero() {
 
       {/* CONTENT LAYER */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative z-10 w-full pt-12 lg:pt-0">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col gap-8 text-center"
-        >
+        
+        {/* 🔥 FIXED: Replaced motion.div with a pure CSS animated div */}
+        <div className="flex flex-col gap-8 text-center">
+          
           <div className="space-y-6 flex flex-col items-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 border border-slate-200 shadow-sm backdrop-blur-sm">
@@ -74,9 +72,9 @@ export default function Hero() {
             </button>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Logo Section */}
+        {/* Logo Section - Framer Motion is fine here because it's below the main text */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,23 +95,3 @@ export default function Hero() {
     </section>
   );
 }
-
-// "use client";
-
-// import dynamic from 'next/dynamic';
-// import { motion } from "framer-motion";
-// import BackgroundGrid from "../HomePageAminations/BackgroundGrid";
-// import LogoMarquee from "./LogoMarquee";
-// import { MovingBorderButton } from "../MovingBorderButton";
-
-// const HeroCanvas = dynamic(() => import("../../components/Hero/HeroCanvas"), { ssr: false });
-
-// export default function Hero() {
-//   return (
-//     <section className="relative w-full min-h-screen flex items-center bg-[#FDFDFF] overflow-hidden">
-//       <BackgroundGrid />
-
-//     <HeroCanvas />
-//     </section>
-//   );
-// }

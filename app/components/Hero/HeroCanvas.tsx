@@ -87,6 +87,7 @@ export default function HeroCanvas() {
     const instMesh = new THREE.InstancedMesh(
       new THREE.SphereGeometry(0.02, 8, 8),
       new THREE.MeshBasicMaterial({ color: THEME.accentFlow, transparent: true, opacity: 0.5 }),
+      
       pCount
     );
     group.add(instMesh);
