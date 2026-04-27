@@ -230,7 +230,7 @@ const CaseStudiesPage = () => {
                                   {project.status}
                                 </p>
                             </div>
-                            <button className="flex items-center gap-2 text-xs font-black text-blue-600 hover:gap-3 transition-all uppercase tracking-widest">
+                            <button     aria-label="Uptimiseit" className="flex items-center gap-2 text-xs font-black text-blue-600 hover:gap-3 transition-all uppercase tracking-widest">
                                Explore Architecture <ArrowRight size={14} />
                             </button>
                          </div>
@@ -307,7 +307,7 @@ const CaseStudiesPage = () => {
                 Build Your Success <br /> Story with <span className="italic">Uptimise IT.</span>
             </h2>
             <motion.div whileHover={{ scale: 1.05 }} className="relative z-10">
-              <button className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-xl">
+              <button      aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-xl">
                  Start Your Project
               </button>
             </motion.div>

@@ -176,10 +176,10 @@ export default function HeroCanvas() {
           The AI-Native Software Factory
         </p>
         <div className="mt-12 flex gap-4 pointer-events-auto">
-          <button className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-blue-500 transition-all">
+          <button     aria-label="Uptimiseit" className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-blue-500 transition-all">
             Explore Pipeline
           </button>
-          <button className="px-10 py-4 border border-white/20 text-white rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white/5 transition-all">
+          <button     aria-label="Uptimiseit" className="px-10 py-4 border border-white/20 text-white rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white/5 transition-all">
             Capabilities
           </button>
         </div>

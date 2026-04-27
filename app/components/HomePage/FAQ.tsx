@@ -80,6 +80,7 @@ const FaqSection = () => {
         <div className="flex overflow-x-auto pb-4 gap-2 mb-12 scrollbar-hide">
           {Object.keys(faqData).map((category) => (
             <button
+                aria-label="Uptimiseit"
               key={category}
               onClick={() => {
                 setActiveTab(category as Category);
@@ -105,6 +106,7 @@ const FaqSection = () => {
             return (
               <div key={index} className="border-b border-gray-200">
                 <button 
+                    aria-label="Uptimiseit"
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-start gap-6 py-6 text-left group"
                 >

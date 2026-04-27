@@ -15,6 +15,7 @@ export default function LegalHub() {
         <h2 className="text-xl font-bold text-slate-900 mb-6 tracking-tight">Legal Documents</h2>
         <nav className="flex flex-col space-y-2">
           <button 
+              aria-label="Uptimiseit"
             onClick={() => setActiveTab("privacy")}
             className={`text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               activeTab === "privacy" 
@@ -25,6 +26,7 @@ export default function LegalHub() {
             Privacy Policy
           </button>
           <button 
+              aria-label="Uptimiseit"
             onClick={() => setActiveTab("terms")}
             className={`text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               activeTab === "terms" 
@@ -35,6 +37,7 @@ export default function LegalHub() {
             Terms of Service
           </button>
           <button 
+              aria-label="Uptimiseit"
             onClick={() => setActiveTab("cookies")}
             className={`text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               activeTab === "cookies" 

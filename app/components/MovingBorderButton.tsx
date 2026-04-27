@@ -8,6 +8,7 @@ export const MovingBorderButton = ({
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
+        aria-label="Uptimiseit"
       className={cn(
         // The outer container: defines the height and the "mask"
         "relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2",

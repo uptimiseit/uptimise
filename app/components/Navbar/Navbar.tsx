@@ -459,7 +459,7 @@ const MegaNavbar = () => {
                     <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
                   </Link>
                 ) : (
-                  <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
+                  <button      aria-label="Uptimiseit" className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
                     activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'
                   }`}>
                     {menu}
@@ -484,11 +484,11 @@ const MegaNavbar = () => {
         {/* --- Desktop Action Buttons --- */}
         <div className="hidden lg:flex items-center gap-3">
           <Link href={"/booking"}>
-            <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-blue-100">
+            <button      aria-label="Uptimiseit" className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-blue-100">
              Book Strategy Call
             </button>
           </Link>
-           <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
+           <button     aria-label="Uptimiseit" className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
             <Download size={18} className="group-hover:scale-110 transition-transform" />
           </button>
         </div>
@@ -496,6 +496,7 @@ const MegaNavbar = () => {
         {/* --- Mobile Hamburger Toggle --- */}
         <div className="lg:hidden flex items-center gap-4">
           <button 
+              aria-label="Uptimiseit"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 -mr-2 text-slate-600 hover:text-slate-900 transition-colors"
           >
@@ -530,7 +531,7 @@ const MegaNavbar = () => {
                       Our AI Factory is Live.
                     </p>
                   </div>
-                  <button className="relative z-10 flex items-center gap-3 text-sm font-bold text-white group-hover/cta:text-blue-400 transition-colors">
+                  <button     aria-label="Uptimiseit" className="relative z-10 flex items-center gap-3 text-sm font-bold text-white group-hover/cta:text-blue-400 transition-colors">
                     Start Here <ChevronRight size={18} className="group-hover/cta:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -580,6 +581,7 @@ const MegaNavbar = () => {
               {Object.keys(menuData).map((menu) => (
                 <div key={menu} className="border-b border-slate-100 last:border-none">
                   <button 
+                      aria-label="Uptimiseit"
                     onClick={() => toggleMobileMenu(menu)}
                     className="w-full flex items-center justify-between py-4 text-left"
                   >
@@ -639,11 +641,11 @@ const MegaNavbar = () => {
               {/* Mobile CTAs */}
               <div className="flex flex-col gap-4 mt-8">
                 <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
-                  <button className="w-full py-4 bg-slate-950 text-white rounded-xl text-sm font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-md">
+                  <button     aria-label="Uptimiseit"  className="w-full py-4 bg-slate-950 text-white rounded-xl text-sm font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-md">
                     Book Strategy Call
                   </button>
                 </Link>
-                <button className="w-full py-4 bg-slate-50 text-slate-700 rounded-xl text-sm font-bold border border-slate-200 flex items-center justify-center gap-2">
+                <button     aria-label="Uptimiseit" className="w-full py-4 bg-slate-50 text-slate-700 rounded-xl text-sm font-bold border border-slate-200 flex items-center justify-center gap-2">
                   <Download size={18} /> Download Profile
                 </button>
               </div>

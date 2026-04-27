@@ -298,7 +298,7 @@ const ContactPage = () => {
                           <p className="text-sm font-bold text-slate-900 truncate">{formData.documentFile.name}</p>
                           <p className="text-[10px] text-slate-400 font-mono">{(formData.documentFile.size / 1024).toFixed(1)} KB</p>
                         </div>
-                        <button type="button" onClick={(e) => { e.stopPropagation(); setFormData({...formData, documentFile: null}); }} className="p-2 hover:bg-white rounded-full text-slate-400 hover:text-red-500 transition-colors"><X size={16} /></button>
+                        <button     aria-label="Uptimiseit" type="button" onClick={(e) => { e.stopPropagation(); setFormData({...formData, documentFile: null}); }} className="p-2 hover:bg-white rounded-full text-slate-400 hover:text-red-500 transition-colors"><X size={16} /></button>
                       </motion.div>
                     ) : (
                       <div className="text-center space-y-1">

@@ -529,6 +529,7 @@ const BookingPage = () => {
                           e.stopPropagation();
                           setFormData({ ...formData, documentFile: null });
                         }}
+                        aria-label="Remove document"
                         className="p-2 hover:bg-white rounded-full text-slate-400 hover:text-red-500 transition-colors"
                       >
                         <X size={16} />
@@ -572,6 +573,7 @@ const BookingPage = () => {
 
               <div className="pt-6">
                 <button
+                  aria-label="Submit booking request"
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full h-20 rounded-3xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 shadow-2xl flex items-center justify-center gap-4 group disabled:opacity-50 ${

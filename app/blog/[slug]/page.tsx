@@ -198,8 +198,8 @@ export default function BlogDetailPage() {
               ))}
             </div>
             <div className="flex items-center gap-4">
-              <button className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-[#0A66C2] hover:text-white transition-all border border-slate-100"><Linkedin size={14}/></button>
-              <button className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-black hover:text-white transition-all border border-slate-100"><Twitter size={14}/></button>
+              <button     aria-label="Uptimiseit" className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-[#0A66C2] hover:text-white transition-all border border-slate-100"><Linkedin size={14}/></button>
+              <button     aria-label="Uptimiseit" className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-black hover:text-white transition-all border border-slate-100"><Twitter size={14}/></button>
             </div>
           </div>
         </div>

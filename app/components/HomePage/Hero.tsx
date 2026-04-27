@@ -61,13 +61,13 @@ export default function Hero() {
 
           <div className="mt-6 gap-4 flex items-center justify-center">
             <Link href="/contact" >
-            <button className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-blue-500 transition-all active:scale-95">
+            <button     aria-label="Uptimiseit" className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-blue-500 transition-all active:scale-95">
               Start your project
             </button>
             </Link>
 
             <Link href={"/Explore100x"}>
-            <button className="px-10 py-4 border border-blue-600/20 text-blue-600 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-50 transition-all active:scale-95">
+            <button      aria-label="Uptimiseit" className="px-10 py-4 border border-blue-600/20 text-blue-600 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-50 transition-all active:scale-95">
               Explore 100x Engineering
             </button>
             </Link>

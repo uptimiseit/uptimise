@@ -469,6 +469,7 @@ export default function GuidesBlogPage() {
           <div className="hidden md:flex items-center gap-2 bg-slate-100 p-1 rounded-xl">
             {(["grid", "list"] as const).map((mode) => (
               <button 
+                aria-label="Uptimiseit"
                 key={mode}
                 onClick={() => setViewMode(mode)}
                 className={`p-2 rounded-lg transition-all ${viewMode === mode ? "bg-white shadow-sm text-emerald-600" : "text-slate-400 hover:text-slate-600"}`}
@@ -483,6 +484,7 @@ export default function GuidesBlogPage() {
         <div className="flex flex-wrap gap-2 mb-12">
           {subCategories.map(subCat => (
             <button
+                aria-label="Uptimiseit"
               key={subCat}
               onClick={() => setActiveSubCategory(subCat)}
               className={`px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${
@@ -601,6 +603,7 @@ export default function GuidesBlogPage() {
                   className="w-full bg-slate-800 border-none rounded-xl px-4 py-3 text-xs text-white placeholder:text-slate-600 font-mono focus:ring-2 focus:ring-emerald-500 outline-none"
                 />
                 <button 
+                    aria-label="Uptimiseit"
                   className="w-full bg-emerald-600 text-white font-black uppercase tracking-widest text-[10px] rounded-xl py-4 shadow-lg shadow-emerald-900/40 hover:bg-emerald-500 transition-all"
                 >
                   Subscribe_Sync

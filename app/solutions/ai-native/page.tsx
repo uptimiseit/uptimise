@@ -162,10 +162,10 @@ export default function AINativeAdvantage() {
           If you are planning to build a digital platform or scale an existing product, Uptimise IT can help you take advantage of modern AI-augmented development practices.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-          <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 hover:shadow-lg transition-all text-lg">
+          <button      aria-label="Uptimiseit"  className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 hover:shadow-lg transition-all text-lg">
             Start Your Project
           </button>
-          <button className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-lg">
+          <button     aria-label="Uptimiseit" className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-lg">
             Book Strategy Call
           </button>
         </div>

@@ -143,6 +143,7 @@ const HeroAnimation = () => {
         {/* CTA Button */}
         <div className="pt-8">
           <button
+              aria-label="Uptimiseit"
             ref={buttonRef}
             className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-linear-to-r from-cyan-500 to-blue-600 p-0.5 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2rem_-0.5rem_#3b82f6]"
           >

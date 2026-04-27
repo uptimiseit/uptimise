@@ -808,6 +808,7 @@ export default function EngineeringBlogPage() {
             {["grid", "list"].map((mode) => (
               <button 
                 key={mode}
+                aria-label={`Switch to ${mode} view`}
                 onClick={() => setViewMode(mode as any)}
                 className={`p-2 rounded-lg transition-all ${viewMode === mode ? "bg-white shadow-sm text-blue-600" : "text-slate-400 hover:text-slate-600"}`}
               >
@@ -821,6 +822,7 @@ export default function EngineeringBlogPage() {
           {subCategories.map(subCat => (
             <button
               key={subCat}
+              aria-label={`Filter by ${subCat}`}
               onClick={() => setActiveSubCategory(subCat)}
               className={`px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${
                 activeSubCategory === subCat 

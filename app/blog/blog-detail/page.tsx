@@ -130,9 +130,9 @@ export default function BlogDetailPage() {
             
             <div className="flex items-center gap-4">
               <span className="text-sm font-bold text-slate-500 flex items-center gap-2"><Share2 size={16}/> Share:</span>
-              <button className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#0A66C2] hover:text-white transition-colors"><Linkedin size={14}/></button>
-              <button className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-black hover:text-white transition-colors"><Twitter size={14}/></button>
-              <button className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#1877F2] hover:text-white transition-colors"><Facebook size={14}/></button>
+              <button     aria-label="Uptimiseit" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#0A66C2] hover:text-white transition-colors"><Linkedin size={14}/></button>
+              <button     aria-label="Uptimiseit" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-black hover:text-white transition-colors"><Twitter size={14}/></button>
+              <button     aria-label="Uptimiseit" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#1877F2] hover:text-white transition-colors"><Facebook size={14}/></button>
             </div>
           </div>
 
@@ -172,7 +172,7 @@ export default function BlogDetailPage() {
                 className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-slate-500"
                 required
               />
-              <button type="submit" className="w-full bg-indigo-600 text-white font-bold rounded-xl py-3 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-600/20">
+              <button type="submit" aria-label="Subscribe to newsletter" className="w-full bg-indigo-600 text-white font-bold rounded-xl py-3 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-600/20">
                 Subscribe Now
               </button>
             </form>

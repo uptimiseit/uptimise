@@ -143,7 +143,7 @@ const TimelineItem = ({ step, index }: { step: any, index: number }) => {
               {step.description}
             </p>
 
-            <button className={`inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors ${isEven ? 'flex-row-reverse' : 'flex-row'}`}>
+            <button     aria-label="Uptimiseit" className={`inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors ${isEven ? 'flex-row-reverse' : 'flex-row'}`}>
                 Learn more <ArrowRight className="w-4 h-4" />
             </button>
         </div>

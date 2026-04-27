@@ -93,10 +93,10 @@ const FounderAndTestimonials = () => {
           </h2>
           {/* Founder Navigation Arrows */}
           <div className="flex space-x-4">
-            <button onClick={prevFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
+            <button     aria-label="Uptimiseit" onClick={prevFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
               <ChevronLeft size={20} />
             </button>
-            <button onClick={nextFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
+                 aria-label="Uptimiseit" onClick={nextFounder} className="p-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition-colors">
               <ChevronRight size={20} />
             </button>
           </div>

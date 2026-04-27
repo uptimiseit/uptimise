@@ -118,7 +118,7 @@ const PhilosophySectionWhite = () => {
             // variants={fadeInUp}
             >
               <Link href={"/Explore100x"}>
-                <button className="flex items-center gap-4 text-slate-900 group cursor-pointer pt-4 hover:text-blue-600 transition-all duration-300">
+                <button      aria-label="Uptimiseit" className="flex items-center gap-4 text-slate-900 group cursor-pointer pt-4 hover:text-blue-600 transition-all duration-300">
                   <span className="font-bold text-xl uppercase tracking-tighter">
                     Explore the 100× Workflow
                   </span>

@@ -143,7 +143,7 @@ const CaseStudiesPage = () => {
                          </span>
                        ))}
                     </div>
-                    <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 group-hover:gap-3 transition-all">
+                    <button     aria-label="Uptimiseit" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 group-hover:gap-3 transition-all">
                       Case Study <ArrowRight size={14} />
                     </button>
                   </div>
@@ -195,7 +195,7 @@ const CaseStudiesPage = () => {
                Build Your Success <br /> Story with <span className="italic">Uptimise IT.</span>
             </h2>
             <div className="flex justify-center gap-4 relative z-10">
-              <button className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl shadow-slate-200">
+              <button      aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl shadow-slate-200">
                  Start Your Project
               </button>
             </div>

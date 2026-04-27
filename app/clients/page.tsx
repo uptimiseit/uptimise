@@ -203,10 +203,10 @@ export default function ClientsPage() {
 
              {/* Navigation Arrows */}
              <div className="flex justify-between absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full px-4 md:px-0 md:-left-20 md:-right-20 pointer-events-none">
-                <button onClick={prevTestimonial} className="pointer-events-auto p-3 rounded-full border border-gray-200 hover:bg-black hover:text-white hover:border-black transition-all bg-white">
+                <button     aria-label="Uptimiseit" onClick={prevTestimonial} className="pointer-events-auto p-3 rounded-full border border-gray-200 hover:bg-black hover:text-white hover:border-black transition-all bg-white">
                   <ArrowLeft size={20} />
                 </button>
-                <button onClick={nextTestimonial} className="pointer-events-auto p-3 rounded-full border border-gray-200 hover:bg-black hover:text-white hover:border-black transition-all bg-white">
+                <button      aria-label="Uptimiseit" onClick={nextTestimonial} className="pointer-events-auto p-3 rounded-full border border-gray-200 hover:bg-black hover:text-white hover:border-black transition-all bg-white">
                   <ArrowRight size={20} />
                 </button>
              </div>

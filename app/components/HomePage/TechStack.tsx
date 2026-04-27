@@ -124,6 +124,7 @@ const TechStack = () => {
            className="lg:w-1/2 flex flex-col gap-3">
             {techData.map((item) => (
               <button
+                  aria-label="Uptimiseit"
                 key={item.id}
                 onMouseEnter={() => setActiveTab(item)}
                 onClick={() => setActiveTab(item)}

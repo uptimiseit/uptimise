@@ -61,6 +61,7 @@ const VisionMissionScroll = () => {
           <div className="sticky top-1/2 -translate-y-1/2 flex flex-col items-start gap-4">
             {sections.map((section) => (
               <button
+                  aria-label="Uptimiseit"
                 key={section.id}
                 onClick={() => {
                   document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });

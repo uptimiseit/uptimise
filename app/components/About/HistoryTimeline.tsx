@@ -172,6 +172,7 @@ const HistoryTimeline = () => {
       <div className="absolute bottom-16 left-0 w-full flex justify-center items-center gap-16 z-30">
         
         <button 
+            aria-label="Uptimiseit"
           onClick={() => swiperRef.current?.slidePrev()}
           className="group p-2 transition-transform active:scale-95"
         >
@@ -183,6 +184,7 @@ const HistoryTimeline = () => {
         </span>
 
         <button 
+            aria-label="Uptimiseit"
           onClick={() => swiperRef.current?.slideNext()}
           className="group p-2 transition-transform active:scale-95"
         >

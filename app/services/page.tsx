@@ -397,10 +397,10 @@ const DesignPage = () => {
           </p>
 
           <div className="flex flex-col lg:flex-row  justify-center gap-4 pt-6">
-            <button className="px-10 py-5 bg-blue-600 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
+            <button      aria-label="Uptimiseit" className="px-10 py-5 bg-blue-600 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
               Start Your Project
             </button>
-            <button className="px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-xs hover:bg-slate-50 transition-all">
+            <button     aria-label="Uptimiseit" className="px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-xs hover:bg-slate-50 transition-all">
               Book Strategy Call
             </button>
           </div>
@@ -448,7 +448,7 @@ const DesignPage = () => {
                     ))}
                   </div>
                 </div>
-                <button className="mt-12 flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-blue-600 transition-colors">
+                <button     aria-label="Uptimiseit" className="mt-12 flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-blue-600 transition-colors">
                   Explore {service.title} <ArrowRight size={16} />
                 </button>
               </div>
@@ -499,7 +499,7 @@ const DesignPage = () => {
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter text-slate-950 leading-none">
               Build and Scale <br /> with <span className="text-blue-600">Uptimise IT.</span>
             </h2>
-            <button className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-blue-600 transition-all shadow-2xl shadow-slate-200">
+            <button      aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-blue-600 transition-all shadow-2xl shadow-slate-200">
                Book Strategy Call
             </button>
          </div>

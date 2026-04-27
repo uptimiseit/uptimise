@@ -38,10 +38,10 @@ const LandingPage = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="h-16 px-10 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 flex items-center gap-2">
+            <button     aria-label="Uptimiseit" className="h-16 px-10 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 flex items-center gap-2">
               Book a Strategy Call <ArrowRight size={20} />
             </button>
-            <button className="h-16 px-10 bg-white text-slate-950 border border-slate-200 rounded-full font-bold text-lg hover:bg-slate-50 transition-all">
+            <button     aria-label="Uptimiseit" className="h-16 px-10 bg-white text-slate-950 border border-slate-200 rounded-full font-bold text-lg hover:bg-slate-50 transition-all">
               Start Your Project
             </button>
           </div>
@@ -132,7 +132,7 @@ const LandingPage = () => {
                   <div className="flex justify-between text-xs text-slate-400"><span>Timeline</span> <span>{model.timeline}</span></div>
                   <div className="flex justify-between text-xs text-slate-400"><span>Model</span> <span>{model.pricing}</span></div>
                 </div>
-                <button className="w-full py-3 bg-white text-slate-950 font-bold rounded-xl hover:bg-blue-500 hover:text-white transition-all text-sm">
+                <button     aria-label="Uptimiseit" className="w-full py-3 bg-white text-slate-950 font-bold rounded-xl hover:bg-blue-500 hover:text-white transition-all text-sm">
                   Get a Quote
                 </button>
               </div>
@@ -149,7 +149,7 @@ const LandingPage = () => {
             <span className="text-blue-600 italic">Next Product?</span>
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="h-20 px-12 bg-blue-600 text-white rounded-full font-black text-xl shadow-2xl shadow-blue-200 flex items-center gap-3">
+            <button     aria-label="Uptimiseit" className="h-20 px-12 bg-blue-600 text-white rounded-full font-black text-xl shadow-2xl shadow-blue-200 flex items-center gap-3">
               Book a Strategy Call <ChevronRight />
             </button>
           </div>

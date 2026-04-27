@@ -171,6 +171,7 @@ const BlogPage = () => {
       <div className="flex flex-wrap gap-2 mb-12 border-b border-gray-100 pb-6">
         {tabs.map((tab) => (
           <button
+              aria-label="Uptimiseit"
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-6 py-1.5 rounded-full border transition-all text-xs cursor-pointer font-medium ${

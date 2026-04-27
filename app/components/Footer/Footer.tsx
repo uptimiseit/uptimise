@@ -203,6 +203,7 @@ const Footer = () => {
         />
         
         <button
+            aria-label="Uptimiseit"
           type="submit"
           disabled={status === "loading" || status === "success"}
           className="absolute right-2 top-2 p-1 text-slate-400 hover:text-blue-600 transition-colors disabled:opacity-50"

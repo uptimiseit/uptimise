@@ -138,6 +138,7 @@ const FAQSection = () => {
                 }`}
               >
                 <button 
+                    aria-label="Uptimiseit"
                   onClick={() => setActiveIdx(activeIdx === i ? null : i)}
                   className="w-full p-8 flex items-center justify-between text-left"
                 >

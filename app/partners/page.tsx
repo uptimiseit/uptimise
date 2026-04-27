@@ -267,7 +267,7 @@ export default function PartnerProgramPage() {
               <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none" placeholder="Tell us briefly about the types of clients you usually work with..."></textarea>
             </div>
 
-            <button type="submit" className="w-full bg-blue-700 text-white font-bold text-lg rounded-xl py-4 flex items-center justify-center gap-2 hover:bg-blue-800 transition-all shadow-lg shadow-blue-700/20">
+            <button     aria-label="Uptimiseit" type="submit" className="w-full bg-blue-700 text-white font-bold text-lg rounded-xl py-4 flex items-center justify-center gap-2 hover:bg-blue-800 transition-all shadow-lg shadow-blue-700/20">
               Submit Application <Send size={18} />
             </button>
             <p className="text-center text-xs text-slate-500 mt-4">

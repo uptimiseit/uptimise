@@ -146,12 +146,14 @@ export const AnimatedTestimonials = ({
           </motion.div>
           <div className="flex gap-4 ">
             <button
+                aria-label="Uptimiseit"
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-black text-white"
             >
               <IconArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover/button:rotate-12 " />
             </button>
             <button
+                aria-label="Uptimiseit"
               onClick={handleNext}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-black text-white "
             >

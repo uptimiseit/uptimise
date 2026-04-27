@@ -820,7 +820,7 @@ export default function TechTrendsBlogPage() {
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-lg font-bold text-red-900 mb-2">Sync Error</h2>
           <p className="text-sm text-red-600 mb-6">{error}</p>
-          <button onClick={() => window.location.reload()} className="px-6 py-2 bg-red-600 text-white rounded-xl font-bold text-sm">Retry Connection</button>
+          <button      aria-label="Uptimiseit" onClick={() => window.location.reload()} className="px-6 py-2 bg-red-600 text-white rounded-xl font-bold text-sm">Retry Connection</button>
         </div>
       </div>
     );
@@ -877,6 +877,7 @@ export default function TechTrendsBlogPage() {
             {(["grid", "list"] as const).map((mode) => (
               <button 
                 key={mode}
+                    aria-label="Uptimiseit"
                 onClick={() => setViewMode(mode)}
                 className={`p-2 rounded-lg transition-all ${viewMode === mode ? "bg-white shadow-md text-violet-600" : "text-slate-400 hover:text-slate-600"}`}
               >
@@ -890,6 +891,7 @@ export default function TechTrendsBlogPage() {
         <div className="flex flex-wrap gap-2 mb-12">
           {subCategories.map(subCat => (
             <button
+                aria-label="Uptimiseit"
               key={subCat}
               onClick={() => setActiveSubCategory(subCat)}
               className={`px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${
@@ -1007,6 +1009,7 @@ export default function TechTrendsBlogPage() {
                   required
                 />
                 <button 
+                    aria-label="Uptimiseit"
                   type="submit"
                   className="w-full bg-violet-600 text-white font-black uppercase tracking-widest text-[10px] rounded-xl py-4 shadow-lg shadow-violet-900/40 hover:bg-violet-500 transition-all"
                 >
