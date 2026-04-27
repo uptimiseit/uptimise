@@ -13,9 +13,8 @@ import {
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
-  // @ts-ignore
-  const [post, setPost] = useState<never>(null);
-  const [relatedPosts, setRelatedPosts] = useState<never[]>([]);
+  const [post, setPost] = useState<any>(null);
+  const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -29,7 +28,7 @@ export default function BlogDetailPage() {
         const json = await res.json();
 
         if (json.success) {
-          const currentPost = json.data.find((p: never) => p.slug === slug);
+          const currentPost = json.data.find((p: any) => p.slug === slug);
           
           if (currentPost) {
             setPost(currentPost);
@@ -44,14 +43,14 @@ export default function BlogDetailPage() {
             }
 
             // 2. Map IDs to actual blog objects from the full list
-            const related = json.data.filter((p: never) => 
+            const related = json.data.filter((p: any) => 
               selectedRelatedIds.includes(p.id.toString()) && p.slug !== slug
             );
 
             // 3. Fallback: If no related blogs were selected in admin, show category-based
             if (related.length === 0) {
               const fallback = json.data
-                .filter((p: never) => p.category === currentPost.category && p.slug !== slug)
+                .filter((p: any) => p.category === currentPost.category && p.slug !== slug)
                 .slice(0, 3);
               setRelatedPosts(fallback);
             } else {
@@ -74,38 +73,38 @@ export default function BlogDetailPage() {
     if (slug) fetchPostData();
   }, [slug]);
 
-  // useEffect(() => {
-  //   const fetchPostData = async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       const res = await fetch("https://uptimiseit-admin.vercel.app/api/blogs", {
-  //         cache: 'no-store'
-  //       });
-  //       const JSON = await res.json();
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch("https://uptimiseit-admin.vercel.app/api/blogs", {
+          cache: 'no-store'
+        });
+        const json = await res.json();
 
-  //       if (json.success) {
-  //         const currentPost = json.data.find((p: any) => p.slug === slug);
+        if (json.success) {
+          const currentPost = json.data.find((p: any) => p.slug === slug);
           
-  //         if (currentPost) {
-  //           setPost(currentPost);
-  //           const related = json.data
-  //             .filter((p: any) => p.category === currentPost.category && p.slug !== slug)
-  //             .slice(0, 3);
-  //           setRelatedPosts(related);
-  //         } else {
-  //           setError(true);
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.error("Error fetching blog detail:", err);
-  //       setError(true);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
+          if (currentPost) {
+            setPost(currentPost);
+            const related = json.data
+              .filter((p: any) => p.category === currentPost.category && p.slug !== slug)
+              .slice(0, 3);
+            setRelatedPosts(related);
+          } else {
+            setError(true);
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching blog detail:", err);
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  //   if (slug) fetchPostData();
-  // }, [slug]);
+    if (slug) fetchPostData();
+  }, [slug]);
 
   if (isLoading) {
     return (
@@ -163,7 +162,6 @@ export default function BlogDetailPage() {
         <div className="max-w-6xl mx-auto px-6 mb-16">
           <div className="w-full h-[400px] md:h-[600px] rounded-[3rem] bg-slate-100 relative overflow-hidden shadow-2xl shadow-indigo-900/5">
             {post.featuredImage && (
-                // eslint-disable-next-line @next/next/no-img-element
               <img src={post.featuredImage} alt={post.title} className="w-full h-full object-cover" />
             )}
           </div>
