@@ -10,7 +10,7 @@ const logos = [
 
 export default function LogoMarquee() {
   return (
-    <div className="relative overflow-hidden bg-white ">
+    <div className="relative overflow-hidden bg-white">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes marquee {
           0% { transform: translateX(0%); }
@@ -28,7 +28,9 @@ export default function LogoMarquee() {
             key={`logo-1-${index}`} 
             src={logo.url} 
             alt={logo.name} 
-            className="mx-12 h-6 w-auto shrink-0  transition-all hover:grayscale-0" 
+            width={120}
+            height={24}  
+            className="mx-12 h-6 w-auto shrink-0 transition-all hover:grayscale-0" 
           />
         ))}
         {/* Duplicate set for seamless loop */}
@@ -37,7 +39,9 @@ export default function LogoMarquee() {
             key={`logo-2-${index}`} 
             src={logo.url} 
             alt={logo.name} 
-            className="mx-12 h-6 w-auto shrink-0  transition-all hover:grayscale-0" 
+            width={120}  
+            height={24}  
+            className="mx-12 h-6 w-auto shrink-0 transition-all hover:grayscale-0" 
           />
         ))}
       </div>
