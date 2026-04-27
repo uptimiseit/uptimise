@@ -11,28 +11,6 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-// --- Animation Variants ---
-// const fadeInUp: Variants = {
-//   hidden: { opacity: 0, y: 30 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     transition: { 
-//       duration: 0.8, 
-//       ease: "easeOut" // TS now knows this is a valid Easing string
-//     } 
-//   }
-// };
-// const staggerContainer: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.2
-//     }
-//   }
-// };
-
 const ecosystemNodes = [
   { 
     title: "Product Design", 
@@ -67,7 +45,7 @@ const AboutPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" 
+          className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[40px_40px]" 
         />
         
         <div className="max-w-7xl mx-auto relative z-10">
