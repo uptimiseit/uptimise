@@ -219,7 +219,7 @@ export default function FintechIndustryPage() {
       </section>
 
       {/* 4. FINTECH PLATFORMS WE BUILD */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 px-6 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -258,7 +258,7 @@ export default function FintechIndustryPage() {
       </section>
 
       {/* 5. TECHNOLOGY STACK */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="bg-white border border-slate-200 rounded-[3rem] p-8 md:p-16 shadow-xl shadow-slate-100 flex flex-col lg:flex-row gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}

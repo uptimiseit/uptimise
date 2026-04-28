@@ -135,7 +135,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 3. ENTERPRISE ARCHITECTURE STRATEGY */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -238,7 +238,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 4. PLATFORMS WE BUILD */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 px-6 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -277,7 +277,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 5. TECHNOLOGY STACK */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="bg-white border border-slate-200 rounded-[3rem] p-8 md:p-16 shadow-xl shadow-slate-100 flex flex-col lg:flex-row gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -313,7 +313,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 6. AI SOFTWARE FACTORY (Legacy Refactoring) */}
-      <section className="py-24 px-6 bg-[#0A1128] text-white relative overflow-hidden border-y border-slate-800">
+      <section className="py-16 px-6 bg-[#0A1128] text-white relative overflow-hidden border-y border-slate-800">
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -378,7 +378,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 7. DEVELOPMENT PROCESS */}
-      <section className="py-24 px-6 max-w-7xl mx-auto space-y-16">
+      <section className="py-16 px-6 max-w-7xl mx-auto space-y-16">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto space-y-4">
           <h2 className="text-4xl font-bold tracking-tight text-slate-900 uppercase tracking-tighter leading-none">Modernization Protocol</h2>
           <p className="text-lg text-slate-600 font-medium italic">// Risk_Mitigated_Rollout</p>
@@ -412,7 +412,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 8. BUSINESS BENEFITS */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 px-6 bg-slate-50 border-y border-slate-100">
         <motion.div 
           // variants={staggerContainer}
           initial="hidden"
@@ -439,7 +439,7 @@ export default function EnterpriseIndustryPage() {
       </section>
 
       {/* 9. CASE STUDIES */}
-      <section className="py-24 px-6 max-w-7xl mx-auto space-y-12">
+      <section className="py-16 px-6 max-w-7xl mx-auto space-y-12">
         <motion.div 
             initial={{ opacity: 0, y: 20 }} 
             whileInView={{ opacity: 1, y: 0 }} 

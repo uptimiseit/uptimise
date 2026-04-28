@@ -8,6 +8,7 @@ import {
   Twitter, Zap, ShieldCheck, Terminal, Loader2, CheckCircle2, AlertCircle,
   Phone, Paperclip, FileText, X, ChevronDown, UploadCloud
 } from 'lucide-react';
+import FAQSection from '../components/HomePage/FAQSection';
 
 // const fadeInUp: Variants = {
 //   hidden: { opacity: 0, y: 30 },
@@ -323,6 +324,8 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <FAQSection />
     </main>
   );
 };

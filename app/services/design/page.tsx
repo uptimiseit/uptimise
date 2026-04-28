@@ -9,6 +9,8 @@ import {
   Monitor, Smartphone, Briefcase, Bot,
   Search
 } from 'lucide-react';
+import HumanAICollaboration from '@/app/components/HumanAICollaboration';
+import FAQSection from '@/app/components/HomePage/FAQSection';
 
 // // --- Animation Variants ---
 // const fadeInUp: Variants = {
@@ -126,7 +128,7 @@ const ProductDesignPage = () => {
       </section>
 
       {/* --- 2. WHY DESIGN --- */}
-      <section className="py-24 px-6 bg-slate-50/50">
+      <section className="py-20 px-6 bg-slate-50/50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-16">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -170,7 +172,7 @@ const ProductDesignPage = () => {
       </section>
 
       {/* --- 3. THE PROCESS: Morphing Accordion --- */}
-      <section className="py-32 px-6">
+      <section className="py-10 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -229,7 +231,7 @@ const ProductDesignPage = () => {
       </section>
 
       {/* --- 4. AI-ENHANCED DESIGN --- */}
-      <section className="py-32 px-6">
+      <section className="py-20  px-6">
          <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -272,7 +274,7 @@ const ProductDesignPage = () => {
       </section>
 
       {/* --- 5. TOOLS & ECOSYSTEM --- */}
-      <section className="py-32 px-6 bg-[#0B0A0F] text-white">
+      <section className="py-28 px-6 bg-[#0B0A0F] text-white">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
@@ -322,8 +324,13 @@ const ProductDesignPage = () => {
           </div>
       </section>
 
+   <HumanAICollaboration/>
+
+   <FAQSection />
+
+
       {/* --- 6. FINAL CTA --- */}
-      <section className="py-20 px-6">
+      <section className="px-6 py-10">
          <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

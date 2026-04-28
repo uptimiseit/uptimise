@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import FAQSection from "../components/HomePage/FAQSection";
 
 // --- Animation Variants ---
 // const fadeInUp: Variants = {
@@ -131,7 +132,9 @@ export default function CareersPage() {
 
       {/* 3. Engineering Culture & Tools */}
       <section className="py-24 px-6 bg-[#0B0F19] text-white relative">
-        <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-size-[30px_30px] opacity-20 pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-size-[30px_30px] opacity-20 pointer-events-none" /> */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]" /> 
+
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 
             initial="hidden"
@@ -224,11 +227,14 @@ export default function CareersPage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="py-24 px-6 bg-slate-50 border-y border-slate-100"
+        className="py-24 relative px-6 bg-slate-900 border-y border-slate-100"
+
       >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]" /> 
+
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="text-3xl font-black tracking-tight text-slate-900 uppercase">Continuous Growth</h2>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium">
+          <h2 className="text-3xl font-black tracking-tight text-teal-500 uppercase">Continuous Growth</h2>
+          <p className="text-lg text-slate-50 leading-relaxed max-w-3xl mx-auto font-medium">
             Team members are encouraged to explore new technologies and improve their skills constantly.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
@@ -236,7 +242,7 @@ export default function CareersPage() {
               <motion.span 
                 key={i} 
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-6 py-3 bg-white border border-slate-200 shadow-sm rounded-2xl text-slate-700 font-bold text-xs uppercase tracking-tighter"
+                className="px-6 py-3 bg-teal-500 border  shadow-sm rounded-2xl text-slate-50 font-bold text-xs uppercase tracking-tighter"
               >
                 ✦ {perk}
               </motion.span>
@@ -278,6 +284,8 @@ export default function CareersPage() {
         </motion.div>
       </section>
 
+
+<FAQSection />
     </div>
   );
 }

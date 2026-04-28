@@ -202,7 +202,7 @@ export default function SaasIndustryPage() {
       </section>
 
       {/* 5. SECURITY & COMPLIANCE ARCHITECTURE */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-20 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -236,7 +236,7 @@ export default function SaasIndustryPage() {
       </section>
 
       {/* 6. TECHNOLOGY STACK */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 px-6 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto space-y-16">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 uppercase tracking-tighter">The Modern SaaS Tech Stack</h2>
