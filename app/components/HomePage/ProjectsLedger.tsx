@@ -55,7 +55,7 @@ const projects = [
 
 const ProjectsLedger = () => {
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 to-gray-900 py-24 px-6 overflow-hidden">
+    <section className="relative bg-slate-950 py-24 px-6 overflow-hidden">
       {/* Background Decor: The Blueprint Matrix */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
 
@@ -75,18 +75,18 @@ const ProjectsLedger = () => {
                 Project_Ledger::2026
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
+            <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-50 leading-[0.85] uppercase">
               Proven <br />
               <motion.span 
-                animate={{ color: ["#2563eb", "#65a30d", "#2563eb"] }}
+                animate={{ color: ["#eadeda", "#d90368", "#606c38"] }}
                 transition={{ duration: 5, repeat: Infinity }}
-                className="text-blue-600 italic"
+                className="text-blue-100 italic"
               >
                 Deployments.
               </motion.span>
             </h2>
           </div>
-          <p className="text-lg text-slate-500 font-body max-w-sm lg:text-right font-medium leading-relaxed">
+          <p className="text-lg text-slate-100 font-body max-w-sm lg:text-right font-medium leading-relaxed">
             A small, high-impact selection of the world-class products we've engineered.
           </p>
         </motion.div>
@@ -194,21 +194,21 @@ const ProjectsLedger = () => {
           <motion.div 
             // variants={cardVariants}
             whileHover={{ y: -5 }}
-            className="p-10 rounded-[3rem] bg-blue-50 border border-blue-100 flex flex-col justify-center items-center text-center space-y-6 group transition-all duration-500 hover:bg-white hover:shadow-2xl"
+            className="p-10 rounded-[3rem] bg-sky-700/45 border border-blue-800 flex flex-col justify-center items-center text-center space-y-6 group transition-all duration-500 hover:bg-blue-700 hover:shadow-2xl"
           >
              <div className="relative">
-                <div className="w-4 h-4 rounded-full bg-blue-600 animate-ping absolute inset-0" />
-                <div className="w-4 h-4 rounded-full bg-blue-600 relative" />
+                <div className="w-4 h-4 rounded-full bg-blue-200 animate-ping absolute inset-0" />
+                <div className="w-4 h-4 rounded-full bg-blue-200 relative" />
              </div>
-             <h4 className="font-header font-black text-blue-950 text-2xl tracking-tighter leading-none uppercase">
-               Next Case Study <br /> <span className="text-blue-600 italic">In_Queue</span>
+             <h4 className="font-header font-black text-blue-200 text-2xl tracking-tighter leading-none uppercase">
+               Next Case Study <br /> <span className="text-blue-300 italic">In_Queue</span>
              </h4>
-             <p className="text-xs font-body font-bold text-blue-700/50 leading-relaxed max-w-[200px] uppercase tracking-wider">
+             <p className="text-xs font-body font-bold text-blue-100 leading-relaxed max-w-[200px] uppercase tracking-wider">
                Our AI software factory is engineering 14 new products for global innovators.
              </p>
              <motion.div 
               whileHover={{ x: 5 }}
-              className="flex items-center gap-2 text-[10px] font-black font-mono text-blue-600 uppercase cursor-pointer"
+              className="flex items-center gap-2 text-[10px] font-black font-mono  text-blue-200 uppercase cursor-pointer"
              >
                View Full Ledger <ChevronRight size={14} />
              </motion.div>

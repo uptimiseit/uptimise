@@ -82,7 +82,7 @@ const featuredPosts = [
 
 const NewBlogs = () => {
   return (
-    <section className="relative bg-white py-24 px-6 overflow-hidden">
+    <section className="relative bg-slate-900 py-24 px-6 overflow-hidden">
       {/* Background Decor: Subtle Technical Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
@@ -102,11 +102,11 @@ const NewBlogs = () => {
                 Knowledge_Hub::Archive
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
+            <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-50 leading-[0.85] uppercase">
               Insights & <br />
-              <span className="text-blue-600 italic">Engineering.</span>
+              <span className="text-blue-300 italic">Engineering.</span>
             </h2>
-            <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-xl">
+            <p className="text-lg text-slate-200 font-medium leading-relaxed max-w-xl">
               Knowledge sharing is essential to building strong ecosystems. We publish deep-dives for founders and tech leaders.
             </p>
           </div>
@@ -114,7 +114,7 @@ const NewBlogs = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group flex items-center gap-3 px-8 py-4 bg-slate-950 text-white rounded-full font-bold transition-all hover:bg-blue-600 shadow-2xl"
+            className="group flex items-center gap-3 px-8 py-4 bg-blue-700 text-white rounded-full font-bold transition-all hover:bg-blue-600 shadow-2xl"
           >
             View All Insights <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </motion.button>
@@ -198,7 +198,7 @@ const NewBlogs = () => {
             {/* Newsletter Mini-Card */}
             <motion.div 
               // variants={fadeInUp}
-              className="md:col-span-2 p-10 rounded-[3.5rem] bg-slate-950 text-white flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl"
+              className="md:col-span-2 p-10 rounded-[3.5rem] bg-neutral-950 border border-slate-700 text-white flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl"
             >
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb15_0%,transparent_100%)] pointer-events-none" />
                <div className="relative z-10 text-center lg:text-left">

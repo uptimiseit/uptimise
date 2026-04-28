@@ -222,7 +222,7 @@ const AIOSFactoryDark = () => {
             <span className="text-blue-500">Software Factory.</span>
           </h2>
           
-          <p className="text-sm text-slate-400 font-body leading-relaxed">
+          <p className="text-sm text-slate-100 font-body leading-relaxed">
             A hybrid ecosystem where elite human ingenuity meets autonomous intelligence 
             to accelerate the entire product lifecycle.
           </p>
@@ -242,7 +242,7 @@ const AIOSFactoryDark = () => {
                 <Binary className="text-blue-400" size={24} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 font-header">Intelligent Planning</h3>
-              <p className="text-slate-400 text-sm leading-relaxed font-body">
+              <p className="text-slate-100 text-sm leading-relaxed font-body">
                 AI agents convert product vision into structured roadmaps and technical 
                 requirements instantly, eliminating the "planning gap."
               </p>
@@ -295,7 +295,7 @@ const AIOSFactoryDark = () => {
               <h3 className="text-4xl font-black text-white font-header tracking-tight">
                 AI Coding <br />Orchestrator.
               </h3>
-              <p className="text-slate-400 text-sm font-body leading-relaxed">
+              <p className="text-slate-100 text-sm font-body leading-relaxed">
                 Our proprietary AI Coding Agent generates backend APIs, frontend components, 
                 and infrastructure scaffolding with mathematical precision.
               </p>
@@ -317,7 +317,7 @@ const AIOSFactoryDark = () => {
                 <ShieldCheck className="text-emerald-400" size={24} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 font-header">Autonomous QA</h3>
-              <p className="text-slate-400 text-sm leading-relaxed font-body">
+              <p className="text-slate-100 text-sm leading-relaxed font-body">
                 AI-driven testing pipelines detect bugs and security vulnerabilities 
                 before they ever reach production. Zero-compromise quality.
               </p>

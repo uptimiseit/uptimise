@@ -90,7 +90,7 @@ export default function MVPDevelopmentPage() {
       </section>
 
       {/* 2. STARTUP CHALLENGES */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-24 px-6 bg-slate-950 border-y border-slate-100">
         <div className="max-w-7xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -98,8 +98,8 @@ export default function MVPDevelopmentPage() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto space-y-4"
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 uppercase">Why Most MVPs Fail</h2>
-            <p className="text-lg text-slate-600 font-medium">Startups operate in high-risk environments. Traditional agencies often set founders up for failure through slow timelines and fragile code.</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-300 uppercase">Why Most MVPs Fail</h2>
+            <p className="text-base text-slate-100 font-medium">Startups operate in high-risk environments. Traditional agencies often set founders up for failure through slow timelines and fragile code.</p>
           </motion.div>
           
           <motion.div 
@@ -411,7 +411,7 @@ export default function MVPDevelopmentPage() {
       </section>
 
       {/* 10. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-12">
+      <section className="py-16 px-6 text-center max-w-4xl mx-auto space-y-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

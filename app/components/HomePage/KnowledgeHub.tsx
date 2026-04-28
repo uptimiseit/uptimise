@@ -91,7 +91,7 @@ const articles = [
 
 const KnowledgeHub = () => {
   return (
-    <section className="relative bg-gradient-to-br from-white to-rose-50 py-24 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white to-white py-24 px-6 overflow-hidden">
       {/* Background Decor: The Digital Blueprint Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
       

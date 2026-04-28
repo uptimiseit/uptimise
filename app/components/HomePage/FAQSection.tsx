@@ -62,7 +62,7 @@ const FAQSection = () => {
   const [activeIdx, setActiveIdx] = useState<number | null>(0);
 
   return (
-    <section className="relative bg-white py-24 px-6 overflow-hidden">
+    <section className="relative bg-slate-900 py-20 px-6 overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
       
@@ -89,12 +89,12 @@ const FAQSection = () => {
             <motion.h2 
             // variants={fadeInUp}
              
-            className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
+            className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-50 leading-[0.85] uppercase">
               Common <br />
               <motion.span 
                 animate={{ color: ["#2563eb", "#6366f1", "#2563eb"] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="text-blue-600 italic"
+                className="text-blue-200 italic"
               >
                 Queries.
               </motion.span>
@@ -102,7 +102,7 @@ const FAQSection = () => {
             
             <motion.p 
             // variants={fadeInUp}
-             className="text-lg text-slate-500 font-medium leading-relaxed max-w-sm">
+             className="text-lg text-slate-200 font-medium leading-relaxed max-w-sm">
               Everything you need to know about our AI-Native Software Factory and engineering philosophy.
             </motion.p>
 
