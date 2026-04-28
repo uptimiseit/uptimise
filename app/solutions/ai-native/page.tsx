@@ -156,7 +156,7 @@ export default function AINativeAdvantage() {
       </section>
 
       {/* 6. CTA Section */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto space-y-8">
+      <section className=" px-6 text-center max-w-4xl mx-auto space-y-8">
         <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">Build with AI-Native Engineering</h2>
         <p className="text-xl text-slate-600 leading-relaxed">
           If you are planning to build a digital platform or scale an existing product, Uptimise IT can help you take advantage of modern AI-augmented development practices.

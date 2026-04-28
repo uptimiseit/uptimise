@@ -373,7 +373,7 @@ export default function FintechIndustryPage() {
       </section>
 
       {/* 7. DEVELOPMENT PROCESS */}
-      <section className="py-24 px-6 max-w-7xl mx-auto space-y-16">
+      <section className="py-16 px-6 max-w-7xl mx-auto space-y-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -411,7 +411,7 @@ export default function FintechIndustryPage() {
       </section>
 
       {/* 8. BUSINESS BENEFITS */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-6 px-6 bg-slate-50 border-y border-slate-100">
         <motion.div 
           // variants={staggerContainer}
           initial="hidden"
@@ -475,7 +475,7 @@ export default function FintechIndustryPage() {
       </section>
 
       {/* 10. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-8">
+      <section className=" px-6 text-center max-w-4xl mx-auto space-y-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

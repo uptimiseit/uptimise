@@ -311,7 +311,7 @@ export default function SaasIndustryPage() {
       </section>
 
       {/* 9. CTA SECTION */}
-      <section className="py-32 px-6 text-center max-w-4xl mx-auto space-y-12">
+      <section className="pt-10 px-6 text-center max-w-4xl mx-auto space-y-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
