@@ -9,6 +9,7 @@ import {
   Brain, Sparkles, ShieldCheck, Database, Layout, 
   FastForward, CheckCircle2, Workflow, Activity, Target 
 } from 'lucide-react';
+import { DottedSurface } from './DottedSurface';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -55,7 +56,9 @@ const HumanAICollaboration = () => {
 
   return (
     <section ref={containerRef} className="relative bg-white py-24 px-6 overflow-hidden">
+      {/* <DottedSurface /> */}
       <div className="max-w-7xl mx-auto relative z-10">
+
         
         {/* Header Block */}
         <motion.div 
@@ -169,6 +172,7 @@ const HumanAICollaboration = () => {
           </div>
         </div>
       </div>
+
     </section>
   );
 };

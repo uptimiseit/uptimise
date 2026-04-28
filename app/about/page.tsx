@@ -10,6 +10,11 @@ import {
   Palette,
   CheckCircle2
 } from 'lucide-react';
+// import FaqSection from '../components/HomePage/FAQ';
+import FAQSection from '../components/HomePage/FAQSection';
+import { DottedSurface } from '../components/DottedSurface';
+// import AboutUsSection from '../components/NewSection';
+// import { SpaceBackground } from '../components/spaceBackground';
 
 const ecosystemNodes = [
   { 
@@ -213,12 +218,14 @@ const AboutPage = () => {
       </section>
 
       {/* --- 5. STANDARDS: Technology That Scales --- */}
-      <section className="lg:py-24 py-10 px-6 bg-slate-50/50">
+      <section className="lg:py-24 py-10 px-6 bg-slate-950 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px] z-10" /> 
+
         <motion.div 
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto border border-slate-100 rounded-[3.5rem] p-12 lg:p-20 bg-white shadow-xl relative overflow-hidden"
+          className="max-w-7xl mx-auto border border-slate-600 rounded-[3.5rem] p-12 lg:p-20 bg-white/10 shadow-xl relative overflow-hidden"
         >
             <motion.div 
               initial={{ width: 0 }}
@@ -228,8 +235,8 @@ const AboutPage = () => {
             />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                 <div className="space-y-6">
-                    <h3 className="text-3xl font-black uppercase tracking-tight">Engineering Standards.</h3>
-                    <p className="text-slate-500 font-medium leading-relaxed">
+                    <h3 className="text-3xl font-black uppercase text-white tracking-tight">Engineering Standards.</h3>
+                    <p className="text-slate-100 italic  font-medium leading-relaxed">
                         We don&apos;t build software that simply works. We build technology that lasts. Every platform follows our rigorous SOC2-ready standards.
                     </p>
                 </div>
@@ -243,7 +250,7 @@ const AboutPage = () => {
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.1 }}
-                          className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-slate-400"
+                          className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-blue-200"
                         >
                             <CheckCircle2 className="text-blue-600" size={16} /> {std}
                         </motion.div>
@@ -282,6 +289,10 @@ const AboutPage = () => {
             </motion.div>
          </motion.div>
       </section>
+      
+      <FAQSection />
+
+      {/* <AboutUsSection /> */}
     </main>
   );
 };

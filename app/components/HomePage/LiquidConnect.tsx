@@ -27,11 +27,12 @@ const PhilosophySectionDark = () => {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-20 left-10 w-32 h-32 bg-blue-900/20 border border-blue-800/50 rounded-xl backdrop-blur-sm" 
         />
-        <motion.div 
-          animate={{ y: [0, 20, 0], rotate: [-6, -10, -6] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-40 right-20 w-24 h-24 bg-slate-800/30 border border-slate-700/50 rounded-lg backdrop-blur-sm" 
-        />
+        
+          <motion.div 
+            animate={{ y: [0, 20, 0], rotate: [-6, -10, -6] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-40 right-20 w-24 h-24 bg-slate-800/30 border border-slate-700/50 rounded-lg backdrop-blur-sm" 
+          />
         
         {/* Radial Gradient to fade edges into darkness */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_80%)]" />
@@ -75,7 +76,7 @@ const PhilosophySectionDark = () => {
             </motion.p>
 
             {/* Dark mode divider */}
-            <motion.div className="h-px bg-slate-800 w-full" />
+            <motion.div className="h-px bg-slate-500 w-full" />
 
             <motion.p>
               Today, a new model is emerging. Advances in artificial intelligence, 
@@ -111,7 +112,7 @@ const PhilosophySectionDark = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="relative z-10 border border-slate-800 rounded-3xl bg-blue-600 not-[]: backdrop-blur-xl p-2 shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
+              className="relative z-10  rounded-3xl  not-[]: backdrop-blur-xl p-2 shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
             >
               <div className="grid grid-cols-2 gap-2">
                 

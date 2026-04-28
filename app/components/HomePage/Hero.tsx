@@ -20,6 +20,7 @@ export default function Hero() {
     // <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center bg-blue-500 py-16 lg:py-28">
     <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center py-16 lg:py-28">
       {/* BACKGROUND LAYER GROUP */}
+      
       <div className="absolute inset-0 z-0">
         <BackgroundGrid />
         <HeroBackground /> 
