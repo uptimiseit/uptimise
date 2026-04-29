@@ -5,8 +5,9 @@ import { motion, Variants } from 'framer-motion';
 import { 
   ClipboardList, Layers, Code2, 
   ShieldCheck, Terminal, Cpu, 
-  ChevronRight, Activity 
+  ChevronRight, Activity, 
 } from 'lucide-react';
+import Link from 'next/link';
 
 const agents = [
   {
@@ -14,7 +15,8 @@ const agents = [
     desc: "Transforms vision into high-fidelity roadmaps and sprint plans.",
     icon: ClipboardList,
     color: "blue",
-    size: "col-span-12 lg:col-span-4"
+    size: "col-span-12 lg:col-span-4",
+    link: "/solutions/product-scailing"
   },
   {
     title: "AI Coding Agent",
@@ -22,28 +24,32 @@ const agents = [
     icon: Code2,
     color: "blue",
     size: "col-span-12 lg:col-span-8",
-    featured: true
+    featured: true,
+    link: "/solutions/ai-factory"
   },
   {
     title: "AI Architecture",
     desc: "Designs scalable system topologies and database schemas.",
     icon: Layers,
     color: "slate",
-    size: "col-span-12 lg:col-span-4"
+    size: "col-span-12 lg:col-span-4",
+    link: "/solutions/ai-factory"
   },
   {
     title: "AI QA Agent",
     desc: "Autonomous testing pipelines with 99.9% edge-case detection.",
     icon: ShieldCheck,
     color: "slate",
-    size: "col-span-12 lg:col-span-4"
+    size: "col-span-12 lg:col-span-4",
+    link: "/solutions/ai-factory"
   },
   {
     title: "AI DevOps",
     desc: "Zero-touch CI/CD and cloud infrastructure provisioning.",
     icon: Terminal,
     color: "slate",
-    size: "col-span-12 lg:col-span-4"
+    size: "col-span-12 lg:col-span-4",
+    link: "/solutions/ai-factory"
   }
 ];
 
@@ -129,6 +135,7 @@ const EcosystemSectionDark = () => {
                     {agent.desc}
                   </p>
                   
+                  <Link href={agent.link} >
                   <motion.div 
                     initial={{ opacity: 0, x: -10 }}
                     whileHover={{ opacity: 1, x: 0 }}
@@ -136,6 +143,7 @@ const EcosystemSectionDark = () => {
                   >
                     Initialize Protocol <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </motion.div>
+                  </Link>
                 </div>
               </div>
 
