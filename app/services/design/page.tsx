@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import HumanAICollaboration from '@/app/components/HumanAICollaboration';
 import FAQSection from '@/app/components/HomePage/FAQSection';
+// import FAQSection from '@/app/components/HomePage/FAQSection';
 
 // // --- Animation Variants ---
 // const fadeInUp: Variants = {

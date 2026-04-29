@@ -4,6 +4,7 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import FAQSection from "../components/HomePage/FAQSection";
+// import FAQSection from "../components/HomePage/FAQSection";
 
 // --- Animation Variants ---
 // const fadeInUp: Variants = {
