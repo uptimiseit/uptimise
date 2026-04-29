@@ -198,8 +198,10 @@ const AIOSFactoryDark = () => {
   return (
     <section className="relative bg-gradient-to-br from-slate-950 to-slate-900 py-16 px-6 overflow-hidden">
       {/* Background Decor: The Factory Blueprint */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" /> */}
       
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]" /> 
+
       <motion.div 
         className="max-w-7xl mx-auto relative z-10"
         initial="hidden"

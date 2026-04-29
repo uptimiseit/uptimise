@@ -84,7 +84,20 @@ const NewBlogs = () => {
   return (
     <section className="relative bg-slate-900 py-24 px-6 overflow-hidden">
       {/* Background Decor: Subtle Technical Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" /> */}
+
+         <motion.div 
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]"
+        animate={{ 
+          backgroundPosition: ["0px 0px", "24px 24px"] 
+        }}
+        transition={{ 
+          repeat: Infinity, 
+          duration: 3, 
+          ease: "linear" 
+        }}
+      />
+      
 
       <div className="max-w-7xl mx-auto relative z-10">
         

@@ -102,7 +102,7 @@ export default function Home() {
    <ProjectEstimator />
    <NewBlogs />
    <KnowledgeHub />
-   <FAQSection />
+   {/* <FAQSection /> */}
    <FactoryArchitecture />
    <FinalCTA />
       {/* <AboutSection /> */}

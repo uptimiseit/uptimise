@@ -63,9 +63,24 @@ const FAQSection = () => {
 
   return (
     <section className="relative bg-slate-900 py-20 px-6 overflow-hidden">
+
+
       {/* Background Decor */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
+      {/* <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" /> */}
       
+        {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]" />  */}
+        {/* <motion.div 
+  className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]"
+  animate={{ 
+    backgroundPosition: ["0px 0px", "24px 24px"] 
+  }}
+  transition={{ 
+    repeat: Infinity, 
+    duration: 3, 
+    ease: "linear" 
+  }}
+/> */}
+
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-12 gap-16"

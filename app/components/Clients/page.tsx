@@ -123,7 +123,6 @@ export default function TestimonialsPage() {
               key={index} 
               // variants={fadeInUp}
               whileHover="hover"
-              // variants={cardHover}
               className="bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-blue-200/20 transition-all duration-500 flex flex-col justify-between space-y-8 group"
             >
               <div className="space-y-6">
@@ -150,7 +149,18 @@ export default function TestimonialsPage() {
 
       {/* 4. Value Propositions */}
       <section className="bg-slate-950 text-white py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb10_0%,transparent_100%)] pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb10_0%,transparent_100%)] pointer-events-none" /> */}
+            <motion.div 
+                className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]"
+                animate={{ 
+                  backgroundPosition: ["0px 0px", "24px 24px"] 
+                }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 3, 
+                  ease: "linear" 
+                }}
+              />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 relative z-10">
           

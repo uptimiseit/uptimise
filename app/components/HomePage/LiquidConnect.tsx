@@ -20,6 +20,9 @@ const PhilosophySectionDark = () => {
         
         {/* Engineering Grid - Adapted for Dark Mode */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff15_1px,transparent_1px)] [background-size:24px_24px]" /> 
+
         
         {/* Decorative Floating "Data Blocks" with Motion */}
         <motion.div 
@@ -28,11 +31,11 @@ const PhilosophySectionDark = () => {
           className="absolute top-20 left-10 w-32 h-32 bg-blue-900/20 border border-blue-800/50 rounded-xl backdrop-blur-sm" 
         />
         
-          <motion.div 
-            animate={{ y: [0, 20, 0], rotate: [-6, -10, -6] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-40 right-20 w-24 h-24 bg-slate-800/30 border border-slate-700/50 rounded-lg backdrop-blur-sm" 
-          />
+        <motion.div 
+          animate={{ y: [0, 20, 0], rotate: [-6, -10, -6] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-40 right-20 w-24 h-24 bg-slate-800/30 border border-slate-700/50 rounded-lg backdrop-blur-sm" 
+        />
         
         {/* Radial Gradient to fade edges into darkness */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_80%)]" />

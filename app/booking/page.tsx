@@ -321,7 +321,7 @@ const BookingPage = () => {
           </div>
         </motion.div>
 
-        {/* --- RIGHT: The Engineering Intake Form --- */}
+        {/* --- RIGHT: Teering Intake Form --- */}
         <div className="lg:col-span-7">
           <motion.div
             initial={{ opacity: 0, x: 40 }}
