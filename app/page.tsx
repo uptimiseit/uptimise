@@ -1,24 +1,6 @@
 import type { Metadata } from "next"; // 1. Import Metadata type
-import Image from "next/image";
-import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/HomePage/Hero";
-import Footer from "./components/Footer/Footer";
-import FaqSection from "./components/HomePage/FAQ";
-import ServicesScroll from "./components/HomePage/Services";
-import PortfolioSection from "./components/HomePage/Projects";
-import ProjectsDelivered from "./components/HomePage/ProjectDelivered";
-import FounderAndTestimonials from "./components/HomePage/Testimonial";
-import HeroAnimation from "./components/HomePageAminations/HeroAnimation";
-import LiquidConnect from "./components/HomePage/LiquidConnect";
-import Map from "./components/HomePage/Map";
 import TechStack from "./components/HomePage/TechStack";
-import BlogSection from "./components/HomePage/Blog";
-import ShuffledGallery from "./components/HomePage/ShuffledGallery";
-import AboutSection from "./components/HomePage/AboutSection";
-import ComparisonSection from "./components/HomePage/ComparisonSection";
-import ProcessTimeline from "./components/HomePage/last";
-import PillarsSection from "./components/HomePage/PillarsSection";
-import { ThreeDMarqueeDemoSecond } from "./components/HomePage/NewHero";
 import PhilosophySection from "./components/HomePage/LiquidConnect";
 import ProblemSection from "./components/ProblemSection";
 import AIOSFactory from "./components/HomePage/AIOSFactory";
@@ -32,11 +14,12 @@ import TransparencySection from "./components/HomePage/TransparencySection";
 import EnterpriseStandards from "./components/HomePage/EnterpriseStandards";
 import ProjectsLedger from "./components/HomePage/ProjectsLedger";
 import KnowledgeHub from "./components/HomePage/KnowledgeHub";
-import FAQSection from "./components/HomePage/FAQSection";
+// import FAQSection from "./components/HomePage/FAQSection";
 import FinalCTA from "./components/HomePage/FinalCTA";
 import FactoryArchitecture from "./components/HomePage/FactoryArchitecture";
 import NewBlogs from "./components/HomePage/NewBlogs";
 import ProjectEstimator from "./components/Clients/page";
+import FAQSection from "./components/HomePage/FAQSection";
 
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
