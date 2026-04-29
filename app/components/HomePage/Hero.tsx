@@ -79,7 +79,7 @@ export default function Hero() {
             <span className="text-slate-900 font-medium ml-1">mathematical precision</span>.
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-6 flex flex-col   sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="w-full sm:w-auto">
               <button aria-label="Start Project" className="w-full cursor-pointer sm:w-auto px-10 py-4 bg-blue-600 text-white rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:bg-blue-500 transition-all active:scale-95">
                 Start your project
