@@ -41,28 +41,6 @@ const standards = [
   }
 ];
 
-// --- Animation Variants ---
-// const containerVariants: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.1,
-//       delayChildren: 0.2,
-//     },
-//   },
-// };
-
-// const cardVariants: Variants = {
-//   hidden: { opacity: 0, y: 30, scale: 0.95 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     scale: 1,
-//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-//   },
-// };
-
 const EnterpriseStandards = () => {
   return (
     <section className="relative bg-white py-24 px-6 overflow-hidden">

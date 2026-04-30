@@ -238,6 +238,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Rocket, Target } from "lucide-react";
 
 const testimonials = [
   {
@@ -355,24 +357,70 @@ export default function TestimonialsPage() {
       </section>
 
       {/* 4. CTA Section - Enhanced Background */}
-      <section className="pb-32 px-6">
-        <div className="max-w-6xl mx-auto bg-slate-950 rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[120px] -translate-y-1/2 translate-x-1/2" />
-            <div className="relative z-10">
-                <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none mb-10">
-                    Your Vision. <br /> Our <span className="text-blue-500 italic">Execution.</span>
-                </h2>
-                <div className="flex flex-col sm:flex-row justify-center gap-6">
-                    <button className="px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-900/40">
-                        Start Your Project
-                    </button>
-                    <button className="px-10 py-5 bg-white/10 text-white border border-white/20 font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-white hover:text-slate-950 transition-all backdrop-blur-md">
-                        Book Strategy Call
-                    </button>
-                </div>
-            </div>
+   <section className="pb-32 px-6">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-6xl mx-auto bg-slate-950 rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl border border-white/5"
+      >
+        {/* Animated Background Pulse */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[100px] translate-y-1/2 -translate-x-1/2" />
+
+        <div className="relative z-10 space-y-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20"
+          >
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 font-mono">
+              Final_Protocol::Active
+            </span>
+          </motion.div>
+
+          <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase leading-[0.85]">
+            Your Vision. <br /> Our <span className="text-blue-500 italic">Execution.</span>
+          </h2>
+
+          <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed italic">
+            Whether you are launching a new digital product or scaling a platform, we build the technology systems designed for the future.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
+            {/* Redirect to Vision Page */}
+            <Link href="/vision" className="w-full sm:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.05, backgroundColor: "#2563eb" }}
+                whileTap={{ scale: 0.95 }}
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 px-12 py-6 bg-blue-600 text-white font-black uppercase tracking-widest text-[11px] rounded-full transition-all shadow-xl shadow-blue-900/40"
+              >
+                <Rocket size={18} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                Explore Our Vision
+              </motion.button>
+            </Link>
+
+            {/* Redirect to Mission Page */}
+            <Link href="/mission" className="w-full sm:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                whileTap={{ scale: 0.95 }}
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 px-12 py-6 bg-white/10 text-white border border-white/20 font-black uppercase tracking-widest text-[11px] rounded-full transition-all backdrop-blur-md"
+              >
+                <Target size={18} className="group-hover:scale-110 transition-transform" />
+                See Our Mission
+                <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
+              </motion.button>
+            </Link>
+          </div>
         </div>
-      </section>
+
+        {/* Decorative Grid Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      </motion.div>
+    </section>
 
     </div>
   );
