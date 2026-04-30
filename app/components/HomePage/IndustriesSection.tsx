@@ -7,6 +7,7 @@ import {
   HeartPulse, ShoppingBag, BrainCircuit, 
   Database, Boxes, ArrowUpRight, Sparkles 
 } from 'lucide-react';
+import Link from 'next/link';
 
 const industries = [
   {
@@ -150,6 +151,7 @@ const IndustriesSection = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           {industries.map((item, i) => (
+            <Link href={item.link} key={i} >
             <motion.div
               key={i}
               // variants={cardVariants}
@@ -205,6 +207,7 @@ const IndustriesSection = () => {
                 </motion.div>
               </div>
             </motion.div>
+            </Link>
           ))}
         </motion.div>
 

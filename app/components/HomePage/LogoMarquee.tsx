@@ -3,7 +3,7 @@ import React from "react";
 // 1. Imports (Ensure these paths are correct in your project)
 import logo1 from "@/public/logos/1.webp"; 
 import logo2 from "@/public/logos/2.webp";
-import logo3 from "@/public/logos/3.avif";
+import logo3 from "@/public/logos/3.webp";
 import logo4 from "@/public/logos/4.webp";
 import logo5 from "@/public/logos/5.jpg";
 import logo6 from "@/public/logos/6.webp";
