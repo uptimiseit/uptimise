@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Calendar, ArrowRight, Zap, ShieldCheck, Cpu } from 'lucide-react';
+import Link from 'next/link';
 
 // // --- Animation Variants ---
 // const containerVariants: Variants = {
@@ -110,6 +111,7 @@ const FinalCTA = () => {
             </motion.p>
 
             {/* The "Execution" Button */}
+            <Link href="/contact" passHref>
             <motion.div 
               // variants={fadeInUp}
               className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6"
@@ -125,6 +127,7 @@ const FinalCTA = () => {
                 <ArrowRight size={24} className="relative z-10 group-hover/btn:translate-x-2 transition-transform" />
               </motion.button>
             </motion.div>
+            </Link>
 
             {/* Credibility Footer */}
             <motion.div 
