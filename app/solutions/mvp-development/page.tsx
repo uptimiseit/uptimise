@@ -6,7 +6,8 @@ import { motion, Variants } from "framer-motion";
 import { 
   Rocket, Clock, ShieldAlert, Wallet, Cpu, Layers, 
   Smartphone, Bot, Server, Zap, LineChart, Code2, 
-  CheckCircle2, ArrowRight, LayoutDashboard, Database
+  CheckCircle2, ArrowRight, LayoutDashboard, Database,
+  
 } from "lucide-react";
 
 // --- Animation Variants ---
@@ -377,38 +378,73 @@ export default function MVPDevelopmentPage() {
       </section>
 
       {/* 9. WHY STARTUPS CHOOSE UPTIMISE */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="bg-orange-600 text-white rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl shadow-orange-600/20 relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-          <div className="flex-1 space-y-6 relative z-10">
-            <h2 className="text-4xl font-extrabold tracking-tight uppercase tracking-tighter leading-none">Why Startups <br /> Choose Uptimise</h2>
-            <p className="text-orange-100 text-lg leading-relaxed font-medium">
-              We operate as your interim technical co-founder. You get an elite squad who understand business logic—not just code.
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="group relative bg-slate-950 rounded-[4rem] p-8 md:p-20 overflow-hidden border border-white/5 shadow-2xl"
+      >
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-600/20 blur-[120px] rounded-full group-hover:bg-orange-600/30 transition-colors duration-700" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full" />
+
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
+          
+          {/* Text Content */}
+          <div className="flex-1 space-y-8 text-center lg:text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400"
+            >
+              {/* <Sparkle size={16} /> */}
+              <span className="text-[10px] font-black uppercase tracking-[0.3em]">Co-Founder_Service</span>
+            </motion.div>
+
+            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase">
+              The Startup <br />
+              <span className="text-orange-500 italic">Edge.</span>
+            </h2>
+
+            <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-xl font-medium">
+              We operate as your <span className="text-white">interim technical co-founder</span>. You get an elite squad who understand business unit economics—not just syntax.
             </p>
           </div>
-          <motion.div  initial="hidden" whileInView="visible" className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full relative z-10">
-            {[
-              "Transparent weekly demos",
-              "Direct access to architects",
-              "No vendor lock-in",
-              "Post-launch growth support"
-            ].map((reason, i) => (
-              <motion.div 
-                key={i} 
-                
-                className="bg-orange-700/50 border border-orange-500/50 p-4 rounded-xl flex items-center font-bold text-xs uppercase tracking-widest text-white backdrop-blur-sm"
-              >
-                <CheckCircle2 className="w-4 h-4 text-orange-300 mr-3 shrink-0" /> {reason}
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
+
+          {/* Feature Grid */}
+          <div className="flex-1 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Weekly Demos", desc: "Full transparency" },
+                { title: "Architect Access", desc: "No middle managers" },
+                { title: "Zero Lock-in", desc: "You own the IP" },
+                { title: "Scale Support", desc: "Post-launch growth" }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -5, backgroundColor: "rgba(249, 115, 22, 0.1)" }}
+                  className="group/card bg-white/[0.03] border border-white/10 p-6 rounded-[2rem] transition-all duration-300"
+                >
+                  <CheckCircle2 className="w-6 h-6 text-orange-500 mb-4 group-hover/card:scale-110 transition-transform" />
+                  <h4 className="text-sm font-black text-white uppercase tracking-tight mb-1">{item.title}</h4>
+                  <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Banner Decoration */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+      </motion.div>
+    </section>
 
       {/* 10. CTA SECTION */}
       <section className=" px-6 text-center max-w-4xl mx-auto space-y-12">
