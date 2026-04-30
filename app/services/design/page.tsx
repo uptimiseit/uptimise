@@ -48,7 +48,7 @@ const ProductDesignPage = () => {
     <main className="min-h-screen bg-white font-sans pt-32 pb-20 overflow-hidden">
       
       {/* --- 1. HERO: The Creative Engine --- */}
-   <section className="px-6 mb-32 relative py-20 overflow-hidden">
+   <section className="px-6 mb-32 relative   overflow-hidden">
       {/* Background Technical Grid */}
       <motion.div 
         initial={{ opacity: 0 }}
