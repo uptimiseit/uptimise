@@ -178,7 +178,7 @@ export default function Hero() {
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
                 AI-Native <br />
             
 
