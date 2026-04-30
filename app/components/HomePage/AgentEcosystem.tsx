@@ -196,28 +196,28 @@ const agents = [
     icon: Code2,
     size: "col-span-12 lg:col-span-8",
     featured: true,
-    link: "/industries/ai-startup"
+    link: "/solutions/ai-coding"
   },
   {
     title: "AI Architecture",
     desc: "Designs scalable system topologies and database schemas.",
     icon: Layers,
     size: "col-span-12 lg:col-span-4",
-    link: "/industries/ai-native"
+    link: "/solutions/ai-architecture"
   },
   {
     title: "AI QA Agent",
     desc: "Autonomous testing pipelines with 99.9% edge-case detection.",
     icon: ShieldCheck,
     size: "col-span-12 lg:col-span-4",
-    link: "/solutions/ai-business-automation"
+    link: "/solutions/ai-agent"
   },
   {
     title: "AI DevOps",
     desc: "Zero-touch CI/CD and cloud infrastructure provisioning.",
     icon: Terminal,
     size: "col-span-12 lg:col-span-4",
-    link: "/solutions/mvp-development"
+    link: "/solutions/ai-devops"
   }
 ];
 
@@ -266,7 +266,7 @@ const EcosystemSectionDark = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="h-full relative rounded-[3rem] border border-slate-800 bg-slate-900/40 backdrop-blur-md p-10 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-900/30 hover:border-blue-500/30 hover:bg-slate-800/60 flex flex-col justify-between min-h-[320px]"
+                className="h-full relative rounded-[3rem] border border-slate-800 bg-slate-900/40 backdrop-blur-md p-10 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-900/30 hover:border-blue-500/30 hover:bg-slate-800/60 flex flex-col justify-between min-h-80"
               >
                 {/* Interactive Background Glow */}
                 <div className="absolute -inset-20 bg-blue-500/0 group-hover:bg-blue-600/10 blur-[120px] rounded-full transition-all duration-700 pointer-events-none" />

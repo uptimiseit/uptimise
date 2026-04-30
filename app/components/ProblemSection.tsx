@@ -162,6 +162,8 @@ const ProblemSection = () => {
             </div>
 
             {/* The Pivot to Solution */}
+                <Link href={"/solutions/ai-factory"} >
+
             <motion.div 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -172,13 +174,13 @@ const ProblemSection = () => {
                 <h4 className="text-2xl md:text-3xl font-black font-header text-slate-950 tracking-tight leading-tight">
                   Deploy the AI-Native <br />Software Factory.
                 </h4>
-                <Link href={"/solutions/ai-factory"} >
                 <div className="shrink-0 w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </div>
-                </Link>
               </div>
             </motion.div>
+                </Link>
+
           </motion.div>
 
         </div>
