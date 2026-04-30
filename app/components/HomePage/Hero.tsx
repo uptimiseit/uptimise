@@ -138,7 +138,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen  overflow-hidden flex items-center py-32 bg-white">
+    <section className="relative w-full min-h-screen  overflow-hidden flex items-center py-20 bg-white">
       {mounted && (
         <>
           {isDesktop ? (
@@ -252,7 +252,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mt-20 lg:mt-32 pt-12 border-t border-slate-100"
+          className="mt-20  pt-12 border-t border-slate-100"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
             <p className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">

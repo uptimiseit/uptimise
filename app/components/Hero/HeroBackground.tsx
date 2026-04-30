@@ -23,11 +23,11 @@ function NeuralNetwork({ count = 60 }) {
     const vel = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 12;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 12;
+      // pos[i * 3 + 1] = (Math.random() - 0.5) * 12;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 4;
       vel[i * 3] = (Math.random() - 0.5) * 0.008;
       vel[i * 3 + 1] = (Math.random() - 0.5) * 0.008;
-      vel[i * 3 + 2] = (Math.random() - 0.5) * 0.008;
+      // vel[i * 3 + 2] = (Math.random() - 0.5) * 0.008;
     }
     return [pos, vel];
   }, [count]);
