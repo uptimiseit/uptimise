@@ -4,6 +4,7 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import FAQSection from "../components/HomePage/FAQSection";
+import Link from "next/link";
 // import FAQSection from "../components/HomePage/FAQSection";
 
 // --- Animation Variants ---
@@ -267,6 +268,7 @@ export default function CareersPage() {
             Join a partner focused on reliability, scalability, and modern engineering workflows.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+            <Link href="/contact">
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -274,6 +276,8 @@ export default function CareersPage() {
             >
               View Open Positions
             </motion.button>
+            </Link>
+             <Link href="/contact">
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -281,6 +285,7 @@ export default function CareersPage() {
             >
               Contact Our Team
             </motion.button>
+            </Link>
           </div>
         </motion.div>
       </section>

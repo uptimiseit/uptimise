@@ -7,7 +7,8 @@ import {
   Cpu, Zap, Activity, Globe,
   Database, HardDrive, ArrowRight, Bot, Layers,
   Rocket, Gauge, Lock,
-  CheckCircle2
+  CheckCircle2,
+  Link
 } from 'lucide-react';
 
 // --- Animation Variants ---
@@ -84,6 +85,7 @@ const DevOpsPage = () => {
               Uptimise IT engineers resilient, automated cloud environments that support high-performance digital platforms at any scale.
             </motion.p>
             <motion.div  className="flex flex-col lg:flex-row gap-4">
+              <Link href="/contact">  
               <motion.button 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
@@ -91,12 +93,15 @@ const DevOpsPage = () => {
               >
                 Scale Your Infrastructure
               </motion.button>
+              </Link>
+              <Link href="/contact">
               <motion.button 
                 whileHover={{ backgroundColor: "#f8fafc" }}
                 className="px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-xs transition-all"
               >
                 System Audit
               </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -386,9 +391,11 @@ const DevOpsPage = () => {
                 Zero-Downtime <br /> <span className="italic">Excellence.</span>
             </h2>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
-              <button     aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-2xl">
-                 Secure Your Product
-              </button>
+              <Link href="/contact">
+                <button     aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-2xl">
+                   Secure Your Product
+                </button>
+              </Link>
             </motion.div>
          </motion.div>
       </section>

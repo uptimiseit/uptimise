@@ -596,19 +596,19 @@ const AboutPage = () => {
       </section>
 
       {/* --- 5. FINAL CTA --- */}
-      <section className="lg:py-32 py-20 px-6 text-center bg-white">
+      <section className=" py-20 px-6 text-center bg-white">
          <motion.div initial="hidden" whileInView="visible" className="max-w-4xl mx-auto space-y-12">
             <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-950 leading-none uppercase">
               Let's Build <br /> <span className="text-blue-600 italic">History.</span>
             </h2>
-            <div className="flex flex-wrap justify-center gap-4">
+            {/* <div className="flex flex-wrap justify-center gap-4">
               <motion.button whileHover={{ scale: 1.05 }} className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-sm hover:bg-blue-600 transition-all">
                   Contact The Lab
               </motion.button>
               <motion.button whileHover={{ scale: 1.05 }} className="px-12 py-6 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-sm hover:bg-slate-50 transition-all">
                   Strategy Deck
               </motion.button>
-            </div>
+            </div> */}
          </motion.div>
       </section>
       

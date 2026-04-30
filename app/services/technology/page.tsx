@@ -6,7 +6,8 @@ import {
   Code2, Smartphone, Layers, Bot, Terminal, 
   Cpu, Zap, CheckCircle2, ArrowRight, ShieldCheck,
   Globe, Activity, Server, Search, Box, Rocket, 
-  ChevronDown, Lock, Code, Database, Gauge
+  ChevronDown, Lock, Code, Database, Gauge,
+  Link
 } from 'lucide-react';
 
 // --- Animation Variants ---
@@ -86,12 +87,16 @@ const DevelopmentServices = () => {
               Uptimise IT builds reliable, high-performance platforms by combining AI-native workflows with enterprise-grade engineering discipline.
             </motion.p>
             <motion.div  className="flex flex-col lg:flex-row gap-4">
+              <Link href="/contact" >
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs shadow-xl">
                 Start Your Project
               </motion.button>
+              </Link>
+              <Link href="/booking" >
               <motion.button whileHover={{ backgroundColor: "#f8fafc" }} className="px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-xs transition-all">
                 Book Strategy Call
               </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -358,11 +363,13 @@ const DevelopmentServices = () => {
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10 uppercase">
                 Build Your Next <br /> Product with <span className="italic">Uptimise IT.</span>
             </h2>
+            <Link href="/booking" >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
               <button     aria-label="Uptimiseit" className="px-12 py-6 bg-white text-blue-600 rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-xl">
                  Start Your Project
               </button>
             </motion.div>
+            </Link>
          </motion.div>
       </section>
     </main>

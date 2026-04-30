@@ -6,7 +6,8 @@ import {
   Bot, Cpu, Zap, Fingerprint, Network, 
   Code2, Rocket, Terminal, Binary, Microscope,
   Lightbulb, Workflow, Boxes, ChevronRight,
-  Sparkles
+  Sparkles,
+  Link
 } from 'lucide-react';
 import FAQSection from '../components/HomePage/FAQSection';
 
@@ -268,12 +269,16 @@ const VisionPage = () => {
             Whether you are launching a new product or scaling a platform, we are ready to build the technology systems of tomorrow.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact">
             <button className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-blue-600 transition-all shadow-2xl shadow-slate-200">
               Start Your Project
             </button>
+            </Link>
+            <Link href="/contact">
             <button className="px-12 py-6 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-slate-50 transition-all">
               Book Strategy Call
             </button>
+            </Link>
           </div>
         </div>
       </section>

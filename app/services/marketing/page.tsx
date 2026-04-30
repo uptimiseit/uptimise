@@ -9,6 +9,7 @@ import {
   Instagram, Linkedin, Twitter, Youtube,
   LineChart, MousePointerClick, Megaphone
 } from 'lucide-react';
+import Link from 'next/link';
 
 // // --- Animation Variants ---
 // const fadeInUp: Variants = {
@@ -75,6 +76,9 @@ const DigitalGrowthPage = () => {
               Uptimise IT engineers data-driven growth engines that combine AI-powered automation with performance marketing to scale user adoption with mathematical precision.
             </motion.p>
             <motion.div  className="flex flex-col lg:flex-row gap-4">
+              <Link href={"/contact"} >
+              
+              
               <motion.button 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
@@ -82,12 +86,16 @@ const DigitalGrowthPage = () => {
               >
                 Scale Your Revenue
               </motion.button>
+              </Link>
+              <Link href={"/booking"} >
               <motion.button 
                 whileHover={{ backgroundColor: "#f8fafc" }}
                 className="px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-xs transition-all"
               >
                 Audit My Traffic
               </motion.button>
+              </Link>
+              
             </motion.div>
           </motion.div>
 
@@ -363,9 +371,11 @@ const DigitalGrowthPage = () => {
                 Accelerate Your <br /> <span className="italic">Digital Reach.</span>
             </h2>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
+              <Link href="/contact" >
               <button      aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-xl">
                  Scale My Product
               </button>
+              </Link>
             </motion.div>
          </motion.div>
       </section>
