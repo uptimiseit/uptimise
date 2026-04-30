@@ -250,45 +250,70 @@ import {
   ArrowRight, 
   Cpu, 
   Code2, 
-  Layers, 
-  ShieldCheck, 
-  Terminal, 
-  MonitorSmartphone 
+  Database,
+  Radio,
+  Cloud,
+  Palette,
+  TrendingUp,
 } from 'lucide-react';
 
 // 1. Data Structure for Services
 const serviceGroups = [
   {
-    title: "Software Engineering",
-    link: "/services/software-engineering",
-    icon: Code2,
-    color: "from-blue-50 to-indigo-50",
-    accent: "text-blue-600",
-    items: ["Custom SaaS", "Web Ecosystems", "System Migration"]
-  },
-  {
-    title: "AI & Automation",
-    link: "/services/ai-automation",
+    title: "AI Product Development",
     icon: Cpu,
-    color: "from-purple-50 to-fuchsia-50",
+    color: "from-blue-500/10 to-blue-600/5",
+    accent: "text-blue-600",
+    items: ["SaaS Platforms", "AI Applications", "Automation Systems"],
+    link: "/solutions/ai-products"
+  },
+  {
+    title: "Software Engineering",
+    icon: Code2,
+    color: "from-slate-500/10 to-slate-600/5",
+    accent: "text-slate-600",
+    items: ["Web Applications", "Mobile Apps", "Enterprise Platforms"],
+    link: "/services/software-engineering"
+  },
+  {
+    title: "Blockchain Engineering",
+    icon: Database,
+    color: "from-purple-500/10 to-purple-600/5",
     accent: "text-purple-600",
-    items: ["Agentic Loops", "LLM Integration", "RAG Systems"]
+    items: ["Smart Contracts", "Web3 Applications", "Crypto Wallets"],
+    link: "/services/blockchain-engineering"
   },
   {
-    title: "UI/UX Architecture",
-    link: "/services/product-design",
-    icon: MonitorSmartphone,
-    color: "from-rose-50 to-orange-50",
-    accent: "text-rose-600",
-    items: ["Experience Design", "Visual Systems", "Prototyping"]
-  },
-  {
-    title: "QA & Reliability",
-    link: "/services/ai-qa",
-    icon: ShieldCheck,
-    color: "from-emerald-50 to-teal-50",
+    title: "IoT & Embedded",
+    icon: Radio,
+    color: "from-emerald-500/10 to-emerald-600/5",
     accent: "text-emerald-600",
-    items: ["Autonomous QA", "Edge Case Detection", "Security"]
+    items: ["Embedded Firmware", "Sensor Integration", "IoT Platforms"],
+    link: "/services/iot"
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: Cloud,
+    color: "from-cyan-500/10 to-cyan-600/5",
+    accent: "text-cyan-600",
+    items: ["AWS / Google Cloud", "Docker & Kubernetes", "CI/CD Pipelines"],
+    link: "/services/cloud-devops"
+  },
+  {
+    title: "Product Design & UX",
+    icon: Palette,
+    color: "from-pink-500/10 to-pink-600/5",
+    accent: "text-pink-600",
+    items: ["UX Research", "UI Design", "Design Systems"],
+    link: "/services/product-design-ux"
+  },
+  {
+    title: "Digital Growth",
+    icon: TrendingUp,
+    color: "from-orange-500/10 to-orange-600/5",
+    accent: "text-orange-600",
+    items: ["AI-Powered Marketing", "SEO / SMO", "Analytics Dashboards"],
+    link: "/solutions/digital-growth"
   }
 ];
 

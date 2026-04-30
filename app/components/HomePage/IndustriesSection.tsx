@@ -14,56 +14,65 @@ const industries = [
     icon: <BrainCircuit size={24} />,
     desc: "Powering the next generation of LLM-native products.",
     status: "Priority_Sector",
-    featured: true
+    featured: true,
+    link: "/ai-companies"
   },
   {
     name: "FinTech",
     icon: <Landmark size={24} />,
     desc: "Engineering secure, scalable financial ecosystems.",
-    status: "Secure_Ops"
+    status: "Secure_Ops",
+    link: "/solutions/fintech"
   },
   {
     name: "Healthcare",
     icon: <HeartPulse size={24} />,
     desc: "Compliant digital health & diagnostic platforms.",
-    status: "High_Reliability"
+    status: "High_Reliability",
+    link: "/solutions/healthcare"
   },
   {
     name: "Technology Startups",
     icon: <Globe size={24} />,
     desc: "From MVP to Series A with 10x engineering speed.",
-    status: "Rapid_Growth"
+    status: "Rapid_Growth",
+    link: "/solutions/startups"
   },
   {
     name: "E-commerce",
     icon: <ShoppingBag size={24} />,
     desc: "High-conversion architecture for global brands.",
-    status: "Market_Ready"
+    status: "Market_Ready",
+    link: "/solutions/ecommerce"
   },
   {
     name: "EdTech",
     icon: <GraduationCap size={24} />,
     desc: "Adaptive learning platforms powered by automation.",
-    status: "Engagement"
+    status: "Engagement",
+    link: "/solutions/edtech"
   },
   {
     name: "Blockchain",
     icon: <Database size={24} />,
     desc: "Smart contracts and decentralized Web3 infra.",
-    status: "Immutable"
+    status: "Immutable",
+    link: "/solutions/blockchain"
   },
   {
     name: "Enterprise",
     icon: <Boxes size={24} />,
     desc: "Legacy-to-Modern digital transformations.",
-    status: "Scaled_Ops"
+    status: "Scaled_Ops",
+    link: "/solutions/enterprise"
   },
   {
     name: "Global Scale-Ups",
     icon: <Sparkles size={24} />,
     desc: "Architecting high-availability systems for the next wave of global unicorns.",
     status: "Unicorn_Ready",
-    featured: true
+    featured: true,
+    link: "/solutions/scaleups"
   }
 ];
 
