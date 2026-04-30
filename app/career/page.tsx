@@ -5,6 +5,7 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import FAQSection from "../components/HomePage/FAQSection";
 import Link from "next/link";
+import { link } from "fs";
 // import FAQSection from "../components/HomePage/FAQSection";
 
 // --- Animation Variants ---
@@ -29,7 +30,7 @@ import Link from "next/link";
 
 export default function CareersPage() {
   const roles = [
-    { title: "Software Engineers", desc: "Build scalable web platforms, backend systems, and APIs." },
+    { title: "Software Engineers", desc: "Build scalable web platforms, backend systems, and APIs." , link},
     { title: "Mobile App Developers", desc: "Create high-performance mobile applications for Android and iOS." },
     { title: "AI Engineers", desc: "Specialists working on AI systems, automation workflows, and intelligent solutions." },
     { title: "DevOps Engineers", desc: "Manage cloud infrastructure, deployment automation, and system scalability." },
