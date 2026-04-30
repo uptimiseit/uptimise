@@ -321,7 +321,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className=" pt-20"
+          className=" pt-10"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
             <p className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">
