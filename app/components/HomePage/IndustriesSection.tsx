@@ -15,56 +15,56 @@ const industries = [
     desc: "Powering the next generation of LLM-native products.",
     status: "Priority_Sector",
     featured: true,
-    link: "/ai-companies"
+    link: "/industries/ai-companies"
   },
   {
     name: "FinTech",
     icon: <Landmark size={24} />,
     desc: "Engineering secure, scalable financial ecosystems.",
     status: "Secure_Ops",
-    link: "/solutions/fintech"
+    link: "/industries/fintech"
   },
   {
     name: "Healthcare",
     icon: <HeartPulse size={24} />,
     desc: "Compliant digital health & diagnostic platforms.",
     status: "High_Reliability",
-    link: "/solutions/healthcare"
+    link: "/industries/healthcare"
   },
   {
     name: "Technology Startups",
     icon: <Globe size={24} />,
     desc: "From MVP to Series A with 10x engineering speed.",
     status: "Rapid_Growth",
-    link: "/solutions/startups"
+    link: "/industries/ai-startups"
   },
   {
     name: "E-commerce",
     icon: <ShoppingBag size={24} />,
     desc: "High-conversion architecture for global brands.",
     status: "Market_Ready",
-    link: "/solutions/ecommerce"
+    link: "/industries/ecommerce"
   },
   {
     name: "EdTech",
     icon: <GraduationCap size={24} />,
     desc: "Adaptive learning platforms powered by automation.",
     status: "Engagement",
-    link: "/solutions/edtech"
+    link: "/industries/edtech"
   },
   {
     name: "Blockchain",
     icon: <Database size={24} />,
     desc: "Smart contracts and decentralized Web3 infra.",
     status: "Immutable",
-    link: "/solutions/blockchain"
+    link: "/industries/blockchain"
   },
   {
     name: "Enterprise",
     icon: <Boxes size={24} />,
     desc: "Legacy-to-Modern digital transformations.",
     status: "Scaled_Ops",
-    link: "/solutions/enterprise"
+    link: "/industries/enterprise"
   },
   {
     name: "Global Scale-Ups",
@@ -72,7 +72,7 @@ const industries = [
     desc: "Architecting high-availability systems for the next wave of global unicorns.",
     status: "Unicorn_Ready",
     featured: true,
-    link: "/solutions/scaleups"
+    link: "/industries/scaleups"
   }
 ];
 
