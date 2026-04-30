@@ -309,7 +309,7 @@ export default function SaasDevelopmentPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/contact" className="px-12 py-6 bg-indigo-600 text-white font-black uppercase tracking-widest text-xs rounded-full shadow-xl shadow-indigo-100 block">
+              <Link href="/booking" className="px-12 py-6 bg-indigo-600 text-white font-black uppercase tracking-widest text-xs rounded-full shadow-xl shadow-indigo-100 block">
                 Start Project
               </Link>
             </motion.div>

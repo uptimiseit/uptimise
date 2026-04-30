@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import HumanAICollaboration from '@/app/components/HumanAICollaboration';
 import FAQSection from '@/app/components/HomePage/FAQSection';
+import Link from 'next/link';
 // import FAQSection from '@/app/components/HomePage/FAQSection';
 
 // // --- Animation Variants ---
@@ -47,86 +48,163 @@ const ProductDesignPage = () => {
     <main className="min-h-screen bg-white font-sans pt-32 pb-20 overflow-hidden">
       
       {/* --- 1. HERO: The Creative Engine --- */}
-      <section className="px-6 mb-32 relative">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" 
-        />
+   <section className="px-6 mb-32 relative py-20 overflow-hidden">
+      {/* Background Technical Grid */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" 
+      />
+      
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
         
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+        {/* LEFT SIDE: Content & Links */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="lg:col-span-7 text-center lg:text-left space-y-8"
+        >
           <motion.div 
-            initial="hidden"
-            animate="visible"
-            // variants={staggerContainer}
-            className="lg:col-span-7 text-center lg:text-left space-y-8"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100"
           >
-            <motion.div 
-             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100">
-              <Sparkles size={14} className="text-purple-600" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-700 font-mono">Module::Design_Systems</span>
-            </motion.div>
-            <motion.h1  className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
-              Experience <br />
-              <motion.span 
-                animate={{ color: ["#9333ea", "#3b82f6", "#9333ea"] }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="text-purple-600 italic"
-              >
-                Architecture.
-              </motion.span>
-            </motion.h1>
-            <motion.p  className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
-              Uptimise IT crafts intuitive, high-stakes digital experiences by merging deep user research with AI-accelerated design workflows.
-            </motion.p>
-            <motion.div  className="flex flex-col lg:flex-row gap-4">
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-xs shadow-xl">
-                Start Design Project
-              </motion.button>
-              <motion.button whileHover={{ backgroundColor: "#f8fafc" }} className="px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-xs transition-all">
-                Book Strategy Call
-              </motion.button>
-            </motion.div>
+            <Sparkles size={14} className="text-purple-600" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-700 font-mono">Module::Experience_Design</span>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
-          >
-            <motion.div 
-              animate={{ y: [0, -15, 0], rotate: [0, 1, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative w-full max-w-[400px] aspect-square bg-slate-50 border border-slate-200 rounded-[4rem] p-10 flex flex-col justify-between shadow-2xl"
+          <motion.h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+            Experience <br />
+            <motion.span 
+              animate={{ color: ["#9333ea", "#3b82f6", "#9333ea"] }}
+              transition={{ duration: 5, repeat: Infinity }}
+              className="text-purple-600 italic"
             >
-               <div className="flex justify-between items-start">
-                  <motion.div 
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="w-12 h-12 rounded-xl bg-purple-600 flex items-center justify-center text-white"
-                  >
-                     <PenTool size={24} />
-                  </motion.div>
-                  <div className="text-right space-y-1">
-                     <p className="text-[10px] font-black font-mono text-slate-400 uppercase">Canvas_State</p>
-                     <p className="text-xs font-bold text-slate-950 uppercase italic">Iterating_v2.4</p>
-                  </div>
-               </div>
-               <div className="space-y-4">
-                  <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1, delay: 1 }} className="h-4 bg-slate-200 rounded-lg" />
-                  <motion.div initial={{ width: 0 }} animate={{ width: "75%" }} transition={{ duration: 1, delay: 1.2 }} className="h-4 bg-slate-200 rounded-lg" />
-                  <div className="grid grid-cols-3 gap-2">
-                     <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.5 }} className="h-10 bg-purple-100 rounded-lg" />
-                     <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.6 }} className="h-10 bg-blue-100 rounded-lg" />
-                     <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.7 }} className="h-10 bg-emerald-100 rounded-lg" />
-                  </div>
-               </div>
-            </motion.div>
+              Architecture.
+            </motion.span>
+          </motion.h1>
+
+          <motion.p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+            Uptimise IT crafts intuitive, high-stakes digital experiences by merging deep user research with AI-accelerated design workflows.
+          </motion.p>
+
+          <motion.div className="flex flex-col lg:flex-row gap-4">
+            <Link href="/contact" className="w-full lg:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.05, backgroundColor: "#000" }} 
+                whileTap={{ scale: 0.95 }} 
+                className="w-full px-10 py-5 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-[10px] shadow-2xl transition-all"
+              >
+                Start Design Project
+              </motion.button>
+            </Link>
+            
+            <Link href="/contact" className="w-full lg:w-auto">
+              <motion.button 
+                whileHover={{ backgroundColor: "#f8fafc", borderColor: "#9333ea" }} 
+                className="w-full px-10 py-5 bg-white border border-slate-200 text-slate-950 rounded-full font-black uppercase tracking-widest text-[10px] transition-all"
+              >
+                Book Strategy Call
+              </motion.button>
+            </Link>
           </motion.div>
-        </div>
-      </section>
+        </motion.div>
+
+        {/* RIGHT SIDE: Interactive UI Lab Animation */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="lg:col-span-5 flex justify-center lg:justify-end"
+        >
+          <motion.div 
+            animate={{ y: [0, -15, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="relative w-full max-w-[440px] aspect-[4/5] bg-white border border-slate-200 rounded-[3rem] p-8 flex flex-col shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
+          >
+            {/* Header of the "Canvas" */}
+            <div className="flex justify-between items-center mb-8 border-b border-slate-100 pb-4">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+              </div>
+              <p className="text-[9px] font-black font-mono text-slate-400 uppercase tracking-widest">Lab_Interface::v2.4</p>
+            </div>
+
+            {/* Simulated UI Content */}
+            <div className="space-y-6">
+              {/* Feature Hero Card */}
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="p-4 bg-purple-50 rounded-2xl border border-purple-100"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center text-white">
+                    <Palette size={16} />
+                  </div>
+                  <div className="h-2 w-20 bg-purple-200 rounded-full" />
+                </div>
+                <div className="h-2 w-full bg-purple-100 rounded-full mb-2" />
+                <div className="h-2 w-2/3 bg-purple-100 rounded-full" />
+              </motion.div>
+
+              {/* Grid of Components */}
+              <div className="grid grid-cols-2 gap-4">
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="p-4 bg-slate-50 border border-slate-100 rounded-2xl space-y-3"
+                >
+                  <Layout size={14} className="text-blue-500" />
+                  <div className="h-1.5 w-full bg-slate-200 rounded-full" />
+                  <div className="h-1.5 w-1/2 bg-slate-200 rounded-full" />
+                </motion.div>
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="p-4 bg-slate-50 border border-slate-100 rounded-2xl space-y-3"
+                >
+                  <Layers size={14} className="text-emerald-500" />
+                  <div className="h-1.5 w-full bg-slate-200 rounded-full" />
+                  <div className="h-1.5 w-1/2 bg-slate-200 rounded-full" />
+                </motion.div>
+              </div>
+
+              {/* Dynamic Progress Bar */}
+              <div className="p-4 bg-slate-900 rounded-2xl space-y-3 shadow-lg">
+                <div className="flex justify-between">
+                  <span className="text-[8px] font-black text-slate-400 uppercase">System_Optimization</span>
+                  <span className="text-[8px] font-black text-blue-400">92%</span>
+                </div>
+                <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "92%" }}
+                    transition={{ duration: 2, delay: 0.5 }}
+                    className="h-full bg-blue-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating PenTool Tooltip */}
+            <motion.div 
+              animate={{ 
+                x: [0, 20, -10, 0], 
+                y: [0, -30, 10, 0] 
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/2 left-1/2 flex items-center gap-2 bg-white px-3 py-2 rounded-full shadow-xl border border-slate-100 z-30"
+            >
+              <MousePointer2 size={12} className="text-purple-600 fill-purple-600" />
+              <span className="text-[9px] font-bold text-slate-600 uppercase tracking-tighter">Refining_Paths</span>
+            </motion.div>
+
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+
+
 
       {/* --- 2. WHY DESIGN --- */}
       <section className="py-20 px-6 bg-slate-50/50">

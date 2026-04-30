@@ -307,9 +307,11 @@ export default function EnterpriseModernizationPage() {
             Stop paying the tax on technical debt. Partner with Uptimise IT to architect a secure, modern digital foundation.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-10">
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-12 py-6 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl">
-              Discuss Modernization
-            </motion.button>
+            <Link href={"/contact"} passHref>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-12 py-6 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl">
+                Discuss Modernization
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </section>

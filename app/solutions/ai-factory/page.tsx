@@ -77,7 +77,7 @@ export default function AISoftwareFactoryPage() {
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/contact" className="px-8 py-4 bg-white border border-slate-200 text-slate-900 font-bold rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-lg flex items-center justify-center gap-2 block">
+              <Link href="/about" className="px-8 py-4 bg-white border border-slate-200 text-slate-900 font-bold rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-lg flex items-center justify-center gap-2 block">
                 See How It Works <ArrowUpRight size={18} />
               </Link>
             </motion.div>
@@ -427,7 +427,7 @@ export default function AISoftwareFactoryPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-10">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/contact" className="px-12 py-6 bg-indigo-600 text-white font-black uppercase tracking-widest text-xs rounded-full shadow-2xl block">
+              <Link href="/booking" className="px-12 py-6 bg-indigo-600 text-white font-black uppercase tracking-widest text-xs rounded-full shadow-2xl block">
                 Initialize Project
               </Link>
             </motion.div>
