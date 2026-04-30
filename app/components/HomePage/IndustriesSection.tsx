@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Globe, Landmark, GraduationCap, 
   HeartPulse, ShoppingBag, BrainCircuit, 
@@ -77,40 +77,6 @@ const industries = [
   }
 ];
 
-// --- Animation Variants ---
-// const containerVariants: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.1,
-//       delayChildren: 0.2,
-//     },
-//   },
-// };
-
-// const cardVariants: Variants = {
-//   hidden: { opacity: 0, y: 30, scale: 0.95 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     scale: 1,
-//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-//   },
-// };
-
-// const iconAnimation: Variants = {
-//   initial: { y: 0 },
-//   animate: {
-//     y: [0, -5, 0],
-//     transition: {
-//       duration: 3,
-//       repeat: Infinity,
-//       ease: "easeInOut"
-//     }
-//   }
-// };
-
 const IndustriesSection = () => {
   return (
     <section className="relative bg-white py-24 px-6 overflow-hidden">
@@ -132,85 +98,76 @@ const IndustriesSection = () => {
                 # Market Penetration
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black font-header tracking-tighter text-slate-950 leading-[0.85] uppercase">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-950 leading-[0.85] uppercase">
               Industries <br />
               <span className="text-slate-300 italic">We Empower.</span>
             </h2>
           </div>
-          <p className="text-sm text-slate-500 font-body max-w-[280px] lg:text-right leading-relaxed">
+          <p className="text-sm text-slate-500 max-w-[280px] lg:text-right leading-relaxed">
             Deploying AI-native engineering excellence across high-stakes global markets.
           </p>
         </motion.div>
 
         {/* The Industry Grid */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          // variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((item, i) => (
-            <Link href={item.link} key={i} >
-            <motion.div
-              key={i}
-              // variants={cardVariants}
-              whileHover={{ 
-                y: -12,
-                transition: { duration: 0.3 }
-              }}
-              className={`p-10 rounded-[3rem] border transition-all duration-500 group relative flex flex-col justify-between h-[340px] overflow-hidden cursor-default ${
-                item.featured 
-                ? 'bg-[#020617] border-slate-800 text-white lg:col-span-2 shadow-2xl' 
-                : 'bg-slate-50 border-slate-100 hover:bg-white hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-200/20'
-              }`}
+            <Link 
+              href={item.link} 
+              key={i} 
+              className={`block group outline-none ${item.featured ? 'lg:col-span-2' : ''}`}
             >
-              {/* Background Accent for Hover */}
-              {!item.featured && (
-                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-all duration-500" />
-              )}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -12 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className={`p-10 rounded-[3rem] border transition-all duration-500 relative flex flex-col justify-between h-[400px] overflow-hidden cursor-pointer ${
+                  item.featured 
+                  ? 'bg-[#020617] border-slate-800 text-white shadow-2xl' 
+                  : 'bg-slate-50 border-slate-100 hover:bg-white hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-200/20'
+                }`}
+              >
+                {/* Background Accent for Hover */}
+                {!item.featured && (
+                  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-all duration-500" />
+                )}
 
-              <div className="space-y-6 relative z-10">
-                <div className="flex justify-between items-start">
-                  <motion.div 
-                    // variants={iconAnimation}
-                    initial="initial"
-                    animate="animate"
-                    className={`p-4 rounded-2xl ${item.featured ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'bg-white text-blue-600 shadow-sm transition-colors group-hover:bg-blue-600 group-hover:text-white'}`}
-                  >
-                    {item.icon}
-                  </motion.div>
-                  <div className={`px-3 py-1 rounded-full border text-[9px] font-mono font-black tracking-widest uppercase ${
-                    item.featured ? 'bg-white/10 border-white/20 text-blue-400' : 'bg-white border-slate-100 text-slate-400'
-                  }`}>
-                    {item.status}
+                <div className="space-y-6 relative z-10 pointer-events-none">
+                  <div className="flex justify-between items-start">
+                    <div className={`p-4 rounded-2xl transition-colors duration-300 ${item.featured ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'bg-white text-blue-600 shadow-sm group-hover:bg-blue-600 group-hover:text-white'}`}>
+                      {item.icon}
+                    </div>
+                    <div className={`px-3 py-1 rounded-full border text-[9px] font-mono font-black tracking-widest uppercase ${
+                      item.featured ? 'bg-white/10 border-white/20 text-blue-400' : 'bg-white border-slate-100 text-slate-400'
+                    }`}>
+                      {item.status}
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className={`text-3xl font-black tracking-tighter uppercase leading-none ${item.featured ? 'text-white' : 'text-slate-950'}`}>
+                      {item.name}
+                    </h3>
+                    <p className={`text-sm font-medium leading-relaxed max-w-[260px] ${item.featured ? 'text-slate-400' : 'text-slate-500'}`}>
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className={`text-3xl font-black font-header tracking-tighter uppercase leading-none ${item.featured ? 'text-white' : 'text-slate-950'}`}>
-                    {item.name}
-                  </h3>
-                  <p className={`text-sm font-body font-medium leading-relaxed max-w-[260px] ${item.featured ? 'text-slate-400' : 'text-slate-500'}`}>
-                    {item.desc}
-                  </p>
+                <div className="relative z-10 flex justify-end pointer-events-none">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 border ${
+                    item.featured 
+                    ? 'bg-white/5 border-white/10 text-white group-hover:bg-white group-hover:text-slate-950' 
+                    : 'bg-white border-slate-100 text-slate-300 group-hover:bg-blue-600 group-hover:text-white shadow-sm'
+                  }`}>
+                    <ArrowUpRight size={22} className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                  </div>
                 </div>
-              </div>
-
-              <div className="relative z-10 flex justify-end">
-                <motion.div 
-                  whileHover={{ scale: 1.1, rotate: 45 }}
-                  className={`w-12 h-12 rounded-full flex items-center justify-center transition-all border ${
-                  item.featured ? 'bg-white/5 border-white/10 text-white hover:bg-white hover:text-slate-950' : 'bg-white border-slate-100 text-slate-300 group-hover:bg-blue-600 group-hover:text-white shadow-sm'
-                }`}>
-                  <ArrowUpRight size={22} />
-                </motion.div>
-              </div>
-            </motion.div>
+              </motion.div>
             </Link>
           ))}
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );
