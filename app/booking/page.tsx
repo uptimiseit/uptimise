@@ -72,6 +72,13 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(false);
       newErrors.mobileNumber = "Number must be exactly 10 digits";
     }
 
+    const emailRegex = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_.]+\.[a-zA-Z]{2,}$/;
+    if (!formData.workEmail.trim()) {
+      newErrors.workEmail = "Email is required";
+    } else if (!emailRegex.test(formData.workEmail)) {
+      newErrors.workEmail = "Invalid format. Use only letters, numbers, and underscores.";
+    }
+
     // LinkedIn Validation: Must start with https and contain linkedin.com
     const linkedInRegex = /^https:\/\/(www\.)?linkedin\.com\/.*$/;
     if (formData.linkedinUrl && !linkedInRegex.test(formData.linkedinUrl)) {
