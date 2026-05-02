@@ -278,22 +278,28 @@ const NewBlogs = () => {
   const [message, setMessage] = useState("");
 
   // --- Fetch Live Blogs ---
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await fetch("https://uptimiseit-admin.vercel.app/api/blogs?limit=5");
-        const json = await res.json();
-        if (json.success) {
-          setBlogData(json.data);
-        }
-      } catch (err) {
-        console.error("Failed to load blogs", err);
-      } finally {
-        setBlogsLoading(false);
+useEffect(() => {
+  const fetchBlogs = async () => {
+    try {
+      // Added category and isHome query parameters to the URL
+      const res = await fetch(
+        "https://uptimiseit-admin.vercel.app/api/blogs?limit=5&category=Engineering%20Blogs&isHome=true"
+      );
+      
+      const json = await res.json();
+      
+      if (json.success) {
+        setBlogData(json.data);
       }
-    };
-    fetchBlogs();
-  }, []);
+    } catch (err) {
+      console.error("Failed to load blogs", err);
+    } finally {
+      setBlogsLoading(false);
+    }
+  };
+  
+  fetchBlogs();
+}, []);
 
   const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
