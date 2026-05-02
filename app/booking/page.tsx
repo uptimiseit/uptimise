@@ -45,16 +45,16 @@ const BookingPage = () => {
 const [searchQuery, setSearchQuery] = useState("");
 const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-// Filter countries based on search input
-const filteredCountries = useMemo(() => {
-  return countryCodes.filter((c) =>
-    c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    c.code.includes(searchQuery)
-  );
-}, [searchQuery]);
+  // Filter countries based on search input
+  const filteredCountries = useMemo(() => {
+    return countryCodes.filter((c) =>
+      c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.code.includes(searchQuery)
+    );
+  }, [searchQuery]);
 
-// Find current selected country for the display
-const selectedCountry = countryCodes.find(c => c.code === formData.countryCode) || countryCodes[0];
+  // Find current selected country for the display
+  const selectedCountry = countryCodes.find(c => c.code === formData.countryCode) || countryCodes[0];
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
