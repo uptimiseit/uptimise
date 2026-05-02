@@ -5,37 +5,16 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import FAQSection from "../components/HomePage/FAQSection";
 import Link from "next/link";
-import { link } from "fs";
-// import FAQSection from "../components/HomePage/FAQSection";
 
-// --- Animation Variants ---
-// const fadeInUp: Variants = {
-//   hidden: { opacity: 0, y: 30 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     transition: { duration: 0.8, ease: "easeOut" } 
-//   }
-// };
-
-// const staggerContainer: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.15
-//     }
-//   }
-// };
 
 export default function CareersPage() {
   const roles = [
-    { title: "Software Engineers", desc: "Build scalable web platforms, backend systems, and APIs." , link},
-    { title: "Mobile App Developers", desc: "Create high-performance mobile applications for Android and iOS." },
-    { title: "AI Engineers", desc: "Specialists working on AI systems, automation workflows, and intelligent solutions." },
-    { title: "DevOps Engineers", desc: "Manage cloud infrastructure, deployment automation, and system scalability." },
-    { title: "Product Designers", desc: "Design focused on creating intuitive and engaging digital product experiences." },
-    { title: "Digital Marketing Specialists", desc: "Help digital products grow through data-driven marketing strategies." },
+    { title: "Software Engineers", desc: "Build scalable web platforms, backend systems, and APIs.", link: "/services/software" },
+    { title: "Mobile App Developers", desc: "Create high-performance mobile applications for Android and iOS.", link: "/services/technology" },
+    { title: "AI Engineers", desc: "Specialists working on AI systems, automation workflows, and intelligent solutions.", link: "/services/ai-coding" },
+    { title: "DevOps Engineers", desc: "Manage cloud infrastructure, deployment automation, and system scalability.", link: "/solutions/ai-devops" },
+    { title: "Product Designers", desc: "Design focused on creating intuitive and engaging digital product experiences.", link: "/solutions/ai-products" },
+    { title: "Digital Marketing Specialists", desc: "Help digital products grow through data-driven marketing strategies.", link: "/solutions/digital-platforms" },
   ];
 
   const tools = [
@@ -64,7 +43,7 @@ export default function CareersPage() {
           className="space-y-6"
         >
           <motion.h3  className="text-indigo-600 font-bold tracking-widest uppercase text-xs">
-            Careers at Uptimise IT
+            Careers at Uptimise ITsss
           </motion.h3>
           <motion.h1  className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-tight">
             Building the Future of <br />
@@ -203,6 +182,7 @@ export default function CareersPage() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {roles.map((role, idx) => (
+            <Link href={role.link} key={idx} >
             <motion.div 
               key={idx} 
               // variants={fadeInUp}
@@ -221,6 +201,7 @@ export default function CareersPage() {
                 <ArrowRight size={14} className="ml-2" />
               </div>
             </motion.div>
+            </Link>
           ))}
         </motion.div>
       </section>
