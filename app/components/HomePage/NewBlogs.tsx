@@ -283,7 +283,7 @@ useEffect(() => {
     try {
       // Added category and isHome query parameters to the URL
       const res = await fetch(
-        "https://uptimiseit-admin.vercel.app/api/blogs?limit=5&category=Engineering%20Blogs&isHome=true"
+        "https://uptimiseit-admin.vercel.app/api/blogs?limit=2&category=Engineering%20Blogs&isHome=true"
       );
       
       const json = await res.json();
