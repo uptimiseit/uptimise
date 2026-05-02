@@ -23,21 +23,20 @@ import {
 import { countryCodes } from "@/app/constants/countries"
 
 const BookingPage = () => {
-  // const countryCodes = [
-  //   { code: "+91", label: "IN", flag: "🇮🇳" },
-  //   { code: "+1", label: "US", flag: "🇺🇸" },
-  //   { code: "+44", label: "UK", flag: "🇬🇧" },
-  //   { code: "+971", label: "AE", flag: "🇦🇪" },
-  //   { code: "+61", label: "AU", flag: "🇦🇺" },
-  //   { code: "+65", label: "SG", flag: "🇸🇬" },
-  //   { code: "+49", label: "DE", flag: "🇩🇪" },
-  //   { code: "+33", label: "FR", flag: "🇫🇷" },
-  //   { code: "+81", label: "JP", flag: "🇯🇵" },
-  //   { code: "+86", label: "CN", flag: "🇨🇳" },
-  //   { code: "+7", label: "RU", flag: "🇷🇺" },
-  //   { code: "+1", label: "CA", flag: "🇨🇦" },
-  // ];
 
+    const [formData, setFormData] = useState({
+    fullName: "",
+    workEmail: "",
+    companyName: "",
+    mobileNumber: "", // Added field
+    countryCode: "+91",
+    companyStage: "Revenue: Seed / Pre-revenue",
+    linkedinUrl: "",
+    projectContext: "",
+    documentFile: null as File | null, // Added field
+  });
+
+ 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -95,17 +94,6 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     setFormData({ ...formData, mobileNumber: value });
   };
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    workEmail: "",
-    companyName: "",
-    mobileNumber: "", // Added field
-    countryCode: "+91",
-    companyStage: "Revenue: Seed / Pre-revenue",
-    linkedinUrl: "",
-    projectContext: "",
-    documentFile: null as File | null, // Added field
-  });
 
 
   const sanitizeFileName = (fileName: string) => {

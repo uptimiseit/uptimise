@@ -50,6 +50,16 @@ const departments = [
 ];
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobileNumber: '',
+    countryCode: '+91',
+    department: 'Software Development',
+    message: '',
+    documentFile: null as File | null
+  });
+
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -69,16 +79,7 @@ const ContactPage = () => {
     const selectedCountry = countryCodes.find(c => c.code === formData.countryCode) || countryCodes[0];
   
   
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobileNumber: '',
-    countryCode: '+91',
-    department: 'Software Development',
-    message: '',
-    documentFile: null as File | null
-  });
-
+  
   // const handleSubmit = async (e: React.FormEvent) => {
   //   e.preventDefault();
   //   setLoading(true);
