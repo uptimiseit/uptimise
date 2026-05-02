@@ -12,27 +12,6 @@ import {
 import HumanAICollaboration from '@/app/components/HumanAICollaboration';
 import FAQSection from '@/app/components/HomePage/FAQSection';
 import Link from 'next/link';
-// import FAQSection from '@/app/components/HomePage/FAQSection';
-
-// // --- Animation Variants ---
-// const fadeInUp: Variants = {
-//   hidden: { opacity: 0, y: 30 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     transition: { duration: 0.8, ease: "easeOut" } 
-//   }
-// };
-
-// const staggerContainer: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.15
-//     }
-//   }
-// };
 
 const designStages = [
   { id: "01", title: "Discovery & UX Research", desc: "Understanding behavior through persona mapping and journey analysis.", icon: <Search size={20} /> },

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
@@ -20,27 +20,41 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
+import { countryCodes } from "@/app/constants/countries"
 
 const BookingPage = () => {
-  const countryCodes = [
-    { code: "+91", label: "IN", flag: "🇮🇳" },
-    { code: "+1", label: "US", flag: "🇺🇸" },
-    { code: "+44", label: "UK", flag: "🇬🇧" },
-    { code: "+971", label: "AE", flag: "🇦🇪" },
-    { code: "+61", label: "AU", flag: "🇦🇺" },
-    { code: "+65", label: "SG", flag: "🇸🇬" },
-    { code: "+49", label: "DE", flag: "🇩🇪" },
-    { code: "+33", label: "FR", flag: "🇫🇷" },
-    { code: "+81", label: "JP", flag: "🇯🇵" },
-    { code: "+86", label: "CN", flag: "🇨🇳" },
-    { code: "+7", label: "RU", flag: "🇷🇺" },
-    { code: "+1", label: "CA", flag: "🇨🇦" },
-  ];
+  // const countryCodes = [
+  //   { code: "+91", label: "IN", flag: "🇮🇳" },
+  //   { code: "+1", label: "US", flag: "🇺🇸" },
+  //   { code: "+44", label: "UK", flag: "🇬🇧" },
+  //   { code: "+971", label: "AE", flag: "🇦🇪" },
+  //   { code: "+61", label: "AU", flag: "🇦🇺" },
+  //   { code: "+65", label: "SG", flag: "🇸🇬" },
+  //   { code: "+49", label: "DE", flag: "🇩🇪" },
+  //   { code: "+33", label: "FR", flag: "🇫🇷" },
+  //   { code: "+81", label: "JP", flag: "🇯🇵" },
+  //   { code: "+86", label: "CN", flag: "🇨🇳" },
+  //   { code: "+7", label: "RU", flag: "🇷🇺" },
+  //   { code: "+1", label: "CA", flag: "🇨🇦" },
+  // ];
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+const [searchQuery, setSearchQuery] = useState("");
+const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+// Filter countries based on search input
+const filteredCountries = useMemo(() => {
+  return countryCodes.filter((c) =>
+    c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.code.includes(searchQuery)
+  );
+}, [searchQuery]);
+
+// Find current selected country for the display
+const selectedCountry = countryCodes.find(c => c.code === formData.countryCode) || countryCodes[0];
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -94,45 +108,78 @@ const BookingPage = () => {
   });
 
 
+  const sanitizeFileName = (fileName: string) => {
+    // 1. Remove path traversal characters (../)
+    // 2. Replace everything except alphanumeric, dots, and hyphens with "_"
+    return fileName
+      .replace(/[/\\]/g, "") 
+      .replace(/[^a-zA-Z0-9.-]/g, "_");
+  };
+
+
+
 
   // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault(); // 1. Start Submission State
+  //   e.preventDefault();
   //   setIsSubmitting(true);
-  //   setStatus("idle"); // 2. Run Validation Logic
+  //   setStatus("idle");
 
   //   if (!validate()) {
   //     setIsSubmitting(false);
-  //     console.error("Validation failed", errors);
   //     return;
-  //   } // 3. Construct FormData (Matches the 'form-data' tab in Postman)
-
-  //   const data = new FormData(); // Text Fields
-  //   data.append("fullName", formData.fullName);
-  //   data.append("workEmail", formData.workEmail);
-  //   data.append("mobileNumber", formData.mobileNumber);
-  //   data.append("countryCode", formData.countryCode);
-  //   data.append("companyName", formData.companyName || "");
-  //   data.append("companyStage", formData.companyStage);
-  //   data.append("linkedinUrl", formData.linkedinUrl || "");
-  //   data.append("projectContext", formData.projectContext); // File Field (Must match the key used in Postman)
-
-  //   if (formData.documentFile) {
-  //     data.append("documentFile", formData.documentFile);
   //   }
 
   //   try {
-  //     // 4. Execute Network Request
+  //     let finalDocumentUrl = "";
+
+  //     // --- STEP 1: AWS S3 UPLOAD (Direct from Browser) ---
+  //     if (formData.documentFile) {
+  //       const file = formData.documentFile;
+
+  //       // A. Request the Presigned URL
+  //       const ticketRes = await fetch(
+  //         `/api/upload-url?file=${encodeURIComponent(file.name)}&type=${encodeURIComponent(file.type)}`
+  //       );
+        
+  //       if (!ticketRes.ok) throw new Error("Failed to get upload credentials");
+  //       const { signedUrl, cdnUrl } = await ticketRes.json();
+
+  //       // B. PUT the file to S3
+  //       const s3Upload = await fetch(signedUrl, {
+  //         method: "PUT",
+  //         body: file,
+  //         headers: { "Content-Type": file.type },
+  //       });
+
+  //       if (!s3Upload.ok) throw new Error("S3 Upload Failed");
+
+  //       // Set the CloudFront link for the database
+  //       finalDocumentUrl = cdnUrl;
+  //     }
+
+  //     // --- STEP 2: SAVE DATA TO INTAKE API ---
+  //     // Switching to JSON payload for better reliability with the CDN URL
   //     const response = await fetch(
   //       "https://uptimiseit-admin.vercel.app/api/intake",
   //       {
-  //         method: "POST", // IMPORTANT: Do NOT set 'Content-Type' header.
-  //         // The browser will set it automatically with the boundary.
-  //         body: data,
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           fullName: formData.fullName,
+  //           workEmail: formData.workEmail,
+  //           mobileNumber: formData.mobileNumber,
+  //           countryCode: formData.countryCode,
+  //           companyName: formData.companyName || "",
+  //           companyStage: formData.companyStage,
+  //           linkedinUrl: formData.linkedinUrl || "",
+  //           projectContext: formData.projectContext,
+  //           documentUrl: finalDocumentUrl, // The AWS CDN Link
+  //         }),
   //       },
-  //     ); // 5. Handle Response
+  //     );
 
   //     if (response.ok) {
-  //       setStatus("success"); // Reset form after successful transmission
+  //       setStatus("success");
   //       setFormData({
   //         fullName: "",
   //         workEmail: "",
@@ -144,107 +191,115 @@ const BookingPage = () => {
   //         projectContext: "",
   //         documentFile: null,
   //       });
-
-  //       // Clear any previous errors
   //       setErrors({});
   //     } else {
-  //       const errorResult = await response.json();
-  //       console.error("Server Error:", errorResult);
   //       setStatus("error");
   //     }
   //   } catch (error) {
-  //     console.error("Transmission Network Error:", error);
+  //     console.error("Transmission Error:", error);
   //     setStatus("error");
   //   } finally {
   //     setIsSubmitting(false);
   //   }
   // };
 
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setStatus("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus("idle");
+  if (!validate()) {
+    setIsSubmitting(false);
+    return;
+  }
 
-    if (!validate()) {
-      setIsSubmitting(false);
-      return;
-    }
+  try {
+    let finalDocumentUrl = "";
 
-    try {
-      let finalDocumentUrl = "";
+    if (formData.documentFile) {
+      const file = formData.documentFile;
 
-      // --- STEP 1: AWS S3 UPLOAD (Direct from Browser) ---
-      if (formData.documentFile) {
-        const file = formData.documentFile;
-
-        // A. Request the Presigned URL
-        const ticketRes = await fetch(
-          `/api/upload-url?file=${encodeURIComponent(file.name)}&type=${encodeURIComponent(file.type)}`
-        );
-        
-        if (!ticketRes.ok) throw new Error("Failed to get upload credentials");
-        const { signedUrl, cdnUrl } = await ticketRes.json();
-
-        // B. PUT the file to S3
-        const s3Upload = await fetch(signedUrl, {
-          method: "PUT",
-          body: file,
-          headers: { "Content-Type": file.type },
-        });
-
-        if (!s3Upload.ok) throw new Error("S3 Upload Failed");
-
-        // Set the CloudFront link for the database
-        finalDocumentUrl = cdnUrl;
+      // 1. SECURITY: Validate File Type again
+      const allowedTypes = [
+        "application/pdf", 
+        "application/msword", 
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      ];
+      if (!allowedTypes.includes(file.type)) {
+        throw new Error("UNAUTHORIZED_FILE_TYPE");
       }
 
-      // --- STEP 2: SAVE DATA TO INTAKE API ---
-      // Switching to JSON payload for better reliability with the CDN URL
-      const response = await fetch(
-        "https://uptimiseit-admin.vercel.app/api/intake",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fullName: formData.fullName,
-            workEmail: formData.workEmail,
-            mobileNumber: formData.mobileNumber,
-            countryCode: formData.countryCode,
-            companyName: formData.companyName || "",
-            companyStage: formData.companyStage,
-            linkedinUrl: formData.linkedinUrl || "",
-            projectContext: formData.projectContext,
-            documentUrl: finalDocumentUrl, // The AWS CDN Link
-          }),
-        },
+      // 2. SECURITY: Sanitize the file name before sending to your API
+      // This prevents SQL injection or Path Traversal in your backend
+      const cleanName = sanitizeFileName(file.name);
+
+      // Step A: Request the Presigned URL using the SANITIZED name
+      const ticketRes = await fetch(
+        `/api/upload-url?file=${encodeURIComponent(cleanName)}&type=${encodeURIComponent(file.type)}`
       );
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({
-          fullName: "",
-          workEmail: "",
-          companyName: "",
-          mobileNumber: "",
-          countryCode: "+91",
-          companyStage: "Revenue: Seed / Pre-revenue",
-          linkedinUrl: "",
-          projectContext: "",
-          documentFile: null,
-        });
-        setErrors({});
-      } else {
-        setStatus("error");
-      }
-    } catch (error) {
-      console.error("Transmission Error:", error);
-      setStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+      if (!ticketRes.ok) throw new Error("FAILED_TO_GET_UPLOAD_TICKET");
+      const { signedUrl, cdnUrl } = await ticketRes.json();
 
+      // Step B: Direct Upload to S3
+      // Note: We use the original 'file' blob, but the 'signedUrl' 
+      // was generated based on the 'cleanName'.
+      const s3Upload = await fetch(signedUrl, {
+        method: "PUT",
+        body: file,
+        headers: { "Content-Type": file.type },
+      });
+
+      if (!s3Upload.ok) throw new Error("STORAGE_UPLOAD_FAILED");
+
+      finalDocumentUrl = cdnUrl;
+    }
+
+    // 3. Final Database Intake
+    const response = await fetch(
+      "https://uptimiseit-admin.vercel.app/api/intake",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: formData.fullName.trim(),
+          workEmail: formData.workEmail.toLowerCase().trim(),
+          mobileNumber: formData.mobileNumber,
+          countryCode: formData.countryCode,
+          companyName: formData.companyName || "",
+          companyStage: formData.companyStage,
+          linkedinUrl: formData.linkedinUrl || "",
+          projectContext: formData.projectContext,
+          documentUrl: finalDocumentUrl, // The link to the sanitized file
+        }),
+      }
+    );
+
+    if (response.ok) {
+      setStatus("success");
+      // Reset logic...
+      setFormData({
+        fullName: "",
+        workEmail: "",
+        companyName: "",
+        mobileNumber: "",
+        countryCode: "+91",
+        companyStage: "Revenue: Seed / Pre-revenue",
+        linkedinUrl: "",
+        projectContext: "",
+        documentFile: null,
+      });
+      setErrors({});
+    } else {
+      setStatus("error");
+    }
+  } catch (error) {
+    console.error("Transmission Error:", error);
+    setStatus("error");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   
   return (
     <main className="min-h-screen bg-[#FDFDFF] font-sans pt-20 selection:bg-blue-100 relative overflow-hidden">
@@ -382,51 +437,102 @@ const BookingPage = () => {
                 </div>
               </div>
 
-              <div className="relative group">
-                <div className="flex items-center gap-4 border-b-2 border-slate-100 focus-within:border-blue-600 transition-all">
-                  <div className="relative flex items-center bg-slate-50/50 px-3 py-1 rounded-xl mb-2 group-hover:bg-slate-100 transition-colors">
-                    <select
-                      value={formData.countryCode}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          countryCode: e.target.value,
-                        })
-                      }
-                      className="bg-transparent text-xs font-black text-slate-950 outline-none cursor-pointer appearance-none pr-6 z-10"
+           <div className="relative group">
+  <div className="flex items-center gap-4 border-b-2 border-slate-100 focus-within:border-blue-600 transition-all">
+    
+    {/* --- CUSTOM SEARCHABLE SELECT --- */}
+    <div className="relative mb-2">
+      <button
+        type="button"
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        className="flex items-center gap-2 bg-slate-50/50 px-4 py-2 rounded-xl hover:bg-slate-100 transition-colors min-w-[100px]"
+      >
+        <span className="text-lg">{selectedCountry.flag}</span>
+        <span className="text-xs font-black text-slate-950">{selectedCountry.code}</span>
+        <ChevronDown size={12} className={`text-slate-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {/* DROPDOWN MENU */}
+      <AnimatePresence>
+        {isDropdownOpen && (
+          <>
+            {/* Backdrop to close dropdown */}
+            <div className="fixed inset-0 z-20" onClick={() => setIsDropdownOpen(false)} />
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="absolute left-0 mt-2 w-64 bg-white border border-slate-100 rounded-2xl shadow-2xl z-30 overflow-hidden"
+            >
+              {/* SEARCH INPUT */}
+              <div className="p-3 border-b border-slate-50">
+                <input
+                  type="text"
+                  autoFocus
+                  placeholder="Search country..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-slate-50 px-3 py-2 text-xs font-bold rounded-lg outline-none focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+
+              {/* COUNTRY LIST */}
+              <div className="max-h-60 overflow-y-auto custom-scrollbar">
+                {filteredCountries.length > 0 ? (
+                  filteredCountries.map((c) => (
+                    <button
+                      key={c.code + c.label}
+                      type="button"
+                      onClick={() => {
+                        setFormData({ ...formData, countryCode: c.code });
+                        setIsDropdownOpen(false);
+                        setSearchQuery("");
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors text-left"
                     >
-                      {countryCodes.map((c) => (
-                        <option key={c.code + c.label} value={c.code}>
-                          {c.flag} {c.code}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown
-                      size={12}
-                      className="absolute right-2 text-slate-400"
-                    />
+                      <span className="text-lg">{c.flag}</span>
+                      <div className="flex flex-col">
+                        <span className="text-[11px] font-black text-slate-950 uppercase">{c.name}</span>
+                        <span className="text-[10px] text-slate-400 font-bold">{c.code}</span>
+                      </div>
+                    </button>
+                  ))
+                ) : (
+                  <div className="p-4 text-[10px] font-bold text-slate-400 uppercase text-center">
+                    No matching country
                   </div>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.mobileNumber}
-                    onChange={handleMobileChange}
-                    className="w-full bg-transparent py-3 text-sm font-bold focus:outline-none placeholder-transparent"
-                    placeholder="Mobile"
-                  />
-                </div>
-                <label className="absolute left-0 -top-3.5 text-[10px] font-black uppercase tracking-widest text-slate-400">
-                  Mobile Number *
-                </label>
-                <div className="absolute right-0 top-3 text-slate-300">
-                  <Phone size={16} />
-                </div>
-                {errors.mobileNumber && (
-                  <p className="text-[9px] text-red-500 font-bold mt-1 uppercase">
-                    {errors.mobileNumber}
-                  </p>
                 )}
               </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+
+    {/* --- MOBILE INPUT --- */}
+    <input
+      type="tel"
+      required
+      value={formData.mobileNumber}
+      onChange={handleMobileChange}
+      className="w-full bg-transparent py-3 text-sm font-bold focus:outline-none placeholder-transparent"
+      placeholder="Mobile"
+    />
+  </div>
+
+  <label className="absolute left-0 -top-3.5 text-[10px] font-black uppercase tracking-widest text-slate-400">
+    Mobile Number *
+  </label>
+  <div className="absolute right-0 top-3 text-slate-300">
+    <Phone size={16} />
+  </div>
+  {errors.mobileNumber && (
+    <p className="text-[9px] text-red-500 font-bold mt-1 uppercase">
+      {errors.mobileNumber}
+    </p>
+  )}
+</div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
