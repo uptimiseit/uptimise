@@ -353,7 +353,7 @@ useEffect(() => {
             </h2>
           </div>
           
-          <Link href="/blogs">
+          <Link href="/blog/engineeringBlogs">
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -389,7 +389,7 @@ useEffect(() => {
                [1,2].map(n => <div key={n} className="h-64 rounded-[3.5rem] bg-slate-800 animate-pulse" />)
             ) : (
               blogData.map((post: any, i) => (
-                <Link href={`/blogs/${post.slug}`} key={post.id}>
+                <Link href={`/blog/${post.slug}`} key={post.id}>
                   <motion.div whileHover={{ y: -10 }} className="relative p-10 h-full rounded-[3.5rem] bg-white border border-slate-100 flex flex-col justify-between group overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer">
                     <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl" />
                     <div className="space-y-8 relative z-10">
