@@ -377,10 +377,14 @@ import {
   Users, ShieldCheck, Zap, Fingerprint, Network, 
   Code2, Bot, Rocket, CheckCircle2, TrendingUp, 
   Search, MousePointer2, PieChart, Globe, Palette,
-  Cpu, Terminal, Binary, Microscope
+  Cpu, Terminal, Binary, Microscope,
+  Globe2,
+  Database,
+  Layers
 } from 'lucide-react';
 import FAQSection from '../components/HomePage/FAQSection';
 import AboutUptimiseSection from '../components/About/AboutUptimiseSection';
+import WhoWeAre from '../components/WhoWeAre';
 
 const ecosystemNodes = [
   { 
@@ -446,7 +450,7 @@ const AboutPage = () => {
             </motion.div>
 
             {/* Right Side: Performance Matrix Card */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.9, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -477,12 +481,95 @@ const AboutPage = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+            <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, ease: "circOut" }}
+      className="relative max-w-md w-full"
+    >
+      {/* Outer Cyberpunk Glow */}
+      <div className="absolute -inset-0.5 bg-gradient-to-b from-blue-500 to-slate-900 rounded-[2.5rem] opacity-20 blur-2xl"></div>
+
+      <div className="relative bg-[#0A0C10] border border-white/5 rounded-[2.5rem] p-1 overflow-hidden shadow-2xl">
+        {/* Top Window Bar */}
+        <div className="flex items-center justify-between px-8 py-4 border-b border-white/5 bg-white/[0.02]">
+          <div className="flex gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-red-500/50" />
+            <div className="w-2 h-2 rounded-full bg-amber-500/50" />
+            <div className="w-2 h-2 rounded-full bg-emerald-500/50" />
+          </div>
+          <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-slate-500 uppercase">
+            System_Architecture_v4.0
+          </span>
+        </div>
+
+        <div className="p-8 space-y-8">
+          {/* Main Tech Icon Group */}
+          <div className="flex items-center gap-6">
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-500 blur-xl opacity-20 animate-pulse" />
+              <div className="relative w-16 h-16 rounded-2xl bg-slate-900 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                <Cpu size={32} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-black text-white tracking-tighter uppercase">
+                Uptimise_<span className="text-blue-500">Core</span>
+              </h3>
+              <div className="flex items-center gap-2 mt-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="text-[10px] font-mono text-slate-400">Kernel_Stable :: 12ms_Latency</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Tech Stack Layers */}
+          <div className="space-y-4">
+            <TechLayer 
+              icon={<Code2 size={14} />} 
+              label="Frontend_Engine" 
+              value="Next.js 15 / TypeScript" 
+              progress={98} 
+            />
+            <TechLayer 
+              icon={<Layers size={14} />} 
+              label="Motion_Library" 
+              value="Framer_Motion / Tailwind" 
+              progress={94} 
+            />
+            <TechLayer 
+              icon={<Database size={14} />} 
+              label="Data_Layer" 
+              value="PostgreSQL / MongoDB" 
+              progress={89} 
+            />
+            <TechLayer 
+              icon={<Globe2 size={14} />} 
+              label="Deployment" 
+              value="AWS_S3 / Vercel_Edge" 
+              progress={100} 
+            />
+          </div>
+
+          {/* Bottom Code Terminal Decoration */}
+          <div className="pt-6 border-t border-white/5">
+            <div className="bg-black/40 rounded-xl p-4 font-mono text-[10px] leading-relaxed text-blue-400/60">
+              <p><span className="text-emerald-500">✔</span> Analyzing_Dependencies...</p>
+              <p><span className="text-emerald-500">✔</span> Optimizing_Render_Cycle...</p>
+              <p><span className="text-white animate-pulse">_</span> Initializing_Secure_Handshake</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
           </div>
         </div>
       </section>
 
       <AboutUptimiseSection />
+      <WhoWeAre />
 
       {/* --- 2. NEW SECTION: The Engineering Pulse (Mission Control) --- */}
       <section className="py-24 px-6 bg-white relative">
@@ -617,13 +704,38 @@ const AboutPage = () => {
   );
 };
 
-const StatBox = ({ icon, label, value }:{ icon: React.ReactNode; label: string; value: string }) => (
-  <div className="space-y-3">
-    <div className="flex items-center gap-2 text-slate-500">
-      {icon}
-      <span className="text-[10px] font-bold uppercase tracking-wider">{label}</span>
+// const StatBox = ({ icon, label, value }:{ icon: React.ReactNode; label: string; value: string }) => (
+//   <div className="space-y-3">
+//     <div className="flex items-center gap-2 text-slate-500">
+//       {icon}
+//       <span className="text-[10px] font-bold uppercase tracking-wider">{label}</span>
+//     </div>
+//     <div className="text-2xl font-black text-white italic tracking-tight">{value}</div>
+//   </div>
+// );
+
+const TechLayer = ({ icon, label, value, progress }: any) => (
+  <div className="group space-y-2">
+    <div className="flex justify-between items-end">
+      <div className="flex items-center gap-3">
+        <div className="text-slate-500 group-hover:text-blue-400 transition-colors">
+          {icon}
+        </div>
+        <div className="flex flex-col">
+          <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{label}</span>
+          <span className="text-xs font-bold text-slate-200">{value}</span>
+        </div>
+      </div>
+      <span className="text-[10px] font-mono text-blue-500/50">{progress}%</span>
     </div>
-    <div className="text-2xl font-black text-white italic tracking-tight">{value}</div>
+    <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+      <motion.div 
+        initial={{ width: 0 }}
+        whileInView={{ width: `${progress}%` }}
+        transition={{ duration: 1.5, ease: "circOut" }}
+        className="h-full bg-gradient-to-r from-blue-600 to-blue-400"
+      />
+    </div>
   </div>
 );
 
