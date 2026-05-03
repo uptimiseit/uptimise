@@ -321,7 +321,7 @@ export default function TestimonialsPage() {
           </div>
 
           {/* Row 2 - Inverse */}
-          <div className="flex overflow-hidden group">
+          {/* <div className="flex overflow-hidden group">
             <motion.div 
               className="flex flex-nowrap gap-8"
               animate={{ x: ["-33.33%", "0%"] }}
@@ -332,7 +332,7 @@ export default function TestimonialsPage() {
                 <TestimonialCard key={`row2-${i}`} testimonial={t} />
               ))}
             </motion.div>
-          </div>
+          </div> */}
         </div>
       </section>
 
