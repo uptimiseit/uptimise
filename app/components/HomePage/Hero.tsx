@@ -122,7 +122,7 @@ import LogoMarquee from "./LogoMarquee";
 import { useEffect, useState } from "react";
 import { Bot, Cpu, Box, Zap, Fingerprint } from "lucide-react";
 
-const HeroBackground = dynamic(() => import("../../components/Hero/HeroBackground"), { ssr: false });
+// const HeroBackground = dynamic(() => import("../../components/Hero/HeroBackground"), { ssr: false });
 const BackgroundGrid = dynamic(() => import("../HomePageAminations/BackgroundGrid"), { ssr: false });
 
 export default function Hero() {
