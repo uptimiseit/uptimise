@@ -256,7 +256,10 @@ const ProjectsLedger = () => {
     const fetchProjects = async () => {
       try {
         const res = await fetch("https://admin.uptimiseit.com/api/case-studies");
+        console.log("Fetch response:", res);
         const json = await res.json();
+
+        console.log("Parsed Case Study JSON:", json);
         if (json.success) {
           // Filter only featured ones for this section or take top 4
           setProjects(json.data.slice(0, 4));
