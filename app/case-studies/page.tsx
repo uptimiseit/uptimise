@@ -1,221 +1,11 @@
-// 'use client';
-
-// import React, { useState } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import { 
-//   Code2, Bot, Smartphone, ShoppingCart, 
-//   Settings, ArrowRight, Layers, Cpu, 
-//   Globe, CheckCircle2, Terminal, 
-//   Plus, Minus, Database, Cloud, BarChart3,
-//   Briefcase, Zap, Search
-// } from 'lucide-react';
-
-// const featuredProjects = [
-//   {
-//     id: "saas",
-//     title: "SaaS Product Platform",
-//     category: "SaaS / Web Platform",
-//     desc: "A scalable multi-tenant SaaS platform designed to support multiple organizations and advanced analytics.",
-//     features: ["Multi-tenant architecture", "Role-based access", "Subscription & Billing", "Analytics dashboards"],
-//     tech: ["Next.js", "Node.js", "PostgreSQL", "AWS"],
-//     icon: <Layers size={32} />
-//   },
-//   {
-//     id: "ai-auto",
-//     title: "AI Automation Platform",
-//     category: "AI / Automation",
-//     desc: "An intelligent system designed to automate repetitive workflows using AI-driven decision logic.",
-//     features: ["Workflow automation", "Data analysis pipelines", "Process execution", "System integrations"],
-//     tech: ["Python", "LLM Integration", "Node.js", "Cloud Infra"],
-//     icon: <Zap size={32} />
-//   },
-//   {
-//     id: "mobile",
-//     title: "Mobile App Platform",
-//     category: "Mobile Application",
-//     desc: "High-performance mobile system integrated with scalable APIs and real-time communication.",
-//     features: ["Secure authentication", "Real-time notifications", "Backend API Sync", "Mobile-first design"],
-//     tech: ["Kotlin", "Swift", "Node.js", "PostgreSQL"],
-//     icon: <Smartphone size={32} />
-//   },
-//   {
-//     id: "market",
-//     title: "Digital Marketplace",
-//     category: "Marketplace / E-commerce",
-//     desc: "Scalable marketplace enabling vendors to manage products and process global orders.",
-//     features: ["Vendor management", "Catalog management", "Payment integration", "Order tracking"],
-//     tech: ["Next.js", "Node.js", "MongoDB", "AWS"],
-//     icon: <ShoppingCart size={32} />
-//   },
-//   {
-//     id: "enterprise",
-//     title: "Enterprise Workflow",
-//     category: "Enterprise Software",
-//     desc: "Internal platform designed to streamline operational workflows and team collaboration.",
-//     features: ["Workflow automation", "Reporting dashboards", "Internal data management", "Process tracking"],
-//     tech: ["Java", "React", "PostgreSQL", "Cloud Infra"],
-//     icon: <Briefcase size={32} />
-//   },
-//   {
-//     id: "ai-data",
-//     title: "AI Data Analytics",
-//     category: "AI / Data Platform",
-//     desc: "Data-driven platform designed to process large datasets and generate intelligent insights.",
-//     features: ["Data ingestion pipelines", "Analytics dashboards", "AI-powered analysis", "Scalable storage"],
-//     tech: ["Python", "AI Models", "Cloud Infra", "Data Processing"],
-//     icon: <BarChart3 size={32} />
-//   }
-// ];
-
-// const CaseStudiesPage = () => {
-//   const [expandedId, setExpandedId] = useState<string | null>(null);
-
-//   return (
-//     <main className="min-h-screen bg-[#FDFDFF] font-sans pt-32 pb-10 overflow-hidden">
-      
-//       {/* --- 1. HERO --- */}
-//       <section className="px-6 mb-24 relative">
-//         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40 pointer-events-none" />
-//         <div className="max-w-7xl mx-auto relative z-10 text-center space-y-8">
-//           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800">
-//             <Terminal size={12} className="text-blue-400" />
-//             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white font-mono">Proof_Of_Execution_v1.0</span>
-//           </div>
-//           <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
-//             Engineering <br />
-//             <span className="text-blue-600 italic">Benchmarks.</span>
-//           </h1>
-//           <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-//             From startup MVPs to mission-critical enterprise systems. 
-//             Digital platforms designed for high-stakes global markets.
-//           </p>
-//         </div>
-//       </section>
-
-//       {/* --- 2. FEATURED PROJECTS GRID --- */}
-//       <section className="px-6 mb-32">
-//         <div className="max-w-7xl mx-auto">
-//           <div className="flex items-center gap-4 mb-12">
-//             <h2 className="text-2xl font-black uppercase tracking-tight text-slate-950">Featured Projects</h2>
-//             <div className="h-px flex-1 bg-slate-100" />
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {featuredProjects.map((project, i) => (
-//               <motion.div 
-//                 key={i}
-//                 whileHover={{ y: -10 }}
-//                 className="group bg-white border border-slate-100 rounded-[2.5rem] overflow-hidden flex flex-col hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500"
-//               >
-//                 {/* Top: Abstract Illustration */}
-//                 <div className="h-48 bg-slate-50 relative overflow-hidden flex items-center justify-center border-b border-slate-50">
-//                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:20px_20px]" />
-//                   <div className="relative z-10 text-blue-600 group-hover:scale-110 transition-transform duration-500 opacity-20 group-hover:opacity-100">
-//                     {project.icon}
-//                   </div>
-//                   <div className="absolute bottom-4 left-6">
-//                     <span className="text-[10px] font-black font-mono text-slate-300 uppercase tracking-widest">{project.category}</span>
-//                   </div>
-//                 </div>
-
-//                 {/* Content */}
-//                 <div className="p-8 flex-1 flex flex-col">
-//                   <h3 className="text-xl font-black text-slate-950 mb-3 group-hover:text-blue-600 transition-colors uppercase tracking-tight">
-//                     {project.title}
-//                   </h3>
-//                   <p className="text-xs text-slate-500 leading-relaxed mb-6 font-medium">
-//                     {project.desc}
-//                   </p>
-
-//                   <div className="space-y-2 mb-8 flex-1">
-//                     {project.features.map((feat, idx) => (
-//                       <div key={idx} className="flex items-center gap-2 text-[10px] font-bold text-slate-400">
-//                         <CheckCircle2 size={12} className="text-blue-500" /> {feat}
-//                       </div>
-//                     ))}
-//                   </div>
-
-//                   <div className="pt-6 border-t border-slate-50 flex justify-between items-center">
-//                     <div className="flex gap-2">
-//                        {project.tech.slice(0, 2).map((t, idx) => (
-//                          <span key={idx} className="text-[9px] font-black font-mono bg-slate-50 text-slate-400 px-2 py-1 rounded uppercase">
-//                            {t}
-//                          </span>
-//                        ))}
-//                     </div>
-//                     <button     aria-label="Uptimiseit" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 group-hover:gap-3 transition-all">
-//                       Case Study <ArrowRight size={14} />
-//                     </button>
-//                   </div>
-//                 </div>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* --- 3. ENGINEERING PHILOSOPHY --- */}
-//       <section className="py-24 px-6 bg-slate-950 text-white relative overflow-hidden">
-//          <div className="absolute top-0 right-0 p-24 opacity-5 pointer-events-none">
-//             <Settings size={400} />
-//          </div>
-//          <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-//             <div className="space-y-8">
-//                <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
-//                  Engineering <br /><span className="text-blue-500 italic">Philosophy.</span>
-//                </h2>
-//                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//                   {["Scalable Architecture", "Clean Maintainable Code", "Automated Pipelines", "AI-Native Sprints"].map((text, i) => (
-//                     <div key={i} className="flex items-center gap-3">
-//                        <CheckCircle2 className="text-blue-400" size={18} />
-//                        <span className="text-xs font-bold uppercase tracking-widest text-slate-300">{text}</span>
-//                     </div>
-//                   ))}
-//                </div>
-//             </div>
-            
-//             <div className="p-12 rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl">
-//                <h4 className="text-xl font-black mb-8 uppercase tracking-widest text-blue-400 italic">// Sector_Reach</h4>
-//                <div className="flex flex-wrap gap-4">
-//                   {["FinTech", "HealthTech", "E-commerce", "AI SaaS", "Enterprise", "Startups"].map((ind, i) => (
-//                     <span key={i} className="px-5 py-2.5 bg-white/10 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-blue-600 transition-colors cursor-default">
-//                       {ind}
-//                     </span>
-//                   ))}
-//                </div>
-//             </div>
-//          </div>
-//       </section>
-
-//       {/* --- 4. FINAL CTA --- */}
-//       <section className="py-10 px-6">
-//          <div className="max-w-7xl mx-auto bg-blue-600 rounded-[4rem] p-12 md:p-24 text-center text-white space-y-10 relative overflow-hidden">
-//             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
-//             <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10">
-//                Build Your Success <br /> Story with <span className="italic">Uptimise IT.</span>
-//             </h2>
-//             <div className="flex justify-center gap-4 relative z-10">
-//               <button      aria-label="Uptimiseit" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl shadow-slate-200">
-//                  Start Your Project
-//               </button>
-//             </div>
-//          </div>
-//       </section>
-//     </main>
-//   );
-// };
-
-// export default CaseStudiesPage;
-
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  ArrowRight, Settings, CheckCircle2, 
-  Terminal, Loader2, Image as ImageIcon,
-  Cpu, ExternalLink, Globe
+  Settings, CheckCircle2, Terminal, Loader2, 
+  Image as ImageIcon, Cpu, ExternalLink, 
+  LayoutGrid, Activity, ShieldCheck
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -254,104 +44,113 @@ const CaseStudiesPage = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FDFDFF] font-sans pt-32 pb-10 overflow-hidden">
+    <main className="min-h-screen bg-[#020617] text-slate-100 font-sans pt-32 pb-10 overflow-hidden">
       
-      {/* --- 1. HERO: The Proof Section --- */}
+      {/* --- 1. HERO: MISSION CRITICAL DISPLAY --- */}
       <section className="px-6 mb-24 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-20 pointer-events-none" />
+        
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto relative z-10 text-center space-y-8"
+          className="max-w-7xl mx-auto relative z-10 space-y-10"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800">
-            <Terminal size={12} className="text-blue-400" />
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white font-mono">Proof_Of_Execution_v1.0</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-md">
+                <Activity size={14} className="text-blue-400 animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-100 font-mono">Archive_Access::Unlocked</span>
+              </div>
+              <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.8] uppercase">
+                Proven <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 italic">Deployments.</span>
+              </h1>
+            </div>
+            
+            <div className="max-w-xs space-y-4">
+               <div className="h-1 w-20 bg-blue-600" />
+               <p className="text-sm text-slate-400 font-mono font-bold leading-relaxed uppercase tracking-wider">
+                 A live ledger of high-performance digital ecosystems engineered for the next generation of industry leaders.
+               </p>
+            </div>
           </div>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
-            Engineering <br />
-            <span className="text-blue-600 italic">Benchmarks.</span>
-          </h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-            Real technology solutions built by Uptimise IT. From startup MVPs to mission-critical enterprise systems designed for global scale.
-          </p>
         </motion.div>
       </section>
 
-      {/* --- 2. THE GALLERY: Project Matrix --- */}
+      {/* --- 2. THE GRID: SYSTEM NODES --- */}
       <section className="px-6 mb-32">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-16">
-            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-slate-400 font-mono">// Deployment_Ledger</h2>
-            <div className="h-px flex-1 bg-slate-100" />
-          </div>
-
           {loading ? (
-            <div className="flex flex-col items-center justify-center py-20 gap-4">
-              <Loader2 className="animate-spin text-blue-600" size={40} />
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">Syncing_Nodes...</p>
+            <div className="flex flex-col items-center justify-center py-40 gap-6">
+              <Loader2 className="animate-spin text-blue-500" size={48} />
+              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-500 font-mono">Syncing_Deployment_History...</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {projects.map((project, i) => (
                 <motion.div 
                   key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="group bg-white border border-slate-100 rounded-[3rem] overflow-hidden flex flex-col hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500"
+                  className="group relative"
                 >
-                  {/* Top: Image Container */}
-                  <div className="h-64 bg-slate-50 relative overflow-hidden flex items-center justify-center border-b border-slate-50">
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:20px_20px]" />
-                    {project.image ? (
+                  <Link href={project.url} target="_blank" className="block relative h-full">
+                    {/* Glowing Border Effect */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[3rem] opacity-0 group-hover:opacity-20 blur transition duration-500" />
+                    
+                    <div className="relative h-full bg-slate-900/50 border border-white/5 rounded-[3rem] overflow-hidden backdrop-blur-sm transition-all duration-500 flex flex-col">
+                      {/* Image Preview (Top) */}
+                      <div className="h-80 relative overflow-hidden bg-[#050b1e]">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb10_1px,transparent_1px)] bg-[size:20px_20px] z-10" />
                         <img 
                           src={project.image} 
                           alt={project.title} 
-                          className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
+                          className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-1000" 
                         />
-                    ) : (
-                        <ImageIcon size={48} className="text-slate-200" />
-                    )}
-                    
-                    <div className="absolute top-6 left-6 z-10">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-blue-600 shadow-sm border border-blue-100">
-                        {project.tag}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-10 flex-1 flex flex-col">
-                    <h3 className="text-2xl font-black text-slate-950 mb-4 group-hover:text-blue-600 transition-colors uppercase tracking-tighter">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed mb-8 font-medium line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-auto pt-8 border-t border-slate-50 flex flex-col gap-6">
-                      <div className="flex flex-wrap gap-2">
-                        {project.technology.split(',').map((t, idx) => (
-                          <span key={idx} className="text-[9px] font-black font-mono bg-slate-50 text-slate-400 px-2 py-1 rounded uppercase">
-                            {t.trim()}
-                          </span>
-                        ))}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-20" />
+                        
+                        <div className="absolute top-8 left-8 z-30 flex items-center gap-2">
+                           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                           <span className="text-[10px] font-black uppercase text-white/50 tracking-widest font-mono">Node::{project.id.toString().padStart(3, '0')}</span>
+                        </div>
                       </div>
-                      
-                      <div className="flex items-center justify-between">
-                         <div className="flex items-center gap-2">
-                            <div className={`w-2 h-2 rounded-full ${project.status === 'PUBLISHED' ? 'bg-emerald-500' : 'bg-amber-500'} animate-pulse`} />
-                            <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">{project.status}</span>
-                         </div>
-                         <Link href={project.url} target="_blank" className="p-3 rounded-2xl bg-slate-950 text-white hover:bg-blue-600 transition-all shadow-lg shadow-slate-200 group-hover:scale-110">
-                            <ExternalLink size={18} />
-                         </Link>
+
+                      {/* Content (Bottom) */}
+                      <div className="p-12 flex-1 flex flex-col justify-between space-y-8">
+                        <div className="space-y-4">
+                          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500">{project.tag}</span>
+                          <h3 className="text-4xl font-black uppercase tracking-tighter text-white group-hover:text-blue-400 transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-slate-400 text-sm font-medium leading-relaxed line-clamp-3">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        <div className="pt-8 border-t border-white/5 flex flex-col gap-6">
+                           <div className="flex flex-wrap gap-2">
+                              {project.technology.split(',').map((t, idx) => (
+                                <span key={idx} className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/5 text-[9px] font-black font-mono text-slate-500 uppercase">
+                                  {t.trim()}
+                                </span>
+                              ))}
+                           </div>
+                           <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                 <LayoutGrid size={16} className="text-slate-600" />
+                                 <span className="text-[10px] font-black uppercase text-slate-500 tracking-widest">{project.status}</span>
+                              </div>
+                              <div className="flex items-center gap-2 text-blue-500 group-hover:gap-4 transition-all">
+                                 <span className="text-[10px] font-black uppercase tracking-widest">Connect_System</span>
+                                 <ExternalLink size={14} />
+                              </div>
+                           </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -359,50 +158,52 @@ const CaseStudiesPage = () => {
         </div>
       </section>
 
-      {/* --- 3. ENGINEERING PHILOSOPHY --- */}
-      <section className="py-24 px-6 bg-slate-950 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-24 opacity-5 pointer-events-none">
-          <Settings size={400} />
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8">
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
-              Engineering <br /><span className="text-blue-500 italic">Philosophy.</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {["Scalable Architecture", "Clean Maintainable Code", "Automated Pipelines", "AI-Native Sprints"].map((text, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle2 className="text-blue-400" size={18} />
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-300">{text}</span>
-                </div>
-              ))}
-            </div>
+      {/* --- 3. DASHBOARD METRICS SECTION --- */}
+      <section className="py-32 px-6 bg-[#030712] border-y border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+          <div className="lg:col-span-1 space-y-6">
+            <h2 className="text-4xl font-black uppercase tracking-tighter">Stack <br /><span className="text-blue-600 italic">Diversity.</span></h2>
+            <p className="text-slate-500 text-sm font-medium leading-relaxed">
+              Our engineering factory adapts to your requirements, delivering robust architecture across any modern vertical.
+            </p>
           </div>
           
-          <div className="p-12 rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl">
-            <h4 className="text-xl font-black mb-8 uppercase tracking-widest text-blue-400 italic">// Sector_Reach</h4>
-            <div className="flex flex-wrap gap-4">
-              {["FinTech", "HealthTech", "E-commerce", "AI SaaS", "Enterprise", "Startups"].map((ind, i) => (
-                <span key={i} className="px-5 py-2.5 bg-white/10 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-blue-600 transition-colors cursor-default">
-                  {ind}
-                </span>
-              ))}
-            </div>
+          <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "Uptime", val: "99.9%", icon: <ShieldCheck size={20}/> },
+              { label: "Deployments", val: "250+", icon: <Cpu size={20}/> },
+              { label: "Efficiency", val: "3x", icon: <Activity size={20}/> },
+              { label: "Precision", val: "100%", icon: <Terminal size={20}/> }
+            ].map((stat, i) => (
+              <div key={i} className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col items-center text-center space-y-3">
+                <div className="text-blue-500">{stat.icon}</div>
+                <div className="text-2xl font-black text-white">{stat.val}</div>
+                <div className="text-[9px] font-black uppercase text-slate-500 tracking-widest">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* --- 4. FINAL CTA --- */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto bg-blue-600 rounded-[4rem] p-12 md:p-24 text-center text-white space-y-10 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_1px,transparent_1px)] [background-size:24px_24px]" />
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none relative z-10">
-            Build Your Success <br /> Story with <span className="italic">Uptimise IT.</span>
-          </h2>
-          <div className="flex justify-center gap-4 relative z-10">
-            <button aria-label="Start Project" className="px-12 py-6 bg-slate-950 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-2xl">
-              Start Your Project
-            </button>
+      {/* --- 4. FINAL CALL: SYSTEM INITIALIZATION --- */}
+      <section className="py-20 px-6 relative">
+        <div className="max-w-5xl mx-auto rounded-[4rem] bg-gradient-to-br from-blue-600 to-indigo-900 p-1 bg-opacity-20">
+          <div className="bg-[#020617] rounded-[3.8rem] p-16 md:p-24 text-center space-y-10 relative overflow-hidden">
+             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,#2563eb10_0%,transparent_100%)]" />
+             <div className="relative z-10 space-y-6">
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
+                  Ready to <br /><span className="text-blue-500 italic">Scale_Up?</span>
+                </h2>
+                <p className="text-slate-400 font-mono text-xs uppercase tracking-[0.3em] max-w-sm mx-auto">
+                  Initialize your success story with Uptimise IT today.
+                </p>
+             </div>
+             
+             <div className="relative z-10 pt-4">
+                <button className="px-14 py-6 bg-blue-600 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-blue-500 hover:shadow-[0_0_40px_-5px_rgba(37,99,235,0.4)] transition-all">
+                  Initialize_Project
+                </button>
+             </div>
           </div>
         </div>
       </section>
