@@ -104,9 +104,9 @@ export default function DynamicCategoryBlogPage() {
       
       {/* HEADER SECTION */}
       <section className="pt-40 pb-16 px-6 max-w-7xl mx-auto text-center space-y-6">
-        <Link href="/blog" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors mb-4">
+        {/* <Link href="/blog" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors mb-4">
           <ChevronLeft size={14} /> Back to Insights
-        </Link>
+        </Link> */}
         
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center gap-4">
           <div className="w-16 h-16 rounded-3xl bg-blue-50 text-blue-600 flex items-center justify-center shadow-sm">

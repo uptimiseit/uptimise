@@ -219,13 +219,14 @@
 
 // export default KnowledgeHub;
 
+
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-  BookOpen, ArrowRight, Sparkles, 
-  Timer, TrendingUp, Loader2
+  ArrowRight, Sparkles, Timer, TrendingUp, Loader2
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -234,27 +235,33 @@ interface Blog {
   title: string;
   slug: string;
   excerpt: string;
-  category: string;
-  subCategory?: string; // Optional field
+  categoryId: number; // Using ID for strict filtering
+  subCategory?: string;
   createdAt: string;
-  // Add any other fields you use from your API response
 }
 
 const TechTrends = () => {
-  // const [trends, setTrends] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [trends, setTrends] = useState<Blog[]>([]);
+  const categorySlug = "tech-trends"; 
 
   useEffect(() => {
     const fetchTrends = async () => {
       try {
-        // Fetching specifically 'Tech Trends' category
-        const res = await fetch(
-          "https://uptimiseit-admin.vercel.app/api/blogs?limit=7&category=Tech%20Trends"
-        );
+        setIsLoading(true);
+        // Fetch all blogs
+        const res = await fetch("https://uptimiseit-admin.vercel.app/api/blogs", {
+           cache: 'no-store'
+        });
         const json = await res.json();
+        
         if (json.success) {
-          setTrends(json.data);
+          // 🔥 STRICT FILTER: categoryId 5 = "Tech Trends"
+          const filteredTrends = json.data
+            .filter((blog: any) => Number(blog.categoryId) === 5)
+            .slice(0, 7);
+          
+          setTrends(filteredTrends);
         }
       } catch (err) {
         console.error("Failed to load tech trends", err);
@@ -267,7 +274,6 @@ const TechTrends = () => {
 
   return (
     <section className="relative bg-slate-50 py-24 px-6 overflow-hidden">
-      {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
       
       <div className="max-w-7xl mx-auto relative z-10">
@@ -286,30 +292,33 @@ const TechTrends = () => {
               <span className="text-blue-600 italic">Forecasting.</span>
             </h2>
           </div>
-          <Link href="/blogs?category=Tech+Trends">
+          <Link href={`/blog/${categorySlug}`}>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 rounded-full font-bold text-slate-950 hover:shadow-xl transition-all"
+              className="group flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 rounded-full font-bold text-slate-950 hover:shadow-xl transition-all uppercase tracking-widest text-xs"
             >
-              Explore Trends
+              Explore Archive
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </Link>
         </div>
 
-        {/* Loading State */}
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-20 opacity-20">
             <Loader2 size={40} className="animate-spin text-blue-600" />
             <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-widest">Syncing_Trends...</p>
           </div>
+        ) : trends.length === 0 ? (
+          <div className="py-20 text-center border-2 border-dashed border-slate-200 rounded-[3rem]">
+            <p className="font-mono text-slate-400 text-xs uppercase tracking-widest">No Forecast Nodes Available</p>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            {/* Main Featured Trend (The first item from API) */}
+            {/* Main Featured Trend */}
             {trends[0] && (
-              <Link href={`/blog/${trends[0].slug}`} className="lg:col-span-2">
+              <Link href={`/blog/${categorySlug}/${trends[0].slug}`} className="lg:col-span-2">
                 <motion.div
                   whileHover={{ y: -8 }}
                   className="p-10 h-full rounded-[3rem] bg-slate-950 text-white flex flex-col justify-between group cursor-pointer relative overflow-hidden shadow-2xl"
@@ -337,7 +346,7 @@ const TechTrends = () => {
                   </div>
 
                   <div className="mt-16 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 relative z-10">
-                    <p className="text-slate-400 font-body text-base max-w-sm leading-relaxed font-medium">
+                    <p className="text-slate-400 font-body text-base max-w-sm leading-relaxed font-medium line-clamp-3">
                       {trends[0].excerpt}
                     </p>
                     <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300 shadow-lg shrink-0 group-hover:bg-white group-hover:text-slate-950">
@@ -349,11 +358,11 @@ const TechTrends = () => {
             )}
 
             {/* Sub-trends Grid */}
-            {trends.slice(1).map((trend, i) => (
-              <Link key={trend.id} href={`/blog/${trend.slug}`}>
+            {trends.slice(1).map((trend) => (
+              <Link key={trend.id} href={`/blog/${categorySlug}/${trend.slug}`}>
                 <motion.div
                   whileHover={{ y: -8 }}
-                  className="p-8 h-full rounded-[2.5rem] bg-white border border-slate-100 flex flex-col justify-between group hover:shadow-2xl hover:shadow-blue-200/20 transition-all duration-500 cursor-pointer"
+                  className="p-8 h-full rounded-[2.5rem] bg-white border border-slate-100 flex flex-col justify-between group hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 >
                   <div className="space-y-8">
                     <div className="flex justify-between items-start">
@@ -369,7 +378,7 @@ const TechTrends = () => {
                       <span className="text-[10px] font-black uppercase tracking-[0.2em] font-mono text-blue-600">
                         DECODING_FUTURE
                       </span>
-                      <h4 className="text-2xl font-bold tracking-tight leading-tight text-slate-950 uppercase">
+                      <h4 className="text-2xl font-bold tracking-tight leading-tight text-slate-950 uppercase line-clamp-3">
                         {trend.title}
                       </h4>
                     </div>
@@ -383,7 +392,6 @@ const TechTrends = () => {
                 </motion.div>
               </Link>
             ))}
-
           </div>
         )}
       </div>
