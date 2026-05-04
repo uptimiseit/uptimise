@@ -331,25 +331,23 @@
 
 // export default MegaNavbar;
 
+
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import * as FaIcons from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { DynamicIcon } from "./DynamicIcon"; // Ensure this file exists as created previously
 
-// 🔥 Fix: Individual imports or a cleaner barrel import to prevent HMR crashes
+// Individual imports to prevent HMR factory errors in Next.js 16/React 19
 import { 
   ChevronDown, Download, Bot, Zap, Layout, 
   Cpu, Globe, Rocket, Terminal, HeartPulse, ShoppingBag, Landmark,
-  Database, BarChart3,
-  Users, Info, Mail, ChevronRight, TrendingUp,
-  Server, MinusSquare, Cloud, GraduationCap,
-  Hexagon, Building, Menu, X 
+  Database, BarChart3, Users, Info, Mail, ChevronRight, TrendingUp,
+  Server, MinusSquare, Cloud, GraduationCap, Hexagon, Building, Menu, X 
 } from "lucide-react";
 
-// --- Static Menu Data ---
 const initialMenuData = {
   Solutions: [
     { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/mvp-development" },
@@ -370,18 +368,18 @@ const initialMenuData = {
     { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
     { title: "E-commerce Platform Development", desc: "High-conversion digital retail engines.", icon: <ShoppingBag className="text-emerald-600" />, href: "/industries/ecommerce" },
     { title: "SaaS Development", desc: "Scalable multi-tenant subscription platforms.", icon: <Cloud className="text-sky-500" />, href: "/industries/saas" },
-    { title: "EdTech Platform Development", desc: "Interactive, high-load learning management systems.", icon: <GraduationCap className="text-indigo-500" />, href: "/industries/edtech" },
+    { title: "EdTech Platform Development", desc: "Interactive, high-load learning systems.", icon: <GraduationCap className="text-indigo-500" />, href: "/industries/edtech" },
     { title: "AI Startup Development", desc: "Rapid MVPs and generative AI products.", icon: <Bot className="text-purple-600" />, href: "/industries/ai-startup" },
     { title: "Blockchain / Web3 Platforms", desc: "Smart contracts and decentralized apps.", icon: <Hexagon className="text-orange-500" />, href: "/industries/blockchain" },
     { title: "Enterprise Software Systems", desc: "Secure portals and legacy modernization.", icon: <Building className="text-slate-600" />, href: "/industries/enterprise" },
   ],
   Services: [
-    { title: "Design", desc: "High-fidelity UX systems and scalable design languages.", icon: <Layout className="text-blue-600" />, href: "/services/design" },
-    { title: "Technology", desc: "AI-native engineering and full-stack system orchestration.", icon: <Cpu className="text-purple-600" />, href: "/services/technology" },
-    { title: "Marketing", desc: "Data-driven growth systems and automated digital reach.", icon: <BarChart3 className="text-emerald-600" />, href: "/services/marketing" },
-    { title: "Server", desc: "Zero-trust infrastructure and automated cloud deployments.", icon: <Server className="text-orange-600" />, href: "/services/server" },
+    { title: "Design", desc: "High-fidelity UX systems.", icon: <Layout className="text-blue-600" />, href: "/services/design" },
+    { title: "Technology", desc: "AI-native engineering.", icon: <Cpu className="text-purple-600" />, href: "/services/technology" },
+    { title: "Marketing", desc: "Data-driven growth systems.", icon: <BarChart3 className="text-emerald-600" />, href: "/services/marketing" },
+    { title: "Server", desc: "Zero-trust cloud deployments.", icon: <Server className="text-orange-600" />, href: "/services/server" },
   ],
-  Insights: [], 
+  Insights: [], // Dynamically populated
   Company: [
     { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/about" },
     { title: "Our Vision", desc: "Where we are taking engineering.", icon: <MinusSquare className="text-yellow-600" />, href: "/vision" },
@@ -395,18 +393,9 @@ const MegaNavbar = () => {
   const [menuData, setMenuData] = useState(initialMenuData);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpandedMenu, setMobileExpandedMenu] = useState<string | null>(null);
 
-  // 🔥 Fix: Defensive renderer to prevent crashing during HMR
-  const renderDynamicIcon = (iconName: string) => {
-    try {
-      const IconComponent = (FaIcons as any)[iconName];
-      if (!IconComponent) return <Terminal className="text-slate-600" />;
-      return <IconComponent className="text-blue-600" />;
-    } catch (e) {
-      return <Terminal className="text-slate-600" />;
-    }
-  };
-
+  // Fetch dynamic categories for Insights
   useEffect(() => {
     let isMounted = true;
     const fetchInsights = async () => {
@@ -420,39 +409,167 @@ const MegaNavbar = () => {
           const dynamicInsights = result.data.map((cat: any) => ({
             title: cat.name,
             desc: cat.description || `Explore our latest ${cat.name} articles.`,
-            icon: renderDynamicIcon(cat.icon),
+            icon: <DynamicIcon name={cat.icon} className="text-blue-600" />,
             href: `/blog/${cat.slug}`,
           }));
-
-          setMenuData((prev) => ({
-            ...prev,
-            Insights: dynamicInsights,
-          }));
+          setMenuData((prev) => ({ ...prev, Insights: dynamicInsights }));
         }
       } catch (error) {
-        console.error("Error fetching navigation categories:", error);
+        console.error("Navigation Fetch Error:", error);
       }
     };
-
     fetchInsights();
     return () => { isMounted = false; };
   }, []);
 
-  // ... rest of your mobile logic and render code exactly as before
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = (menu: string) => {
+    setMobileExpandedMenu(mobileExpandedMenu === menu ? null : menu);
+  };
+
+  const currentMenuItems = activeMenu ? menuData[activeMenu as keyof typeof menuData] : [];
+  const isLargeMenu = currentMenuItems.length > 6;
+
   return (
-      <nav 
-        className="fixed top-0 left-0 w-full z-[100] bg-white border-b border-slate-100 transition-all duration-300"
-        onMouseLeave={() => setActiveMenu(null)}
-      >
-        {/* Your existing JSX here */}
-        <div className="max-w-[1440px] mx-auto h-[80px] px-6 lg:px-8 flex items-center justify-between">
-            <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
-              <Image src="/logo.png" alt="Logo" width={150} height={45} priority />
-            </Link>
-            {/* ... Rest of JSX */}
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-white border-b border-slate-100 transition-all duration-300" onMouseLeave={() => setActiveMenu(null)}>
+      <div className="max-w-[1440px] mx-auto h-[80px] px-6 lg:px-8 flex items-center justify-between bg-white relative z-50">
+        
+        {/* Logo */}
+        <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
+          <Image src="/logo.png" alt="Uptimise IT" width={150} height={45} priority />
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-2 h-full">
+          {Object.keys(menuData).map((menu) => (
+            <div key={menu} className="h-full flex items-center" onMouseEnter={() => setActiveMenu(menu)}>
+              <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'}`}>
+                {menu}
+                <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+          ))}
+          
+          <Link href="/why-uptimiseit" className="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all" onMouseEnter={() => setActiveMenu(null)}>
+            Why Uptimise
+          </Link>
         </div>
-      </nav>
-  )
+
+        {/* Desktop Actions */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Link href="/booking">
+            <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-blue-100">
+              Book Strategy Call
+            </button>
+          </Link>
+          <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
+            <Download size={18} className="group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <div className="lg:hidden">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-600">
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Mega Dropdown */}
+      <AnimatePresence>
+        {activeMenu && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            className="absolute top-[80px] left-0 w-full bg-white border-b border-slate-100 shadow-xl py-10 px-8 z-40 overflow-hidden"
+          >
+            <div className="max-w-7xl mx-auto flex gap-12">
+              <div className="w-[240px] shrink-0 bg-[#020617] rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden">
+                <div className="absolute bottom-10 -right-10 opacity-5"><Zap size={240} className="text-white" /></div>
+                <h3 className="text-4xl font-black text-white leading-tight relative z-10">Ready to <br /> Engineer?</h3>
+                <Link href="/contact" className="relative z-10 flex items-center gap-2 text-sm font-bold text-white hover:text-blue-400">
+                  Start Here <ChevronRight size={18} />
+                </Link>
+              </div>
+
+              <div className={`flex-grow grid ${isLargeMenu ? "grid-cols-3 gap-4" : "grid-cols-2 gap-8"} py-4`}>
+                {currentMenuItems.map((item: any, idx: number) => (
+                  <Link key={idx} href={item.href} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 group">
+                    <div className="p-3 bg-white border border-slate-100 rounded-xl group-hover:scale-105 transition-transform shadow-sm">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-black text-slate-950 uppercase text-[12px] group-hover:text-blue-600 transition-colors">{item.title}</h4>
+                      <p className="text-slate-400 text-[10px] line-clamp-2 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "calc(100vh - 80px)" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden fixed top-[80px] left-0 w-full bg-white z-40 overflow-y-auto border-t border-slate-100"
+          >
+            <div className="flex flex-col p-6 pb-24 gap-2">
+              {Object.keys(menuData).map((menu) => (
+                <div key={menu} className="border-b border-slate-100">
+                  <button onClick={() => toggleMobileMenu(menu)} className="w-full flex items-center justify-between py-4">
+                    <span className={`text-lg font-bold ${mobileExpandedMenu === menu ? 'text-blue-600' : 'text-slate-800'}`}>{menu}</span>
+                    <ChevronDown size={20} className={`transition-transform ${mobileExpandedMenu === menu ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {mobileExpandedMenu === menu && (
+                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
+                        <div className="flex flex-col gap-3 pb-6 pt-2 pl-4 border-l-2 border-slate-100 ml-2">
+                          {menuData[menu as keyof typeof menuData].map((item: any, idx: number) => (
+                            <Link key={idx} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 p-2">
+                              <div className="shrink-0">{item.icon}</div>
+                              <div>
+                                <h4 className="text-sm font-bold text-slate-800">{item.title}</h4>
+                                <p className="text-xs text-slate-500 line-clamp-1">{item.desc}</p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+
+              <Link href="/why-uptimiseit" onClick={() => setIsMobileMenuOpen(false)} className="py-4 border-b border-slate-100 text-lg font-bold text-slate-800">
+                Why Uptimise
+              </Link>
+
+              <div className="flex flex-col gap-4 mt-8">
+                <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                  <button className="w-full py-4 bg-slate-950 text-white rounded-xl text-sm font-black uppercase tracking-widest shadow-md">Book Strategy Call</button>
+                </Link>
+                <button className="w-full py-4 bg-slate-50 text-slate-700 rounded-xl text-sm font-bold border border-slate-200 flex items-center justify-center gap-2">
+                  <Download size={18} /> Download Profile
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
 };
 
 export default MegaNavbar;
