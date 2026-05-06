@@ -736,17 +736,27 @@ const MegaNavbar = () => {
               </div>
 
               <div className={`flex-grow grid ${isLargeMenu ? "grid-cols-3 gap-4" : "grid-cols-2 gap-8"} py-4`}>
-                {currentMenuItems.map((item: any, idx: number) => (
-                  <Link key={idx} href={item.href} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100">
-                    <div className="p-3 bg-white border border-slate-100 rounded-xl group-hover:scale-105 transition-transform shadow-sm group-hover:shadow-lg group-hover:shadow-blue-50">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-black text-slate-950 uppercase text-[12px] tracking-tight group-hover:text-blue-600 transition-colors">{item.title}</h4>
-                      <p className="text-slate-400 text-[10px] line-clamp-2 leading-relaxed font-medium mt-1 uppercase tracking-wide opacity-80">{item.desc}</p>
-                    </div>
-                  </Link>
-                ))}
+           {currentMenuItems.map((item: any, idx: number) => (
+  <Link 
+    key={idx} 
+    href={item.href} 
+    className="flex items-start gap-4 p-5 rounded-3xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100"
+  >
+    {/* THE ICON BOX: This creates the look from your screenshot */}
+    <div className="shrink-0 w-14 h-14 bg-white border border-slate-100 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300">
+      {item.icon}
+    </div>
+
+    <div className="flex flex-col gap-1">
+      <h4 className="font-black text-slate-900 uppercase text-[12px] tracking-tight group-hover:text-blue-600 transition-colors">
+        {item.title}
+      </h4>
+      <p className="text-slate-400 text-[10px] line-clamp-2 leading-relaxed font-medium uppercase tracking-wide opacity-70">
+        {item.desc}
+      </p>
+    </div>
+  </Link>
+))}
               </div>
             </div>
           </motion.div>
