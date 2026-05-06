@@ -41,7 +41,7 @@ export default function HeroSection({ data, slug }: { data: any; slug: string })
           className="space-y-6"
         >
           <h1 
-            className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85] mb-4"
+            className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85] mb-4"
             style={{ fontFamily: data.fontFamily || 'inherit' }}
           >
             {data.heading} <br />
