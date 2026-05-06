@@ -1,20 +1,28 @@
-export default function ProcessSection({ data }: { data: any[] }) {
+export default function ProcessSection({ data, isDark = false }: { data: any[], isDark?: boolean }) {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
-        {data.map((step, idx) => (
-          <div key={idx} className="relative p-10 border border-slate-100 group hover:bg-slate-900 transition-colors">
-            <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest font-mono group-hover:text-blue-400">
-              {step.step}
-            </span>
-            <h3 className="text-xl font-black uppercase tracking-tighter text-slate-900 mt-4 group-hover:text-white">
-              {step.title}
-            </h3>
-            <p className="text-sm text-slate-500 mt-4 leading-relaxed group-hover:text-slate-400">
-              {step.desc}
-            </p>
-          </div>
-        ))}
+    <section className={`py-32 px-6 ${isDark ? 'bg-[#020617]' : 'bg-white'}`}>
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16">
+          <h2 className={`text-5xl font-black uppercase tracking-tighter ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            Delivery_Protocol
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-l border-t border-slate-800">
+          {data.map((item, idx) => (
+            <div key={idx} className="p-10 border-r border-b border-slate-800 hover:bg-blue-600 transition-all group">
+              <span className="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] font-mono group-hover:text-white">
+                {item.step}
+              </span>
+              <h3 className={`text-2xl font-black uppercase tracking-tighter mt-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                {item.title}
+              </h3>
+              <p className={`text-sm mt-6 leading-relaxed font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'} group-hover:text-blue-50`}>
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
