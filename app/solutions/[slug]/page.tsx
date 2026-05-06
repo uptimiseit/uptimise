@@ -20,7 +20,9 @@ export default async function DynamicSolutionPage({ params }: { params: Promise<
   return (
     <main className="min-h-screen bg-white">
       {/* 1. HERO - Clean White */}
-      <HeroSection data={content.hero} />
+      {/* <HeroSection data={content.hero} />
+       */}
+       <HeroSection data={content.hero} slug={slug} />
       
       {/* 2. TECH STACK - Minimal Slate */}
       <TechStackSection data={content.techStack} />
