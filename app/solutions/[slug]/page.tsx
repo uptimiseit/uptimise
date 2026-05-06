@@ -2,6 +2,7 @@ import BuildCapabilities from "@/app/components/Solution/BuildCapabilities";
 import ChallengesSection from "@/app/components/Solution/ChallengesSection";
 import CTASection from "@/app/components/Solution/CTASection";
 import HeroSection from "@/app/components/Solution/HeroSection";
+// import HeroSection from "@/app/components/Solution/HeroSection";
 import ProcessSection from "@/app/components/Solution/ProcessSection";
 import StartupEdge from "@/app/components/Solution/StartupEdge";
 import SuccessBenefits from "@/app/components/Solution/SuccessBenefits";
