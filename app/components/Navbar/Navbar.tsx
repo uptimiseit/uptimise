@@ -592,20 +592,20 @@ import {
 } from "lucide-react";
 
 const initialMenuData = {
-  Solutions: [], // Hydrated via API
-    NewSolutions: [
-    { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/mvp-development" },
-    { title: "SaaS Platform Development", desc: "Secure, scalable multi-tenant architectures.", icon: <Cloud className="text-blue-500" />, href: "/solutions/saas-development" },
-    { title: "AI Product Development", desc: "Generative AI and agentic systems.", icon: <Zap className="text-purple-600" />, href: "/solutions/ai-products" },
-    { title: "Digital Platform Development", desc: "High-performance digital ecosystems.", icon: <Globe className="text-emerald-500" />, href: "/solutions/digital-platforms" },
-    { title: "Enterprise Modernization", desc: "Upgrading legacy systems for scale.", icon: <Server className="text-slate-600" />, href: "/solutions/enterprise-modernization" },
-    { title: "Workflow Automation", desc: "Streamlining complex business operations.", icon: <Terminal className="text-cyan-600" />, href: "/solutions/workflow-automation" },
-    { title: "Cloud & Migration", desc: "Zero-trust automated cloud deployments.", icon: <Database className="text-indigo-500" />, href: "/solutions/cloud-infrastructure" },
-    { title: "Product Scaling", desc: "Performance tuning for high-growth.", icon: <TrendingUp className="text-green-600" />, href: "/solutions/product-scaling" },
-    { title: "AI Software Factory", desc: "Our core AI-native delivery engine.", icon: <Bot className="text-blue-600" />, href: "/solutions/ai-factory" },
-    { title: "Design & UX", desc: "High-fidelity, user-centric interfaces.", icon: <Layout className="text-pink-500" />, href: "/solutions/product-design" },
-    { title: "Digital Growth", desc: "Data-driven marketing and scaling.", icon: <BarChart3 className="text-orange-600" />, href: "/solutions/digital-growth" },
-    { title: "AI Business Automation", desc: "Intelligent operations and task automation.", icon: <Cpu className="text-purple-500" />, href: "/solutions/ai-business-automation" },
+  // Solutions: [], // Hydrated via API
+  Solutions: [
+    { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/s/.mvp-development" },
+    { title: "SaaS Platform Development", desc: "Secure, scalable multi-tenant architectures.", icon: <Cloud className="text-blue-500" />, href: "/solutions/s/s/saas-development" },
+    { title: "AI Product Development", desc: "Generative AI and agentic systems.", icon: <Zap className="text-purple-600" />, href: "/solutions/s/ai-products" },
+    { title: "Digital Platform Development", desc: "High-performance digital ecosystems.", icon: <Globe className="text-emerald-500" />, href: "/solutions/s/digital-platforms" },
+    { title: "Enterprise Modernization", desc: "Upgrading legacy systems for scale.", icon: <Server className="text-slate-600" />, href: "/solutions/s/enterprise-modernization" },
+    { title: "Workflow Automation", desc: "Streamlining complex business operations.", icon: <Terminal className="text-cyan-600" />, href: "/solutions/s/workflow-automation" },
+    { title: "Cloud & Migration", desc: "Zero-trust automated cloud deployments.", icon: <Database className="text-indigo-500" />, href: "/solutions/s/cloud-infrastructure" },
+    { title: "Product Scaling", desc: "Performance tuning for high-growth.", icon: <TrendingUp className="text-green-600" />, href: "/solutions/s/product-scaling" },
+    { title: "AI Software Factory", desc: "Our core AI-native delivery engine.", icon: <Bot className="text-blue-600" />, href: "/solutions/s/ai-factory" },
+    { title: "Design & UX", desc: "High-fidelity, user-centric interfaces.", icon: <Layout className="text-pink-500" />, href: "/solutions/s/product-design" },
+    { title: "Digital Growth", desc: "Data-driven marketing and scaling.", icon: <BarChart3 className="text-orange-600" />, href: "/solutions/s/digital-growth" },
+    { title: "AI Business Automation", desc: "Intelligent operations and task automation.", icon: <Cpu className="text-purple-500" />, href: "/solutions/s/ai-business-automation" },
   ],
   // Industries: [
   //   { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
