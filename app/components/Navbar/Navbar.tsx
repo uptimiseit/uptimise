@@ -607,16 +607,7 @@ const initialMenuData = {
     { title: "Digital Growth", desc: "Data-driven marketing and scaling.", icon: <BarChart3 className="text-orange-600" />, href: "/solutions/s/digital-growth" },
     { title: "AI Business Automation", desc: "Intelligent operations and task automation.", icon: <Cpu className="text-purple-500" />, href: "/solutions/s/ai-business-automation" },
   ],
-  // Industries: [
-  //   { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
-  //   { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
-  //   { title: "E-commerce Platform Development", desc: "High-conversion digital retail engines.", icon: <ShoppingBag className="text-emerald-600" />, href: "/industries/ecommerce" },
-  //   { title: "SaaS Development", desc: "Scalable multi-tenant subscription platforms.", icon: <Cloud className="text-sky-500" />, href: "/industries/saas" },
-  //   { title: "EdTech Platform Development", desc: "Interactive, high-load learning systems.", icon: <GraduationCap className="text-indigo-500" />, href: "/industries/edtech" },
-  //   { title: "AI Startup Development", desc: "Rapid MVPs and generative AI products.", icon: <Bot className="text-purple-600" />, href: "/industries/ai-startup" },
-  //   { title: "Blockchain / Web3 Platforms", desc: "Smart contracts and decentralized apps.", icon: <Hexagon className="text-orange-500" />, href: "/industries/blockchain" },
-  //   { title: "Enterprise Software Systems", desc: "Secure portals and legacy modernization.", icon: <Building className="text-slate-600" />, href: "/industries/enterprise" },
-  // ],
+
   Industries: [
     { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
     { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
@@ -678,7 +669,7 @@ const MegaNavbar = () => {
 
           setMenuData(prev => ({ 
             ...prev, 
-            Solutions: dynamicSolutions, 
+            // Solutions: dynamicSolutions, 
             Insights: dynamicInsights 
           }));
         }
