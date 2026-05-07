@@ -594,7 +594,7 @@ import {
 const initialMenuData = {
   // Solutions: [], // Hydrated via API
   Solutions: [
-    { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/s/.mvp-development" },
+    { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/s/mvp-development" },
     { title: "SaaS Platform Development", desc: "Secure, scalable multi-tenant architectures.", icon: <Cloud className="text-blue-500" />, href: "/solutions/s/s/saas-development" },
     { title: "AI Product Development", desc: "Generative AI and agentic systems.", icon: <Zap className="text-purple-600" />, href: "/solutions/s/ai-products" },
     { title: "Digital Platform Development", desc: "High-performance digital ecosystems.", icon: <Globe className="text-emerald-500" />, href: "/solutions/s/digital-platforms" },
