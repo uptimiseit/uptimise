@@ -56,20 +56,15 @@ const HumanAICollaboration = () => {
 
   return (
     <section ref={containerRef} className="relative bg-white py-24 px-6 overflow-hidden">
-      {/* <DottedSurface /> */}
       <div className="max-w-7xl mx-auto relative z-10">
-
         
         {/* Header Block */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="mb-16 space-y-6 flex items-center flex-col lg:flex-row gap-5 justify-between"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 shadow-sm">
             <Sparkles className="text-blue-600 size-3 animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 font-mono">
+            <span className="text-[11px] font-black uppercase tracking-[0.2em] text-blue-800 font-mono">
               The Amplification Layer
             </span>
           </div>
@@ -83,13 +78,7 @@ const HumanAICollaboration = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
           
           {/* LEFT: THE AI ENGINE */}
-          <motion.div 
-            // variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 space-y-10 relative"
-          >
+          <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 space-y-10 relative">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-blue-600 rounded-2xl text-white shadow-xl shadow-blue-200">
                 <Database size={24} />
@@ -106,29 +95,25 @@ const HumanAICollaboration = () => {
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
-                  // variants={aiPointVariants}
-                  whileHover={{ x: 10, backgroundColor: "#ffffff", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)" }}
+                  whileHover={{ x: 10, backgroundColor: "#ffffff" }}
                   className="flex items-center gap-6 p-6 bg-white/50 rounded-2xl border border-slate-100 transition-colors"
                 >
                   <div className="text-blue-600">{item.icon}</div>
-                  <h4 className="font-bold text-slate-900 uppercase text-xs tracking-widest">{item.title}</h4>
+                  {/* Changed h4 to span to fix semantic nesting */}
+                  <span className="font-bold text-slate-700 uppercase text-[11px] tracking-widest">
+                    {item.title}
+                  </span>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* RIGHT: THE ELITE ENGINEER */}
-          <motion.div 
-            // variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="p-10 rounded-[3rem] bg-slate-950 text-white space-y-10 relative overflow-hidden shadow-2xl"
-          >
+          <div className="p-10 rounded-[3rem] bg-slate-950 text-white space-y-10 relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#1e293b,transparent)] opacity-50" />
             
             <div className="flex items-center gap-4 relative z-10">
-              <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white border border-white/10 shadow-inner">
+              <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white border border-white/10">
                 <Brain size={24} />
               </div>
               <h3 className="text-3xl font-black font-header tracking-tight uppercase">Elite Engineers</h3>
@@ -143,32 +128,44 @@ const HumanAICollaboration = () => {
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
-                  // variants={humanPointVariants}
                   whileHover={{ x: -10, backgroundColor: "rgba(255,255,255,0.08)" }}
                   className="flex items-center gap-6 p-6 bg-white/5 border border-white/10 rounded-2xl transition-colors"
                 >
                   <div className="text-blue-400">{item.icon}</div>
-                  <h4 className="font-bold text-slate-100 uppercase text-xs tracking-widest">{item.title}</h4>
+                  {/* Changed h4 to span to fix semantic nesting */}
+                  <span className="font-bold text-slate-100 uppercase text-[11px] tracking-widest">
+                    {item.title}
+                  </span>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* CENTRAL INTERACTIVE SYNAPSE */}
-          <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
-            <div className="central-synapse relative w-24 h-24 rounded-full bg-white border-[10px] border-slate-50 flex items-center justify-center shadow-[0_0_60px_rgba(59,130,246,0.4)]">
-               <motion.div 
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-5 h-5 bg-blue-600 rounded-full" 
-               />
-               {/* Pulsing Outer Ring */}
-               <motion.div 
-                  animate={{ scale: [1, 1.8], opacity: [0.3, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute inset-0 border-2 border-blue-400 rounded-full"
-               />
-            </div>
+   <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
+  <div className="central-synapse relative w-24 h-24 rounded-full bg-white border-[10px] border-slate-50 flex items-center justify-center shadow-[0_0_60px_rgba(59,130,246,0.4)]">
+    <motion.div 
+      animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 2, repeat: Infinity }}
+      className="w-5 h-5 bg-blue-600 rounded-full" 
+    />
+    
+    {/* Pulsing Outer Ring */}
+    <motion.div 
+      animate={{ scale: [1, 1.8], opacity: [0.3, 0] }}
+      transition={{ duration: 2, repeat: Infinity }}
+      className="absolute inset-0 border-2 border-blue-400 rounded-full"
+    />
+  </div>
+
+  {/* If you have small labels around this synapse (like in the screenshot), update them here: */}
+  <div className="absolute top-full mt-4 flex flex-col items-center">
+    {/* Increased to 11px and slate-700 for accessibility compliance */}
+    <span className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-700 font-mono">
+      Synapse_Status::Active
+    </span>
+  </div>
+
           </div>
         </div>
       </div>
