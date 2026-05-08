@@ -102,7 +102,7 @@ const IndustriesSection = () => {
               <span className="text-slate-400 italic">We Empower.</span>
             </h2>
           </div>
-          <p className="text-sm text-slate-600 max-w-[280px] lg:text-right leading-relaxed">
+          <p className="text-sm text-slate-600 max-w-[280px] lg:text-right leading-relaxed font-medium">
             Deploying AI-native engineering excellence across high-stakes global markets.
           </p>
         </motion.div>
@@ -113,8 +113,8 @@ const IndustriesSection = () => {
             <Link 
               href={item.link} 
               key={i} 
-              aria-label={`Explore our solutions for ${item.name}`}
-              className={`block group outline-none ${item.featured ? 'lg:col-span-2' : ''}`}
+              aria-label={`Explore our work in ${item.name}`}
+              className={`block group outline-none rounded-[3rem] transition-all focus-visible:ring-4 focus-visible:ring-blue-500/20 ${item.featured ? 'lg:col-span-2' : ''}`}
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -125,21 +125,22 @@ const IndustriesSection = () => {
                 className={`p-10 rounded-[3rem] border transition-all duration-500 relative flex flex-col justify-between h-[400px] overflow-hidden cursor-pointer ${
                   item.featured 
                   ? 'bg-[#020617] border-slate-800 text-white shadow-2xl' 
-                  : 'bg-slate-50 border-slate-100 hover:bg-white hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-200/20'
+                  : 'bg-slate-50 border-slate-200/60 hover:bg-white hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-200/20'
                 }`}
               >
                 {!item.featured && (
                   <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-all duration-500" />
                 )}
 
-                <div className="space-y-6 relative z-10 pointer-events-none">
+                {/* Removed pointer-events-none to ensure the whole card acts as a clean link boundary */}
+                <div className="space-y-6 relative z-10">
                   <div className="flex justify-between items-start">
                     <div className={`p-4 rounded-2xl transition-colors duration-300 ${item.featured ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'bg-white text-blue-600 shadow-sm group-hover:bg-blue-600 group-hover:text-white'}`}>
                       {item.icon}
                     </div>
-                    {/* Increased to 11px and higher contrast colors */}
+                    {/* Increased to 11px and Slate-600 for contrast pass */}
                     <div className={`px-3 py-1 rounded-full border text-[11px] font-mono font-black tracking-widest uppercase ${
-                      item.featured ? 'bg-white/10 border-white/20 text-blue-300' : 'bg-white border-slate-200 text-slate-600'
+                      item.featured ? 'bg-white/10 border-white/20 text-blue-300' : 'bg-white border-slate-200 text-slate-600 shadow-sm'
                     }`}>
                       {item.status}
                     </div>
@@ -155,13 +156,13 @@ const IndustriesSection = () => {
                   </div>
                 </div>
 
-                <div className="relative z-10 flex justify-end pointer-events-none">
+                <div className="relative z-10 flex justify-end">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 border ${
                     item.featured 
-                    ? 'bg-white/5 border-white/10 text-white group-hover:bg-white group-hover:text-slate-950' 
-                    : 'bg-white border-slate-200 text-slate-400 group-hover:bg-blue-600 group-hover:text-white shadow-sm'
+                    ? 'bg-white/5 border-white/10 text-white group-hover:bg-white group-hover:text-slate-950 shadow-sm' 
+                    : 'bg-white border-slate-200 text-slate-400 group-hover:bg-blue-600 group-hover:text-white shadow-md'
                   }`}>
-                    <ArrowUpRight size={22} />
+                    <ArrowUpRight size={22} className="transition-transform group-hover:rotate-12 group-hover:scale-110" />
                   </div>
                 </div>
               </motion.div>
