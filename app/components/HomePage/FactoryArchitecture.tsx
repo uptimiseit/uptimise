@@ -194,9 +194,9 @@ const FactoryArchitecture = () => {
                 </div>
 
                 <div className="text-center px-4">
-                  <h4 className="text-xs font-black font-header text-slate-950 uppercase tracking-widest mb-2 transition-colors group-hover:text-blue-600">
+                  <h3 className="text-xs font-black font-header text-slate-950 uppercase tracking-widest mb-2 transition-colors group-hover:text-blue-600">
                     {step.title}
-                  </h4>
+                  </h3>
                   <div className={`w-1.5 h-1.5 rounded-full mx-auto transition-all duration-300 ${hoveredStep === step.id ? 'bg-blue-600 scale-150 shadow-[0_0_8px_#2563eb]' : 'bg-slate-200'}`} />
                 </div>
 
@@ -273,9 +273,9 @@ const FactoryArchitecture = () => {
                       {benefit.label}
                     </span>
                   </div>
-                  <h4 className="text-2xl font-black text-slate-950 font-header tracking-tight leading-tight uppercase">
+                  <h3 className="text-2xl font-black text-slate-950 font-header tracking-tight leading-tight uppercase">
                     {benefit.value}
-                  </h4>
+                  </h3>
                 </div>
               </div>
 

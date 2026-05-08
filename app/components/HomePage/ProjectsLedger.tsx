@@ -371,7 +371,8 @@ const ProjectsLedger = () => {
                         </p>
                       </div>
                       
-                      <Link href={project.url} target="_blank">
+                      <Link href={project.url} target="_blank" rel="noopener noreferrer"
+  aria-label={`Visit ${project.title} live website`}>
                         <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${
                           isLarge ? 'bg-blue-600 text-white' : 'bg-slate-950 text-white group-hover:bg-blue-600'
                         }`}>
@@ -393,9 +394,9 @@ const ProjectsLedger = () => {
                 <div className="w-3 h-3 rounded-full bg-white animate-ping absolute inset-0" />
                 <div className="w-3 h-3 rounded-full bg-white relative" />
               </div>
-              <h4 className="font-black text-white text-2xl tracking-tighter leading-none uppercase">
+              <h3 className="font-black text-white text-2xl tracking-tighter leading-none uppercase">
                 Next Case Study <br /> <span className="text-blue-200 italic">In_Queue</span>
-              </h4>
+              </h3>
               <p className="text-xs font-bold text-blue-100 leading-relaxed max-w-[200px] uppercase tracking-wider">
                 Our AI software factory is engineering 14 new products.
               </p>
