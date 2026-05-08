@@ -337,25 +337,27 @@ export default function TestimonialsPage() {
       </section>
 
       {/* 3. Metrics Section */}
-      <section className="max-w-7xl mx-auto py-32 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-slate-200 pt-16">
-            {[
-              { val: "98%", label: "Retention Rate", desc: "Long-term engineering partnerships." },
-              { val: "24/7", label: "Global Uptime", desc: "Critical system monitoring and support." },
-              { val: "150+", label: "Deployments", desc: "Successful product launches since 2024." }
-            ].map((m, idx) => (
-              <motion.div 
-                key={idx}
-                whileHover={{ y: -5 }}
-                className="space-y-2 p-6 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-blue-900/5 transition-all"
-              >
-                  <h4 className="text-5xl font-black text-slate-950 tracking-tighter">{m.val}</h4>
-                  <p className="text-sm font-bold uppercase tracking-widest text-blue-600">{m.label}</p>
-                  <p className="text-slate-500 text-sm font-medium">{m.desc}</p>
-              </motion.div>
-            ))}
-        </div>
-      </section>
+  {/* 3. Metrics Section */}
+<section className="max-w-7xl mx-auto py-32 px-6">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-slate-200 pt-16">
+      {[
+        { val: "98%", label: "Retention Rate", desc: "Long-term engineering partnerships." },
+        { val: "24/7", label: "Global Uptime", desc: "Critical system monitoring and support." },
+        { val: "150+", label: "Deployments", desc: "Successful product launches since 2024." }
+      ].map((m, idx) => (
+        <motion.div 
+          key={idx}
+          whileHover={{ y: -5 }}
+          className="space-y-2 p-6 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-blue-900/5 transition-all"
+        >
+            {/* CHANGE h4 TO h3 HERE */}
+            <h3 className="text-5xl font-black text-slate-950 tracking-tighter">{m.val}</h3>
+            <p className="text-sm font-bold uppercase tracking-widest text-blue-600">{m.label}</p>
+            <p className="text-slate-500 text-sm font-medium">{m.desc}</p>
+        </motion.div>
+      ))}
+  </div>
+</section>
 
       {/* 4. CTA Section */}
       <section className="pb-32 px-6">

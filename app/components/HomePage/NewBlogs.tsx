@@ -351,9 +351,9 @@ const NewBlogs = () => {
           
           {/* LEFT: Sector Selection */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-[10px] font-black font-mono text-slate-500 uppercase tracking-[0.4em] mb-8 px-4 flex items-center gap-2">
-               <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" /> Select_Node
-            </h4>
+           <p className="text-[10px] font-black font-mono text-slate-500 uppercase tracking-[0.4em] mb-8 px-4 flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" /> Select_Node
+  </p>
             {loading ? (
               [1,2,3].map(i => <div key={i} className="h-24 rounded-[2.5rem] bg-white/5 animate-pulse" />)
             ) : (
@@ -372,7 +372,9 @@ const NewBlogs = () => {
                       <DynamicIcon name={cat.icon} />
                     </div>
                     <div className="space-y-1">
-                      <h5 className={`font-black uppercase text-[13px] tracking-tight ${activeCategory?.id === cat.id ? "text-white" : "text-slate-200"}`}>{cat.name}</h5>
+                 <h3 className={`font-black uppercase text-[13px] tracking-tight ${activeCategory?.id === cat.id ? "text-white" : "text-slate-200"}`}>
+            {cat.name}
+          </h3>
                       <p className={`text-[10px] font-medium leading-relaxed line-clamp-1 ${activeCategory?.id === cat.id ? "text-blue-100" : "text-slate-500"}`}>{cat.description || "Operational intelligence."}</p>
                     </div>
                   </div>
@@ -440,7 +442,7 @@ const NewBlogs = () => {
             <motion.div className="p-12 rounded-[4rem] bg-[#0f172a] border border-white/5 text-white flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#2563eb10_0%,transparent_100%)] pointer-events-none" />
               <div className="relative z-10 text-center lg:text-left space-y-2">
-                <h4 className="text-3xl font-black tracking-tighter uppercase leading-none">Stay_Synchronized.</h4>
+              <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">Stay_Synchronized.</h3>
                 <p className="text-xs text-slate-400 font-mono font-bold uppercase tracking-[0.2em]">Archiving logic for 2,000+ tech leaders.</p>
               </div>
               
