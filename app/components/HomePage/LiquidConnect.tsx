@@ -120,27 +120,27 @@ const PhilosophySectionDark = () => {
               <div className="grid grid-cols-2 gap-2">
                 
                 {/* Feature Cards */}
-                <motion.div 
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="p-6 bg-slate-900 border h-60 border-slate-800 rounded-2xl space-y-3 shadow-lg hover:border-slate-700 transition-all"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                    <Cpu className="text-blue-400 size-5" />
-                  </div>
-                  <h4 className="text-white font-bold">AI-Augmented</h4>
-                  <p className="text-xs text-slate-400 font-medium">Multiply productivity through orchestrated agents.</p>
-                </motion.div>
+               <motion.div 
+  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+  className="p-6 bg-slate-900 border h-60 border-slate-800 rounded-2xl space-y-3 shadow-lg hover:border-slate-700 transition-all"
+>
+  <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+    <Cpu className="text-blue-400 size-5" />
+  </div>
+  <h3 className="text-white font-bold text-lg">AI-Augmented</h3> {/* Changed to h3 */}
+  <p className="text-xs text-slate-400 font-medium">Multiply productivity through orchestrated agents.</p>
+</motion.div>
 
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  className="p-6 bg-slate-900 border h-60 border-slate-800 rounded-2xl space-y-3 shadow-lg hover:border-slate-700 transition-all"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
-                    <Zap className="text-purple-400 size-5" />
-                  </div>
-                  <h4 className="text-white font-bold">Rapid Velocity</h4>
-                  <p className="text-xs text-slate-400 font-medium">Zero friction from idea to production-ready code.</p>
-                </motion.div>
+               <motion.div 
+  whileHover={{ y: -5 }}
+  className="p-6 bg-slate-900 border h-60 border-slate-800 rounded-2xl space-y-3 shadow-lg hover:border-slate-700 transition-all"
+>
+  <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+    <Zap className="text-purple-400 size-5" />
+  </div>
+  <h3 className="text-white font-bold text-lg">Rapid Velocity</h3> {/* Changed to h3 */}
+  <p className="text-xs text-slate-400 font-medium">Zero friction from idea to production-ready code.</p>
+</motion.div>
 
                 <motion.div 
                   whileHover={{ y: -5 }}
