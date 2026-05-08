@@ -29,13 +29,13 @@
 
 //   return (
 //     <section className="relative w-full min-h-screen lg:min-h-[90vh] overflow-hidden flex items-center py-16 lg:py-28 bg-white">
-   
+
 //       {mounted && (
 //         <>
 //           {isDesktop ? (
 //             <div className="absolute inset-0 z-0 pointer-events-none">
 //               <BackgroundGrid />
-//               <HeroBackground /> 
+//               <HeroBackground />
 //               <motion.div
 //                 animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
 //                 transition={{ duration: 10, repeat: Infinity }}
@@ -51,7 +51,7 @@
 //       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative z-10 w-full pt-12 lg:pt-0">
 //         {/* ... Rest of your content ... */}
 //         <div className="flex flex-col gap-8 text-center">
-//             {/* Tip: If your buttons are also throwing errors, 
+//             {/* Tip: If your buttons are also throwing errors,
 //                 ensure you aren't putting a <button> inside another <a> or <button>.
 //             */}
 //           <div className="space-y-6 flex flex-col items-center">
@@ -72,7 +72,7 @@
 //           </div>
 
 //           <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal mx-auto">
-//             Uptimise IT combines orchestrated AI agents and elite engineers to build products with 
+//             Uptimise IT combines orchestrated AI agents and elite engineers to build products with
 //             <span className="text-slate-900 font-medium ml-1">mathematical precision</span>.
 //           </p>
 
@@ -112,7 +112,6 @@
 //   );
 // }
 
-
 "use client";
 
 import dynamic from "next/dynamic";
@@ -123,7 +122,10 @@ import { useEffect, useState } from "react";
 import { Bot, Cpu, Box, Zap, Fingerprint } from "lucide-react";
 
 // const HeroBackground = dynamic(() => import("../../components/Hero/HeroBackground"), { ssr: false });
-const BackgroundGrid = dynamic(() => import("../HomePageAminations/BackgroundGrid"), { ssr: false });
+const BackgroundGrid = dynamic(
+  () => import("../HomePageAminations/BackgroundGrid"),
+  { ssr: false },
+);
 
 export default function Hero() {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -159,9 +161,8 @@ export default function Hero() {
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16 relative z-10 w-full pt-20 lg:pt-0">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
           {/* LEFT SIDE: Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -180,26 +181,36 @@ export default function Hero() {
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
                 AI-Native <br />
-            
-
                 <span className="italic text-blue-600">Software Factory.</span>
               </h1>
             </div>
 
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
-              Uptimise IT combines orchestrated AI agents and elite engineers to build products with 
-              <span className="text-slate-900 font-bold ml-1 italic underline decoration-blue-500/30">mathematical precision</span>.
+              Uptimise IT combines orchestrated AI agents and elite engineers to
+              build products with
+              <span className="text-slate-900 font-bold ml-1 italic underline decoration-blue-500/30">
+                mathematical precision
+              </span>
+              .
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <Link href="/contact" className="w-full sm:w-auto">
-                <button aria-label="Start Project" className="w-full cursor-pointer sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-blue-600 transition-all active:scale-95">
-                  Start your project
+                <button
+                  aria-label="Start your project"
+                  className="w-full cursor-pointer sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-blue-600 transition-all group"
+                >
+                  {/* Wrap the text in a span that does the scaling */}
+                  <span className="inline-block transition-transform active:scale-95">
+                    Start your project
+                  </span>
                 </button>
               </Link>
-
               <Link href="/Explore100x" className="w-full sm:w-auto">
-                <button aria-label="Explore" className="w-full sm:w-auto cursor-pointer px-10 py-5 border border-slate-200 text-slate-900 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-slate-50 transition-all">
+                <button
+                  aria-label="Explore 100x Engineering" // More descriptive and matches visual text
+                  className="w-full sm:w-auto cursor-pointer px-10 py-5 border border-slate-200 text-slate-900 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-slate-50 transition-all"
+                >
                   100x Engineering
                 </button>
               </Link>
@@ -207,117 +218,167 @@ export default function Hero() {
           </motion.div>
 
           {/* RIGHT SIDE: Software Factory Animation */}
-        <div className="relative hidden lg:flex items-center justify-center min-h-[600px]">
-  <AnimatePresence>
-    {mounted && (
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="relative w-full h-full flex items-center justify-center"
-      >
-        {/* Animated Connecting Flux Lines (SVG) */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <defs>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="transparent" />
-              <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-          </defs>
-          
-          {/* Orbital Paths */}
-          <circle cx="50%" cy="50%" r="140" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" className="opacity-40" />
-          <circle cx="50%" cy="50%" r="200" fill="none" stroke="#e2e8f0" strokeWidth="1" className="opacity-20" />
+          <div className="relative hidden lg:flex items-center justify-center min-h-[600px]">
+            <AnimatePresence>
+              {mounted && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="relative w-full h-full flex items-center justify-center"
+                >
+                  {/* Animated Connecting Flux Lines (SVG) */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+                    <defs>
+                      <linearGradient
+                        id="lineGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                      >
+                        <stop offset="0%" stopColor="transparent" />
+                        <stop offset="50%" stopColor="#3b82f6" />
+                        <stop offset="100%" stopColor="transparent" />
+                      </linearGradient>
+                    </defs>
 
-          {/* Animated Data Particles on Paths */}
-          {[140, 200].map((radius, i) => (
-            <motion.circle
-              key={i}
-              cx="50%"
-              cy="50%"
-              r={radius}
-              fill="none"
-              stroke="url(#lineGradient)"
-              strokeWidth="2"
-              strokeDasharray="20 180"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8 + i * 2, repeat: Infinity, ease: "linear" }}
-            />
-          ))}
-        </svg>
+                    {/* Orbital Paths */}
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="140"
+                      fill="none"
+                      stroke="#e2e8f0"
+                      strokeWidth="1"
+                      strokeDasharray="4 4"
+                      className="opacity-40"
+                    />
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="200"
+                      fill="none"
+                      stroke="#e2e8f0"
+                      strokeWidth="1"
+                      className="opacity-20"
+                    />
 
-        {/* Central Brain Hub */}
-        <motion.div 
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="relative z-20 group"
-        >
-          {/* Glassmorphism Core */}
-          <div className="relative p-12 bg-white/80 backdrop-blur-2xl border border-slate-200 rounded-[4rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] flex items-center justify-center">
-            
-            {/* Inner "Scanning" Radar Effect */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-4 border-t-2 border-blue-500/30 rounded-[3.5rem] pointer-events-none"
-            />
-            
-            <div className="relative z-10 flex flex-col items-center gap-3">
-              <Bot size={70} className="text-blue-600 drop-shadow-2xl" strokeWidth={1.5} />
-              <span className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Core_AI</span>
-            </div>
+                    {/* Animated Data Particles on Paths */}
+                    {[140, 200].map((radius, i) => (
+                      <motion.circle
+                        key={i}
+                        cx="50%"
+                        cy="50%"
+                        r={radius}
+                        fill="none"
+                        stroke="url(#lineGradient)"
+                        strokeWidth="2"
+                        strokeDasharray="20 180"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 8 + i * 2,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      />
+                    ))}
+                  </svg>
+
+                  {/* Central Brain Hub */}
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="relative z-20 group"
+                  >
+                    {/* Glassmorphism Core */}
+                    <div className="relative p-12 bg-white/80 backdrop-blur-2xl border border-slate-200 rounded-[4rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] flex items-center justify-center">
+                      {/* Inner "Scanning" Radar Effect */}
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        className="absolute inset-4 border-t-2 border-blue-500/30 rounded-[3.5rem] pointer-events-none"
+                      />
+
+                      <div className="relative z-10 flex flex-col items-center gap-3">
+                        <Bot
+                          size={70}
+                          className="text-blue-600 drop-shadow-2xl"
+                          strokeWidth={1.5}
+                        />
+                        <span className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">
+                          Core_AI
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Outer Pulse Rings */}
+                    {[1, 1.2, 1.4].map((s, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ scale: 1, opacity: 0.5 }}
+                        animate={{ scale: s + 0.2, opacity: 0 }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: i * 0.8,
+                        }}
+                        className="absolute inset-0 border border-blue-400/30 rounded-[4rem] -z-10"
+                      />
+                    ))}
+                  </motion.div>
+
+                  {/* Floating Peripheral Systems (Nodes) */}
+                  <FactoryNode
+                    icon={<Cpu size={22} />}
+                    label="Neural_Logic"
+                    sub="Processing"
+                    x={-190}
+                    y={-120}
+                    delay={0}
+                  />
+                  <FactoryNode
+                    icon={<Box size={22} />}
+                    label="SaaS_Factory"
+                    sub="Assembly"
+                    x={210}
+                    y={-40}
+                    delay={0.2}
+                  />
+                  <FactoryNode
+                    icon={<Zap size={22} />}
+                    label="Ultra_Speed"
+                    sub="Velocity"
+                    x={160}
+                    y={160}
+                    delay={0.4}
+                  />
+                  <FactoryNode
+                    icon={<Fingerprint size={22} />}
+                    label="Identity_Auth"
+                    sub="Precision"
+                    x={-180}
+                    y={140}
+                    delay={0.6}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-
-          {/* Outer Pulse Rings */}
-          {[1, 1.2, 1.4].map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ scale: 1, opacity: 0.5 }}
-              animate={{ scale: s + 0.2, opacity: 0 }}
-              transition={{ duration: 3, repeat: Infinity, delay: i * 0.8 }}
-              className="absolute inset-0 border border-blue-400/30 rounded-[4rem] -z-10"
-            />
-          ))}
-        </motion.div>
-
-        {/* Floating Peripheral Systems (Nodes) */}
-        <FactoryNode 
-            icon={<Cpu size={22}/>} 
-            label="Neural_Logic" 
-            sub="Processing" 
-            x={-190} y={-120} 
-            delay={0} 
-        />
-        <FactoryNode 
-            icon={<Box size={22}/>} 
-            label="SaaS_Factory" 
-            sub="Assembly" 
-            x={210} y={-40} 
-            delay={0.2} 
-        />
-        <FactoryNode 
-            icon={<Zap size={22}/>} 
-            label="Ultra_Speed" 
-            sub="Velocity" 
-            x={160} y={160} 
-            delay={0.4} 
-        />
-        <FactoryNode 
-            icon={<Fingerprint size={22}/>} 
-            label="Identity_Auth" 
-            sub="Precision" 
-            x={-180} y={140} 
-            delay={0.6} 
-        />
-      </motion.div>
-    )}
-  </AnimatePresence>
-</div>
         </div>
 
         {/* TRUSTED BY MARQUEE */}
         <motion.div
-          initial={mounted && isDesktop ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+          initial={
+            mounted && isDesktop ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }
+          }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -338,15 +399,34 @@ export default function Hero() {
 }
 
 // Sub-component for Right Side Factory Nodes
-function FactoryNode({ icon, label, sub, x, y, delay }:{ icon: React.ReactNode; label: string; sub: string; x: number; y: number; delay: number }) {
+function FactoryNode({
+  icon,
+  label,
+  sub,
+  x,
+  y,
+  delay,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  sub: string;
+  x: number;
+  y: number;
+  delay: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1, x, y }}
-      transition={{ 
-        delay, 
+      transition={{
+        delay,
         duration: 0.8,
-        y: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+        y: {
+          duration: 3,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        },
       }}
       className="absolute group cursor-default"
     >

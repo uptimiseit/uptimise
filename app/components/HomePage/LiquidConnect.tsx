@@ -88,18 +88,22 @@ const PhilosophySectionDark = () => {
               significantly faster than traditional teams.
             </motion.p>
 
-            <motion.div>
-              <Link href={"/Explore100x"}>
-                <button aria-label="Uptimiseit" className="flex items-center gap-4 text-white group cursor-pointer pt-4 hover:text-blue-400 transition-all duration-300">
-                  <span className="font-bold text-xl uppercase tracking-tighter">
-                    Explore the 100× Workflow
-                  </span>
-                  <div className="p-2 rounded-full border border-slate-700 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                    <MoveRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                  </div>
-                </button>
-              </Link>
-            </motion.div>
+         <motion.div>
+  <Link href={"/Explore100x"}>
+    <button 
+      /* FIX: Match the visible text or remove the label entirely */
+      aria-label="Explore the 100x Workflow" 
+      className="flex items-center gap-4 text-white group cursor-pointer pt-4 hover:text-blue-400 transition-all duration-300"
+    >
+      <span className="font-bold text-xl uppercase tracking-tighter">
+        Explore the 100× Workflow
+      </span>
+      <div className="p-2 rounded-full border border-slate-700 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">
+        <MoveRight className="group-hover:translate-x-1 transition-transform" size={20} />
+      </div>
+    </button>
+  </Link>
+</motion.div>
           </motion.div>
 
           {/* Bento Grid Visual Column */}
