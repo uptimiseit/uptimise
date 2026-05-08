@@ -4,35 +4,7 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Check, X, Zap, Users2, Clock, BarChart3, Workflow } from 'lucide-react';
 
-// --- Animation Variants ---
-// const containerVariants: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.1,
-//       delayChildren: 0.2,
-//     },
-//   },
-// };
 
-// const rowVariants: Variants = {
-//   hidden: { opacity: 0, x: -20 },
-//   visible: { 
-//     opacity: 1, 
-//     x: 0, 
-//     transition: { duration: 0.5, ease: "easeOut" } 
-//   },
-// };
-
-// const fadeInUp: Variants = {
-//   hidden: { opacity: 0, y: 20 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     transition: { duration: 0.6, ease: "easeOut" } 
-//   },
-// };
 
 const CompareSection = () => {
   const comparisonData = [
@@ -73,16 +45,12 @@ const CompareSection = () => {
     }
   ];
 
-  return (
+return (
     <section className="relative bg-white py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
         <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          // variants={fadeInUp}
           className="mb-12 space-y-4 flex items-center flex-col lg:flex-row justify-between text-center lg:text-left"
         >
           <span className="text-blue-600 font-mono tracking-widest text-sm uppercase font-bold">
@@ -90,24 +58,20 @@ const CompareSection = () => {
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
             Why We Are <br />
-            <span className="text-slate-300 italic">Different.</span>
+            <span className="text-slate-400 italic">Different.</span>
           </h2>
         </motion.div>
 
         {/* Comparison Table Container */}
         <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          // variants={containerVariants}
           className="border border-slate-100 rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden bg-white shadow-2xl shadow-slate-100"
         >
           
-          {/* Table Header */}
+          {/* Table Header - Increased opacity/contrast for readability */}
           <div className="grid grid-cols-12 bg-slate-950 p-6 text-white items-center">
-            <div className="col-span-4 text-[10px] font-black uppercase tracking-widest opacity-50 font-mono">Core Metric</div>
-            <div className="col-span-4 text-[10px] font-black uppercase tracking-widest opacity-50 font-mono">Traditional Model</div>
-            <div className="col-span-4 text-[10px] font-black uppercase tracking-widest text-blue-400 font-mono flex items-center gap-2">
+            <div className="col-span-4 text-[11px] font-black uppercase tracking-widest opacity-70 font-mono">Core Metric</div>
+            <div className="col-span-4 text-[11px] font-black uppercase tracking-widest opacity-70 font-mono">Traditional Model</div>
+            <div className="col-span-4 text-[11px] font-black uppercase tracking-widest text-blue-400 font-mono flex items-center gap-2">
                <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                Uptimise Factory
             </div>
@@ -118,7 +82,6 @@ const CompareSection = () => {
             {comparisonData.map((item, i) => (
               <motion.div 
                 key={i} 
-                // variants={rowVariants}
                 className="grid grid-cols-12 p-5 lg:p-8 items-center group hover:bg-blue-50/30 transition-colors duration-300 cursor-default"
               >
                 
@@ -131,17 +94,21 @@ const CompareSection = () => {
                     {item.icon}
                   </motion.div>
                   <div>
-                    <p className="font-bold text-slate-950 text-xl tracking-tight">{item.feature}</p>
-                    <p className="text-[10px] font-mono text-slate-300 font-bold uppercase tracking-widest group-hover:text-blue-400 transition-colors">{item.status}</p>
+                    {/* Changed p to h3 for semantic hierarchy */}
+                    <h3 className="font-bold text-slate-950 text-xl tracking-tight">{item.feature}</h3>
+                    {/* Increased size and contrast for the status label */}
+                    <p className="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-widest group-hover:text-blue-600 transition-colors">
+                      {item.status}
+                    </p>
                   </div>
                 </div>
 
                 {/* Traditional Agency Column */}
                 <div className="col-span-6 lg:col-span-4 flex items-center gap-3 pr-4 lg:pr-8">
-                  <div className="shrink-0 p-1.5 rounded-full bg-red-50 text-red-400">
+                  <div className="shrink-0 p-1.5 rounded-full bg-red-50 text-red-500">
                     <X size={14} strokeWidth={3} />
                   </div>
-                  <p className="text-slate-400 font-body italic text-sm lg:text-base">{item.traditional}</p>
+                  <p className="text-slate-600 font-body italic text-sm lg:text-base">{item.traditional}</p>
                 </div>
 
                 {/* Uptimise Column */}
@@ -166,13 +133,8 @@ const CompareSection = () => {
         </motion.div>
 
         {/* Bottom Note */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-8 flex justify-center"
-        >
-           <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-slate-50 border border-slate-100 text-slate-500 font-body text-sm italic shadow-sm">
+        <motion.div className="mt-8 flex justify-center">
+           <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-slate-50 border border-slate-100 text-slate-600 font-body text-sm italic shadow-sm">
               <Zap size={18} className="text-blue-600 animate-bounce" />
               <span>This model delivers up to <span className="text-slate-950 font-bold not-italic">100x higher ROI</span> compared to traditional agency cycles.</span>
            </div>
@@ -180,6 +142,7 @@ const CompareSection = () => {
       </div>
     </section>
   );
+
 };
 
 export default CompareSection;
