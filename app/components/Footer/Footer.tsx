@@ -101,23 +101,27 @@ const Footer = () => {
             </div>
 
             <div className="flex gap-2">
-              {[
-                { icon: <Linkedin size={16}/>, key: 'in' }, 
-                { icon: <Twitter size={16}/>, key: 'tw' }, 
-                { icon: <Github size={16}/>, key: 'gh' }, 
-                { icon: <Globe size={16}/>, key: 'gl' }
-              ].map((item) => (
-                <motion.div
-                  key={item.key}
-                  whileHover={{ y: -4, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Link href="#" className="w-9 h-9 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition-all">
-                    {item.icon}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+  {[
+    { icon: <Linkedin size={16}/>, key: 'in', label: 'Visit our LinkedIn profile' }, 
+    { icon: <Twitter size={16}/>, key: 'tw', label: 'Follow us on Twitter' }, 
+    { icon: <Github size={16}/>, key: 'gh', label: 'Check out our GitHub' }, 
+    { icon: <Globe size={16}/>, key: 'gl', label: 'Visit our main website' }
+  ].map((item) => (
+    <motion.div
+      key={item.key}
+      whileHover={{ y: -4, scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <Link 
+        href="#" 
+        aria-label={item.label} // ADD THIS LINE
+        className="w-9 h-9 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition-all"
+      >
+        {item.icon}
+      </Link>
+    </motion.div>
+  ))}
+</div>
           </motion.div>
 
           {/* 2. LINKS MATRIX */}
