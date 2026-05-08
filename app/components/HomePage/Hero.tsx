@@ -375,49 +375,55 @@ export default function Hero() {
         </div>
 
         {/* TRUSTED BY MARQUEE */}
-        <motion.div
-          initial={
-            mounted && isDesktop ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }
-          }
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className=" pt-10"
-        >
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            <p className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">
-              Validated Systems
-            </p>
-            <div className="w-full overflow-hidden  opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-              <LogoMarquee />
-            </div>
-          </div>
-        </motion.div>
+       <motion.div
+  initial={mounted && isDesktop ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1, delay: 0.2 }}
+  className="pt-10"
+>
+  <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+    {/* Use h3 for semantic hierarchy instead of p */}
+    <h3 className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">
+      Validated Systems
+    </h3>
+    
+    <div 
+      className="w-full overflow-hidden opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+      /* Added roles for screen readers to identify this moving content */
+      role="region"
+      aria-label="Partner Logos Marquee"
+    >
+      <LogoMarquee />
+    </div>
+  </div>
+</motion.div>
       </div>
     </section>
   );
 }
 
-// Sub-component for Right Side Factory Nodes
-function FactoryNode({
-  icon,
-  label,
-  sub,
-  x,
-  y,
-  delay,
-}: {
+
+
+interface FactoryNodeProps {
   icon: React.ReactNode;
   label: string;
   sub: string;
   x: number;
   y: number;
   delay: number;
-}) {
+}
+
+function FactoryNode({ icon, label, sub, x, y, delay }: FactoryNodeProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1, x, y }}
+      animate={{ 
+        opacity: 1, 
+        scale: 1, 
+        x, 
+        y 
+      }}
       transition={{
         delay,
         duration: 0.8,
@@ -428,6 +434,8 @@ function FactoryNode({
           ease: "easeInOut",
         },
       }}
+      /* Accessibility: Hide from screen readers as this is decorative animation */
+      aria-hidden="true"
       className="absolute group cursor-default"
     >
       <div className="bg-white/90 backdrop-blur-xl border border-slate-200 p-5 rounded-[2rem] shadow-xl flex items-center gap-4 group-hover:border-blue-500 transition-all duration-500">
@@ -435,10 +443,12 @@ function FactoryNode({
           {icon}
         </div>
         <div className="flex flex-col pr-2">
-          <span className="text-[10px] font-black uppercase tracking-widest text-slate-900 leading-none mb-1">
+          {/* Increased to 12px for better readability/accessibility */}
+          <span className="text-[12px] font-black uppercase tracking-widest text-slate-900 leading-none mb-1">
             {label}
           </span>
-          <span className="text-[8px] font-bold uppercase tracking-widest text-blue-500/60 leading-none">
+          {/* Increased to 10px to pass automated audit checks */}
+          <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500/60 leading-none">
             {sub}
           </span>
         </div>
