@@ -320,6 +320,7 @@ const serviceGroups = [
 
 
 export default function ServiceEcosystem() {
+  const MotionLink = motion.create(Link);
   return (
     <section className="relative bg-white py-24 px-6 overflow-hidden">
       {/* Background Engineering Pattern */}
@@ -435,24 +436,23 @@ export default function ServiceEcosystem() {
               </div>
             </div>
 
-            <div className="relative z-10 shrink-0 w-full md:w-auto">
-              <Link href="/contact">
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="relative w-full md:w-auto px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white cursor-pointer  hover:text-slate-950 transition-all duration-500 shadow-xl group/btn overflow-hidden"
-              >
-
-                
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite] transition-transform duration-1000" />
-                
-                <span className="relative flex items-center justify-center gap-3">
-                  Consult Our Lead Engineers
-                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                </span>
-              </motion.button>
-              </Link>
-            </div>
+         <div className="relative z-10 shrink-0 w-full md:w-auto">
+  <MotionLink 
+    href="/contact"
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    className="relative block w-full md:w-auto px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white cursor-pointer hover:text-slate-950 transition-all duration-500 shadow-xl group/btn overflow-hidden text-center"
+  >
+    {/* Shimmer Effect overlay */}
+    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite] transition-transform duration-1000" />
+    
+    {/* Button Text Content */}
+    <span className="relative flex items-center justify-center gap-3">
+      Consult Our Lead Engineers
+      <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+    </span>
+  </MotionLink>
+</div>
           </motion.div>
         </Link>
       </div>
