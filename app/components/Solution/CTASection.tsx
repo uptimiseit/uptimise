@@ -1,95 +1,145 @@
-"use client";
+// components/CTASection.tsx
+'use client';
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { HiOutlineArrowRight, HiOutlineCommandLine } from "react-icons/hi2";
+import React, { useState, useRef, MouseEvent } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, ShieldCheck, Zap, Activity } from 'lucide-react';
+import Link from 'next/link';
 
-export default function CTASection({ data }: { data: any }) {
+interface CTASectionProps {
+  data: {
+    heading: string;
+    accentText?: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+    glowColor: string; // e.g., "#4caf50" or "#10b981"
+  };
+}
+
+export default function CTASection({ data }: CTASectionProps) {
+  if (!data) return null;
+
+  const primaryGlow = data.glowColor || '#557c55';
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const { left, top } = cardRef.current.getBoundingClientRect();
+    setCoords({ x: e.clientX - left, y: e.clientY - top });
+  };
+
   return (
-    <section className="relative py-40 px-6 bg-white overflow-hidden border-t border-slate-50">
+    <section className="relative w-full py-32 px-4 md:px-8 bg-white overflow-hidden text-slate-900">
       
-      {/* --- BACKGROUND ORCHESTRATION --- */}
-      {/* Subtle Technical Grid */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: `radial-gradient(#000 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
-      
-      {/* Dynamic Aura Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Visual Accent Layer Mesh Background */}
+      <div className="absolute inset-0 opacity-[0.012] pointer-events-none bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+      <div 
+        className="absolute top-1/2 right-0 w-[550px] h-[550px] blur-[140px] rounded-full -z-10 pointer-events-none opacity-20 transition-all duration-700" 
+        style={{ backgroundColor: primaryGlow }}
+      />
 
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         
-        {/* Top Status Indicator */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-center gap-3 mb-12"
-        >
-          <div className="flex items-center gap-2 px-4 py-1.5 bg-slate-50 border border-slate-100 rounded-full">
-            <HiOutlineCommandLine className="text-blue-600 animate-pulse" size={14} />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
-              System_Ready_For_Deployment
+        {/* ==========================================
+            LEFT COLUMN: TYPOGRAPHY COPY & ACCENT CTAS
+           ========================================== */}
+        <div className="w-full lg:col-span-6 space-y-8 text-left">
+          
+          {/* Micro Pill Badge Indicator */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 shadow-2xs">
+            <Zap size={12} style={{ color: primaryGlow }} className="animate-pulse" />
+            <span className="text-[10px] font-mono font-black tracking-widest text-slate-400 uppercase">
+              Velocity_Optimization
             </span>
           </div>
-        </motion.div>
 
-        {/* Cinematic Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <h2 className="text-6xl md:text-[10rem] font-black uppercase tracking-tighter text-slate-900 leading-[0.8] mb-10">
-            {data.heading} <br />
-            <span className="text-blue-600 italic font-serif lowercase tracking-normal">
-              {data.accent}
-            </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.1]">
+            {data.heading}{' '}
+            {data.accentText && (
+              <span 
+                className="block lg:inline transition-colors duration-500 bg-clip-text text-transparent bg-gradient-to-r"
+                style={{ 
+                  backgroundImage: `linear-gradient(to right, ${primaryGlow}, #2e7d32)`,
+                  color: primaryGlow // Fallback
+                }}
+              >
+                {data.accentText}
+              </span>
+            )}
           </h2>
-        </motion.div>
 
-        {/* Professional Description */}
-        <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-lg md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed mb-16"
-        >
-          {data.description || "// Initiate the architecture sequence. Our engineering squad is ready to scale your vision into a market-dominant reality."}
-        </motion.p>
+          <p className="text-sm md:text-base text-slate-500 leading-relaxed font-semibold max-w-xl">
+            {data.description || "We utilize proprietary AI agent workflows to automate boilerplate code and infrastructure, cutting time-to-market nearly in half."}
+          </p>
 
-        {/* High-Contrast Action Terminal */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-col items-center gap-8"
-        >
-          <Link 
-            href="/contact" 
-            className="group relative px-16 py-8 bg-slate-950 text-white rounded-[2rem] font-black uppercase text-xs tracking-[0.4em] overflow-hidden transition-all hover:bg-blue-600 hover:scale-105 active:scale-95 shadow-2xl shadow-blue-200"
-          >
-            {/* Animated Inner Shine */}
-            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-            
-            <span className="relative z-10 flex items-center gap-4">
-              Initialize_Project_Sequence <HiOutlineArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-            </span>
-          </Link>
-
-          {/* Secondary Trust String */}
-          <div className="flex items-center gap-8 text-[10px] font-black text-slate-300 uppercase tracking-[0.3em]">
-            <span>Average_Response: &lt; 4hrs</span>
-            <div className="w-1 h-1 bg-slate-200 rounded-full" />
-            <span>Slots_Available: 02</span>
+          {/* Core Custom Action Pill Trigger */}
+          <div className="pt-4">
+            <Link href={data.buttonHref || '#'} className="inline-flex items-center group">
+              <div 
+                className="h-14 px-8 rounded-l-full flex items-center justify-center text-sm font-black text-white transition-all duration-300 group-hover:brightness-95 shadow-lg shadow-slate-200"
+                style={{ backgroundColor: primaryGlow }}
+              >
+                {data.buttonText || "Get a Consultation"}
+              </div>
+              <div className="h-14 w-14 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center -ml-1 relative z-20 group-hover:scale-105 group-hover:border-slate-300 transition-all duration-300">
+                <ArrowUpRight size={18} style={{ color: primaryGlow }} className="transition-transform duration-300 group-hover:rotate-45" />
+              </div>
+            </Link>
           </div>
-        </motion.div>
+        </div>
 
-      </div>
+        {/* ==========================================
+            RIGHT COLUMN: PREVIEW WORKSPACE INTERFACE
+           ========================================== */}
+        <div className="w-full lg:col-span-6">
+          <div 
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            className="group relative w-full rounded-[2.5rem] border border-slate-200/80 bg-slate-50/50 p-8 md:p-10 overflow-hidden shadow-xs min-h-[340px] flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:bg-white"
+          >
+            {/* Soft Interactive Background Spotlight Effect */}
+            <div 
+              className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background: `radial-gradient(400px circle at ${coords.x}px ${coords.y}px, ${primaryGlow}08, transparent 80%)`
+              }}
+            />
 
-      {/* Decorative Side Strings */}
-      <div className="absolute bottom-10 left-10 hidden lg:block">
-        <span className="text-[10px] font-mono text-slate-200 uppercase vertical-text tracking-[1em] opacity-50">
-          ARCHITECTURE_STABILITY_PROTOCOL
-        </span>
+            {/* Embedded Interactive Code Terminal / Data Metrics Panel */}
+            <div className="space-y-6 relative z-10">
+              <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                </div>
+                <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <Activity size={12} className="text-emerald-500 animate-pulse" /> environment_ready
+                </div>
+              </div>
+
+              {/* Fake Code / Operations Log Track */}
+              <div className="font-mono text-xs text-slate-400 space-y-2 text-left">
+                <p className="text-slate-600 font-bold">// Orchestrated Agents Deployment Track</p>
+                <p><span className="text-slate-400">⚡ initializing</span> pipeline_sync.sh ... <span className="text-emerald-600 font-bold">DONE</span></p>
+                <p><span className="text-slate-400">⚡ compiling</span> system architecture schema ... <span className="text-emerald-600 font-bold">100%</span></p>
+                <p className="text-slate-800 font-bold">🚀 velocity multiplier target attained: <span className="px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-600 font-black">40% FASTER</span></p>
+              </div>
+            </div>
+
+            {/* Dynamic Footnote Validation Row */}
+            <div className="pt-6 border-t border-slate-200/60 flex items-center justify-between text-[10px] font-mono tracking-widest text-slate-400 uppercase font-black relative z-10">
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck size={14} className="text-emerald-500" /> SLA_Verified
+              </div>
+              <span>Build_Ref: #0040_AI</span>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );

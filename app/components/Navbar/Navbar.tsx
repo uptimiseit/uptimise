@@ -1,3 +1,273 @@
+
+
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+// import { DynamicIcon } from "./DynamicIcon";
+
+// Individual Lucide imports for desktop/mobile UI elements
+import { 
+  ChevronDown, Download, Bot, Zap, Layout, 
+  Cpu, Globe, Rocket, Terminal, HeartPulse, ShoppingBag, Landmark,
+  Database, BarChart3, Users, Info, Mail, ChevronRight, TrendingUp,
+  Server, MinusSquare, Cloud, GraduationCap, Hexagon, Building, Menu, X 
+} from "lucide-react";
+import { DynamicIcon } from "./DynamicIcon";
+
+const initialMenuData = {
+  Solutions: [], // Hydrated via API
+  // Solutions: [
+  //   { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/s/mvp-development" },
+  //   { title: "SaaS Platform Development", desc: "Secure, scalable multi-tenant architectures.", icon: <Cloud className="text-blue-500" />, href: "/solutions/s/saas-development" },
+  //   { title: "AI Product Development", desc: "Generative AI and agentic systems.", icon: <Zap className="text-purple-600" />, href: "/solutions/s/ai-products" },
+  //   { title: "Digital Platform Development", desc: "High-performance digital ecosystems.", icon: <Globe className="text-emerald-500" />, href: "/solutions/s/digital-platforms" },
+  //   { title: "Enterprise Modernization", desc: "Upgrading legacy systems for scale.", icon: <Server className="text-slate-600" />, href: "/solutions/s/enterprise-modernization" },
+  //   { title: "Workflow Automation", desc: "Streamlining complex business operations.", icon: <Terminal className="text-cyan-600" />, href: "/solutions/s/workflow-automation" },
+  //   { title: "Cloud & Migration", desc: "Zero-trust automated cloud deployments.", icon: <Database className="text-indigo-500" />, href: "/solutions/s/cloud-infrastructure" },
+  //   { title: "Product Scaling", desc: "Performance tuning for high-growth.", icon: <TrendingUp className="text-green-600" />, href: "/solutions/s/product-scaling" },
+  //   { title: "AI Software Factory", desc: "Our core AI-native delivery engine.", icon: <Bot className="text-blue-600" />, href: "/solutions/s/ai-factory" },
+  //   { title: "Design & UX", desc: "High-fidelity, user-centric interfaces.", icon: <Layout className="text-pink-500" />, href: "/solutions/s/product-design" },
+  //   { title: "Digital Growth", desc: "Data-driven marketing and scaling.", icon: <BarChart3 className="text-orange-600" />, href: "/solutions/s/digital-growth" },
+  //   { title: "AI Business Automation", desc: "Intelligent operations and task automation.", icon: <Cpu className="text-purple-500" />, href: "/solutions/s/ai-business-automation" },
+  // ],
+
+  Industries: [
+    { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
+    { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
+    { title: "E-commerce Platform Development", desc: "High-conversion digital retail engines.", icon: <ShoppingBag className="text-emerald-600" />, href: "/industries/ecommerce" },
+    { title: "SaaS Development", desc: "Scalable multi-tenant subscription platforms.", icon: <Cloud className="text-sky-500" />, href: "/industries/saas" },
+    { title: "EdTech Platform Development", desc: "Interactive, high-load learning systems.", icon: <GraduationCap className="text-indigo-500" />, href: "/industries/edtech" },
+    { title: "AI Startup Development", desc: "Rapid MVPs and generative AI products.", icon: <Bot className="text-purple-600" />, href: "/industries/ai-startup" },
+    { title: "Blockchain / Web3 Platforms", desc: "Smart contracts and decentralized apps.", icon: <Hexagon className="text-orange-500" />, href: "/industries/blockchain" },
+    { title: "Enterprise Software Systems", desc: "Secure portals and legacy modernization.", icon: <Building className="text-slate-600" />, href: "/industries/enterprise" },
+  ],
+  Services: [
+    { title: "Design", desc: "High-fidelity UX systems.", icon: <Layout className="text-blue-600" />, href: "/services/design" },
+    { title: "Technology", desc: "AI-native engineering.", icon: <Cpu className="text-purple-600" />, href: "/services/technology" },
+    { title: "Marketing", desc: "Data-driven growth systems.", icon: <BarChart3 className="text-emerald-600" />, href: "/services/marketing" },
+    { title: "Server", desc: "Zero-trust cloud deployments.", icon: <Server className="text-orange-600" />, href: "/services/server" },
+  ],
+  Insights: [], // Hydrated via API
+  Company: [
+    { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/about" },
+    { title: "Our Vision", desc: "Where we are taking engineering.", icon: <MinusSquare className="text-yellow-600" />, href: "/vision" },
+    { title: "Our Mission", desc: "Where we are taking engineering.", icon: <Globe className="text-emerald-600" />, href: "/mission" },
+    { title: "Careers", desc: "Join our elite engineering squad.", icon: <Users className="text-orange-600" />, href: "/career" },
+    { title: "Contact", desc: "Talk to our technical architects.", icon: <Mail className="text-purple-600" />, href: "/contact" },
+  ],
+};
+
+const MegaNavbar = () => {
+  const [menuData, setMenuData] = useState(initialMenuData);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpandedMenu, setMobileExpandedMenu] = useState<string | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchNavigationData = async () => {
+      try {
+        const [solRes, insRes] = await Promise.all([
+          fetch("https://admin.uptimiseit.com/api/solutions/menu", { cache: 'no-store' }),
+          fetch("https://uptimiseit-admin.vercel.app/api/categories", { cache: 'no-store' })
+        ]);
+
+        const solResult = await solRes.json();
+        const insResult = await insRes.json();
+
+        if (isMounted) {
+          const dynamicSolutions = solResult.success ? solResult.data.map((sol: any) => ({
+            title: sol.title,
+            desc: sol.description,
+            icon: <DynamicIcon name={sol.icon}  />,
+            href: `/solutions/${sol.slug}`,
+          })) : [];
+
+          const dynamicInsights = insResult.success ? insResult.data.map((cat: any) => ({
+            title: cat.name,
+            desc: cat.description || `Explore our latest ${cat.name} articles.`,
+            icon: <DynamicIcon name={cat.icon} className="text-blue-600" />,
+            href: `/blog/${cat.slug}`,
+          })) : [];
+
+          setMenuData(prev => ({ 
+            ...prev, 
+            Solutions: dynamicSolutions, 
+            Insights: dynamicInsights 
+          }));
+        }
+      } catch (error) {
+        console.error("Navigation Sync Failed:", error);
+      }
+    };
+    fetchNavigationData();
+    return () => { isMounted = false; };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
+  }, [isMobileMenuOpen]);
+
+  const currentMenuItems = activeMenu ? menuData[activeMenu as keyof typeof menuData] : [];
+  const isLargeMenu = currentMenuItems.length > 6;
+
+  return (
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-white border-b border-slate-100 selection:bg-blue-100" onMouseLeave={() => setActiveMenu(null)}>
+      <div className="max-w-[1440px] mx-auto h-[80px] px-6 lg:px-8 flex items-center justify-between bg-white relative z-50">
+        
+        {/* Logo */}
+        <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
+          <Image src="/logo.png" alt="Uptimise IT" width={150} height={45} priority />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-2 h-full">
+          {Object.keys(menuData).map((menu) => (
+            <div key={menu} className="h-full flex items-center" onMouseEnter={() => setActiveMenu(menu)}>
+              <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'}`}>
+                {menu}
+                <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+          ))}
+          <Link href="/why-uptimiseit" className="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all" onMouseEnter={() => setActiveMenu(null)}>
+            Why Uptimise
+          </Link>
+        </div>
+
+        {/* Desktop Actions */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Link href="/booking">
+            <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-xl shadow-blue-100">
+              Book Strategy Call
+            </button>
+          </Link>
+          <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
+            <Download size={18} className="group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <div className="lg:hidden">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-600">
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mega Dropdown */}
+      <AnimatePresence>
+        {activeMenu && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            className="absolute top-[80px] left-0 w-full bg-white border-b border-slate-100 shadow-2xl py-10 px-8 z-40 overflow-hidden"
+          >
+            <div className="max-w-7xl mx-auto flex gap-12">
+              <div className="w-[260px] shrink-0 bg-[#020617] rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden">
+                <div className="absolute bottom-10 -right-10 opacity-5"><Zap size={240} className="text-white" /></div>
+                <h3 className="text-4xl font-black text-white leading-tight relative z-10 uppercase tracking-tighter italic">Ready_to<br /> Engineer?</h3>
+                <Link href="/contact" className="relative z-10 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white hover:text-blue-400">
+                  Initialize_Contact <ChevronRight size={18} />
+                </Link>
+              </div>
+
+              <div className={`flex-grow grid ${isLargeMenu ? "grid-cols-3 gap-4" : "grid-cols-2 gap-8"} py-4`}>
+           {currentMenuItems.map((item: any, idx: number) => (
+  <Link 
+    key={idx} 
+    href={item.href} 
+    className="flex items-start gap-4 p-5 rounded-3xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100"
+  >
+    {/* THE ICON BOX: This creates the look from your screenshot */}
+    <div className="shrink-0 w-14 h-14 bg-white border border-slate-100 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300">
+      {item.icon}
+    </div>
+
+    <div className="flex flex-col gap-1">
+      <h4 className="font-black text-slate-900 uppercase text-[12px] tracking-tight group-hover:text-blue-600 transition-colors">
+        {item.title}
+      </h4>
+      <p className="text-slate-400 text-[10px] line-clamp-2 leading-relaxed font-medium uppercase tracking-wide opacity-70">
+        {item.desc}
+      </p>
+    </div>
+  </Link>
+))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "calc(100vh - 80px)" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden fixed top-[80px] left-0 w-full bg-white z-40 overflow-y-auto border-t border-slate-100"
+          >
+            <div className="flex flex-col p-6 pb-24 gap-2">
+              {Object.keys(menuData).map((menu) => (
+                <div key={menu} className="border-b border-slate-100">
+                  <button onClick={() => setMobileExpandedMenu(mobileExpandedMenu === menu ? null : menu)} className="w-full flex items-center justify-between py-5">
+                    <span className={`text-lg font-black uppercase tracking-tight ${mobileExpandedMenu === menu ? 'text-blue-600' : 'text-slate-800'}`}>{menu}</span>
+                    <ChevronDown size={20} className={`transition-transform ${mobileExpandedMenu === menu ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileExpandedMenu === menu && (
+                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
+                        <div className="flex flex-col gap-3 pb-8 pl-4 border-l-2 border-slate-100 ml-2">
+                          {menuData[menu as keyof typeof menuData].map((item: any, idx: number) => (
+                            <Link key={idx} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50">
+                              <div className="shrink-0">{item.icon}</div>
+                              <div>
+                                <h4 className="text-xs font-black text-slate-800 uppercase tracking-tight">{item.title}</h4>
+                                <p className="text-[10px] text-slate-500 line-clamp-1 uppercase tracking-wide">{item.desc}</p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+              <Link href="/why-uptimiseit" onClick={() => setIsMobileMenuOpen(false)} className="py-5 border-b border-slate-100 text-lg font-black uppercase tracking-tight text-slate-800">
+                Why_Uptimise
+              </Link>
+              <div className="flex flex-col gap-4 mt-10">
+                <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
+                  <button className="w-full py-5 bg-slate-950 text-white rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl">Book_Strategy_Call</button>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+export default MegaNavbar;
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 // "use client";
 
 // import React, { useState, useEffect } from "react";
@@ -573,260 +843,3 @@
 // };
 
 // export default MegaNavbar;
-
-
-"use client";
-
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { DynamicIcon } from "./DynamicIcon";
-
-// Individual Lucide imports for desktop/mobile UI elements
-import { 
-  ChevronDown, Download, Bot, Zap, Layout, 
-  Cpu, Globe, Rocket, Terminal, HeartPulse, ShoppingBag, Landmark,
-  Database, BarChart3, Users, Info, Mail, ChevronRight, TrendingUp,
-  Server, MinusSquare, Cloud, GraduationCap, Hexagon, Building, Menu, X 
-} from "lucide-react";
-
-const initialMenuData = {
-  // Solutions: [], // Hydrated via API
-  Solutions: [
-    { title: "MVP Development", desc: "Rapid prototyping and market validation.", icon: <Rocket className="text-orange-500" />, href: "/solutions/s/mvp-development" },
-    { title: "SaaS Platform Development", desc: "Secure, scalable multi-tenant architectures.", icon: <Cloud className="text-blue-500" />, href: "/solutions/s/saas-development" },
-    { title: "AI Product Development", desc: "Generative AI and agentic systems.", icon: <Zap className="text-purple-600" />, href: "/solutions/s/ai-products" },
-    { title: "Digital Platform Development", desc: "High-performance digital ecosystems.", icon: <Globe className="text-emerald-500" />, href: "/solutions/s/digital-platforms" },
-    { title: "Enterprise Modernization", desc: "Upgrading legacy systems for scale.", icon: <Server className="text-slate-600" />, href: "/solutions/s/enterprise-modernization" },
-    { title: "Workflow Automation", desc: "Streamlining complex business operations.", icon: <Terminal className="text-cyan-600" />, href: "/solutions/s/workflow-automation" },
-    { title: "Cloud & Migration", desc: "Zero-trust automated cloud deployments.", icon: <Database className="text-indigo-500" />, href: "/solutions/s/cloud-infrastructure" },
-    { title: "Product Scaling", desc: "Performance tuning for high-growth.", icon: <TrendingUp className="text-green-600" />, href: "/solutions/s/product-scaling" },
-    { title: "AI Software Factory", desc: "Our core AI-native delivery engine.", icon: <Bot className="text-blue-600" />, href: "/solutions/s/ai-factory" },
-    { title: "Design & UX", desc: "High-fidelity, user-centric interfaces.", icon: <Layout className="text-pink-500" />, href: "/solutions/s/product-design" },
-    { title: "Digital Growth", desc: "Data-driven marketing and scaling.", icon: <BarChart3 className="text-orange-600" />, href: "/solutions/s/digital-growth" },
-    { title: "AI Business Automation", desc: "Intelligent operations and task automation.", icon: <Cpu className="text-purple-500" />, href: "/solutions/s/ai-business-automation" },
-  ],
-
-  Industries: [
-    { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: <Landmark className="text-blue-600" />, href: "/industries/fintech" },
-    { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: <HeartPulse className="text-red-600" />, href: "/industries/healthcare" },
-    { title: "E-commerce Platform Development", desc: "High-conversion digital retail engines.", icon: <ShoppingBag className="text-emerald-600" />, href: "/industries/ecommerce" },
-    { title: "SaaS Development", desc: "Scalable multi-tenant subscription platforms.", icon: <Cloud className="text-sky-500" />, href: "/industries/saas" },
-    { title: "EdTech Platform Development", desc: "Interactive, high-load learning systems.", icon: <GraduationCap className="text-indigo-500" />, href: "/industries/edtech" },
-    { title: "AI Startup Development", desc: "Rapid MVPs and generative AI products.", icon: <Bot className="text-purple-600" />, href: "/industries/ai-startup" },
-    { title: "Blockchain / Web3 Platforms", desc: "Smart contracts and decentralized apps.", icon: <Hexagon className="text-orange-500" />, href: "/industries/blockchain" },
-    { title: "Enterprise Software Systems", desc: "Secure portals and legacy modernization.", icon: <Building className="text-slate-600" />, href: "/industries/enterprise" },
-  ],
-  Services: [
-    { title: "Design", desc: "High-fidelity UX systems.", icon: <Layout className="text-blue-600" />, href: "/services/design" },
-    { title: "Technology", desc: "AI-native engineering.", icon: <Cpu className="text-purple-600" />, href: "/services/technology" },
-    { title: "Marketing", desc: "Data-driven growth systems.", icon: <BarChart3 className="text-emerald-600" />, href: "/services/marketing" },
-    { title: "Server", desc: "Zero-trust cloud deployments.", icon: <Server className="text-orange-600" />, href: "/services/server" },
-  ],
-  Insights: [], // Hydrated via API
-  Company: [
-    { title: "About Us", desc: "Our mission and our history.", icon: <Info className="text-blue-600" />, href: "/about" },
-    { title: "Our Vision", desc: "Where we are taking engineering.", icon: <MinusSquare className="text-yellow-600" />, href: "/vision" },
-    { title: "Our Mission", desc: "Where we are taking engineering.", icon: <Globe className="text-emerald-600" />, href: "/mission" },
-    { title: "Careers", desc: "Join our elite engineering squad.", icon: <Users className="text-orange-600" />, href: "/career" },
-    { title: "Contact", desc: "Talk to our technical architects.", icon: <Mail className="text-purple-600" />, href: "/contact" },
-  ],
-};
-
-const MegaNavbar = () => {
-  const [menuData, setMenuData] = useState(initialMenuData);
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileExpandedMenu, setMobileExpandedMenu] = useState<string | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    const fetchNavigationData = async () => {
-      try {
-        const [solRes, insRes] = await Promise.all([
-          fetch("https://admin.uptimiseit.com/api/solutions/menu", { cache: 'no-store' }),
-          fetch("https://uptimiseit-admin.vercel.app/api/categories", { cache: 'no-store' })
-        ]);
-
-        const solResult = await solRes.json();
-        const insResult = await insRes.json();
-
-        if (isMounted) {
-          const dynamicSolutions = solResult.success ? solResult.data.map((sol: any) => ({
-            title: sol.title,
-            desc: sol.description,
-            icon: <DynamicIcon name={sol.icon} className="text-blue-600" />,
-            href: `/solutions/${sol.slug}`,
-          })) : [];
-
-          const dynamicInsights = insResult.success ? insResult.data.map((cat: any) => ({
-            title: cat.name,
-            desc: cat.description || `Explore our latest ${cat.name} articles.`,
-            icon: <DynamicIcon name={cat.icon} className="text-blue-600" />,
-            href: `/blog/${cat.slug}`,
-          })) : [];
-
-          setMenuData(prev => ({ 
-            ...prev, 
-            // Solutions: dynamicSolutions, 
-            Insights: dynamicInsights 
-          }));
-        }
-      } catch (error) {
-        console.error("Navigation Sync Failed:", error);
-      }
-    };
-    fetchNavigationData();
-    return () => { isMounted = false; };
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
-  }, [isMobileMenuOpen]);
-
-  const currentMenuItems = activeMenu ? menuData[activeMenu as keyof typeof menuData] : [];
-  const isLargeMenu = currentMenuItems.length > 6;
-
-  return (
-    <nav className="fixed top-0 left-0 w-full z-[100] bg-white border-b border-slate-100 selection:bg-blue-100" onMouseLeave={() => setActiveMenu(null)}>
-      <div className="max-w-[1440px] mx-auto h-[80px] px-6 lg:px-8 flex items-center justify-between bg-white relative z-50">
-        
-        {/* Logo */}
-        <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
-          <Image src="/logo.png" alt="Uptimise IT" width={150} height={45} priority />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-2 h-full">
-          {Object.keys(menuData).map((menu) => (
-            <div key={menu} className="h-full flex items-center" onMouseEnter={() => setActiveMenu(menu)}>
-              <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeMenu === menu ? 'text-blue-600 bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'}`}>
-                {menu}
-                <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === menu ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-          ))}
-          <Link href="/why-uptimiseit" className="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all" onMouseEnter={() => setActiveMenu(null)}>
-            Why Uptimise
-          </Link>
-        </div>
-
-        {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center gap-3">
-          <Link href="/booking">
-            <button className="px-6 py-2.5 bg-slate-950 text-white rounded-full text-[13px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-xl shadow-blue-100">
-              Book Strategy Call
-            </button>
-          </Link>
-          <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
-            <Download size={18} className="group-hover:scale-110 transition-transform" />
-          </button>
-        </div>
-
-        {/* Mobile Toggle */}
-        <div className="lg:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-600">
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mega Dropdown */}
-      <AnimatePresence>
-        {activeMenu && (
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            className="absolute top-[80px] left-0 w-full bg-white border-b border-slate-100 shadow-2xl py-10 px-8 z-40 overflow-hidden"
-          >
-            <div className="max-w-7xl mx-auto flex gap-12">
-              <div className="w-[260px] shrink-0 bg-[#020617] rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden">
-                <div className="absolute bottom-10 -right-10 opacity-5"><Zap size={240} className="text-white" /></div>
-                <h3 className="text-4xl font-black text-white leading-tight relative z-10 uppercase tracking-tighter italic">Ready_to<br /> Engineer?</h3>
-                <Link href="/contact" className="relative z-10 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white hover:text-blue-400">
-                  Initialize_Contact <ChevronRight size={18} />
-                </Link>
-              </div>
-
-              <div className={`flex-grow grid ${isLargeMenu ? "grid-cols-3 gap-4" : "grid-cols-2 gap-8"} py-4`}>
-           {currentMenuItems.map((item: any, idx: number) => (
-  <Link 
-    key={idx} 
-    href={item.href} 
-    className="flex items-start gap-4 p-5 rounded-3xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100"
-  >
-    {/* THE ICON BOX: This creates the look from your screenshot */}
-    <div className="shrink-0 w-14 h-14 bg-white border border-slate-100 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300">
-      {item.icon}
-    </div>
-
-    <div className="flex flex-col gap-1">
-      <h4 className="font-black text-slate-900 uppercase text-[12px] tracking-tight group-hover:text-blue-600 transition-colors">
-        {item.title}
-      </h4>
-      <p className="text-slate-400 text-[10px] line-clamp-2 leading-relaxed font-medium uppercase tracking-wide opacity-70">
-        {item.desc}
-      </p>
-    </div>
-  </Link>
-))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "calc(100vh - 80px)" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden fixed top-[80px] left-0 w-full bg-white z-40 overflow-y-auto border-t border-slate-100"
-          >
-            <div className="flex flex-col p-6 pb-24 gap-2">
-              {Object.keys(menuData).map((menu) => (
-                <div key={menu} className="border-b border-slate-100">
-                  <button onClick={() => setMobileExpandedMenu(mobileExpandedMenu === menu ? null : menu)} className="w-full flex items-center justify-between py-5">
-                    <span className={`text-lg font-black uppercase tracking-tight ${mobileExpandedMenu === menu ? 'text-blue-600' : 'text-slate-800'}`}>{menu}</span>
-                    <ChevronDown size={20} className={`transition-transform ${mobileExpandedMenu === menu ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
-                  </button>
-                  <AnimatePresence>
-                    {mobileExpandedMenu === menu && (
-                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
-                        <div className="flex flex-col gap-3 pb-8 pl-4 border-l-2 border-slate-100 ml-2">
-                          {menuData[menu as keyof typeof menuData].map((item: any, idx: number) => (
-                            <Link key={idx} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50">
-                              <div className="shrink-0">{item.icon}</div>
-                              <div>
-                                <h4 className="text-xs font-black text-slate-800 uppercase tracking-tight">{item.title}</h4>
-                                <p className="text-[10px] text-slate-500 line-clamp-1 uppercase tracking-wide">{item.desc}</p>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-              <Link href="/why-uptimiseit" onClick={() => setIsMobileMenuOpen(false)} className="py-5 border-b border-slate-100 text-lg font-black uppercase tracking-tight text-slate-800">
-                Why_Uptimise
-              </Link>
-              <div className="flex flex-col gap-4 mt-10">
-                <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
-                  <button className="w-full py-5 bg-slate-950 text-white rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl">Book_Strategy_Call</button>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
-
-export default MegaNavbar;

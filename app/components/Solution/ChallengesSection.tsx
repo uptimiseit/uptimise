@@ -1,83 +1,160 @@
-"use client";
+// components/ChallengesSection.tsx
+'use client';
 
-import { motion } from "framer-motion";
-import { DynamicIcon } from "../Navbar/DynamicIcon";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  ShieldAlert, Layers, Flame, Gauge, 
+  HelpCircle, AlertTriangle, Radio
+} from 'lucide-react';
 
-export default function ChallengesSection({ data }: { data: any[] }) {
+interface ChallengeItem {
+  title: string;
+  desc: string;
+  icon: string;
+}
+
+interface ChallengesSectionProps {
+  data: {
+    heading: string;
+    description: string;
+    items: ChallengeItem[];
+  } | ChallengeItem[]; // Union fallback ensures legacy data won't crash the build
+}
+
+// Map database string keys to Lucide React Icon Components
+const IconRegistry: Record<string, any> = {
+  Shield: ShieldAlert,
+  Layers: Layers,
+  Flame: Flame,
+  Gauge: Gauge,
+  Alert: AlertTriangle,
+  Radio: Radio,
+};
+
+export default function ChallengesSection({ data }: ChallengesSectionProps) {
+  // 1. Safe validation check to ensure the page doesn't crash if uninitialized
+  if (!data) return null;
+
+  // 2. DEFENSIVE PARSING BLOCK: Normalizes old array structures vs new object matrices
+  const challengeItems = Array.isArray(data) 
+    ? data 
+    : (data.items && Array.isArray(data.items)) 
+      ? data.items 
+      : [];
+
+  // Exit gracefully instead of crashing if no matrix nodes exist
+  if (challengeItems.length === 0) return null;
+
+  // 3. Fallback Header configurations
+  const sectionHeading = Array.isArray(data) 
+    ? "The Hidden Bottlenecks Holding Your Architecture Back" 
+    : data.heading || "The Hidden Bottlenecks Holding Your Architecture Back";
+
+  const sectionDescription = Array.isArray(data)
+    ? "Legacy configurations and manual technical debt slow down delivery tracks. Here are the core hurdles we engineer out."
+    : data.description || "Legacy configurations and manual technical debt slow down delivery tracks. Here are the core hurdles we engineer out.";
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      // Cast ease to any to satisfy framer-motion typing for cubic bezier arrays
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as any } 
+    }
+  };
+
   return (
-    <section className="py-32 bg-[#F8FAFC] relative overflow-hidden">
-      {/* Abstract Background Decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2" />
+    <section className="relative w-full bg-slate-950 py-28 px-6 overflow-hidden isolation-isolate text-white">
       
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header Logic */}
-        <div className="mb-20 space-y-4">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
-          >
-            <span className="w-12 h-[2px] bg-blue-600" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600">
-              Critical_Barriers
-            </span>
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-slate-900 leading-none">
-            Why Startups <span className="text-blue-600 italic font-serif lowercase">stall</span>
+      {/* Premium Backlighting Glow Effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[500px] pointer-events-none -z-10 opacity-40">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-amber-500/10 blur-[160px] rounded-full" />
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Structural Accent Header Group */}
+        <div className="text-center space-y-4 mb-20 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-wider uppercase shadow-inner">
+            <AlertTriangle size={14} className="animate-pulse text-red-500" /> Operational Friction Nodes
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+            {sectionHeading}
           </h2>
+          <p className="text-base text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+            {sectionDescription}
+          </p>
         </div>
 
-        {/* Dynamic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {data.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative"
-            >
-              {/* Animated Border/Glow Layer */}
-              <div className="absolute -inset-[1px] bg-gradient-to-b from-slate-200 to-transparent rounded-[2.5rem] group-hover:from-blue-600 transition-all duration-500" />
-              
-              <div className="relative h-full p-10 bg-white rounded-[2.5rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] flex flex-col items-start overflow-hidden">
+        {/* Dynamic Premium Glass Bento Grid Container */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {challengeItems.map((item, index) => {
+            const IconComponent = IconRegistry[item.icon] || HelpCircle;
+            
+            // Design Layout Pattern Rule: Alternates visual weights smoothly across the viewport
+            const isCriticalCard = index === 0 || index === 4 || index === 5;
+
+            return (
+              <motion.div
+                key={`challenge-card-${index}`}
+                variants={cardVariants}
+                whileHover={{ y: -8, transition: { duration: 0.2, ease: "easeOut" } }}
+                className={`group relative overflow-hidden rounded-[2.5rem] border p-8 bg-slate-50 backdrop-blur-md transition-all duration-300 ${
+                  isCriticalCard 
+                    ? 'border-red-500/30 shadow-[0_0_30px_rgba(239,68,68,0.05)]' 
+                    : 'border-slate-800/80 hover:border-slate-700'
+                }`}
+              >
+                {/* Internal layout structures */}
+                <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
                 
-                {/* Step Numbering */}
-                <span className="absolute top-8 right-10 text-6xl font-black text-slate-50 group-hover:text-blue-50 transition-colors duration-500 pointer-events-none">
-                  0{idx + 1}
-                </span>
+                <div className="relative z-10 flex flex-col h-full justify-between space-y-6">
+                  <div className="space-y-5">
+                    
+                    <div className={"w-14 h-14 rounded-2xl flex items-center justify-center border shadow-md transition-transform duration-300 group-hover:scale-110  bg-red-500/10 border-red-500/30 text-red-400"}>
+                      <IconComponent size={24} strokeWidth={2} />
+                    </div>
 
-                {/* Icon Treatment */}
-                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-400 mb-8 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-xl group-hover:shadow-blue-200 transition-all duration-500 transform group-hover:rotate-6">
-                  <DynamicIcon name={item.icon} />
+                    <div className="space-y-2.5">
+                      <h3 className="text-xl font-bold tracking-tight text-black group-hover:text-red-400 transition-colors duration-300">
+                        {item.title || "Unspecified Bottleneck Entry"}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-slate-400 font-medium">
+                        {item.desc || "No contextual friction narrative summary provided for this node block."}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Footnotes */}
+                  <div className="pt-4 flex items-center justify-between border-t border-slate-800/60 text-[10px] font-mono tracking-widest text-slate-500 uppercase">
+                    <span>Cluster_Node_0{index + 1}</span>
+                    <span className={`font-bold tracking-wider ${isCriticalCard ? "text-red-400/80" : "text-slate-400"}`}>
+                      {isCriticalCard ? "CRITICAL_PATH" : "DEBT_REDUCTION"}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="relative z-10">
-                  <h4 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
-                    {item.title}
-                  </h4>
-                  <div className="w-8 h-[2px] bg-slate-100 group-hover:w-full group-hover:bg-blue-100 transition-all duration-500 mb-6" />
-                  <p className="text-sm text-slate-500 leading-relaxed font-medium">
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* Subtle Bottom Accent */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-blue-600 group-hover:w-full transition-all duration-700" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Technical Registry String */}
-        <div className="mt-20 flex justify-center">
-            <p className="text-[9px] font-mono text-slate-300 uppercase tracking-[0.5em] animate-pulse">
-              // Systematic_Barrier_Analysis_Complete
-            </p>
-        </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+        
       </div>
     </section>
   );

@@ -1,105 +1,211 @@
-"use client";
+// app/components/Solution/ProcessSection.tsx
+'use client';
 
-import { motion } from "framer-motion";
-import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import React, { useState, useRef, MouseEvent } from 'react';
+import { motion } from 'framer-motion';
+import { Layers, Activity, Cpu, Sparkles, Box } from 'lucide-react';
 
-export default function ProcessSection({ data, isDark = false }: { data: any[], isDark?: boolean }) {
+interface ProcessStep {
+  title: string;
+  desc: string;
+  badgeLabel: string;
+}
+
+interface ProcessSectionProps {
+  data: {
+    smallHeading: string;
+    heading: string;
+    description: string;
+    themeAccentColor?: string; // Optional fallback
+    steps: ProcessStep[];
+  };
+}
+
+// 🎨 Vibrant Neo-Cyber Color Matrix Presets assigned based on index sequence
+const MULTI_THEMES = [
+  {
+    border: 'hover:border-blue-500/40',
+    glow: 'from-blue-600/20 via-blue-500/5 to-transparent',
+    text: 'text-blue-400',
+    badge: 'bg-blue-500/10 border-blue-500/20 text-blue-400',
+    icon: <Activity size={16} className="text-blue-400" />,
+    span: 'md:col-span-1 lg:col-span-1'
+  },
+  {
+    border: 'hover:border-emerald-500/40',
+    glow: 'from-emerald-600/20 via-emerald-500/5 to-transparent',
+    text: 'text-emerald-400',
+    badge: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400',
+    icon: <Cpu size={16} className="text-emerald-400" />,
+    span: 'md:col-span-2 lg:col-span-2' // Span variations to break grid monotony
+  },
+  {
+    border: 'hover:border-purple-500/40',
+    glow: 'from-purple-600/20 via-purple-500/5 to-transparent',
+    text: 'text-purple-400',
+    badge: 'bg-purple-500/10 border-purple-500/20 text-purple-400',
+    icon: <Sparkles size={16} className="text-purple-400" />,
+    span: 'md:col-span-2 lg:col-span-2'
+  },
+  {
+    border: 'hover:border-pink-500/40',
+    glow: 'from-pink-600/20 via-pink-500/5 to-transparent',
+    text: 'text-pink-400',
+    badge: 'bg-pink-500/10 border-pink-500/20 text-pink-400',
+    icon: <Box size={16} className="text-pink-400" />,
+    span: 'md:col-span-1 lg:col-span-1'
+  }
+];
+
+export default function ProcessSection({ data }: ProcessSectionProps) {
+  if (!data || !data.steps || data.steps.length === 0) return null;
+
+  const stepsList = data.steps;
+
   return (
-    <section className={`py-32 px-6 overflow-hidden ${isDark ? 'bg-[#020617]' : 'bg-white'}`}>
-      <div className="max-w-7xl mx-auto">
+    <section className="relative w-full py-32 px-4 md:px-8 bg-slate-900 overflow-hidden isolation-isolate text-white">
+      
+      {/* Structural Digital Grid Canvas Backing */}
+      <div className="absolute inset-0 pointer-events-none -z-20 opacity-[0.25]">
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px]" 
+          style={{ 
+            maskImage: 'radial-gradient(circle at center, white 50%, transparent 95%)', 
+            WebkitMaskImage: 'radial-gradient(circle at center, white 50%, transparent 95%)' 
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto space-y-16">
         
-        {/* Header with Technical Metadata */}
-        <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div className="space-y-4">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3"
-            >
-              <div className={`w-2 h-2 rounded-full animate-pulse ${isDark ? 'bg-blue-500' : 'bg-blue-600'}`} />
-              <span className={`text-[10px] font-black uppercase tracking-[0.4em] font-mono ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                Operational_Flow_v3.0
-              </span>
-            </motion.div>
-            <h2 className={`text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Delivery_<span className={isDark ? 'text-blue-500 italic font-serif' : 'text-blue-600 italic font-serif'}>Protocol</span>
-            </h2>
+        {/* ==========================================
+            ASYSMMETRIC COMPACT HEADERS HEADER ROW
+           ========================================== */}
+        <div className="max-w-3xl space-y-4 text-left">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 shadow-md">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500" />
+            </span>
+            <span className="text-[10px] font-mono font-black tracking-widest uppercase text-slate-400">
+              {data.smallHeading || "WORKFLOW_TIMELINE"}
+            </span>
           </div>
-          <p className={`text-[10px] font-mono uppercase tracking-widest max-w-[200px] leading-relaxed hidden md:block ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            // Systematically_Engineered_For_High_Performance_Scaling
+
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-[1.12]">
+            {data.heading || "Our Step-by-Step Delivery Track"}
+          </h2>
+          
+          {data.description && (
+            <p className="text-sm md:text-base text-slate-400 max-w-xl font-medium leading-relaxed">
+              {data.description}
+            </p>
+          )}
+        </div>
+
+        {/* ==========================================
+            VIBRANT NEON GLOW BENTO Hub MESH GRID
+           ========================================== */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {stepsList.map((step, index) => {
+            const currentTheme = MULTI_THEMES[index % MULTI_THEMES.length];
+            return (
+              <BentoSpotlightCard 
+                key={`bento-process-node-${index}`} 
+                step={step} 
+                index={index} 
+                theme={currentTheme} 
+              />
+            );
+          })}
+        </motion.div>
+
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// CHILD COMPONENT: HIGH-CONTRAST NEON CARD
+// ==========================================
+function BentoSpotlightCard({ step, index, theme }: { step: ProcessStep; index: number; theme: typeof MULTI_THEMES[0] }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const { left, top } = cardRef.current.getBoundingClientRect();
+    setCoords({ x: e.clientX - left, y: e.clientY - top });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      variants={{
+        hidden: { opacity: 0, y: 25 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+      }}
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className={`w-full overflow-hidden rounded-[2.5rem] border border-slate-900 bg-slate-800 backdrop-blur-md p-8 min-h-[280px] flex flex-col justify-between shadow-2xl transition-all duration-300 ${theme.border} ${theme.span} group`}
+    >
+      
+      {/* Fixed Ambient Backing Soft Glow Aura (Top Right corner placement) */}
+      <div className={`absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br ${theme.glow} blur-2xl rounded-full pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
+
+      {/* Dynamic Cursor Spotlight Radial Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(280px circle at ${coords.x}px ${coords.y}px, rgba(255,255,255,0.02), transparent 80%)`
+        }}
+      />
+
+      <div className="space-y-6 relative z-10">
+        
+        {/* Card Metadata Top Deck */}
+        <div className="flex items-center justify-between">
+          <span className={`text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-1 rounded-lg border ${theme.badge}`}>
+            {step.badgeLabel || `Phase 0${index + 1}`}
+          </span>
+          
+          <div className="text-xl font-mono font-black text-slate-800 tracking-tighter">
+            //0{index + 1}
+          </div>
+        </div>
+
+        {/* Copy Text Blocks */}
+        <div className="space-y-2 text-left">
+          <h3 className={`text-xl font-black tracking-tight text-white transition-colors duration-300 group-hover:${theme.text}`}>
+            {step.title}
+          </h3>
+          <p className="text-xs md:text-sm font-medium leading-relaxed text-slate-200 group-hover:text-slate-300 transition-colors">
+            {step.desc}
           </p>
         </div>
 
-        {/* The Stepper Grid */}
-        <div className={`grid grid-cols-1 md:grid-cols-4 border ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
-          {data.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className={`relative p-12 group transition-all duration-500 hover:z-10 ${
-                idx !== data.length - 1 ? (isDark ? 'md:border-r border-slate-800' : 'md:border-r border-slate-100') : ''
-              } ${isDark ? 'hover:bg-blue-600' : 'hover:bg-slate-900'}`}
-            >
-              {/* Sequential Indicator */}
-              <div className="flex items-center justify-between mb-12">
-                <span className={`text-xs font-black font-mono tracking-widest transition-colors duration-500 ${
-                  isDark ? 'text-blue-500 group-hover:text-white' : 'text-blue-600 group-hover:text-blue-400'
-                }`}>
-                  {item.step}
-                </span>
-                <HiOutlineArrowLongRight 
-                  className={`text-2xl transition-all duration-500 transform -rotate-45 group-hover:rotate-0 ${
-                    isDark ? 'text-slate-800 group-hover:text-white' : 'text-slate-100 group-hover:text-white'
-                  }`} 
-                />
-              </div>
-
-              {/* Card Content */}
-              <div className="space-y-6">
-                <h3 className={`text-3xl font-black uppercase tracking-tighter leading-none transition-colors duration-500 ${
-                  isDark ? 'text-white' : 'text-slate-900 group-hover:text-white'
-                }`}>
-                  {item.title}
-                </h3>
-                <div className={`h-[2px] w-12 transition-all duration-500 group-hover:w-full ${
-                  isDark ? 'bg-slate-800 group-hover:bg-blue-400' : 'bg-slate-100 group-hover:bg-blue-600'
-                }`} />
-                <p className={`text-sm leading-relaxed font-medium transition-colors duration-500 ${
-                  isDark ? 'text-slate-400 group-hover:text-blue-50' : 'text-slate-500 group-hover:text-slate-300'
-                }`}>
-                  {item.desc}
-                </p>
-              </div>
-
-              {/* Technical Backdrop (Step Number) */}
-              <span className={`absolute bottom-4 right-8 text-8xl font-black transition-all duration-700 pointer-events-none select-none opacity-[0.03] group-hover:opacity-[0.1] group-hover:-translate-y-4 ${
-                isDark ? 'text-white' : 'text-slate-900 group-hover:text-white'
-              }`}>
-                {idx + 1}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* System Logs Footer */}
-        <div className="mt-16 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-6">
-             {['ISO_9001', 'AGILE_SQUAD', 'ZERO_TRUST'].map((tag) => (
-               <span key={tag} className={`text-[9px] font-black tracking-[0.2em] px-3 py-1 border rounded ${
-                 isDark ? 'text-slate-600 border-slate-800' : 'text-slate-300 border-slate-100'
-               }`}>
-                 {tag}
-               </span>
-             ))}
-          </div>
-          <div className={`text-[10px] font-mono ${isDark ? 'text-slate-700' : 'text-slate-300'}`}>
-            // PHASE_{data.length}_ACTIVE_REACHED
-          </div>
-        </div>
       </div>
-    </section>
+
+      {/* Dynamic Footer Identity Strip */}
+      <div className="pt-6 mt-4 border-t border-slate-900/60 flex items-center justify-between text-[9px] font-mono tracking-widest text-slate-500 font-black uppercase relative z-10">
+        <div className="flex items-center gap-1.5">
+          {theme.icon} <span className="group-hover:text-slate-400 transition-colors">Orchestration_Active</span>
+        </div>
+        
+        <span className={`opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300 font-bold ${theme.text}`}>
+          EXECUTE →
+        </span>
+      </div>
+
+    </motion.div>
   );
 }
