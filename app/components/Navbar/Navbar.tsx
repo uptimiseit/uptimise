@@ -24,6 +24,16 @@ const solutionIconsPool = [
   { component: Database, color: "text-indigo-500" },
 ];
 
+const industriesIconsPool = [
+  { component: Rocket, color: "text-orange-500" },
+  { component: Cloud, color: "text-blue-500" },
+  { component: Zap, color: "text-purple-600" },
+  { component: Globe, color: "text-emerald-500" },
+  { component: Server, color: "text-slate-600" },
+  { component: Terminal, color: "text-cyan-600" },
+  { component: Database, color: "text-indigo-500" },
+];
+
 // Pool 2: Curated editorial component configurations specialized for the Insights submenu
 const insightsIconsPool = [
   { component: Terminal, color: "text-slate-700" },
@@ -35,16 +45,17 @@ const insightsIconsPool = [
 
 const initialMenuData = {
   Solutions: [], // Dynamically populated via index rotation loop
-  Industries: [
-    { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: Landmark, iconColor: "text-blue-600", href: "/industries/fintech" },
-    { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: HeartPulse, iconColor: "text-red-600", href: "/industries/healthcare" },
-    { title: "E-commerce Platform Development", desc: "High-conversion digital retail engines.", icon: ShoppingBag, iconColor: "text-emerald-600", href: "/industries/ecommerce" },
-    { title: "SaaS Development", desc: "Scalable multi-tenant subscription platforms.", icon: Cloud, iconColor: "text-sky-500", href: "/industries/saas" },
-    { title: "EdTech Platform Development", desc: "Interactive, high-load learning systems.", icon: GraduationCap, iconColor: "text-indigo-500", href: "/industries/edtech" },
-    { title: "AI Startup Development", desc: "Rapid MVPs and generative AI products.", icon: Bot, iconColor: "text-purple-600", href: "/industries/ai-startup" },
-    { title: "Blockchain / Web3 Platforms", desc: "Smart contracts and decentralized apps.", icon: Hexagon, iconColor: "text-orange-500", href: "/industries/blockchain" }, //  Fixed missing href string element
-    { title: "Enterprise Software Systems", desc: "Secure portals and legacy modernization.", icon: Building, iconColor: "text-slate-600", href: "/industries/enterprise" },
-  ],
+  // Industries: [
+  //   { title: "FinTech Software Development", desc: "Secure digital finance ecosystems.", icon: Landmark, iconColor: "text-blue-600", href: "/industries/fintech" },
+  //   { title: "Healthcare Software Development", desc: "Compliant health-tech & telemedicine.", icon: HeartPulse, iconColor: "text-red-600", href: "/industries/healthcare" },
+  //   { title: "E-commerce Platform Development", desc: "High-conversion digital retail engines.", icon: ShoppingBag, iconColor: "text-emerald-600", href: "/industries/ecommerce" },
+  //   { title: "SaaS Development", desc: "Scalable multi-tenant subscription platforms.", icon: Cloud, iconColor: "text-sky-500", href: "/industries/saas" },
+  //   { title: "EdTech Platform Development", desc: "Interactive, high-load learning systems.", icon: GraduationCap, iconColor: "text-indigo-500", href: "/industries/edtech" },
+  //   { title: "AI Startup Development", desc: "Rapid MVPs and generative AI products.", icon: Bot, iconColor: "text-purple-600", href: "/industries/ai-startup" },
+  //   { title: "Blockchain / Web3 Platforms", desc: "Smart contracts and decentralized apps.", icon: Hexagon, iconColor: "text-orange-500", href: "/industries/blockchain" }, //  Fixed missing href string element
+  //   { title: "Enterprise Software Systems", desc: "Secure portals and legacy modernization.", icon: Building, iconColor: "text-slate-600", href: "/industries/enterprise" },
+  // ],
+  Industries: [], // Dynamically populated via index rotation loop
   Services: [
     { title: "Design", desc: "High-fidelity UX systems.", icon: Layout, iconColor: "text-blue-600", href: "/services/design" },
     { title: "Technology", desc: "AI-native engineering.", icon: Cpu, iconColor: "text-purple-600", href: "/services/technology" },
@@ -74,56 +85,73 @@ const MegaNavbar = () => {
     setMobileExpandedMenu(null);
   };
 
-  useEffect(() => {
-    let isMounted = true;
-    const fetchNavigationData = async () => {
-      try {
-        const [solRes, insRes] = await Promise.all([
-          fetch("https://admin.uptimiseit.com/api/solutions/menu", { cache: 'no-store' }),
-          fetch("https://uptimiseit-admin.vercel.app/api/categories", { cache: 'no-store' })
-        ]);
+useEffect(() => {
+  let isMounted = true;
+  const fetchNavigationData = async () => {
+    try {
+      const [solRes, indRes, catRes] = await Promise.all([
+        fetch("https://admin.uptimiseit.com/api/solutions/menu", { cache: 'no-store' }),
+        fetch("https://admin.uptimiseit.com/api/industries/menu", { cache: 'no-store' }),
+        fetch("https://uptimiseit-admin.vercel.app/api/categories", { cache: 'no-store' })
+      ]);
 
-        const solResult = await solRes.json();
-        const insResult = await insRes.json();
+      // 🟢 Safe Parsing Guard: Only parse if the server replies with a valid 200 OK JSON status
+      const solResult = solRes.ok ? await solRes.json() : { success: false, data: [] };
+      const indResult = indRes.ok ? await indRes.json() : { success: false, data: [] };
+  console.log("industries result", indResult);
+      const catResult = catRes.ok ? await catRes.json() : { success: false, data: [] };
 
-        if (isMounted) {
-          // Dynamic Solutions mapping using configuration properties from pool 1
-          const dynamicSolutions = solResult.success ? solResult.data.map((sol: any, idx: number) => {
-            const config = solutionIconsPool[idx % solutionIconsPool.length];
-            return {
-              title: sol.title,
-              desc: sol.description,
-              icon: config.component,
-              iconColor: config.color,
-              href: `/solutions/${sol.slug}`,
-            };
-          }) : [];
+      if (isMounted) {
+        // Dynamic Solutions Mapping
+        const dynamicSolutions = solResult.success ? solResult.data.map((sol: any, idx: number) => {
+          const config = solutionIconsPool[idx % solutionIconsPool.length];
+          return {
+            title: sol.title,
+            desc: sol.description,
+            icon: config.component,
+            iconColor: config.color,
+            href: `/solutions/${sol.slug}`,
+          };
+        }) : [];
 
-          // Dynamic Insights mapping utilizing isolated configuration objects from pool 2
-          const dynamicInsights = insResult.success ? insResult.data.map((cat: any, idx: number) => {
-            const config = insightsIconsPool[idx % insightsIconsPool.length];
-            return {
-              title: cat.name,
-              desc: cat.description || `Explore our latest ${cat.name} articles.`,
-              icon: config.component,
-              iconColor: config.color,
-              href: `/blog/${cat.slug}`,
-            };
-          }) : [];
+        // Dynamic Industries Mapping (Will safely fall back to an empty array if the URL throws a 404)
+        const dynamicIndustries = indResult.success ? indResult.data.map((ind: any, idx: number) => {
+          const config = industriesIconsPool[idx % industriesIconsPool.length];
+          return {
+            title: ind.title,
+            desc: ind.description,
+            icon: config.component,
+            iconColor: config.color,
+            href: `/industries/${ind.slug}`,
+          };
+        }) : [];
 
-          setMenuData(prev => ({ 
-            ...prev, 
-            Solutions: dynamicSolutions, 
-            Insights: dynamicInsights 
-          }));
-        }
-      } catch (error) {
-        console.error("Navigation Sync Failed:", error);
+        // Dynamic Insights Mapping
+        const dynamicInsights = catResult.success ? catResult.data.map((cat: any, idx: number) => {
+          const config = insightsIconsPool[idx % insightsIconsPool.length];
+          return {
+            title: cat.name,
+            desc: cat.description || `Explore our latest ${cat.name} articles.`,
+            icon: config.component,
+            iconColor: config.color,
+            href: `/blog/${cat.slug}`,
+          };
+        }) : [];
+
+        setMenuData(prev => ({ 
+          ...prev, 
+          Solutions: dynamicSolutions, 
+          Industries: dynamicIndustries,
+          Insights: dynamicInsights 
+        }));
       }
-    };
-    fetchNavigationData();
-    return () => { isMounted = false; };
-  }, []);
+    } catch (error) {
+      console.error("Navigation Sync Failed safely:", error);
+    }
+  };
+  fetchNavigationData();
+  return () => { isMounted = false; };
+}, []);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";

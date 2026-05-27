@@ -1,16 +1,16 @@
-// app/solutions/[slug]/page.tsx
+// app/Industriess/[slug]/page.tsx
 import FAQSection from "@/app/components/HomePage/FAQSection";
-import ApproachSection from "@/app/components/Solution/ApproachSection";
-import CapabilitiesSection from "@/app/components/Solution/CapabilitiesSection";
-import ChallengesSection from "@/app/components/Solution/ChallengesSection";
-import CTASection from "@/app/components/Solution/CTASection";
-import DynamicHero from "@/app/components/Solution/DynamicHero";
-import ProcessSection from "@/app/components/Solution/ProcessSection";
-import ProtocolSection from "@/app/components/Solution/ProtocolSection";
-import { SolutionService } from "@/lib/solution.service";
+import ApproachSection from "@/app/components/Industries/ApproachSection";
+import CapabilitiesSection from "@/app/components/Industries/CapabilitiesSection";
+import ChallengesSection from "@/app/components/Industries/ChallengesSection";
+import CTASection from "@/app/components/Industries/CTASection";
+import DynamicHero from "@/app/components/Industries/DynamicHero";
+import ProcessSection from "@/app/components/Industries/ProcessSection";
+import ProtocolSection from "@/app/components/Industries/ProtocolSection";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { metadata } from '../../page';
+import { IndustriesService } from "@/lib/industry.service";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,60 +21,60 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   
   // Query backend data rows
-  const response = await SolutionService.getDetails(slug);
+  const response = await IndustriesService.getDetails(slug);
   
   if (!response?.success || !response?.data) {
     return {
-      title: "Solution Matrix Node | Uptimise IT",
+      title: "Industries Matrix Node | Uptimise IT",
     };
   }
 
-  const solution = response.data;
-  console.log("Generating metadata for solution:", solution);
-  console.log("Generating metadata for solution:", solution.metaImage);
+  const Industries = response.data;
+  console.log("Generating metadata for Industries:", Industries);
+  console.log("Generating metadata for Industries:", Industries.metaImage);
 
 
   // Primary fallbacks matching your dropdown and metadata settings blocks
-  const fallbackTitle = solution.title ? `${solution.title} | Uptimise IT` : "Enterprise Architectural Solution";
-  const fallbackDesc = solution.description || "Explore advanced web layouts, decoupled architecture frameworks, and orchestrated AI agent ecosystems pipelines.";
+  const fallbackTitle = Industries.title ? `${Industries.title} | Uptimise IT` : "Enterprise Architectural Industries";
+  const fallbackDesc = Industries.description || "Explore advanced web layouts, decoupled architecture frameworks, and orchestrated AI agent ecosystems pipelines.";
 
   return {
     // Falls back to top-level backend row identifiers if explicit SEO parameters aren't filled out in the admin form yet
-    title: solution.metaTitle || fallbackTitle,
-    description: solution.metaDescription || fallbackDesc,
-    keywords: Array.isArray(solution.metaTags) && solution.metaTags.length > 0 
-      ? solution.metaTags 
+    title: Industries.metaTitle || fallbackTitle,
+    description: Industries.metaDescription || fallbackDesc,
+    keywords: Array.isArray(Industries.metaTags) && Industries.metaTags.length > 0 
+      ? Industries.metaTags 
       : ["AI-Native Engineering", "Next.js Systems", "Software Factory Delivery"],
      
     // OpenGraph Protocol parsing for messaging and social platform preview cards
     openGraph: {
-      title: solution.metaTitle || fallbackTitle,
-      description: solution.metaDescription || fallbackDesc,
+      title: Industries.metaTitle || fallbackTitle,
+      description: Industries.metaDescription || fallbackDesc,
       type: "article",
       images: [
         {
-          url: solution.metaImage || "https://www.uptimiseit.com/logo.png",
+          url: Industries.metaImage || "https://www.uptimiseit.com/logo.png",
           width: 1200,
           height: 630,
-          alt: `${solution.title || "Solution Pipeline"} Matrix Preview Card`,
+          alt: `${Industries.title || "Industries Pipeline"} Matrix Preview Card`,
         },
       ],
     },
     // Twitter specific layout structures
     twitter: {
       card: "summary_large_image",
-      title: solution.metaTitle || fallbackTitle,
-      description: solution.metaDescription || fallbackDesc,
-      images: [solution.metaImage || "https://www.uptimiseit.com/logo.png"],
+      title: Industries.metaTitle || fallbackTitle,
+      description: Industries.metaDescription || fallbackDesc,
+      images: [Industries.metaImage || "https://www.uptimiseit.com/logo.png"],
     },
   };
 }
 
 // 🟢 2. CORE PAGE RENDER TIMELINE
-export default async function DynamicSolutionPage({ params }: PageProps) {
+export default async function DynamicIndustriesPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const response = await SolutionService.getDetails(slug);
+  const response = await IndustriesService.getDetails(slug);
 
   if (!response?.success || !response?.data) {
     return notFound();

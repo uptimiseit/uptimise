@@ -59,8 +59,8 @@ export default function DynamicHero({ data }: { data: HeroData }) {
 
       <HeroAnimationWrapper>
         {/* Context Badge Element */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-purple-500 text-slate-700 text-xs font-semibold tracking-wider uppercase shadow-sm">
-          <BadgeIcon size={14} className="text-purple-500" /> 
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-orange-500 text-orange-500 text-sm font-bold tracking-wider uppercase shadow-sm">
+          <BadgeIcon size={14} className="text-orange-500" /> 
           {data.badgeText}
         </div>
         
