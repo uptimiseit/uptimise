@@ -13,7 +13,7 @@ export const GrowthRoadmapTrack = () => {
   ];
 
   return (
-    <section className="bg-slate-50 py-32 px-6 overflow-hidden border-t border-b border-slate-100">
+    <section className="bg-slate-400 py-32 px-6 overflow-hidden border-t border-b border-slate-100">
       <div className="max-w-7xl mx-auto space-y-20">
         
         {/* Header Block Alignment */}
