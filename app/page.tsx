@@ -71,8 +71,8 @@ export default function Home() {
       {/* <LiquidConnect /> */}
  
       <PhilosophySection />
-   {/*   <ProblemSection />
-      <AIOSFactory />
+    <ProblemSection />
+      {/*  <AIOSFactory />
    <HumanAICollaboration />
    <AgentEcosystem />
    <CompareSection />
