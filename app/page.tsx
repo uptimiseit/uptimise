@@ -83,7 +83,7 @@ export default function Home() {
       {/* <IndustriesSection /> */}
       {/* <TransparencySection /> */}
       {/* <EnterpriseStandards /> */}
-      <ProjectsLedger />
+      {/* <ProjectsLedger /> */}
       {/* <ProjectEstimator /> */}
       {/* <NewBlogs /> */}
       {/* <TechTrends /> */}
