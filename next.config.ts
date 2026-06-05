@@ -145,6 +145,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com", port: "", pathname: "/**" },
       { protocol: "https", hostname: "plus.unsplash.com", port: "", pathname: "/**" },
       { protocol: "https", hostname: "www.freepik.com", port: "", pathname: "/**" },
+      {
+        protocol: "https",
+        hostname: "*.cloudfront.net", // Whitelists your secure target CDN
+      },
     ],
   },
 
