@@ -69,7 +69,7 @@ export default function Home() {
       {/* <HeroAnimation /> */}
       {/* <ThreeDMarqueeDemoSecond /> */}
       {/* <LiquidConnect /> */}
-
+{/* 
       <PhilosophySection />
       <ProblemSection />
       <AIOSFactory />
@@ -85,11 +85,15 @@ export default function Home() {
    <ProjectsLedger />
    <ProjectEstimator />
    <NewBlogs />
-   {/* <KnowledgeHub /> */}
    <TechTrends />
    <FAQSection />
    <FactoryArchitecture />
-   <FinalCTA />
+   <FinalCTA /> */}
+
+
+
+
+
       {/* <AboutSection /> */}
       {/* <ServicesScroll/> */}
       {/* <PortfolioSection /> */}

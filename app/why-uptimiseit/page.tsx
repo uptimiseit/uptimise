@@ -44,55 +44,47 @@ export default function WhyUptimisePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white font-sans selection:bg-indigo-500/20 selection:text-indigo-400 pb-20 overflow-hidden pt-12">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-500/10 selection:text-indigo-600 overflow-x-hidden pt-12">
       
-      {/* GLOBAL BACKGROUND ELEMENTS */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:2rem_2rem] opacity-30 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-indigo-500/10 via-blue-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
-
       {/* ==========================================
-          SECTION 1: HERO CONTAINER
+          SECTION 1 [LIGHT]: HERO INTRO SLATE
          ========================================== */}
-      <section className="relative pt-40 pb-20 px-6 max-w-7xl mx-auto text-center space-y-8">
+      <section className="relative pt-40 pb-20 px-6 max-w-7xl mx-auto text-center space-y-8 bg-slate-50">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-indigo-500/5 via-blue-500/5 to-transparent blur-[100px] rounded-full pointer-events-none -z-10" />
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
           className="space-y-6"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
-            <span className="text-[10px] font-mono font-black uppercase tracking-widest text-indigo-400">// SYSTEMS_OPTIMIZATION_ENGINE</span>
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-600/5 border border-indigo-600/10 rounded-xl">
+            <span className="text-[10px] font-mono font-black uppercase tracking-widest text-indigo-600">// SYSTEMS_OPTIMIZATION_ENGINE</span>
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-black tracking-tighter text-white max-w-5xl mx-auto leading-[0.9] uppercase">
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-black tracking-tighter text-slate-950 max-w-5xl mx-auto leading-[0.9] uppercase">
             An Elite AI-Native Partner for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500">
               Digital Infrastructure
             </span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium">
+          <motion.p variants={fadeInUp} className="text-base md:text-lg text-slate-650 max-w-3xl mx-auto leading-relaxed font-medium">
             We isolate manual engineering logic into deterministic agent workflows. Uptimise IT combines advanced software blueprints with orchestrated computing loop modules.
           </motion.p>
         </motion.div>
       </section>
 
+
       {/* ==========================================
-          SECTION 2: DYNAMIC WORKSPACE TERMINAL
+          SECTION 2 [DARK]: ORCHESTRATED WORKSPACE TERMINAL
          ========================================== */}
-      <section className="py-12 px-6 max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-slate-900/30 border border-slate-800/80 rounded-[3rem] p-8 md:p-12 backdrop-blur-xl shadow-2xl relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/5 blur-[100px] rounded-full pointer-events-none" />
+      <section className="bg-[#030712] text-white py-24 px-6 border-y border-slate-900 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:2rem_2rem] opacity-20 pointer-events-none" />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-5 space-y-6 flex flex-col justify-center">
             <span className="text-[10px] font-mono font-black text-indigo-400 tracking-widest block uppercase">// LIVE_WORKSPACE_PLAYGROUND</span>
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight leading-none">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none text-white">
               Orchestrated <br />Execution Control
             </h2>
             <p className="text-sm text-slate-400 font-medium leading-relaxed">
@@ -110,7 +102,7 @@ export default function WhyUptimisePage() {
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`w-full text-left p-4 rounded-xl border transition-all duration-300 ${
                     activeTab === tab.id 
-                      ? 'bg-indigo-600/10 border-indigo-500 text-white' 
+                      ? 'bg-indigo-600/20 border-indigo-500 text-white' 
                       : 'bg-white/[0.01] border-white/5 text-slate-400 hover:border-white/10 hover:text-slate-200'
                   }`}
                 >
@@ -121,7 +113,7 @@ export default function WhyUptimisePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 h-[400px] rounded-2xl bg-slate-950 border border-slate-800/60 p-6 font-mono text-xs flex flex-col justify-between shadow-inner">
+          <div className="lg:col-span-7 h-[400px] rounded-3xl bg-slate-950 border border-slate-900 p-6 font-mono text-xs flex flex-col justify-between shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-900 pb-4">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/30" />
@@ -166,13 +158,15 @@ export default function WhyUptimisePage() {
               <span>Protocol Verified</span>
             </div>
           </div>
-        </motion.div>
+
+        </div>
       </section>
 
+
       {/* ==========================================
-          SECTION 3: CORE PHILOSOPHY BENTO MATRIX
+          SECTION 3 [LIGHT]: CORE PHILOSOPHY BENTO MATRIX
          ========================================== */}
-      <section className="py-12 px-6 max-w-7xl mx-auto">
+      <section className="py-24 px-6 max-w-7xl mx-auto bg-slate-50">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -183,101 +177,51 @@ export default function WhyUptimisePage() {
           <motion.div 
             variants={bentoItem}
             whileHover={{ y: -4 }}
-            className="lg:col-span-2 bg-slate-900/40 p-8 md:p-10 rounded-[2.5rem] border border-slate-800 backdrop-blur-md hover:border-indigo-500/40 transition-all duration-300 group flex flex-col justify-between min-h-[300px]"
+            className="lg:col-span-2 bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-200 shadow-xs hover:border-indigo-300 transition-all duration-300 group flex flex-col justify-between min-h-[300px]"
           >
             <div>
-              <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
+              <div className="w-12 h-12 bg-indigo-50 text-indigo-600 border border-slate-100 rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <Cpu size={22} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">AI-Native Engineering Matrix</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4 font-medium">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-slate-950 mb-3">AI-Native Engineering Approach</h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
                 We integrate advanced AI assistant loops to automate code scaffolding, component documentation, and repetitive boilerplate production.
               </p>
             </div>
-            <p className="text-slate-200 text-sm font-semibold border-l-2 border-indigo-500 pl-4 italic bg-indigo-950/20 py-2 rounded-r-xl">
+            <p className="text-slate-800 text-sm font-semibold border-l-2 border-indigo-600 pl-4 italic bg-slate-50 py-2 rounded-r-xl">
               Experienced full-stack engineers stay fully responsible for your system&apos;s data relations and layout performance optimization.
             </p>
           </motion.div>
 
           <motion.div 
             variants={bentoItem}
-            className="bg-slate-950 p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-blue-500/40 transition-all duration-300 group flex flex-col justify-between min-h-[300px]"
+            className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-200 hover:border-indigo-300 transition-all duration-300 group flex flex-col justify-between min-h-[300px]"
           >
             <div>
-              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                 <Layers size={22} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-4">Architecture First</h3>
+              <h3 className="text-2xl font-black uppercase tracking-tight text-slate-950 mb-4">Architecture First</h3>
             </div>
-            <ul className="space-y-2.5 text-slate-400 text-xs font-mono tracking-wide">
-              <li className="flex items-center gap-2"><span className="text-indigo-500 font-bold">✦</span> [System_Topology_Blueprint]</li>
-              <li className="flex items-center gap-2"><span className="text-indigo-500 font-bold">✦</span> [Type_Safe_Schema_Lock]</li>
-              <li className="flex items-center gap-2"><span className="text-indigo-500 font-bold">✦</span> [Multi_Tenant_Data_Isolation]</li>
-              <li className="flex items-center gap-2"><span className="text-indigo-500 font-bold">✦</span> [Infrastructure_As_Code_IaC]</li>
+            <ul className="space-y-2.5 text-slate-500 text-xs font-mono tracking-wide">
+              <li className="flex items-center gap-2"><span className="text-indigo-600 font-bold">✦</span> [System_Topology_Blueprint]</li>
+              <li className="flex items-center gap-2"><span className="text-indigo-600 font-bold">✦</span> [Type_Safe_Schema_Lock]</li>
+              <li className="flex items-center gap-2"><span className="text-indigo-600 font-bold">✦</span> [Multi_Tenant_Data_Isolation]</li>
+              <li className="flex items-center gap-2"><span className="text-indigo-600 font-bold">✦</span> [Infrastructure_As_Code_IaC]</li>
             </ul>
-          </motion.div>
-
-          <motion.div 
-            variants={bentoItem}
-            className="bg-slate-950 p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between min-h-[340px]"
-          >
-            <div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">Unified Core Factory</h3>
-              <p className="text-xs text-slate-500 font-mono mb-4">// END_TO_END_COMPILATION</p>
-            </div>
-            <div className="space-y-2">
-              {["Product UX/UI Design", "Full-Stack Development", "DevOps Infrastructure", "Growth Engineering"].map((item, i) => (
-                <motion.div 
-                  key={i} 
-                  whileHover={{ x: 4, backgroundColor: "rgba(30,41,59,0.4)" }}
-                  className="flex items-center text-slate-300 text-xs font-bold uppercase tracking-wider bg-slate-900/40 px-4 py-3 rounded-xl border border-slate-800/50"
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mr-3" />
-                  {item}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div 
-            variants={bentoItem}
-            className="lg:col-span-2 bg-gradient-to-br from-indigo-900/50 to-slate-900/50 p-8 md:p-10 rounded-[2.5rem] border border-indigo-500/20 relative overflow-hidden group flex flex-col justify-between min-h-[340px]"
-          >
-            <div className="absolute right-0 top-0 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
-            
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center h-full">
-              <div className="md:col-span-5 space-y-3">
-                <h3 className="text-2xl font-black uppercase tracking-tight text-white">Transparent Lifeline</h3>
-                <p className="text-slate-400 leading-relaxed text-xs font-medium">
-                  We run clear communication models and structured deployment pipelines to ensure our goals stay fully aligned with your business outcomes.
-                </p>
-              </div>
-              <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-[10px] tracking-widest font-black uppercase">
-                {["Structured Phases", "Clear Milestones", "Regular Log Updates", "Collaborative Flow"].map((item, i) => (
-                  <div key={i} className="flex items-center text-slate-200 bg-slate-950/60 p-3 rounded-xl border border-slate-800/40">
-                    <div className="w-5 h-5 rounded bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mr-3 text-indigo-400">0{i + 1}</div>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-800/40 flex items-center gap-2 text-[9px] font-mono text-slate-500 font-black uppercase">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Continuous deployment monitoring active</span>
-            </div>
           </motion.div>
         </motion.div>
       </section>
 
+
       {/* ==========================================
-          SECTION 4: CAPABILITY COUNTER-MATRIX TABLE
+          SECTION 4 [DARK]: CAPABILITY COUNTER-MATRIX TABLE
          ========================================== */}
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="bg-slate-900/20 border border-slate-800 rounded-[3rem] p-8 md:p-12 space-y-12">
+      <section className="bg-[#030712] text-white py-24 px-6 border-y border-slate-900">
+        <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-left max-w-xl space-y-2">
             <span className="text-[10px] font-mono font-black text-indigo-400 tracking-widest block uppercase">// SHIFTING_THE_INDUSTRY_STANDARD</span>
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">The Capability Counter-Matrix</h2>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">The Capability Counter-Matrix</h2>
           </div>
 
           <div className="overflow-x-auto">
@@ -285,7 +229,7 @@ export default function WhyUptimisePage() {
               <thead>
                 <tr className="border-b border-slate-800 text-[10px] font-mono font-black uppercase tracking-widest text-slate-500">
                   <th className="pb-4 w-1/3">Performance Vector</th>
-                  <th className="pb-4 w-1/3 text-slate-400">// TRADITIONAL_OUTSOURCING</th>
+                  <th className="pb-4 w-1/3 text-slate-500">// TRADITIONAL_OUTSOURCING</th>
                   <th className="pb-4 w-1/3 text-indigo-400">✦ UPTIMISE_IT_FACTORY_MODEL</th>
                 </tr>
               </thead>
@@ -308,69 +252,73 @@ export default function WhyUptimisePage() {
         </div>
       </section>
 
-      {/* ==========================================
-          SECTION 5: SYSTEMIC ENGINEERING ROADMAP
-         ========================================== */}
-      <section className="py-20 px-6 max-w-7xl mx-auto border-t border-slate-900 mt-12 space-y-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-4">
-            <span className="text-[10px] font-mono font-black text-blue-400 tracking-widest uppercase">// AUTOMATED_DELIVERY_TRACK</span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none">
-              The Architecture <br /> Delivery Lifeline
-            </h2>
-          </div>
-          <p className="text-sm text-slate-400 font-medium max-w-sm leading-relaxed">
-            A precise engineering protocol designed to map project criteria directly into type-safe source structures without documentation lag.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {[
-            { num: "01", icon: <Code2 size={18} />, title: "Schema Strategy Topology", desc: "We map system database fields and verify entity tracking paths before writing any core schema variables." },
-            { num: "02", icon: <Layers size={18} />, title: "API Engine Compilation", desc: "Building asynchronous event brokers and validation endpoints to ensure secure write pathways." },
-            { num: "03", icon: <Server size={18} />, title: "Production Scale Integration", desc: "Connecting full-stack interfaces to localized server nodes protected by telemetry dashboards." }
-          ].map((pt, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
-              className="p-10 rounded-[3rem] bg-slate-900/10 border border-slate-800/80 flex flex-col justify-between min-h-[320px] relative group hover:border-indigo-500/30 transition-all duration-500"
-            >
-              <div>
-                <div className="flex items-center justify-between border-b border-slate-900 pb-6 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-slate-300 flex items-center justify-center border border-slate-800 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors duration-500">
-                    {pt.icon}
+      {/* ==========================================
+          SECTION 5 [LIGHT]: SYSTEMIC ENGINEERING ROADMAP
+         ========================================== */}
+      <section className="py-24 px-6 max-w-7xl mx-auto bg-slate-50">
+        <div className="space-y-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-4">
+              <span className="text-[10px] font-mono font-black text-indigo-600 tracking-widest uppercase">// AUTOMATED_DELIVERY_TRACK</span>
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none text-slate-950">
+                The Architecture <br /> Delivery Lifeline
+              </h2>
+            </div>
+            <p className="text-sm text-slate-500 font-medium max-w-sm leading-relaxed">
+              A precise engineering protocol designed to map project criteria directly into type-safe source structures without documentation lag.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {[
+              { num: "01", icon: <Code2 size={18} />, title: "Schema Strategy Topology", desc: "We map system database fields and verify entity tracking paths before writing any core schema variables." },
+              { num: "02", icon: <Layers size={18} />, title: "API Engine Compilation", desc: "Building asynchronous event brokers and validation endpoints to ensure secure write pathways." },
+              { num: "03", icon: <Server size={18} />, title: "Production Scale Integration", desc: "Connecting full-stack interfaces to localized server nodes protected by telemetry dashboards." }
+            ].map((pt, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
+                className="p-10 rounded-[3rem] bg-white border border-slate-200 flex flex-col justify-between min-h-[320px] relative group hover:border-indigo-600/30 transition-all duration-500 shadow-xs"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-slate-50 pb-6 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center border border-slate-100 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors duration-500">
+                      {pt.icon}
+                    </div>
+                    <span className="font-mono text-xs font-black text-slate-300 group-hover:text-indigo-600 transition-colors">
+                      // RUN_NODE_{pt.num}
+                    </span>
                   </div>
-                  <span className="font-mono text-xs font-black text-slate-600 group-hover:text-indigo-400/40 transition-colors">
-                    // RUN_NODE_{pt.num}
-                  </span>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-black uppercase tracking-tight text-slate-950">{pt.title}</h3>
+                    <p className="text-xs text-slate-500 font-medium leading-relaxed">{pt.desc}</p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-black uppercase tracking-tight text-white">{pt.title}</h3>
-                  <p className="text-xs text-slate-400 font-medium leading-relaxed">{pt.desc}</p>
+                <div className="mt-8 flex items-center gap-2 text-[9px] font-mono font-black text-slate-400 uppercase tracking-widest">
+                  <div className="w-4 h-4 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition-colors">
+                    <CheckCircle2 size={10} />
+                  </div>
+                  <span>Verified Protocol</span>
                 </div>
-              </div>
-              <div className="mt-8 flex items-center gap-2 text-[9px] font-mono font-black text-slate-500 uppercase tracking-widest">
-                <div className="w-4 h-4 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-emerald-950/30 group-hover:border-emerald-800/40 group-hover:text-emerald-400 transition-colors">
-                  <CheckCircle2 size={10} />
-                </div>
-                <span>Verified Protocol</span>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
+
       {/* ==========================================
-          SECTION 6: CLIENT ADVOCACY & TESTIMONIAL GRAPH
+          SECTION 6 [DARK]: CLIENT ADVOCACY & TESTIMONIAL GRAPH
          ========================================== */}
-      <section className="py-20 px-6 max-w-7xl mx-auto border-t border-slate-900/60">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="bg-[#030712] text-white py-24 px-6 border-y border-slate-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
             <span className="text-[10px] font-mono font-black text-cyan-400 tracking-widest block uppercase">// ACCREDITED_SYSTEMS_FEEDBACK</span>
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none text-white">
               Validated By <br />Product Operators
             </h2>
             <p className="text-sm text-slate-400 font-medium leading-relaxed">
@@ -383,7 +331,7 @@ export default function WhyUptimisePage() {
               { quote: "Uptimise IT eliminated our frontend synchronization debt. Their type-safe schema mapping accelerated our Next.js feature releases by nearly 4x.", user: "CTO, SaaS Core System", network: "// SECURE_HANDSHAKE_NODE" },
               { quote: "The server-side telemetry integration worked flawlessly. We recovered 100% of our ad-attribution pipelines without data leakage gaps.", user: "VP of Product, FinTech Ledger", network: "// SIGNAL_ATTRIBUTION_OK" }
             ].map((card, i) => (
-              <div key={i} className="bg-slate-900/20 border border-slate-800 rounded-[2.5rem] p-8 flex flex-col justify-between space-y-8 hover:border-slate-700 transition-all duration-300">
+              <div key={i} className="bg-slate-950 border border-slate-900 rounded-[2.5rem] p-8 flex flex-col justify-between space-y-8 hover:border-slate-800 transition-all duration-300 shadow-xl">
                 <div className="space-y-4">
                   <MessageSquare size={20} className="text-indigo-500/60" />
                   <p className="text-xs text-slate-300 font-medium leading-relaxed italic">"{card.quote}"</p>
@@ -398,13 +346,14 @@ export default function WhyUptimisePage() {
         </div>
       </section>
 
+
       {/* ==========================================
-          SECTION 7: TECH STACK & DYNAMIC FAQ ACCORDION
+          SECTION 7 [LIGHT]: TECH STACK & DYNAMIC FAQ ACCORDION
          ========================================== */}
-      <section className="py-20 px-6 max-w-4xl mx-auto border-t border-slate-900 space-y-12">
+      <section className="py-24 px-6 max-w-4xl mx-auto bg-slate-50 space-y-12">
         <div className="text-center space-y-3">
-          <span className="text-[10px] font-mono font-black text-indigo-400 tracking-widest block uppercase">// FAQS_AND_SYSTEMIC_ANSWERS</span>
-          <h2 className="text-3xl font-black tracking-tight uppercase text-white">Technical Deep Dive</h2>
+          <span className="text-[10px] font-mono font-black text-indigo-600 tracking-widest block uppercase">// FAQS_AND_SYSTEMIC_ANSWERS</span>
+          <h2 className="text-3xl font-black tracking-tight uppercase text-slate-950">Technical Deep Dive</h2>
         </div>
 
         <div className="space-y-4">
@@ -413,13 +362,13 @@ export default function WhyUptimisePage() {
             { q: "Is the software factory compatible with existing database networks?", a: "Absolutely. Our codebases map schemas using clean Drizzle or Prisma frameworks, allowing us to connect type-safe entities into production PostgreSQL tables without structural data drift." },
             { q: "How does Uptimise IT enforce zero-downtime deployment pipelines?", a: "We bundle builds using decoupled container structures and route incoming data through private virtual clouds. Updates launch via automated atomic rollovers to keep operations seamless." }
           ].map((faq, idx) => (
-            <div key={idx} className="bg-slate-900/20 border border-slate-800 rounded-2xl overflow-hidden transition-all duration-300">
+            <div key={idx} className="bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 shadow-xs">
               <button 
-                onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                onClick={() => openFaq === idx ? setOpenFaq(null) : setOpenFaq(idx)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left group"
               >
-                <span className="font-bold uppercase tracking-tight text-xs text-slate-200 group-hover:text-white transition-colors">{faq.q}</span>
-                <ChevronDown size={16} className={`text-slate-500 transition-transform duration-300 ${openFaq === idx ? "rotate-180 text-indigo-400" : ""}`} />
+                <span className="font-bold uppercase tracking-tight text-xs text-slate-800 group-hover:text-indigo-600 transition-colors">{faq.q}</span>
+                <ChevronDown size={16} className={`text-slate-400 transition-transform duration-300 ${openFaq === idx ? "rotate-180 text-indigo-600" : ""}`} />
               </button>
               <AnimatePresence initial={false}>
                 {openFaq === idx && (
@@ -429,7 +378,7 @@ export default function WhyUptimisePage() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 pb-6 text-xs text-slate-400 font-medium leading-relaxed border-t border-slate-900/50 pt-3">
+                    <div className="px-6 pb-6 text-xs text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-3">
                       {faq.a}
                     </div>
                   </motion.div>
@@ -440,37 +389,40 @@ export default function WhyUptimisePage() {
         </div>
       </section>
 
+
       {/* ==========================================
-          SECTION 8: CONCENTRIC ACTION CONVERTER (CTA)
+          SECTION 8 [DARK]: CONCENTRIC END-CTA TERMINAL
          ========================================== */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto space-y-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="space-y-8"
-        >
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase leading-none">
-            Ready to upgrade your <br />production velocity?
-          </h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest text-[10px] rounded-xl shadow-lg shadow-indigo-950/50 transition-colors"
-            >
-              <span>Initialize System Audit</span>
-              <ArrowUpRight size={14} />
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 bg-transparent border border-slate-800 hover:border-slate-700 text-slate-300 font-black uppercase tracking-widest text-[10px] rounded-xl transition-colors"
-            >
-              Talk to Lead Architects
-            </motion.button>
-          </div>
-        </motion.div>
+      <section className="bg-[#030712] border-t border-slate-900 py-28 px-6 text-center">
+        <div className="max-w-4xl mx-auto space-y-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase leading-none">
+              Ready to upgrade your <br />production velocity?
+            </h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest text-[10px] rounded-xl shadow-xl transition-colors"
+              >
+                <span>Initialize System Audit</span>
+                <ArrowUpRight size={14} />
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-transparent border border-slate-800 hover:border-slate-700 text-slate-300 font-black uppercase tracking-widest text-[10px] rounded-xl transition-colors"
+              >
+                Talk to Lead Architects
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
     </div>
