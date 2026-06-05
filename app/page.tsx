@@ -84,7 +84,7 @@ export default function Home() {
       {/* <TransparencySection /> */}
       {/* <EnterpriseStandards /> */}
       {/* <ProjectsLedger /> */}
-      <ProjectEstimator />
+      {/* <ProjectEstimator /> */}
       {/* <NewBlogs /> */}
       <TechTrends />
       <FAQSection />
