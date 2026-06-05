@@ -82,14 +82,14 @@ export default function Home() {
 
    <IndustriesSection />
    <TransparencySection />
-   <EnterpriseStandards />
+   {/* <EnterpriseStandards /> */}
    <ProjectsLedger />
-  {/* <ProjectEstimator />
-   <NewBlogs />
-   <TechTrends />
-   <FAQSection />
-   <FactoryArchitecture />
-   <FinalCTA /> */}
+  {/* <ProjectEstimator /> */}
+   {/* <NewBlogs /> */}
+   {/* <TechTrends /> */}
+   {/* <FAQSection /> */}
+   {/* <FactoryArchitecture /> */}
+   {/* <FinalCTA /> */}
 
 
 
