@@ -88,7 +88,7 @@ export default function Home() {
       {/* <NewBlogs /> */}
       {/* <TechTrends /> */}
       {/* <FAQSection /> */}
-      {/* <FactoryArchitecture /> */}
+      <FactoryArchitecture />
       <FinalCTA />
     </>
   );
