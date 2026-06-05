@@ -85,7 +85,7 @@ export default function Home() {
       {/* <EnterpriseStandards /> */}
       {/* <ProjectsLedger /> */}
       {/* <ProjectEstimator /> */}
-      {/* <NewBlogs /> */}
+      <NewBlogs />
 
       <TechTrends />
       <FAQSection />
