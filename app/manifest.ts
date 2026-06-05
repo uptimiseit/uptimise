@@ -12,13 +12,13 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#6366f1",      // Your master indigo brand accent
     icons: [
       {
-        src: "/favicon.png",     // Put your actual brand image here
+        src: "/icon-192.png",     // Put your actual brand image here
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/favicon.png",     // Put your actual brand image here
+        src: "/icon-512.png",     // Put your actual brand image here
         sizes: "512x512",
         type: "image/png",
       },
