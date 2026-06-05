@@ -89,7 +89,7 @@ export default function Home() {
       {/* <TechTrends /> */}
       {/* <FAQSection /> */}
       {/* <FactoryArchitecture /> */}
-      {/* <FinalCTA /> */}
+      <FinalCTA />
     </>
   );
 }
