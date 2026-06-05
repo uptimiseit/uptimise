@@ -25,23 +25,25 @@ import TechTrends from "./components/HomePage/KnowledgeHub";
 // 2. Define your Meta Tags here
 export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
-  description: "Uptimise IT is an AI-native software factory. We partner with ambitious founders and enterprises to engineer scalable SaaS platforms, intelligent AI applications, and Web3 ecosystems at venture speed.",
+  description:
+    "Uptimise IT is an AI-native software factory. We partner with ambitious founders and enterprises to engineer scalable SaaS platforms, intelligent AI applications, and Web3 ecosystems at venture speed.",
   keywords: [
-    "AI Software Development", 
-    "SaaS Development Agency", 
-    "Enterprise Engineering", 
-    "Web3 Development", 
-    "Digital Transformation", 
-    "AI Automation Systems"
+    "AI Software Development",
+    "SaaS Development Agency",
+    "Enterprise Engineering",
+    "Web3 Development",
+    "Digital Transformation",
+    "AI Automation Systems",
   ],
   icons: {
-    icon: "/logo.png", 
+    icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
     title: "Uptimise IT | The AI-Native Software Factory",
-    description: "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
+    description:
+      "Partner with elite architects to build scalable SaaS, enterprise systems, and Web3 platforms 40% faster using AI-assisted engineering.",
     url: "https://uptimiseit.com",
     siteName: "Uptimise IT",
     type: "website",
@@ -57,7 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Uptimise IT | AI-Native Software Development",
-    description: "We build high-stakes digital products with mathematical precision and 100x engineering velocity.",
+    description:
+      "We build high-stakes digital products with mathematical precision and 100x engineering velocity.",
     images: ["/logo.png"],
   },
 };
@@ -66,47 +69,27 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <HeroAnimation /> */}
-      {/* <ThreeDMarqueeDemoSecond /> */}
-      {/* <LiquidConnect /> */}
- 
+
       <PhilosophySection />
-    <ProblemSection />
-       <AIOSFactory />
-    {/* <HumanAICollaboration /> */}
-   <AgentEcosystem />
-   <CompareSection />
-   <DevelopmentProcess />
-   <ServicesEcosystem />
-   <TechStack />
+      <ProblemSection />
+      <AIOSFactory />
+      {/* <HumanAICollaboration />  ----performance */}
+      <AgentEcosystem />
+      <CompareSection />
+      <DevelopmentProcess />
+      <ServicesEcosystem />
+      <TechStack />
 
-   <IndustriesSection />
-   <TransparencySection />
-   {/* <EnterpriseStandards /> */}
-   <ProjectsLedger />
-  {/* <ProjectEstimator /> */}
-   {/* <NewBlogs /> */}
-   {/* <TechTrends /> */}
-   {/* <FAQSection /> */}
-   {/* <FactoryArchitecture /> */}
-   {/* <FinalCTA /> */}
-
-
-
-
-
-      {/* <AboutSection /> */}
-      {/* <ServicesScroll/> */}
-      {/* <PortfolioSection /> */}
-      {/* <TechStack /> */}
-      {/* <ShuffledGallery /> */}
-      {/* <BlogSection /> */}
-      {/* <PillarsSection /> */}
-      {/* <ComparisonSection /> */}
-      {/* <ProcessTimeline /> */}
-      {/* <ProjectsDelivered /> */}
-      {/* <FounderAndTestimonials /> */}
-      {/* <FaqSection/> */}
+      {/* <IndustriesSection /> */}
+      {/* <TransparencySection /> */}
+      {/* <EnterpriseStandards /> */}
+      <ProjectsLedger />
+      {/* <ProjectEstimator /> */}
+      {/* <NewBlogs /> */}
+      {/* <TechTrends /> */}
+      {/* <FAQSection /> */}
+      {/* <FactoryArchitecture /> */}
+      {/* <FinalCTA /> */}
     </>
   );
 }
