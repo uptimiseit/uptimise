@@ -159,6 +159,7 @@ const josefin = Josefin_Sans({
 export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
   description: "Uptimise IT is an AI-native software factory engineering scalable SaaS, AI apps, and Web3 ecosystems.",
+  manifest: "/manifest.webmanifest",
   metadataBase: new URL("https://uptimiseit.com"), // Updated to your real domain
   icons: {
     icon: [{ url: "/favicon.png?v=4", href: "/favicon.png?v=4" }],
