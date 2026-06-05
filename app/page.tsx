@@ -69,9 +69,9 @@ export default function Home() {
       {/* <HeroAnimation /> */}
       {/* <ThreeDMarqueeDemoSecond /> */}
       {/* <LiquidConnect /> */}
-{/* 
+ 
       <PhilosophySection />
-      <ProblemSection />
+   {/*   <ProblemSection />
       <AIOSFactory />
    <HumanAICollaboration />
    <AgentEcosystem />
