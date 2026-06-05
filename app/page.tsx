@@ -81,11 +81,12 @@ export default function Home() {
       <TechStack />
 
       {/* <IndustriesSection /> */}
-      {/* <TransparencySection /> */}
+      <TransparencySection />
       {/* <EnterpriseStandards /> */}
       {/* <ProjectsLedger /> */}
       {/* <ProjectEstimator /> */}
       {/* <NewBlogs /> */}
+
       <TechTrends />
       <FAQSection />
       <FactoryArchitecture />
