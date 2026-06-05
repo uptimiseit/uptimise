@@ -73,13 +73,13 @@ export default function Home() {
       <PhilosophySection />
     <ProblemSection />
        <AIOSFactory />
-    <HumanAICollaboration />
-   {/*<AgentEcosystem />
+    {/* <HumanAICollaboration /> */}
+   <AgentEcosystem />
    <CompareSection />
    <DevelopmentProcess />
    <ServicesEcosystem />
    <TechStack />
-   <IndustriesSection />
+  {/* <IndustriesSection />
    <TransparencySection />
    <EnterpriseStandards />
    <ProjectsLedger />
