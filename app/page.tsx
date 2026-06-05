@@ -80,7 +80,7 @@ export default function Home() {
       <ServicesEcosystem />
       <TechStack />
 
-      {/* <IndustriesSection /> */}
+      <IndustriesSection />
       <TransparencySection />
       {/* <EnterpriseStandards /> */}
       {/* <ProjectsLedger /> */}
