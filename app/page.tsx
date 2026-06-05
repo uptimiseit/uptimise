@@ -79,11 +79,12 @@ export default function Home() {
    <DevelopmentProcess />
    <ServicesEcosystem />
    <TechStack />
-  {/* <IndustriesSection />
+
+   <IndustriesSection />
    <TransparencySection />
    <EnterpriseStandards />
    <ProjectsLedger />
-   <ProjectEstimator />
+  {/* <ProjectEstimator />
    <NewBlogs />
    <TechTrends />
    <FAQSection />
