@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import { 
   Cpu, ShieldCheck, Layers, Zap, Terminal, Code2, 
-  HelpCircle, RefreshCw, CheckCircle2, ChevronRight, ArrowUpRight 
+  HelpCircle, RefreshCw, CheckCircle2, ChevronRight, ArrowUpRight,
+  LineChart, Sparkles, Server, MessageSquare, ChevronDown
 } from "lucide-react";
 
 // --- Fine-Tuned Animation Variants ---
@@ -40,15 +41,18 @@ const bentoItem: Variants = {
 
 export default function WhyUptimisePage() {
   const [activeTab, setActiveTab] = useState<"architecture" | "telemetry" | "rollout">("architecture");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-[#030712] text-white font-sans selection:bg-indigo-500/20 selection:text-indigo-400 pb-20 overflow-hidden pt-12">
       
-      {/* BACKGROUND DECORATIVE GRID LINES */}
+      {/* GLOBAL BACKGROUND ELEMENTS */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:2rem_2rem] opacity-30 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-indigo-500/10 via-blue-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 
-      {/* 1. HERO CONTAINER */}
+      {/* ==========================================
+          SECTION 1: HERO CONTAINER
+         ========================================== */}
       <section className="relative pt-40 pb-20 px-6 max-w-7xl mx-auto text-center space-y-8">
         <motion.div
           initial="hidden"
@@ -73,7 +77,9 @@ export default function WhyUptimisePage() {
         </motion.div>
       </section>
 
-      {/* 2. DYNAMIC WORKSPACE TERMINAL (NEW HIGH-CONVERSION INTERACTIVE SECTION) */}
+      {/* ==========================================
+          SECTION 2: DYNAMIC WORKSPACE TERMINAL
+         ========================================== */}
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
@@ -163,7 +169,9 @@ export default function WhyUptimisePage() {
         </motion.div>
       </section>
 
-      {/* 3. CORE PHILOSOPHY BENTO GRID GRID LAYER */}
+      {/* ==========================================
+          SECTION 3: CORE PHILOSOPHY BENTO MATRIX
+         ========================================== */}
       <section className="py-12 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
@@ -172,7 +180,6 @@ export default function WhyUptimisePage() {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {/* Bento Item 1: AI-Native (Double Column Width) */}
           <motion.div 
             variants={bentoItem}
             whileHover={{ y: -4 }}
@@ -192,7 +199,6 @@ export default function WhyUptimisePage() {
             </p>
           </motion.div>
 
-          {/* Bento Item 2: Architecture First */}
           <motion.div 
             variants={bentoItem}
             className="bg-slate-950 p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-blue-500/40 transition-all duration-300 group flex flex-col justify-between min-h-[300px]"
@@ -211,7 +217,6 @@ export default function WhyUptimisePage() {
             </ul>
           </motion.div>
 
-          {/* Bento Item 3: End-to-End Ecosystem */}
           <motion.div 
             variants={bentoItem}
             className="bg-slate-950 p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between min-h-[340px]"
@@ -234,7 +239,6 @@ export default function WhyUptimisePage() {
             </div>
           </motion.div>
 
-          {/* Bento Item 4: Transparent Process (Double Column Width) */}
           <motion.div 
             variants={bentoItem}
             className="lg:col-span-2 bg-gradient-to-br from-indigo-900/50 to-slate-900/50 p-8 md:p-10 rounded-[2.5rem] border border-indigo-500/20 relative overflow-hidden group flex flex-col justify-between min-h-[340px]"
@@ -266,7 +270,9 @@ export default function WhyUptimisePage() {
         </motion.div>
       </section>
 
-      {/* 4. METRIC COMPARISON MATRIX GRID (NEW ADVANCED STRUCTURAL SECTION) */}
+      {/* ==========================================
+          SECTION 4: CAPABILITY COUNTER-MATRIX TABLE
+         ========================================== */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <div className="bg-slate-900/20 border border-slate-800 rounded-[3rem] p-8 md:p-12 space-y-12">
           <div className="text-left max-w-xl space-y-2">
@@ -302,91 +308,141 @@ export default function WhyUptimisePage() {
         </div>
       </section>
 
-      {/* 5. TECH STACK & CLOUD ECOSYSTEM CONFIGURATOR */}
-      <section className="py-20 px-6 max-w-7xl mx-auto border-t border-slate-900 mt-12 space-y-12">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto space-y-3"
-        >
-          <h2 className="text-3xl font-black tracking-tight uppercase text-white">Our Modern Stack Architecture</h2>
-          <p className="text-slate-400 text-sm font-medium">We design digital products strictly using high-performance frameworks and cloud-native environments.</p>
-        </motion.div>
+      {/* ==========================================
+          SECTION 5: SYSTEMIC ENGINEERING ROADMAP
+         ========================================== */}
+      <section className="py-20 px-6 max-w-7xl mx-auto border-t border-slate-900 mt-12 space-y-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-4">
+            <span className="text-[10px] font-mono font-black text-blue-400 tracking-widest uppercase">// AUTOMATED_DELIVERY_TRACK</span>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none">
+              The Architecture <br /> Delivery Lifeline
+            </h2>
+          </div>
+          <p className="text-sm text-slate-400 font-medium max-w-sm leading-relaxed">
+            A precise engineering protocol designed to map project criteria directly into type-safe source structures without documentation lag.
+          </p>
+        </div>
 
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          {["Next.js", "React Server Components", "TypeScript", "Node.js", "Drizzle ORM", "PostgreSQL", "AWS Core", "Docker Engines", "Kubernetes"].map((tech, i) => (
-             <motion.span 
-               key={i} 
-               variants={fadeInUp}
-               whileHover={{ scale: 1.03, backgroundColor: "rgba(99,102,241,0.1)", borderColor: "#6366f1", color: "#818cf8" }}
-               className="px-5 py-2.5 bg-slate-900/40 border border-slate-800 rounded-xl text-slate-300 font-bold text-sm transition-all cursor-default select-none"
-             >
-               {tech}
-             </motion.span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          {[
+            { num: "01", icon: <Code2 size={18} />, title: "Schema Strategy Topology", desc: "We map system database fields and verify entity tracking paths before writing any core schema variables." },
+            { num: "02", icon: <Layers size={18} />, title: "API Engine Compilation", desc: "Building asynchronous event brokers and validation endpoints to ensure secure write pathways." },
+            { num: "03", icon: <Server size={18} />, title: "Production Scale Integration", desc: "Connecting full-stack interfaces to localized server nodes protected by telemetry dashboards." }
+          ].map((pt, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
+              className="p-10 rounded-[3rem] bg-slate-900/10 border border-slate-800/80 flex flex-col justify-between min-h-[320px] relative group hover:border-indigo-500/30 transition-all duration-500"
+            >
+              <div>
+                <div className="flex items-center justify-between border-b border-slate-900 pb-6 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-slate-300 flex items-center justify-center border border-slate-800 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors duration-500">
+                    {pt.icon}
+                  </div>
+                  <span className="font-mono text-xs font-black text-slate-600 group-hover:text-indigo-400/40 transition-colors">
+                    // RUN_NODE_{pt.num}
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-black uppercase tracking-tight text-white">{pt.title}</h3>
+                  <p className="text-xs text-slate-400 font-medium leading-relaxed">{pt.desc}</p>
+                </div>
+              </div>
+              <div className="mt-8 flex items-center gap-2 text-[9px] font-mono font-black text-slate-500 uppercase tracking-widest">
+                <div className="w-4 h-4 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-emerald-950/30 group-hover:border-emerald-800/40 group-hover:text-emerald-400 transition-colors">
+                  <CheckCircle2 size={10} />
+                </div>
+                <span>Verified Protocol</span>
+              </div>
+            </motion.div>
           ))}
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-slate-900">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-3"
-          >
-            <h3 className="text-xl font-black uppercase tracking-tight text-white">// Scalable_Cloud_Grids</h3>
-            <p className="text-slate-400 text-xs leading-relaxed font-medium">
-              Our infrastructure workflows set up production-ready configurations protected by virtual private boundaries, high-capacity load balancers, and automated rollout verification loops.
-            </p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-3"
-          >
-            <h3 className="text-xl font-black uppercase tracking-tight text-white">// Long_Term_System_Resiliency</h3>
-            <p className="text-slate-400 text-xs leading-relaxed font-medium">
-              We eliminate system technical debt at the repository level. This allows your team to maintain maximum feature velocity while preserving zero-downtime application continuity.
-            </p>
-          </motion.div>
         </div>
       </section>
 
-      {/* 6. PARTNERING SYSTEM CHANNELS */}
-      <section className="py-20 px-6 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center rounded-[3rem] mx-6 border border-slate-900 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto space-y-8 relative z-10"
-        >
-          <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase text-white">Configured For Target Market Verticals</h2>
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {["Scaleup Startups", "B2B SaaS Portals", "FinTech Ledgers", "AI Native Products", "Enterprise Runtimes"].map((client, i) => (
-               <motion.span 
-                 key={i} 
-                 initial={{ opacity: 0 }}
-                 whileInView={{ opacity: 1 }}
-                 transition={{ delay: i * 0.08 }}
-                 className="px-5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 font-bold text-xs tracking-wider uppercase font-mono"
-               >
-                 {client}
-               </motion.span>
+      {/* ==========================================
+          SECTION 6: CLIENT ADVOCACY & TESTIMONIAL GRAPH
+         ========================================== */}
+      <section className="py-20 px-6 max-w-7xl mx-auto border-t border-slate-900/60">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 space-y-6">
+            <span className="text-[10px] font-mono font-black text-cyan-400 tracking-widest block uppercase">// ACCREDITED_SYSTEMS_FEEDBACK</span>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">
+              Validated By <br />Product Operators
+            </h2>
+            <p className="text-sm text-slate-400 font-medium leading-relaxed">
+              Read how tech teams and system administrators maximize their deployment velocities using our engineering factory model.
+            </p>
+          </div>
+          
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              { quote: "Uptimise IT eliminated our frontend synchronization debt. Their type-safe schema mapping accelerated our Next.js feature releases by nearly 4x.", user: "CTO, SaaS Core System", network: "// SECURE_HANDSHAKE_NODE" },
+              { quote: "The server-side telemetry integration worked flawlessly. We recovered 100% of our ad-attribution pipelines without data leakage gaps.", user: "VP of Product, FinTech Ledger", network: "// SIGNAL_ATTRIBUTION_OK" }
+            ].map((card, i) => (
+              <div key={i} className="bg-slate-900/20 border border-slate-800 rounded-[2.5rem] p-8 flex flex-col justify-between space-y-8 hover:border-slate-700 transition-all duration-300">
+                <div className="space-y-4">
+                  <MessageSquare size={20} className="text-indigo-500/60" />
+                  <p className="text-xs text-slate-300 font-medium leading-relaxed italic">"{card.quote}"</p>
+                </div>
+                <div className="space-y-2 border-t border-slate-900 pt-4">
+                  <div className="text-xs font-black uppercase tracking-tight text-white">{card.user}</div>
+                  <div className="text-[9px] font-mono font-black text-slate-600 uppercase tracking-widest">{card.network}</div>
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* 7. CONCENTRIC ACTION CONVERTER (CTA) */}
+      {/* ==========================================
+          SECTION 7: TECH STACK & DYNAMIC FAQ ACCORDION
+         ========================================== */}
+      <section className="py-20 px-6 max-w-4xl mx-auto border-t border-slate-900 space-y-12">
+        <div className="text-center space-y-3">
+          <span className="text-[10px] font-mono font-black text-indigo-400 tracking-widest block uppercase">// FAQS_AND_SYSTEMIC_ANSWERS</span>
+          <h2 className="text-3xl font-black tracking-tight uppercase text-white">Technical Deep Dive</h2>
+        </div>
+
+        <div className="space-y-4">
+          {[
+            { q: "How does the AI-Native approach integration function day-to-day?", a: "We run background agent processes to write boilerplate structures, schema setups, and unit tests. Our senior systems architects review and sign off on all data entities to guarantee high deployment stability." },
+            { q: "Is the software factory compatible with existing database networks?", a: "Absolutely. Our codebases map schemas using clean Drizzle or Prisma frameworks, allowing us to connect type-safe entities into production PostgreSQL tables without structural data drift." },
+            { q: "How does Uptimise IT enforce zero-downtime deployment pipelines?", a: "We bundle builds using decoupled container structures and route incoming data through private virtual clouds. Updates launch via automated atomic rollovers to keep operations seamless." }
+          ].map((faq, idx) => (
+            <div key={idx} className="bg-slate-900/20 border border-slate-800 rounded-2xl overflow-hidden transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                className="w-full px-6 py-5 flex items-center justify-between text-left group"
+              >
+                <span className="font-bold uppercase tracking-tight text-xs text-slate-200 group-hover:text-white transition-colors">{faq.q}</span>
+                <ChevronDown size={16} className={`text-slate-500 transition-transform duration-300 ${openFaq === idx ? "rotate-180 text-indigo-400" : ""}`} />
+              </button>
+              <AnimatePresence initial={false}>
+                {openFaq === idx && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <div className="px-6 pb-6 text-xs text-slate-400 font-medium leading-relaxed border-t border-slate-900/50 pt-3">
+                      {faq.a}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ==========================================
+          SECTION 8: CONCENTRIC ACTION CONVERTER (CTA)
+         ========================================== */}
       <section className="py-24 px-6 text-center max-w-4xl mx-auto space-y-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -416,6 +472,7 @@ export default function WhyUptimisePage() {
           </div>
         </motion.div>
       </section>
+
     </div>
   );
 }
