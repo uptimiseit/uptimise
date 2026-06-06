@@ -58,7 +58,7 @@ return (
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-header tracking-tighter text-slate-950 leading-[0.9]">
             Why We Are <br />
-            <span className="text-slate-400 italic">Different.</span>
+            <span className="text-slate-700 font-medium italic">Different.</span>
           </h2>
         </motion.div>
 

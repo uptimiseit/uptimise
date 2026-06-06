@@ -263,10 +263,7 @@ const PhilosophySectionDark = () => {
 
             <div>
               <Link href="/Explore100x">
-                <button 
-                  aria-label="Explore the 100x Workflow" 
-                  className="flex items-center gap-4 text-white group cursor-pointer pt-4 hover:text-blue-400 transition-all duration-300"
-                >
+             <button aria-label="Explore the 100x Workflow" className="flex items-center gap-4 text-white pt-4 pb-4 px-2 min-h-[48px] w-full sm:w-auto">
                   <span className="font-bold text-xl uppercase tracking-tighter">
                     Explore the 100× Workflow
                   </span>

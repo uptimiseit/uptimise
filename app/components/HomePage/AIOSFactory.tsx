@@ -256,7 +256,7 @@ const AIOSFactoryDark = () => {
             >
                <div className="flex items-center gap-4 mb-6">
                   <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">System Architecture</span>
+                  <span className="text-[10px] font-mono font-bold text-slate-700 uppercase tracking-widest">System Architecture</span>
                </div>
                <p className="text-white font-bold mb-2">Automated Schema Design</p>
                <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
@@ -335,10 +335,10 @@ const AIOSFactoryDark = () => {
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-6">
                   <Rocket size={32} />
-                  <div className="text-[10px] font-mono bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">CD/CI ACTIVE</div>
+                  <div className="text-[10px] font-mono bg-white/30 px-3 py-1  text-white rounded-full backdrop-blur-sm">CD/CI ACTIVE</div>
                 </div>
                 <h3 className="text-2xl font-bold font-header mb-2 tracking-tight text-white">Rapid Deployment</h3>
-                <p className="text-blue-100 text-xs font-body leading-relaxed">
+                <p className="text-white text-xs font-medium leading-relaxed">
                   Pushing world-class code at market-leading speed.
                 </p>
               </div>
@@ -354,9 +354,9 @@ const AIOSFactoryDark = () => {
         >
            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 pl-4">The Result:</span>
            <div className="flex gap-12 pr-6">
-              <div className="flex flex-col"><span className="text-white font-bold">2x</span><span className="text-[8px] text-slate-500 uppercase">Faster Build</span></div>
-              <div className="flex flex-col"><span className="text-white font-bold">0%</span><span className="text-[8px] text-slate-500 uppercase">Manual Debt</span></div>
-              <div className="flex flex-col"><span className="text-white font-bold">100%</span><span className="text-[8px] text-slate-500 uppercase">Scalable</span></div>
+              <div className="flex flex-col"><span className="text-white font-bold">2x</span><span className="text-[9px] text-slate-300 font-semibold">Faster Build</span></div>
+              <div className="flex flex-col"><span className="text-white font-bold">0%</span><span className="text-[9px] text-slate-300 font-semibold">Manual Debt</span></div>
+              <div className="flex flex-col"><span className="text-white font-bold">100%</span><span className="text-[9px] text-slate-300 font-semibold">Scalable</span></div>
            </div>
         </motion.div>
       </motion.div>

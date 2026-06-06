@@ -554,9 +554,9 @@ export default function Hero() {
           className="pt-10"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-          <h3 className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-600">
+          <h2 className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-600">
               Validated Systems
-            </h3>
+            </h2>
             <div className="w-full overflow-hidden opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" role="region" aria-label="Partner Logos Marquee">
               <LogoMarquee />
             </div>

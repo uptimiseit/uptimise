@@ -536,7 +536,7 @@ export default function MegaNavbar() {
 
         {/* Mobile Toggle */}
         <div className="lg:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-600">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-600" aria-label="Mobile Menu">
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>

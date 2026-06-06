@@ -421,7 +421,7 @@ function TestimonialCard({ testimonial }: { testimonial: any }) {
         </p>
         
         <div className="pt-6 mt-6 border-t border-slate-50 flex items-center justify-between">
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+          <span className="text-[10px] font-black text-slate-600 font-bold uppercase tracking-[0.2em]">
             Sector: {testimonial.industry}
           </span>
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
