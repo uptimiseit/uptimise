@@ -362,7 +362,7 @@ const BackgroundGrid = dynamic(
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden flex items-center py-28 bg-white">
+    <section className="relative w-full overflow-hidden flex items-center py-20 bg-white">
       {/* OPTIMIZATION: Replaced JS resize listeners with standard responsive utilities. 
         The grid hides natively on mobile, meaning NO blocking javascript layout calculation.
       */}
