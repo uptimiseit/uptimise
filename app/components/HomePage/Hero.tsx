@@ -402,10 +402,21 @@ export default function Hero() {
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
+              {/* <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
                 AI-Native <br />
                 <span className="italic text-blue-600">Software Factory.</span>
-              </h1>
+              </h1> */}
+              {/* <div className="animate-[fadeIn_0.5s_ease-out]">
+  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
+    AI-Native <br />
+    <span className="italic text-blue-600">Software Factory.</span>
+  </h1>
+</div> */}
+
+<h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9] content-visibility-auto contain-intrinsic-size-[auto_150px]">
+  AI-Native <br />
+  <span className="italic text-blue-600">Software Factory.</span>
+</h1>
             </div>
 
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">

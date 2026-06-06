@@ -135,6 +135,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/PageWrapper";
 import Script from "next/script";
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -155,6 +156,16 @@ const josefin = Josefin_Sans({
   display: "swap", 
   variable: "--font-josefin",
 });
+
+
+
+
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap', // ✅ CRITICAL: Tells the browser to use a system font instantly, then swap to your design font without blocking LCP
+  variable: '--font-sans',
+});
+
 
 export const metadata: Metadata = {
   title: "Uptimise IT | AI-Native Software Development & Engineering",
@@ -200,7 +211,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} antialiased`}>
+      <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} ${sansFont.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* Navbar sits outside the page transitions so it doesn't re-render */}
           <Navbar />
