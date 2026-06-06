@@ -210,6 +210,14 @@ export default function RootLayout({
             }),
           }}
         />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        
+        
+        {/* If using a custom image CDN or Cloudfront backend */}
+        <link rel="preconnect" href="https://your-cdn-domain.cloudfront.net" />
       </head>
       <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} ${sansFont.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -230,9 +238,17 @@ export default function RootLayout({
         {/* Analytics called exactly ONCE */}
         <Analytics />
         <SpeedInsights />
-
+<Script id="google-tag-manager" strategy="lazyOnload">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-K8CMC8QK');
+          `}
+        </Script>
         {/* Note: Update these with your real GTM IDs when ready, or remove if unused */}
-        {/* <Script src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID" strategy="lazyOnload" /> */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-K8CMC8QK" strategy="lazyOnload" />
       </body>
     </html>
   );
