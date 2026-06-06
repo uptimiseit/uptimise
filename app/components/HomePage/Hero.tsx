@@ -460,7 +460,7 @@ export default function Hero() {
                 <circle cx="50%" cy="50%" r="140" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" className="opacity-40" />
                 <circle cx="50%" cy="50%" r="200" fill="none" stroke="#e2e8f0" strokeWidth="1" className="opacity-20" />
 
-                {[140, 200].map((radius, i) => (
+                {/* {[140, 200].map((radius, i) => (
                   <motion.circle
                     key={i}
                     cx="50%"
@@ -473,7 +473,28 @@ export default function Hero() {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 8 + i * 2, repeat: Infinity, ease: "linear" }}
                   />
-                ))}
+                ))} */}
+
+<circle 
+  cx="50%" 
+  cy="50%" 
+  r="140" 
+  fill="none" 
+  stroke="url(#lineGradient)" 
+  strokeWidth="2" 
+  strokeDasharray="20 180" 
+  className="animate-[spin_8s_linear_infinite] origin-center" 
+/>
+<circle 
+  cx="50%" 
+  cy="50%" 
+  r="200" 
+  fill="none" 
+  stroke="url(#lineGradient)" 
+  strokeWidth="2" 
+  strokeDasharray="20 180" 
+  className="animate-[spin_12s_linear_infinite] origin-center" 
+/>
               </svg>
 
               {/* Central Brain Hub */}

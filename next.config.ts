@@ -126,33 +126,31 @@
 
 
 
-
 import type { NextConfig } from 'next';
-import withBundleAnalyzer from '@next/bundle-analyzer';
+import bundleAnalyzer from '@next/bundle-analyzer';
 
+// 1. Define base configuration rules
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   trailingSlash: false,
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
 
-  // 1. IMAGE OPTIMIZATION DOMAINS
+  // IMAGE OPTIMIZATION DOMAINS
   images: {
-    // 🔥 THE FIX: Explicitly tell TypeScript these are exact ImageFormat literals, not generic strings
     formats: ['image/avif', 'image/webp'] as ('image/avif' | 'image/webp')[],
-    
     remotePatterns: [
       { protocol: 'https', hostname: 'placehold.co', port: '', pathname: '/**' },
       { protocol: "https", hostname: "images.unsplash.com", port: "", pathname: "/**" },
       { protocol: "https", hostname: "plus.unsplash.com", port: "", pathname: "/**" },
       { protocol: "https", hostname: "www.freepik.com", port: "", pathname: "/**" },
-      {
-        protocol: "https",
-        hostname: "*.cloudfront.net", // Whitelists your secure target CDN
-      },
+      { protocol: "https", hostname: "*.cloudfront.net" },
     ],
   },
 
-  // 2. SECURITY HEADERS & CACHING
+  // SECURITY HEADERS & CACHING
   async headers() {
     return [
       {
@@ -181,7 +179,7 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // 3. 301 REDIRECTS
+  // 301 REDIRECTS
   async redirects() {
     return [
       { source: '/services', destination: '/solutions', permanent: true },
@@ -193,10 +191,10 @@ const nextConfig: NextConfig = {
   },
 };
 
-// --- Bundle Analyzer Wrapper ---
-const bundleAnalyzer = withBundleAnalyzer({
+// 2. Initialize bundle analyzer using clean ESM standard patterns
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// Export the config wrapped in the analyzer
-export default bundleAnalyzer(nextConfig);
+// 3. Export safely using native TypeScript defaults
+export default withBundleAnalyzer(nextConfig);

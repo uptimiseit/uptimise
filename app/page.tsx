@@ -156,7 +156,7 @@ export default function Home() {
       <PhilosophySection />
 
       {/* Chunked & deferred scripts */}
-      <ProblemSection />
+      {/* <ProblemSection />
       <AIOSFactory />
       <HumanAICollaboration />  
       <AgentEcosystem />
@@ -173,7 +173,7 @@ export default function Home() {
       <TechTrends />
       <FAQSection />
       <FactoryArchitecture />
-      <FinalCTA />
+      <FinalCTA /> */}
     </>
   );
 }
