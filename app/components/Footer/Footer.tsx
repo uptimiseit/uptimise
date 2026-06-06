@@ -239,7 +239,7 @@ const Footer = () => {
       </AnimatePresence>
 
       {!message && (
-        <p className="text-[9px] text-slate-400 mt-3 font-medium px-1 leading-relaxed">
+       <p className="text-[11px] text-slate-600 mt-3 font-medium px-1 leading-relaxed">
           Receive monthly engineering insights. No spam.
         </p>
       )}
@@ -261,7 +261,7 @@ const Footer = () => {
               <motion.div 
                 key={i} 
                 whileHover={{ opacity: 1 }}
-                className="flex items-center gap-2 text-[10px] font-black text-slate-400 font-mono tracking-widest opacity-60 transition-opacity cursor-default"
+                className="flex items-center gap-2 text-[10px] font-black text-slate-600 font-mono tracking-widest opacity-60 transition-opacity cursor-default"
               >
                 <span className="text-blue-600">{trust.icon}</span>
                 {trust.label}
@@ -273,7 +273,7 @@ const Footer = () => {
               <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-blue-600 transition-colors">Terms</Link>
               <Link href="/cookies" className="hover:text-blue-600 transition-colors">Cookie</Link>
-              <span className="opacity-30 cursor-default">© {new Date().getFullYear()}</span>
+              <span className="text-slate-500 cursor-default">© {new Date().getFullYear()}</span>
             </div>
           </div>
         </motion.div>
