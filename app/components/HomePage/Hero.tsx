@@ -140,7 +140,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen  overflow-hidden flex items-center md:py-28 py-10 bg-white">
+    <section className="relative w-full  overflow-hidden flex items-center  py-28 bg-white">
       {mounted && (
         <>
           {isDesktop ? (
