@@ -211,13 +211,8 @@ export default function RootLayout({
           }}
         />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         
-        
-        {/* If using a custom image CDN or Cloudfront backend */}
-        <link rel="preconnect" href="https://your-cdn-domain.cloudfront.net" />
       </head>
       <body className={`${josefin.variable} ${montserrat.variable} ${figtree.variable} ${sansFont.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

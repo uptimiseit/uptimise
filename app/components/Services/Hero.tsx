@@ -330,7 +330,7 @@ export default function ServiceHero({ payload }: { payload: HeroPayload }) {
                           <TierIcon size={14} />
                         </div>
                         <span className={`text-[11px] font-mono font-black tracking-wider uppercase ${isSelected ? "text-[#10B981]" : "text-slate-800"}`}>
-                          {tier.label}nklnlk
+                          {tier.label}
                         </span>
                       </div>
                       <span className={`text-[8px] font-mono font-black tracking-widest border px-2 py-0.5 rounded uppercase ${
