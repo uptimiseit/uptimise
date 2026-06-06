@@ -242,6 +242,12 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-K8CMC8QK');
           `}
         </Script>
+        
+        <Script
+          src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"
+          strategy="lazyOnload"
+        />
+
         {/* Note: Update these with your real GTM IDs when ready, or remove if unused */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-K8CMC8QK" strategy="lazyOnload" />
       </body>
