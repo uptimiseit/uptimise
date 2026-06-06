@@ -529,7 +529,7 @@ export default function MegaNavbar() {
               Book Strategy Call
             </button>
           </Link>
-          <button className="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
+          <button aria-label="Toggle navigation menu" className="p-2.5 rounded-full  bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-all border border-slate-200 group">
             <Download size={18} className="group-hover:scale-110 transition-transform" />
           </button>
         </div>
