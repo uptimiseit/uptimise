@@ -1,5 +1,3 @@
-
-
 // "use client";
 
 // import dynamic from "next/dynamic";
@@ -275,8 +273,8 @@
 //     <h3 className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">
 //       Validated Systems
 //     </h3>
-    
-//     <div 
+
+//     <div
 //       className="w-full overflow-hidden opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
 //       /* Added roles for screen readers to identify this moving content */
 //       role="region"
@@ -291,8 +289,6 @@
 //   );
 // }
 
-
-
 // interface FactoryNodeProps {
 //   icon: React.ReactNode;
 //   label: string;
@@ -306,11 +302,11 @@
 //   return (
 //     <motion.div
 //       initial={{ opacity: 0, scale: 0.8 }}
-//       animate={{ 
-//         opacity: 1, 
-//         scale: 1, 
-//         x, 
-//         y 
+//       animate={{
+//         opacity: 1,
+//         scale: 1,
+//         x,
+//         y
 //       }}
 //       transition={{
 //         delay,
@@ -345,7 +341,6 @@
 //   );
 // }
 
-
 "use client";
 
 import dynamic from "next/dynamic";
@@ -357,7 +352,7 @@ import { Bot, Cpu, Box, Zap, Fingerprint } from "lucide-react";
 // Optimized background grid loading strategy
 const BackgroundGrid = dynamic(
   () => import("../HomePageAminations/BackgroundGrid"),
-  { ssr: false }
+  { ssr: false },
 );
 
 export default function Hero() {
@@ -376,7 +371,7 @@ export default function Hero() {
             className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-400/20 rounded-full blur-[120px]"
           />
         </div>
-        
+
         {/* Mobile Background Elements */}
         <div className="block lg:hidden absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
       </div>
@@ -413,10 +408,10 @@ export default function Hero() {
   </h1>
 </div> */}
 
-<h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9] content-visibility-auto contain-intrinsic-size-[auto_150px]">
-  AI-Native <br />
-  <span className="italic text-blue-600">Software Factory.</span>
-</h1>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9] content-visibility-auto contain-intrinsic-size-[auto_150px]">
+                AI-Native <br />
+                <span className="italic text-blue-600">Software Factory.</span>
+              </h1>
             </div>
 
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
@@ -462,14 +457,37 @@ export default function Hero() {
               {/* Orbital Paths */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
                 <defs>
-                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient
+                    id="lineGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
                     <stop offset="0%" stopColor="transparent" />
                     <stop offset="50%" stopColor="#3b82f6" />
                     <stop offset="100%" stopColor="transparent" />
                   </linearGradient>
                 </defs>
-                <circle cx="50%" cy="50%" r="140" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" className="opacity-40" />
-                <circle cx="50%" cy="50%" r="200" fill="none" stroke="#e2e8f0" strokeWidth="1" className="opacity-20" />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="140"
+                  fill="none"
+                  stroke="#e2e8f0"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                  className="opacity-40"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="200"
+                  fill="none"
+                  stroke="#e2e8f0"
+                  strokeWidth="1"
+                  className="opacity-20"
+                />
 
                 {/* {[140, 200].map((radius, i) => (
                   <motion.circle
@@ -486,43 +504,57 @@ export default function Hero() {
                   />
                 ))} */}
 
-<circle 
-  cx="50%" 
-  cy="50%" 
-  r="140" 
-  fill="none" 
-  stroke="url(#lineGradient)" 
-  strokeWidth="2" 
-  strokeDasharray="20 180" 
-  className="animate-[spin_8s_linear_infinite] origin-center" 
-/>
-<circle 
-  cx="50%" 
-  cy="50%" 
-  r="200" 
-  fill="none" 
-  stroke="url(#lineGradient)" 
-  strokeWidth="2" 
-  strokeDasharray="20 180" 
-  className="animate-[spin_12s_linear_infinite] origin-center" 
-/>
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="140"
+                  fill="none"
+                  stroke="url(#lineGradient)"
+                  strokeWidth="2"
+                  strokeDasharray="20 180"
+                  className="animate-[spin_8s_linear_infinite] origin-center"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="200"
+                  fill="none"
+                  stroke="url(#lineGradient)"
+                  strokeWidth="2"
+                  strokeDasharray="20 180"
+                  className="animate-[spin_12s_linear_infinite] origin-center"
+                />
               </svg>
 
               {/* Central Brain Hub */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="relative z-20 group"
               >
                 <div className="relative p-12 bg-white/80 backdrop-blur-2xl border border-slate-200 rounded-[4rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] flex items-center justify-center">
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className="absolute inset-4 border-t-2 border-blue-500/30 rounded-[3.5rem] pointer-events-none"
                   />
                   <div className="relative z-10 flex flex-col items-center gap-3">
-                    <Bot size={70} className="text-blue-600 drop-shadow-2xl" strokeWidth={1.5} />
-                    <span className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Core_AI</span>
+                    <Bot
+                      size={70}
+                      className="text-blue-600 drop-shadow-2xl"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">
+                      Core_AI
+                    </span>
                   </div>
                 </div>
 
@@ -531,16 +563,48 @@ export default function Hero() {
                     key={i}
                     initial={{ scale: 1, opacity: 0.5 }}
                     animate={{ scale: s + 0.2, opacity: 0 }}
-                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.8 }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 0.8,
+                    }}
                     className="absolute inset-0 border border-blue-400/30 rounded-[4rem] -z-10"
                   />
                 ))}
               </motion.div>
 
-              <FactoryNode icon={<Cpu size={22} />} label="Neural_Logic" sub="Processing" x={-190} y={-120} delay={0.1} />
-              <FactoryNode icon={<Box size={22} />} label="SaaS_Factory" sub="Assembly" x={210} y={-40} delay={0.2} />
-              <FactoryNode icon={<Zap size={22} />} label="Ultra_Speed" sub="Velocity" x={160} y={160} delay={0.3} />
-              <FactoryNode icon={<Fingerprint size={22} />} label="Identity_Auth" sub="Precision" x={-180} y={140} delay={0.4} />
+              <FactoryNode
+                icon={<Cpu size={22} />}
+                label="Neural_Logic"
+                sub="Processing"
+                x={-190}
+                y={-120}
+                delay={0.1}
+              />
+              <FactoryNode
+                icon={<Box size={22} />}
+                label="SaaS_Factory"
+                sub="Assembly"
+                x={210}
+                y={-40}
+                delay={0.2}
+              />
+              <FactoryNode
+                icon={<Zap size={22} />}
+                label="Ultra_Speed"
+                sub="Velocity"
+                x={160}
+                y={160}
+                delay={0.3}
+              />
+              <FactoryNode
+                icon={<Fingerprint size={22} />}
+                label="Identity_Auth"
+                sub="Precision"
+                x={-180}
+                y={140}
+                delay={0.4}
+              />
             </motion.div>
           </div>
         </div>
@@ -554,10 +618,14 @@ export default function Hero() {
           className="pt-10"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-          <h2 className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-600">
+            <h2 className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.4em] text-slate-600">
               Validated Systems
             </h2>
-            <div className="w-full overflow-hidden opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" role="region" aria-label="Partner Logos Marquee">
+            <div
+              className="w-full overflow-hidden opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              role="region"
+              aria-label="Partner Logos Marquee"
+            >
               <LogoMarquee />
             </div>
           </div>
@@ -584,7 +652,12 @@ function FactoryNode({ icon, label, sub, x, y, delay }: FactoryNodeProps) {
       transition={{
         delay,
         duration: 0.6,
-        y: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
+        y: {
+          duration: 3,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        },
       }}
       aria-hidden="true"
       className="absolute group cursor-default"
