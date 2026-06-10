@@ -323,7 +323,7 @@ export default function Explore100xPage() {
             {[
               { num: "01", icon: <Code2 size={18} />, title: "Declarative Schema Mapping", desc: "We model structural table architectures and relations prior to launching front-end development." },
               { num: "02", icon: <Sliders size={18} />, title: "Automated Script Scaffolding", desc: "Autonomous generation of API endpoints protected by strict type validation filters." },
-              { num: "03", icon: <Server size={18} />, title: "Atomic Edge Compilation", desc: "Pushing optimized build targets to distributed server networks behind cloud firewalls." }
+              { num: "03", icon: <Server   size={18} />, title: "Atomic Edge Compilation", desc: "Pushing optimized build targets to distributed server networks behind cloud firewalls." }
             ].map((pt, i) => (
               <motion.div
                 key={i}

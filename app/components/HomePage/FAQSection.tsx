@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, ShieldCheck, Rocket, Sparkles, ChevronDown } from 'lucide-react';
 import { AiFillOpenAI, AiFillThunderbolt } from "react-icons/ai";
+import Link from 'next/link';
 
 // Define the shape of our FAQ data
 interface FAQ {
@@ -180,13 +181,18 @@ export default function FAQSection() {
           ))}
         </motion.div>
 
+
+
         <div className="mt-12 text-center">
+          <Link href="/contact" className="inline-block px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors"> 
           <p className="text-sm text-slate-500">
             Still have questions?{" "}
             <button className="text-blue-400 font-medium hover:text-blue-300 transition-colors underline underline-offset-4 decoration-blue-400/30">
               Contact our support team
             </button>
           </p>
+            </Link>
+
         </div>
       </div>
     </section>
