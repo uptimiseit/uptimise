@@ -184,7 +184,7 @@ export default function FAQSection() {
 
 
         <div className="mt-12 text-center">
-          <Link href="/contact" className="inline-block px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors"> 
+          <Link href="/contact"> 
           <p className="text-sm text-slate-500">
             Still have questions?{" "}
             <button className="text-blue-400 font-medium hover:text-blue-300 transition-colors underline underline-offset-4 decoration-blue-400/30">
