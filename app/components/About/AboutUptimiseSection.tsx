@@ -17,7 +17,7 @@ export default function AboutUptimiseSection() {
     <section className="relative bg-slate-950 py-24 px-6 overflow-hidden">
       {/* Background Engineering Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#3b82f605_0%,transparent_70%)]" />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://www.svgrepo.com/show/500679/scissor.svg')] opacity-[0.03] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

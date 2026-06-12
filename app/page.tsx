@@ -106,10 +106,11 @@ import dynamic from "next/dynamic";
 // 1. CRITICAL COMPONENTS: Loaded instantly (No dynamic import)
 import Hero from "./components/HomePage/Hero";
 import PhilosophySection from "./components/HomePage/LiquidConnect";
+import CurvedGallerySlider from "./components/HomePage/CurvedGallerySlider";
 
 // 2. DEFERRED COMPONENTS: Code-split and lazy-loaded on demand
 const ProblemSection = dynamic(() => import("./components/ProblemSection"), { ssr: true });
-const AIOSFactory = dynamic(() => import("./components/HomePage/AIOSFactory"), { ssr: true });
+// const AIOSFactory = dynamic(() => import("./components/HomePage/CurvedGallerySlider"), { ssr: true });
 const HumanAICollaboration = dynamic(() => import("./components/HumanAICollaboration"), { ssr: true });
 const AgentEcosystem = dynamic(() => import("./components/HomePage/AgentEcosystem"), { ssr: true });
 const CompareSection = dynamic(() => import("./components/HomePage/Compare"), { ssr: true });
@@ -157,7 +158,9 @@ export default function Home() {
 
       {/* Chunked & deferred scripts */}
       <ProblemSection />
-      <AIOSFactory />
+      {/* <AIOSFactory /> */}
+      {/* <CurvedGallerySlider /> */}
+      <CurvedGallerySlider />
       <HumanAICollaboration />  
       <AgentEcosystem />
       <CompareSection />
