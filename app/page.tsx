@@ -107,6 +107,7 @@ import dynamic from "next/dynamic";
 import Hero from "./components/HomePage/Hero";
 import PhilosophySection from "./components/HomePage/LiquidConnect";
 import CurvedGallerySlider from "./components/HomePage/CurvedGallerySlider";
+import GalleryImages from "./components/HomePage/GalleryImages";
 
 // 2. DEFERRED COMPONENTS: Code-split and lazy-loaded on demand
 const ProblemSection = dynamic(() => import("./components/ProblemSection"), { ssr: true });
@@ -160,7 +161,8 @@ export default function Home() {
       <ProblemSection />
       {/* <AIOSFactory /> */}
       {/* <CurvedGallerySlider /> */}
-      <CurvedGallerySlider />
+      <GalleryImages />
+      {/* <CurvedGallerySlider /> */}
       <HumanAICollaboration />  
       <AgentEcosystem />
       <CompareSection />

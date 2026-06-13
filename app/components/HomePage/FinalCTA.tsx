@@ -5,38 +5,6 @@ import { motion, Variants } from 'framer-motion';
 import { Calendar, ArrowRight, Zap, ShieldCheck, Cpu } from 'lucide-react';
 import Link from 'next/link';
 
-// // --- Animation Variants ---
-// const containerVariants: Variants = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.15,
-//       delayChildren: 0.2
-//     }
-//   }
-// };
-
-// const fadeInUp: Variants = {
-//   hidden: { opacity: 0, y: 30 },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0, 
-//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-//   }
-// };
-
-// const pulseVariants: Variants = {
-//   animate: {
-//     scale: [1, 1.1, 1],
-//     opacity: [0.15, 0.3, 0.15],
-//     transition: {
-//       duration: 8,
-//       repeat: Infinity,
-//       ease: "easeInOut"
-//     }
-//   }
-// };
 
 const FinalCTA = () => {
   return (

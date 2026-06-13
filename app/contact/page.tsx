@@ -1,23 +1,21 @@
+
 // "use client";
 
 // import React, { useState, useRef, useMemo } from "react";
-// import { motion, AnimatePresence, Variants } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
 // import {
 //   Mail,
-//   MapPin,
 //   MessageSquare,
 //   Globe,
 //   Github,
 //   Linkedin,
 //   Twitter,
 //   Zap,
-//   ShieldCheck,
 //   Terminal,
 //   Loader2,
 //   CheckCircle2,
 //   AlertCircle,
 //   Phone,
-//   Paperclip,
 //   FileText,
 //   X,
 //   ChevronDown,
@@ -25,32 +23,6 @@
 // } from "lucide-react";
 // import FAQSection from "../components/HomePage/FAQSection";
 // import { countryCodes } from "@/app/constants/countries";
-
-// // const fadeInUp: Variants = {
-// //   hidden: { opacity: 0, y: 30 },
-// //   visible: {
-// //     opacity: 1,
-// //     y: 0,
-// //     transition: { duration: 0.8, ease: "easeOut" }
-// //   }
-// // };
-
-// // const staggerContainer: Variants = {
-// //   hidden: { opacity: 0 },
-// //   visible: {
-// //     opacity: 1,
-// //     transition: { staggerChildren: 0.15 }
-// //   }
-// // };
-
-// // const countryCodes = [
-// //   { code: "+91", label: "IN", flag: "🇮🇳" },
-// //   { code: "+1", label: "US", flag: "🇺🇸" },
-// //   { code: "+44", label: "UK", flag: "🇬🇧" },
-// //   { code: "+971", label: "AE", flag: "🇦🇪" },
-// //   { code: "+61", label: "AU", flag: "🇦🇺" },
-// //   { code: "+65", label: "SG", flag: "🇸🇬" },
-// // ];
 
 // const departments = [
 //   "Software Development",
@@ -64,8 +36,9 @@
 // ];
 
 // const ContactPage = () => {
+//   // 1. Initial State
 //   const [formData, setFormData] = useState({
-//     name: "", // Changed to match validation logic or vice versa
+//     name: "",
 //     email: "",
 //     mobileNumber: "",
 //     countryCode: "+91",
@@ -74,27 +47,48 @@
 //     documentFile: null as File | null,
 //   });
 
+//   const [loading, setLoading] = useState(false);
+//   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+//   const [errors, setErrors] = useState<Record<string, string>>({});
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+//   const fileInputRef = useRef<HTMLInputElement>(null);
+
+//   // 2. Memoized Logic (Calculated after state is defined)
+//   const filteredCountries = useMemo(() => {
+//     return countryCodes.filter(
+//       (c) =>
+//         c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//         c.code.includes(searchQuery),
+//     );
+//   }, [searchQuery]);
+
+//   const selectedCountry = useMemo(() => {
+//     return (
+//       countryCodes.find((c) => c.code === formData.countryCode) ||
+//       countryCodes[0]
+//     );
+//   }, [formData.countryCode]);
+
+//   // 3. Validation and Handlers
 //   const validate = () => {
 //     const newErrors: Record<string, string> = {};
 
-//     // 1. Name Validation
 //     if (!formData.name.trim()) {
 //       newErrors.name = "Name is required";
 //     } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
 //       newErrors.name = "Name must contain only alphabets";
 //     }
 
-//     // Rejects commas, spaces, and special chars like !#$%
+//     // Strict Email Regex: letters, numbers, underscores, dots, @ ONLY
 //     const emailRegex = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_.]+\.[a-zA-Z]{2,}$/;
-
 //     if (!formData.email.trim()) {
 //       newErrors.email = "Email is required";
 //     } else if (!emailRegex.test(formData.email)) {
 //       newErrors.email =
-//         "Invalid format. Use only letters, numbers, and underscores.";
+//         "Invalid format. Use letters, numbers, and underscores only.";
 //     }
 
-//     // 3. Mobile Validation (10 digits)
 //     if (!formData.mobileNumber) {
 //       newErrors.mobileNumber = "Mobile number is required";
 //     } else if (formData.mobileNumber.length < 10) {
@@ -105,109 +99,36 @@
 //     return Object.keys(newErrors).length === 0;
 //   };
 
-//     const [isSubmitting, setIsSubmitting] = useState(false);
-
-//   const [loading, setLoading] = useState(false);
-//   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-//   const fileInputRef = useRef<HTMLInputElement>(null);
-//   const [errors, setErrors] = useState<Record<string, string>>({});
-//   const [searchQuery, setSearchQuery] = useState("");
-//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-//   // Filter countries based on search input
-//   const filteredCountries = useMemo(() => {
-//     return countryCodes.filter(
-//       (c) =>
-//         c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//         c.code.includes(searchQuery),
-//     );
-//   }, [searchQuery]);
-
-//   // Find current selected country for the display
-//   // const selectedCountry = countryCodes.find(c => c.code === formData.countryCode) || countryCodes[0];
-
-//   const selectedCountry = useMemo(() => {
-//     return (
-//       countryCodes.find((c) => c.code === formData.countryCode) ||
-//       countryCodes[0]
-//     );
-//   }, [formData.countryCode]);
-
-//   // const handleSubmit = async (e: React.FormEvent) => {
-//   //   e.preventDefault();
-//   //   setLoading(true);
-//   //   setStatus('idle');
-
-//   //   // Use FormData for file upload compatibility
-//   //   const data = new FormData();
-//   //   data.append('name', formData.name);
-//   //   data.append('email', formData.email);
-//   //   data.append('mobileNumber', formData.mobileNumber);
-//   //   data.append('countryCode', formData.countryCode);
-//   //   data.append('department', formData.department);
-//   //   data.append('message', formData.message);
-//   //   if (formData.documentFile) {
-//   //     data.append('documentFile', formData.documentFile);
-//   //   }
-
-//   //   try {
-//   //     const response = await fetch('https://uptimiseit-admin.vercel.app/api/brief', {
-//   //       method: 'POST',
-//   //       body: data, // Fetch handles boundary automatically for FormData
-//   //     });
-
-//   //     if (response.ok) {
-//   //       setStatus('success');
-//   //       setFormData({
-//   //         name: '', email: '', mobileNumber: '', countryCode: '+91',
-//   //         department: 'Software Development', message: '', documentFile: null
-//   //       });
-//   //       setTimeout(() => setStatus('idle'), 5000);
-//   //     } else {
-//   //       setStatus('error');
-//   //     }
-//   //   } catch (error) {
-//   //     console.error("Transmission Error:", error);
-//   //     setStatus('error');
-//   //   } finally {
-//   //     setLoading(false);
-//   //   }
-//   // };
-
 //   const handleMobileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     // 1. Remove non-digits
-//     // 2. Limit to 10 characters (Max)
 //     const value = e.target.value.replace(/\D/g, "").slice(0, 10);
 //     setFormData({ ...formData, mobileNumber: value });
 //   };
 
+//   const sanitizeFileName = (fileName: string) => {
+//     return fileName.replace(/[/\\]/g, "").replace(/[^a-zA-Z0-9.-]/g, "_");
+//   };
+
 //   const handleSubmit = async (e: React.FormEvent) => {
 //     e.preventDefault();
-//     setIsSubmitting(true);
+//     if (!validate()) return;
+
 //     setLoading(true);
 //     setStatus("idle");
-
-//     if (!validate()) {
-//       setIsSubmitting(false);
-//       return;
-//     }
 
 //     try {
 //       let finalDocumentUrl = "";
 
-//       // --- STEP 1: AWS S3 UPLOAD (If file exists) ---
 //       if (formData.documentFile) {
 //         const file = formData.documentFile;
+//         const cleanName = sanitizeFileName(file.name);
 
-//         // 1. Get the Signed URL from your API
 //         const ticketRes = await fetch(
-//           `/api/upload-url?file=${encodeURIComponent(file.name)}&type=${encodeURIComponent(file.type)}`,
+//           `/api/upload-url?file=${encodeURIComponent(cleanName)}&type=${encodeURIComponent(file.type)}`,
 //         );
 
-//         if (!ticketRes.ok) throw new Error("Failed to fetch upload ticket");
+//         if (!ticketRes.ok) throw new Error("Upload ticket failed");
 //         const { signedUrl, cdnUrl } = await ticketRes.json();
 
-//         // 2. PUT the file directly to S3
 //         const s3Upload = await fetch(signedUrl, {
 //           method: "PUT",
 //           body: file,
@@ -215,25 +136,17 @@
 //         });
 
 //         if (!s3Upload.ok) throw new Error("S3 Upload Failed");
-
-//         // Store the CloudFront URL to save in our database
 //         finalDocumentUrl = cdnUrl;
 //       }
 
-//       // --- STEP 2: SAVE TO DATABASE ---
 //       const response = await fetch(
 //         "https://uptimiseit-admin.vercel.app/api/brief",
 //         {
 //           method: "POST",
 //           headers: { "Content-Type": "application/json" },
 //           body: JSON.stringify({
-//             name: formData.name,
-//             email: formData.email,
-//             mobileNumber: formData.mobileNumber,
-//             countryCode: formData.countryCode,
-//             department: formData.department,
-//             message: formData.message,
-//             documentUrl: finalDocumentUrl, // Save the AWS link here
+//             ...formData,
+//             documentUrl: finalDocumentUrl,
 //           }),
 //         },
 //       );
@@ -254,7 +167,7 @@
 //         setStatus("error");
 //       }
 //     } catch (error) {
-//       console.error("Transmission Failure:", error);
+//       console.error("Submission Failure:", error);
 //       setStatus("error");
 //     } finally {
 //       setLoading(false);
@@ -270,26 +183,15 @@
 //           animate={{ opacity: 0.05 }}
 //           className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"
 //         />
-//         <motion.div
-//           initial="hidden"
-//           animate="visible"
-//           //  variants={staggerContainer}
-//           className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-end gap-12"
-//         >
+//         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
 //           <div className="space-y-6">
-//             <motion.div
-//               //  variants={fadeInUp}
-//               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20"
-//             >
+//             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
 //               <Terminal size={12} className="text-blue-400" />
 //               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 font-mono">
 //                 Communication_Protocol::v2.0
 //               </span>
-//             </motion.div>
-//             <motion.h1
-//               //  variants={fadeInUp}
-//               className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none uppercase"
-//             >
+//             </div>
+//             <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none uppercase">
 //               Deploy <br />{" "}
 //               <motion.span
 //                 animate={{ color: ["#3b82f6", "#60a5fa", "#3b82f6"] }}
@@ -298,35 +200,23 @@
 //               >
 //                 Vision.
 //               </motion.span>
-//             </motion.h1>
+//             </h1>
 //           </div>
-//           <motion.p
-//             //  variants={fadeInUp}
-//             className="text-slate-400 text-lg max-w-sm font-medium border-l border-white/10 pl-8 pb-4 leading-relaxed"
-//           >
+//           <p className="text-slate-400 text-lg max-w-sm font-medium border-l border-white/10 pl-8 pb-4 leading-relaxed">
 //             Submit your technical brief. Our engineering leads review all
 //             intakes within 12 hours.
-//           </motion.p>
-//         </motion.div>
+//           </p>
+//         </div>
 //       </section>
 
 //       {/* --- CONTACT MATRIX --- */}
 //       <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
 //         {/* LEFT: Info */}
-//         <motion.div
-//           initial="hidden"
-//           whileInView="visible"
-//           viewport={{ once: true }}
-//           // variants={staggerContainer}
-//           className="lg:col-span-4 space-y-16"
-//         >
+//         <div className="lg:col-span-4 space-y-16">
 //           <div className="space-y-8">
-//             <motion.h4
-//               //  variants={fadeInUp}
-//               className="text-[12px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic"
-//             >
+//             <h4 className="text-[12px] font-black uppercase tracking-[0.3em] text-slate-400 font-mono italic">
 //               # Direct_Gateway
-//             </motion.h4>
+//             </h4>
 //             <div className="space-y-8">
 //               {[
 //                 {
@@ -342,7 +232,6 @@
 //               ].map((channel, idx) => (
 //                 <motion.div
 //                   key={idx}
-//                   // variants={fadeInUp}
 //                   whileHover={{ x: 10 }}
 //                   className="group flex gap-6 items-start cursor-pointer"
 //                 >
@@ -361,11 +250,7 @@
 //               ))}
 //             </div>
 //           </div>
-//           <motion.div
-//             //  variants={fadeInUp}
-
-//             className="pt-12 border-t border-slate-100 flex gap-4"
-//           >
+//           <div className="pt-12 border-t border-slate-100 flex gap-4">
 //             {[
 //               <Linkedin key="l" />,
 //               <Twitter key="t" />,
@@ -380,8 +265,8 @@
 //                 {icon}
 //               </motion.div>
 //             ))}
-//           </motion.div>
-//         </motion.div>
+//           </div>
+//         </div>
 
 //         {/* RIGHT: INTAKE FORM */}
 //         <div className="lg:col-span-8">
@@ -405,12 +290,18 @@
 //                     onChange={(e) =>
 //                       setFormData({ ...formData, name: e.target.value })
 //                     }
-//                     className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all outline-none"
+//                     className={`w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 transition-all outline-none ${errors.name ? "ring-2 ring-red-500" : "focus:ring-blue-600"}`}
 //                   />
+//                   {errors.name && (
+//                     <p className="text-[9px] text-red-500 font-bold mt-1 uppercase ml-1">
+//                       {errors.name}
+//                     </p>
+//                   )}
 //                 </div>
 //                 {/* <div className="space-y-2">
 //                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Node</label>
-//                   <input required type="email" placeholder="name@company.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all outline-none" />
+//                   <input required type="email" placeholder="name@company.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={`w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 transition-all outline-none ${errors.email ? 'ring-2 ring-red-500' : 'focus:ring-blue-600'}`} />
+//                   {errors.email && <p className="text-[9px] text-red-500 font-bold mt-1 uppercase ml-1">{errors.email}</p>}
 //                 </div> */}
 
 //                 <div className="space-y-2">
@@ -419,16 +310,20 @@
 //                   </label>
 //                   <input
 //                     required
-//                     type="email"
+//                     type="text" // Changed from "email" to "text" to bypass browser defaults
 //                     placeholder="name@company.com"
 //                     value={formData.email}
 //                     onChange={(e) =>
 //                       setFormData({ ...formData, email: e.target.value })
 //                     }
-//                     className={`w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 transition-all outline-none ${errors.email ? "ring-2 ring-red-500" : "focus:ring-blue-600"}`}
+//                     className={`w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 transition-all outline-none ${
+//                       errors.email
+//                         ? "ring-2 ring-red-500"
+//                         : "focus:ring-blue-600"
+//                     }`}
 //                   />
 //                   {errors.email && (
-//                     <p className="text-[9px] text-red-500 font-bold mt-1 uppercase ml-1">
+//                     <p className="text-[9px] text-red-500 font-bold mt-1 uppercase ml-1 italic">
 //                       {errors.email}
 //                     </p>
 //                   )}
@@ -436,22 +331,8 @@
 //               </div>
 
 //               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-//                 {/* <div className="space-y-2">
-//                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Mobile Number</label>
-//                   <div className="flex gap-2">
-//                     <div className="relative flex items-center bg-slate-50 px-3 rounded-2xl border-none">
-//                       <select value={formData.countryCode} onChange={(e) => setFormData({...formData, countryCode: e.target.value})} className="bg-transparent text-xs font-black outline-none appearance-none pr-4 z-10 cursor-pointer">
-//                         {countryCodes.map(c => <option key={c.code} value={c.code}>{c.flag} {c.code}</option>)}
-//                       </select>
-//                       <ChevronDown size={12} className="absolute right-2 text-slate-400" />
-//                     </div>
-//                     <input required type="tel" placeholder="98765 43210" value={formData.mobileNumber} onChange={(e) => setFormData({...formData, mobileNumber: e.target.value.replace(/\D/g,'')})} className="flex-1 bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-blue-600 transition-all outline-none" />
-//                   </div>
-//                 </div> */}
-
 //                 <div className="relative group">
 //                   <div className="flex items-center gap-4 border-b-2 border-slate-100 focus-within:border-blue-600 transition-all">
-//                     {/* --- CUSTOM SEARCHABLE SELECT --- */}
 //                     <div className="relative mb-2">
 //                       <button
 //                         type="button"
@@ -467,24 +348,19 @@
 //                           className={`text-slate-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
 //                         />
 //                       </button>
-
-//                       {/* DROPDOWN MENU */}
 //                       <AnimatePresence>
 //                         {isDropdownOpen && (
 //                           <>
-//                             {/* Backdrop to close dropdown */}
 //                             <div
 //                               className="fixed inset-0 z-20"
 //                               onClick={() => setIsDropdownOpen(false)}
 //                             />
-
 //                             <motion.div
 //                               initial={{ opacity: 0, y: 10 }}
 //                               animate={{ opacity: 1, y: 0 }}
 //                               exit={{ opacity: 0, y: 10 }}
 //                               className="absolute left-0 mt-2 w-64 bg-white border border-slate-100 rounded-2xl shadow-2xl z-30 overflow-hidden"
 //                             >
-//                               {/* SEARCH INPUT */}
 //                               <div className="p-3 border-b border-slate-50">
 //                                 <input
 //                                   type="text"
@@ -497,8 +373,6 @@
 //                                   className="w-full bg-slate-50 px-3 py-2 text-xs font-bold rounded-lg outline-none focus:ring-2 focus:ring-blue-500/20"
 //                                 />
 //                               </div>
-
-//                               {/* COUNTRY LIST */}
 //                               <div className="max-h-60 overflow-y-auto custom-scrollbar">
 //                                 {filteredCountries.length > 0 ? (
 //                                   filteredCountries.map((c) => (
@@ -537,8 +411,6 @@
 //                         )}
 //                       </AnimatePresence>
 //                     </div>
-
-//                     {/* --- MOBILE INPUT --- */}
 //                     <input
 //                       type="tel"
 //                       required
@@ -548,7 +420,6 @@
 //                       placeholder="Mobile"
 //                     />
 //                   </div>
-
 //                   <label className="absolute left-0 -top-3.5 text-[10px] font-black uppercase tracking-widest text-slate-400">
 //                     Mobile Number *
 //                   </label>
@@ -586,7 +457,6 @@
 //                 </div>
 //               </div>
 
-//               {/* Document File Dropzone */}
 //               <div className="space-y-2">
 //                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
 //                   Technical Brief / SRS (Optional)
@@ -607,7 +477,6 @@
 //                       })
 //                     }
 //                   />
-
 //                   <AnimatePresence mode="wait">
 //                     {formData.documentFile ? (
 //                       <motion.div
@@ -627,7 +496,6 @@
 //                           </p>
 //                         </div>
 //                         <button
-//                           aria-label="Uptimiseit"
 //                           type="button"
 //                           onClick={(e) => {
 //                             e.stopPropagation();
@@ -674,8 +542,6 @@
 //               <motion.button
 //                 type="submit"
 //                 disabled={loading}
-//                   disabled={isSubmitting}
-
 //                 whileHover={{ scale: 1.01 }}
 //                 whileTap={{ scale: 0.99 }}
 //                 className={`w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 flex items-center justify-center gap-4 shadow-xl ${status === "success" ? "bg-emerald-500 text-white" : status === "error" ? "bg-red-600 text-white" : "bg-slate-950 text-white hover:bg-blue-600"}`}
@@ -730,6 +596,7 @@ import {
   X,
   ChevronDown,
   UploadCloud,
+  MapPin,
 } from "lucide-react";
 import FAQSection from "../components/HomePage/FAQSection";
 import { countryCodes } from "@/app/constants/countries";
@@ -790,7 +657,6 @@ const ContactPage = () => {
       newErrors.name = "Name must contain only alphabets";
     }
 
-    // Strict Email Regex: letters, numbers, underscores, dots, @ ONLY
     const emailRegex = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_.]+\.[a-zA-Z]{2,}$/;
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -962,17 +828,18 @@ const ContactPage = () => {
           </div>
           <div className="pt-12 border-t border-slate-100 flex gap-4">
             {[
-              <Linkedin key="l" />,
-              <Twitter key="t" />,
-              <Github key="g" />,
-              <Globe key="gl" />,
-            ].map((icon, i) => (
+              { icon: <Linkedin key="l" />, url: "https://in.linkedin.com/company/uptimise-it" },
+              { icon: <Twitter key="t" />, url: "https://x.com/" },
+              { icon: <Github key="g" />, url: "https://github.com/uptimiseit" },
+              { icon: <Globe key="gl" />, url: "https://www.uptimiseit.com/" },
+            ].map((social, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -5, color: "#2563eb" }}
-                className="w-12 h-12 rounded-xl border border-slate-100 flex items-center justify-center text-slate-300 cursor-pointer transition-all"
+                onClick={() => window.open(social.url, "_blank", "noopener,noreferrer")}
+                className="w-12 h-12 rounded-xl border border-slate-100 flex items-center justify-center text-slate-300 cursor-pointer transition-all hover:border-blue-200"
               >
-                {icon}
+                {social.icon}
               </motion.div>
             ))}
           </div>
@@ -1008,11 +875,6 @@ const ContactPage = () => {
                     </p>
                   )}
                 </div>
-                {/* <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Node</label>
-                  <input required type="email" placeholder="name@company.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={`w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 transition-all outline-none ${errors.email ? 'ring-2 ring-red-500' : 'focus:ring-blue-600'}`} />
-                  {errors.email && <p className="text-[9px] text-red-500 font-bold mt-1 uppercase ml-1">{errors.email}</p>}
-                </div> */}
 
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
@@ -1020,16 +882,14 @@ const ContactPage = () => {
                   </label>
                   <input
                     required
-                    type="text" // Changed from "email" to "text" to bypass browser defaults
+                    type="text"
                     placeholder="name@company.com"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
                     className={`w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 transition-all outline-none ${
-                      errors.email
-                        ? "ring-2 ring-red-500"
-                        : "focus:ring-blue-600"
+                      errors.email ? "ring-2 ring-red-500" : "focus:ring-blue-600"
                     }`}
                   />
                   {errors.email && (
@@ -1275,6 +1135,53 @@ const ContactPage = () => {
               </motion.button>
             </form>
           </motion.div>
+        </div>
+      </section>
+
+      {/* --- GEOLOCATION MATRIX (MAP SECTION) --- */}
+      <section className="bg-slate-50 border-t border-b border-slate-100 py-24 px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Address Details Block */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20">
+              <MapPin size={12} className="text-blue-600" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 font-mono">
+                HQ_Coordinates
+              </span>
+            </div>
+            
+            <h3 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tighter uppercase leading-none">
+              Visit Our <br />
+              <span className="text-blue-600 italic">Workspace.</span>
+            </h3>
+            
+            <p className="text-slate-500 text-sm font-semibold font-mono leading-relaxed bg-white border border-slate-200/60 shadow-sm p-6 rounded-3xl">
+              Plot No. 15, <br />
+              Near Chaisa Cafe, Satya Vihar, <br />
+              Vidhayak Nagar, Lalkothi, <br />
+              Jaipur, Rajasthan — 302005
+            </p>
+
+            <p className="text-xs text-slate-400 font-medium leading-relaxed pl-2">
+              Our engineering office is accessible during standard workspace protocols. Feel free to schedule an in-person tech review layout session.
+            </p>
+          </div>
+
+          {/* Interactive Map Block */}
+          <div className="lg:col-span-8 w-full h-[450px] rounded-[3rem] overflow-hidden border border-slate-200 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] relative group">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.7496465493014!2d75.80104617631379!3d26.879685976667527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db69fa7f7df15%3A0xc3cbcfbe8bf0d35a!2sChaisa!5e0!3m2!1sen!2sin!4v1717144000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale-[20%] contrast-[110%] group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+            />
+          </div>
+
         </div>
       </section>
 
