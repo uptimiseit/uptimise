@@ -166,7 +166,7 @@ export default function GalleryImages() {
       <div className="relative z-10 max-w-3xl mx-auto text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4 font-serif">
           Streamline Your Team, <br />
-          <span className="text-zinc-100 font-sans font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-400">
+          <span className="font-sans font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-400">
             Supercharge Your Workflow
           </span>
         </h2>

@@ -134,7 +134,7 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3 text-[13px] font-bold text-slate-500">
                 {[
-                  { name: "AI Factory", href: "/solutions/ai-factory" },
+                  { name: "AI Factory", href: "/solutions/ai-software-factory" },
                   { name: "Blockchain", href: "/industries/blockchain" },
                   { name: "Cloud Ops", href: "/solutions/cloud-infrastructure" },
                   { name: "UX Arch", href: "/solutions/product-design" }
