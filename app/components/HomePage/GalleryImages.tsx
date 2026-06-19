@@ -79,7 +79,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 type GalleryImage = {
   src: string;
@@ -175,15 +175,14 @@ export default function GalleryImages() {
           All-in-one platform to plan, collaborate, and deliver — faster and smarter.
         </p>
         
-        <Link href="">
-          <button className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded-full transition-all duration-300 shadow-lg shadow-blue-600/10 flex items-center gap-2 mx-auto">
-            View More
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
+        <Link href="/gallery">
+                <button className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded-full transition-all duration-300 shadow-lg shadow-blue-600/10 flex items-center gap-2 mx-auto">
+          View More
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
         </Link>
-        {/* </button> */}
       </div>
 
       {/* 3D Perspective Marquee Container */}
