@@ -380,70 +380,59 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* LEFT SIDE: Content */}
           {/* OPTIMIZATION: Reduced initial animation distance slightly to protect CLS scores */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col gap-8 text-left items-start"
-          >
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-slate-200 shadow-sm backdrop-blur-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-                </span>
-                <span className="text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500 font-mono">
-                  Software Evolution 2026
-                </span>
-              </div>
+{/* LEFT SIDE: Content */}
+<div className="flex flex-col gap-8 text-left items-start">
+  
+  {/* Non-LCP elements can still keep client-side transitions or static styling */}
+  <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-slate-200 shadow-sm backdrop-blur-sm">
+    <span className="relative flex h-2 w-2">
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+      <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+    </span>
+    <span className="text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500 font-mono">
+      Software Evolution 2026
+    </span>
+  </div>
 
-              {/* <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
-                AI-Native <br />
-                <span className="italic text-blue-600">Software Factory.</span>
-              </h1> */}
-              {/* <div className="animate-[fadeIn_0.5s_ease-out]">
-  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
-    AI-Native <br />
-    <span className="italic text-blue-600">Software Factory.</span>
-  </h1>
-</div> */}
+  {/* CRITICAL OPTIMIZATION: Pure CSS handling prevents Hydration blocking */}
+  <div className="space-y-6 animate-[fadeInUp_0.5s_ease-out_forwards]">
+    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9]">
+      AI-Native <br />
+      <span className="italic text-blue-600">Software Factory.</span>
+    </h1>
+  </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] sm:leading-[0.9] content-visibility-auto contain-intrinsic-size-[auto_150px]">
-                AI-Native <br />
-                <span className="italic text-blue-600">Software Factory.</span>
-              </h1>
-            </div>
+  {/* The remaining lower elements can fade in gracefully with native CSS transitions */}
+  <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s_forwards] opacity-0 flex flex-col gap-8 items-start">
+    <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
+      Uptimise IT combines orchestrated AI agents and elite engineers to build products with
+      <span className="text-slate-900 font-bold ml-1 italic underline decoration-blue-500/30">
+        mathematician precision
+      </span>.
+    </p>
 
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
-              Uptimise IT combines orchestrated AI agents and elite engineers to
-              build products with
-              <span className="text-slate-900 font-bold ml-1 italic underline decoration-blue-500/30">
-                mathematcision
-              </span>
-              .
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              <Link href="/contact" className="w-full sm:w-auto">
-                <button
-                  aria-label="Start your project"
-                  className="w-full cursor-pointer sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-blue-600 transition-all group"
-                >
-                  <span className="inline-block transition-transform active:scale-95">
-                    Start your project
-                  </span>
-                </button>
-              </Link>
-              <Link href="/Explore100x" className="w-full sm:w-auto">
-                <button
-                  aria-label="Explore 100x Engineering"
-                  className="w-full sm:w-auto cursor-pointer px-10 py-5 border border-slate-200 text-slate-900 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-slate-50 transition-all"
-                >
-                  100x Engineering
-                </button>
-              </Link>
-            </div>
-          </motion.div>
+    <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+      <Link href="/contact" className="w-full sm:w-auto">
+        <button
+          aria-label="Start your project"
+          className="w-full cursor-pointer sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-blue-600 transition-all group"
+        >
+          <span className="inline-block transition-transform active:scale-95">
+            Start your project
+          </span>
+        </button>
+      </Link>
+      <Link href="/Explore100x" className="w-full sm:w-auto">
+        <button
+          aria-label="Explore 100x Engineering"
+          className="w-full sm:w-auto cursor-pointer px-10 py-5 border border-slate-200 text-slate-900 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-slate-50 transition-all"
+        >
+          100x Engineering
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
 
           {/* RIGHT SIDE: Software Factory Animation */}
           {/* OPTIMIZATION: Keeps component frame intact during initial load cycles */}
