@@ -44,7 +44,7 @@ export default function AIDevOpsPage() {
       <section className="relative h-screen flex flex-col items-center justify-center px-6 bg-slate-950 text-white overflow-hidden">
         {/* Animated Background Pulse */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#3b82f608_0%,transparent_70%)] animate-pulse" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('https://www.svgrepo.com/show/504050/technology-device-cooler-electric-fan-computer.svg')] opacity-[0.02] pointer-events-none" />
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

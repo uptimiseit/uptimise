@@ -109,7 +109,7 @@ const HeroAnimation = () => {
         <div className="tech-shape absolute bottom-[25%] left-[20%] h-16 w-16 border-l-2 border-b-2 border-indigo-400/40" />
 
         {/* Grid Overlay for Texture */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"></div>
+        <div className="absolute inset-0 bg-[url('https://www.svgrepo.com/show/504050/technology-device-cooler-electric-fan-computer.svg')] opacity-20 brightness-100 contrast-150"></div>
         <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-slate-950/80"></div>
       </div>
 

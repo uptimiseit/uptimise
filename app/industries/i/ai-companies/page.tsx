@@ -43,7 +43,7 @@ export default function AICompaniesIndustryPage() {
       <section className="relative h-screen flex flex-col items-center justify-center px-6 bg-slate-950 text-white overflow-hidden">
         {/* Background Logic: Neural Mesh */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#3b82f610_0%,transparent_70%)] animate-pulse" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('https://www.svgrepo.com/show/504050/technology-device-cooler-electric-fan-computer.svg')] opacity-[0.03] pointer-events-none" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]" />
         
         <motion.div 

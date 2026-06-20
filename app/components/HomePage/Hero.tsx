@@ -390,7 +390,8 @@ export default function Hero() {
       <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
     </span>
     <span className="text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500 font-mono">
-      Software Evolution 2026
+      {/* Software Evolution 2026 */}
+      Software Evolution {new Date().getFullYear()}
     </span>
   </div>
 
@@ -403,14 +404,14 @@ export default function Hero() {
   </div>
 
   {/* The remaining lower elements can fade in gracefully with native CSS transitions */}
-  <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s_forwards] opacity-0 flex flex-col gap-8 items-start">
+  <div className="space-y-6  flex flex-col gap-8 items-start">
     <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
       Uptimise IT combines orchestrated AI agents and elite engineers to build products with
       <span className="text-slate-900 font-bold ml-1 italic underline decoration-blue-500/30">
         mathematician precisions
       </span>.
     </p>
-    {/* lkj */}
+  
 
     <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
       <Link href="/contact" className="w-full sm:w-auto">

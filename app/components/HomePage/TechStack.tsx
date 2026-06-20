@@ -144,12 +144,7 @@
 //           </motion.div>
 
 //           {/* Right Side: The Content Blade */}
-//           <motion.div
-//             // variants={itemVariants}
-//             className="lg:w-1/2 min-h-[550px] relative rounded-[2.5rem] overflow-hidden bg-slate-950 flex flex-col justify-center items-center p-12 shadow-inner"
-//           >
-//             {/* Background Texture for the "Blade" */}
-//             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none" />
+
 
 //             <AnimatePresence mode="wait">
 //               <motion.div
@@ -377,7 +372,7 @@ const TechStack = () => {
           {/* Right Side: The Content Blade */}
           <motion.div className="lg:w-1/2 min-h-[550px] relative rounded-[2.5rem] overflow-hidden bg-slate-900 border border-slate-800/50 flex flex-col justify-center items-center p-12 shadow-2xl shadow-black/50">
             {/* Background Texture for the "Blade" */}
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none" />
+            <div className="absolute inset-0 bg-[url('https://www.svgrepo.com/show/504050/technology-device-cooler-electric-fan-computer.svg')] opacity-[0.05] pointer-events-none" />
 
             <AnimatePresence mode="wait">
               <motion.div
