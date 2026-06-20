@@ -73,7 +73,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
 
-        <Script id="google-tag-manager" strategy="lazyOnload">
+        {/* <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -81,18 +81,18 @@ export default function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-K8CMC8QK');
           `}
-        </Script>
+        </Script> */}
 
-        <Script
+        {/* <Script
           src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"
           strategy="lazyOnload"
-        />
+        /> */}
 
         
-        <Script
+        {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=GTM-K8CMC8QK"
           strategy="lazyOnload"
-        />
+        /> */}
       </body>
     </html>
   );
