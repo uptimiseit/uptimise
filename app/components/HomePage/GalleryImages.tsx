@@ -1,78 +1,3 @@
-// "use client";
-
-// import { useEffect, useState } from "react";
-// import Image from "next/image";
-
-// type GalleryImage = {
-//   src: string;
-//   alt?: string;
-// };
-
-// export default function GalleryImages() {
-//   const [images, setImages] = useState<GalleryImage[]>([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     const controller = new AbortController();
-
-//     async function loadImages() {
-//       try {
-//         setLoading(true);
-//         setError(null);
-
-//         const res = await fetch("/api/gallery-front", {
-//           signal: controller.signal,
-//           cache: "no-store",
-//         });
-
-//         if (!res.ok) {
-//           throw new Error(`Failed to load gallery: ${res.status}`);
-//         }
-
-//         const json = await res.json();
-
-//         if (!json?.success || !Array.isArray(json.data)) {
-//           throw new Error("Invalid response from gallery API");
-//         }
-
-//         setImages(json.data);
-//       } catch (err) {
-//         if ((err as Error).name !== "AbortError") {
-//           setError(err instanceof Error ? err.message : "Something went wrong");
-//         }
-//       } finally {
-//         setLoading(false);
-//       }
-//     }
-
-//     loadImages();
-//     return () => controller.abort();
-//   }, []);
-
-//   if (loading) return <div className="py-16 text-center text-gray-500">Loading gallery...</div>;
-//   if (error) return <div className="py-16 text-center text-red-500">{error}</div>;
-//   if (!images.length) return <div className="py-16 text-center text-gray-500">No images found.</div>;
-
-//   return (
-//     <section className="bg-gray-50 py-16 px-6">
-//       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-//         {images.map((img, index) => (
-//           <div key={`${img.src}-${index}`} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-200">
-//             <Image
-//               src={img.src}
-//               alt={img.alt || `Gallery image ${index + 1}`}
-//               fill
-//               className="object-cover"
-//               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-//               priority={index < 4}
-//             />
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }\\
 
 
 "use client";
@@ -198,14 +123,24 @@ export default function GalleryImages() {
               className="relative w-[180px] sm:w-[220px] aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 border border-zinc-800/80 shadow-2xl transition-all duration-500 ease-out will-change-transform grayscale-[20%] hover:grayscale-0 hover:scale-105 hover:z-30 hover:border-zinc-700"
               style={getPerspectiveStyle(index)}
             >
-              <Image
+              {/* <Image
                 src={img.src}
                 alt={img.alt || `Team gallery item ${index + 1}`}
                 fill
                 className="object-cover pointer-events-none"
                 sizes="(max-width: 640px) 180px, 220px"
                 priority={index < 8}
-              />
+              /> */}
+
+              <Image
+  src={img.src}
+  alt={img.alt || `Team gallery item ${index + 1}`}
+  fill
+  quality={60} // CRITICAL OPTIMIZATION: Overrides default 75 value to maximize compression savings
+  className="object-cover pointer-events-none"
+  sizes="(max-width: 640px) 180px, 220px"
+  priority={index < 4} // Lower this threshold slightly to prevent preloading too many assets down the stream
+/>
             </div>
           ))}
         </div>
