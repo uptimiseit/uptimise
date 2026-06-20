@@ -407,9 +407,10 @@ export default function Hero() {
     <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
       Uptimise IT combines orchestrated AI agents and elite engineers to build products with
       <span className="text-slate-900 font-bold ml-1 italic underline decoration-blue-500/30">
-        mathematician precision
+        mathematician precisions
       </span>.
     </p>
+    {/* lkj */}
 
     <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
       <Link href="/contact" className="w-full sm:w-auto">
