@@ -235,6 +235,7 @@ import {
   Code2, ExternalLink, Image as ImageIcon 
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CaseStudy {
   id: number;
@@ -328,7 +329,7 @@ const ProjectsLedger = () => {
                   }`}
                 >
                   {/* Image Logic: Background for Large, Top-half for small */}
-                  <div className="absolute inset-0 z-0">
+                  {/* <div className="absolute inset-0 z-0">
                     <img 
                       src={project.image} 
                       alt={project.title} 
@@ -336,9 +337,24 @@ const ProjectsLedger = () => {
                         !isLarge ? 'opacity-20 group-hover:opacity-100' : 'opacity-40'
                       }`} 
                     />
-                    {/* Dark Overlay for Text Legibility on featured card */}
+                 
                     <div className={`absolute inset-0 ${isLarge ? 'bg-slate-950/80' : 'bg-gradient-to-t from-white via-white/40 to-transparent'}`} />
-                  </div>
+                  </div> */}
+
+                  <div className="absolute inset-0 z-0">
+  <Image 
+    src={project.image} 
+    alt={project.title}
+    fill // Replaces w-full h-full object-cover configuration elegantly
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    priority={i === 0} // Prioritize downloading the very first featured item if it sits above-the-fold
+    className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
+      !isLarge ? 'opacity-20 group-hover:opacity-100' : 'opacity-40'
+    }`}
+  />
+  {/* Dark Overlay for Text Legibility */}
+  <div className={`absolute inset-0 ${isLarge ? 'bg-slate-950/80' : 'bg-gradient-to-t from-white via-white/40 to-transparent'}`} />
+</div>
 
                   <div className="relative z-10 h-full flex flex-col justify-between">
                     <div className="space-y-6">
