@@ -16,7 +16,7 @@ const agents = [
     desc: "Transforms vision into high-fidelity roadmaps and sprint plans.",
     icon: ClipboardList,
     size: "col-span-12 lg:col-span-4",
-    link: "/solutions/product-scaling"
+    link: "/solutions/ai-product-development"
   },
   {
     title: "AI Coding Agent",
@@ -24,28 +24,28 @@ const agents = [
     icon: Code2,
     size: "col-span-12 lg:col-span-8",
     featured: true,
-    link: "/solutions/ai-coding"
+    link: "/industries/ai-startup"
   },
   {
     title: "AI Architecture",
     desc: "Designs scalable system topologies and database schemas.",
     icon: Layers,
     size: "col-span-12 lg:col-span-4",
-    link: "/solutions/ai-architecture"
+    link: "/solutions/product-scaling"
   },
   {
     title: "AI QA Agent",
     desc: "Autonomous testing pipelines with 99.9% edge-case detection.",
     icon: ShieldCheck,
     size: "col-span-12 lg:col-span-4",
-    link: "/solutions/ai-agent"
+    link: "/industries/enterprise"
   },
   {
-    title: "AI DevOps",
+    title: "UI UX Designs",
     desc: "Zero-touch CI/CD and cloud infrastructure provisioning.",
     icon: Terminal,
     size: "col-span-12 lg:col-span-4",
-    link: "/solutions/ai-devops"
+    link: "/solutions/product-design"
   }
 ];
 
